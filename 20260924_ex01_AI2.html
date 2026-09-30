@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>自然選物｜質感生活商品</title>
+
+    <style>
+        /* ========================================
+           CSS 變數
+           ======================================== */
+
+        :root {
+
+            --primary-color: #234236;
+            --primary-light: #4f7942;
+            --primary-hover: #668f55;
+
+            --background-color: #f5f4ed;
+            --content-color: #ffffff;
+
+            --text-color: #26352c;
+            --secondary-text-color: #6b756d;
+
+            --price-color: #c45b38;
+
+            --border-color: #e5e5df;
+
+            --shadow:
+                0 8px 25px rgba(38, 55, 42, 0.10);
+
+            --small-shadow:
+                0 3px 12px rgba(38, 55, 42, 0.08);
+
+        }
+
+
+        /* ========================================
+           基本設定
+           ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            background-color: var(--background-color);
+
+            color: var(--text-color);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "SF Pro Display",
+                "SF Pro Text",
+                "Helvetica Neue",
+                Arial,
+                "Noto Sans TC",
+                sans-serif;
+
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* ========================================
+           外層
+           ======================================== */
+
+        .wrapper {
+
+            width: 100%;
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            background-color: var(--content-color);
+
+            box-shadow:
+                0 0 40px rgba(0, 0, 0, 0.05);
+        }
+
+
+        /* ========================================
+           Header
+           ======================================== */
+
+        .header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            height: 70px;
+
+            padding: 0 35px;
+
+            background-color: rgba(255, 255, 255, 0.95);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid var(--border-color);
+        }
+
+
+        /* Logo */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .brand-icon {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 38px;
+            height: 38px;
+
+            background-color: var(--primary-color);
+
+            color: white;
+
+            border-radius: 12px;
+
+            font-size: 20px;
+        }
+
+
+        .brand-name {
+
+            color: var(--primary-color);
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.05em;
+        }
+
+
+        /* 導覽列 */
+
+        .nav ul {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            list-style: none;
+        }
+
+
+        .nav a {
+
+            display: block;
+
+            padding: 10px 15px;
+
+            color: #4c554f;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            transition: 0.2s;
+        }
+
+
+        .nav a:hover {
+
+            background-color: #f0f2ed;
+
+            color: var(--primary-color);
+        }
+
+
+        /* 購物車 */
+
+        .cart {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 42px;
+            height: 42px;
+
+            background-color: var(--primary-color);
+
+            color: white;
+
+            border-radius: 12px;
+
+            font-size: 18px;
+
+            transition: 0.2s;
+        }
+
+
+        .cart:hover {
+
+            background-color: var(--primary-light);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* ========================================
+           Hero
+           ======================================== */
+
+        .hero {
+
+            position: relative;
+
+            min-height: 430px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 60px;
+
+            background-image:
+                linear-gradient(90deg,
+                    rgba(35, 66, 54, 0.90),
+                    rgba(35, 66, 54, 0.35)),
+                url(images/Nature.avif);
+
+            background-position: center;
+
+            background-size: cover;
+
+            color: white;
+        }
+
+
+        .hero-content {
+
+            max-width: 520px;
+        }
+
+
+        .hero-tag {
+
+            display: inline-block;
+
+            margin-bottom: 18px;
+
+            padding: 7px 13px;
+
+            background-color: rgba(255, 255, 255, 0.15);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            border-radius: 20px;
+
+            font-size: 13px;
+        }
+
+
+        .hero h1 {
+
+            margin-bottom: 18px;
+
+            font-size: 48px;
+
+            line-height: 1.25;
+
+            letter-spacing: -0.03em;
+        }
+
+
+        .hero p {
+
+            margin-bottom: 28px;
+
+            color: rgba(255, 255, 255, 0.9);
+
+            font-size: 17px;
+
+            line-height: 1.8;
+        }
+
+
+        .hero-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 14px 25px;
+
+            background-color: white;
+
+            color: var(--primary-color);
+
+            border-radius: 12px;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+
+        .hero-button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* ========================================
+           商品分類
+           ======================================== */
+
+        .category-section {
+
+            padding: 45px 40px 20px;
+        }
+
+
+        .section-title {
+
+            margin-bottom: 25px;
+
+            color: var(--primary-color);
+
+            font-size: 26px;
+
+            font-weight: 700;
+        }
+
+
+        .categories {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .category {
+
+            padding: 18px;
+
+            background-color: #f7f8f4;
+
+            border-radius: 14px;
+
+            text-align: center;
+
+            color: var(--primary-color);
+
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+
+        .category:hover {
+
+            background-color: #eaf0e7;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* ========================================
+           商品區
+           ======================================== */
+
+        .products-section {
+
+            padding: 45px 40px 60px;
+        }
+
+
+        .products-header {
+
+            display: flex;
+
+            align-items: end;
+
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+        }
+
+
+        .products-header p {
+
+            color: var(--secondary-text-color);
+
+            font-size: 14px;
+        }
+
+
+        .products {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 22px;
+        }
+
+
+        /* 商品卡片 */
+
+        .product {
+
+            overflow: hidden;
+
+            background-color: white;
+
+            border: 1px solid #eeeeea;
+
+            border-radius: 18px;
+
+            box-shadow: var(--small-shadow);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .product:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        /* 商品圖片 */
+
+        .product-image {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 230px;
+
+            overflow: hidden;
+
+            background-color: #eef0e8;
+        }
+
+
+        .product-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.4s ease;
+        }
+
+
+        .product:hover .product-image img {
+
+            transform: scale(1.06);
+        }
+
+
+        /* 商品標籤 */
+
+        .product-tag {
+
+            position: absolute;
+
+            top: 12px;
+
+            left: 12px;
+
+            padding: 5px 9px;
+
+            background-color: var(--primary-color);
+
+            color: white;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+
+        /* 商品內容 */
+
+        .product-info {
+
+            padding: 18px;
+        }
+
+
+        .product-name {
+
+            margin-bottom: 8px;
+
+            color: var(--text-color);
+
+            font-size: 17px;
+
+            font-weight: 600;
+        }
+
+
+        .product-description {
+
+            min-height: 42px;
+
+            margin-bottom: 12px;
+
+            color: var(--secondary-text-color);
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        .rating {
+
+            margin-bottom: 10px;
+
+            color: #e29b2d;
+
+            font-size: 13px;
+        }
+
+
+        .rating span {
+
+            color: #8a918b;
+
+            margin-left: 5px;
+        }
+
+
+        /* 價格 */
+
+        .product-bottom {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+
+        .price {
+
+            color: var(--price-color);
+
+            font-size: 20px;
+
+            font-weight: 700;
+        }
+
+
+        .add-cart {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 40px;
+            height: 40px;
+
+            background-color: var(--primary-color);
+
+            color: white;
+
+            border-radius: 10px;
+
+            font-size: 18px;
+
+            transition: 0.2s;
+        }
+
+
+        .add-cart:hover {
+
+            background-color: var(--primary-light);
+
+            transform: scale(1.05);
+        }
+
+
+        /* ========================================
+           品牌介紹
+           ======================================== */
+
+        .about {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+
+            padding: 65px 50px;
+
+            background-color: #f1f3ed;
+        }
+
+
+        .about-image {
+
+            width: 100%;
+
+            height: 320px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+        }
+
+
+        .about-content h2 {
+
+            margin-bottom: 20px;
+
+            color: var(--primary-color);
+
+            font-size: 30px;
+        }
+
+
+        .about-content p {
+
+            margin-bottom: 15px;
+
+            color: #59635c;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+
+        /* ========================================
+           Footer
+           ======================================== */
+
+        .footer {
+
+            padding: 35px;
+
+            background-color: var(--primary-color);
+
+            color: rgba(255, 255, 255, 0.75);
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+
+        .footer strong {
+
+            color: white;
+        }
+
+
+        /* ========================================
+           平板 RWD
+           ======================================== */
+
+        @media screen and (max-width: 900px) {
+
+            .header {
+
+                padding: 0 20px;
+            }
+
+
+            .nav ul {
+
+                gap: 0;
+            }
+
+
+            .nav a {
+
+                padding: 8px 10px;
+
+                font-size: 14px;
+            }
+
+
+            .hero {
+
+                padding: 50px 40px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 40px;
+            }
+
+
+            .products {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .categories {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .about {
+
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+        }
+
+
+        /* ========================================
+           手機版
+           600px 以下
+           ======================================== */
+
+        @media screen and (max-width: 600px) {
+
+            body {
+
+                background-color: #f5f5f7;
+            }
+
+
+            .wrapper {
+
+                width: 100%;
+
+                box-shadow: none;
+            }
+
+
+            /* Header */
+
+            .header {
+
+                position: sticky;
+
+                top: 0;
+
+                height: 60px;
+
+                padding: 0 15px;
+
+                border-bottom: 1px solid #eeeeee;
+
+                backdrop-filter: blur(20px);
+            }
+
+
+            .brand-icon {
+
+                width: 34px;
+
+                height: 34px;
+
+                border-radius: 10px;
+
+                font-size: 17px;
+            }
+
+
+            .brand-name {
+
+                font-size: 17px;
+            }
+
+
+            .nav {
+
+                display: none;
+            }
+
+
+            .cart {
+
+                width: 36px;
+
+                height: 36px;
+
+                border-radius: 10px;
+            }
+
+
+            /* Hero */
+
+            .hero {
+
+                min-height: 430px;
+
+                padding: 35px 22px;
+
+                align-items: end;
+
+                background-image:
+                    linear-gradient(0deg,
+                        rgba(20, 45, 35, 0.95),
+                        rgba(20, 45, 35, 0.15)),
+                    url(images/Nature.avif);
+
+                border-radius:
+                    0 0 24px 24px;
+            }
+
+
+            .hero-content {
+
+                width: 100%;
+            }
+
+
+            .hero-tag {
+
+                margin-bottom: 12px;
+
+                font-size: 12px;
+            }
+
+
+            .hero h1 {
+
+                margin-bottom: 12px;
+
+                font-size: 34px;
+
+                line-height: 1.3;
+            }
+
+
+            .hero p {
+
+                margin-bottom: 20px;
+
+                font-size: 15px;
+
+                line-height: 1.7;
+            }
+
+
+            .hero-button {
+
+                width: 100%;
+
+                height: 48px;
+
+                border-radius: 13px;
+            }
+
+
+            /* Category */
+
+            .category-section {
+
+                padding: 30px 16px 10px;
+            }
+
+
+            .section-title {
+
+                margin-bottom: 15px;
+
+                font-size: 23px;
+            }
+
+
+            .categories {
+
+                display: flex;
+
+                overflow-x: auto;
+
+                gap: 10px;
+
+                padding-bottom: 5px;
+
+                scrollbar-width: none;
+            }
+
+
+            .categories::-webkit-scrollbar {
+
+                display: none;
+            }
+
+
+            .category {
+
+                flex: 0 0 auto;
+
+                min-width: 105px;
+
+                padding: 13px 15px;
+
+                border-radius: 12px;
+
+                font-size: 14px;
+            }
+
+
+            /* Products */
+
+            .products-section {
+
+                padding: 30px 16px 45px;
+            }
+
+
+            .products-header {
+
+                margin-bottom: 15px;
+            }
+
+
+            .products-header .section-title {
+
+                margin-bottom: 0;
+            }
+
+
+            .products-header p {
+
+                display: none;
+            }
+
+
+            .products {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 12px;
+            }
+
+
+            /* Product Card */
+
+            .product {
+
+                border-radius: 15px;
+
+                box-shadow:
+                    0 2px 10px rgba(0, 0, 0, 0.06);
+            }
+
+
+            .product:hover {
+
+                transform: none;
+
+                box-shadow:
+                    0 2px 10px rgba(0, 0, 0, 0.06);
+            }
+
+
+            .product-image {
+
+                height: 165px;
+            }
+
+
+            .product-info {
+
+                padding: 13px;
+            }
+
+
+            .product-name {
+
+                margin-bottom: 5px;
+
+                font-size: 15px;
+            }
+
+
+            .product-description {
+                display: -webkit-box;
+
+                min-height: auto;
+
+                margin-bottom: 8px;
+
+                font-size: 12px;
+
+                line-height: 1.5;
+
+                /* 標準寫法 */
+                line-clamp: 2;
+
+                /* 舊版瀏覽器相容 */
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+
+                overflow: hidden;
+            }
+
+
+
+            .rating {
+
+                margin-bottom: 7px;
+
+                font-size: 11px;
+            }
+
+
+            .price {
+
+                font-size: 17px;
+            }
+
+
+            .add-cart {
+
+                width: 34px;
+
+                height: 34px;
+
+                border-radius: 9px;
+
+                font-size: 15px;
+            }
+
+
+            /* About */
+
+            .about {
+
+                display: block;
+
+                padding: 40px 20px;
+
+                border-radius: 24px 24px 0 0;
+            }
+
+
+            .about-image {
+
+                height: 220px;
+
+                margin-bottom: 25px;
+
+                border-radius: 16px;
+            }
+
+
+            .about-content h2 {
+
+                font-size: 25px;
+            }
+
+
+            .about-content p {
+
+                font-size: 14px;
+
+                line-height: 1.8;
+            }
+
+
+            /* Footer */
+
+            .footer {
+
+                padding: 25px 15px;
+
+                font-size: 12px;
+            }
+
+        }
+
+
+        /* ========================================
+           超小手機
+           ======================================== */
+
+        @media screen and (max-width: 380px) {
+
+            .hero {
+
+                min-height: 400px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 30px;
+            }
+
+
+            .products {
+
+                gap: 9px;
+            }
+
+
+            .product-image {
+
+                height: 145px;
+            }
+
+
+            .product-info {
+
+                padding: 10px;
+            }
+
+
+            .product-name {
+
+                font-size: 14px;
+            }
+
+
+            .price {
+
+                font-size: 16px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="wrapper">
+
+
+        <!-- =====================================
+             Header
+             ===================================== -->
+
+        <header class="header">
+
+            <a href="#" class="brand">
+
+                <div class="brand-icon">
+                    🌿
+                </div>
+
+                <div class="brand-name">
+                    自然選物
+                </div>
+
+            </a>
+
+
+            <nav class="nav">
+
+                <ul>
+
+                    <li>
+                        <a href="#">首頁</a>
+                    </li>
+
+                    <li>
+                        <a href="#products">商品</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">品牌故事</a>
+                    </li>
+
+                    <li>
+                        <a href="#">聯絡我們</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <a href="#" class="cart">
+                🛒
+            </a>
+
+        </header>
+
+
+
+        <!-- =====================================
+             Hero
+             ===================================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="hero-tag">
+                    🌱 2026 秋季新品
+                </div>
+
+                <h1>
+                    把自然<br>
+                    帶進你的生活
+                </h1>
+
+                <p>
+                    精選天然材質與生活好物，
+                    為你打造簡單、舒服而有質感的生活。
+                </p>
+
+                <a href="#products" class="hero-button">
+
+                    立即選購
+                    →
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             商品分類
+             ===================================== -->
+
+        <section class="category-section">
+
+            <h2 class="section-title">
+                商品分類
+            </h2>
+
+
+            <div class="categories">
+
+                <a href="#" class="category">
+                    🌿 生活用品
+                </a>
+
+                <a href="#" class="category">
+                    ☕ 咖啡器具
+                </a>
+
+                <a href="#" class="category">
+                    🕯️ 香氛用品
+                </a>
+
+                <a href="#" class="category">
+                    🎒 旅行好物
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             商品列表
+             ===================================== -->
+
+        <section class="products-section" id="products">
+
+
+            <div class="products-header">
+
+                <h2 class="section-title">
+                    熱門商品
+                </h2>
+
+                <p>
+                    精選人氣商品
+                </p>
+
+            </div>
+
+
+
+            <div class="products">
+
+
+                <!-- 商品 1 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                        <img src="images/tree.avif" alt="天然木質生活組">
+
+                        <div class="product-tag">
+                            熱賣
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            天然木質生活組
+                        </h3>
+
+                        <p class="product-description">
+                            使用天然木材製作，
+                            為生活增加溫暖質感。
+                        </p>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(128)</span>
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                NT$ 680
+                            </div>
+
+                            <a href="#" class="add-cart">
+                                +
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- 商品 2 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                        <img src="images/Nature.avif" alt="森林香氛蠟燭">
+
+                        <div class="product-tag">
+                            新品
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            森林香氛蠟燭
+                        </h3>
+
+                        <p class="product-description">
+                            木質調香氣，
+                            打造安靜舒適的空間。
+                        </p>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(96)</span>
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                NT$ 520
+                            </div>
+
+                            <a href="#" class="add-cart">
+                                +
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- 商品 3 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                        <img src="images/tree.avif" alt="戶外旅行水壺">
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            戶外旅行水壺
+                        </h3>
+
+                        <p class="product-description">
+                            輕量設計，
+                            適合日常與戶外旅行。
+                        </p>
+
+                        <div class="rating">
+                            ★★★★☆
+                            <span>(75)</span>
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                NT$ 890
+                            </div>
+
+                            <a href="#" class="add-cart">
+                                +
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- 商品 4 -->
+
+                <article class="product">
+
+                    <div class="product-image">
+
+                        <img src="images/Nature.avif" alt="天然棉麻收納袋">
+
+                        <div class="product-tag">
+                            優惠
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3 class="product-name">
+                            天然棉麻收納袋
+                        </h3>
+
+                        <p class="product-description">
+                            柔軟棉麻材質，
+                            日常收納簡單又方便。
+                        </p>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span>(54)</span>
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                NT$ 390
+                            </div>
+
+                            <a href="#" class="add-cart">
+                                +
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             品牌故事
+             ===================================== -->
+
+        <section class="about" id="about">
+
+
+            <img class="about-image" src="images/Nature.avif" alt="自然生活">
+
+
+            <div class="about-content">
+
+                <h2>
+                    我們相信，
+                    好生活可以很簡單。
+                </h2>
+
+
+                <p>
+                    自然選物從生活出發，
+                    精選實用、耐看並且適合每天使用的商品。
+                </p>
+
+
+                <p>
+                    我們希望每一件商品，
+                    都能為你的生活帶來一點舒服、一點自然，
+                    以及剛剛好的美好。
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             Footer
+             ===================================== -->
+
+        <footer class="footer">
+
+            <strong>
+                自然選物
+            </strong>
+
+            <br>
+
+            © 2026 Natural Select.
+            All Rights Reserved.
+
+        </footer>
+
+
+    </div>
+
+
+</body>
+
+</html>

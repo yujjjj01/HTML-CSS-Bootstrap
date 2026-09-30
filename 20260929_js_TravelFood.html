@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenData_旅遊美食資料練習</title>
+    <link rel="stylesheet" href="CSS/myAllcss.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--page-background-color);
+        }
+
+        .wrapper {
+            width: 1024px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+            background-color: #f7f5ed;
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px #818283;
+            overflow: hidden;
+        }
+
+        .demo {
+            width: 45%;
+            float: left;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px #525253;
+            margin-top: 15px;
+            margin-left: 35px;
+            transition: 0.3s;
+        }
+
+        .demo:hover {
+            box-shadow: 4px 6px 15px #525253;
+            transform: translateY(-3px);
+        }
+
+        .demo .logo {
+            width: 100%;
+            height: 300px;
+            background-image: url(images/Nature.avif);
+            background-size: cover;
+            background-position: center;
+        }
+
+        @media screen and (max-width:1024px) {
+
+            .wrapper {
+                width: 87%;
+            }
+
+            .demo {
+                width: 90%;
+                margin-left: 30px;
+            }
+
+            .myTitle-02 {
+                width: 95%;
+                font-size: 50px;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="js/TravelFood.js"></script>
+
+    <div class="display myTitle-02">地方美食列表</div>
+    <div class="wrapper" id="foodlist">
+        <!-- <div class="demo">
+            <div class="logo bg-img"></div>
+            <p class="myTitle-04">店家:xxxx</p>
+            <p class="myTitle-05">電話:xxxxx</p>
+            <p class="myTitle-05">地址:xxxxxx</p>
+        </div> -->
+    </div>
+
+
+    <script>
+        // console.log(food);
+        // food.forEach(function (item, index) {
+        //     console.log(item.Name)
+        //     console.log(item.Address)
+        //     console.log(item.Tel)
+        // })
+
+        food.forEach(function (item, index) {
+
+            $("#foodlist").append(
+                '<div class="demo"><p class="logo bg-img" style="background-image:url(\'' + encodeURI(item.PicURL) + '\');"></p>' +
+                '<p class="myTitle-04">店家:' + item.Name + '</p>'+
+                '<p class="myTitle-05">電話:' + item.Tel + '</p>' +
+                '<p class="myTitle-05">地址:' + item.Address + '</p></div>'
+            );
+        })
+
+    </script>
+
+
+</body>
+
+</html>
