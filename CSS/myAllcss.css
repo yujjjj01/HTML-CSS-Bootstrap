@@ -2,17 +2,6 @@
 
 
 /* =========================================================
-   MY CSS
-   ---------------------------------------------------------
-   使用原則：
-   1. 不修改 Bootstrap 原本的元件
-   2. 不修改 body / nav / a / button / input 等全域元素
-   3. 不覆蓋 .container / .card / .btn 等 Bootstrap class
-   4. 只有 HTML 主動加入 my-* class 才會套用這份 CSS
-   ========================================================= */
-
-
-/* =========================================================
    01. Design Variables
    ========================================================= */
 
@@ -65,7 +54,7 @@
     --my-navigation-text-color: #ffffff;
     --my-navigation-button-background-color: transparent;
     --my-navigation-button-text-color: #dce8de;
-    --my-navigation-button-hover-background-color: rgba(255,255,255,0.10);
+    --my-navigation-button-hover-background-color: rgba(255, 255, 255, 0.10);
     --my-navigation-button-active-background-color: #5f8f68;
 
     /* ---------- Links / Buttons ---------- */
@@ -73,7 +62,7 @@
     --my-content-link-background-color: #46775a;
     --my-content-link-text-color: #ffffff;
     --my-content-link-hover-background-color: #355f49;
-    --my-content-link-hover-shadow-color: rgba(53,95,73,0.25);
+    --my-content-link-hover-shadow-color: rgba(53, 95, 73, 0.25);
 
     /* ---------- Footer ---------- */
 
@@ -98,19 +87,19 @@
     /* ---------- Shadow ---------- */
 
     --my-shadow-xs:
-        0 1px 2px rgba(31,58,46,0.05);
+        0 1px 2px rgba(31, 58, 46, 0.05);
 
     --my-shadow-sm:
-        0 2px 6px rgba(31,58,46,0.07);
+        0 2px 6px rgba(31, 58, 46, 0.07);
 
     --my-shadow-md:
-        0 6px 18px rgba(31,58,46,0.10);
+        0 6px 18px rgba(31, 58, 46, 0.10);
 
     --my-shadow-lg:
-        0 12px 30px rgba(31,58,46,0.14);
+        0 12px 30px rgba(31, 58, 46, 0.14);
 
     --my-shadow-xl:
-        0 20px 45px rgba(31,58,46,0.16);
+        0 20px 45px rgba(31, 58, 46, 0.16);
 
     /* ---------- Spacing ---------- */
 
@@ -172,10 +161,8 @@
    ========================================================= */
 
 .my-container {
-    width: min(
-        calc(100% - 32px),
-        1200px
-    );
+    width: min(calc(100% - 32px),
+            1200px);
 
     margin-inline: auto;
 }
@@ -248,10 +235,8 @@
 .my-title-01 {
     position: relative;
 
-    width: min(
-        calc(100% - 32px),
-        1200px
-    );
+    width: min(calc(100% - 32px),
+            1200px);
 
     min-height: 300px;
 
@@ -271,18 +256,15 @@
     text-align: center;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             #1f3a2e,
             #355f49 55%,
-            #5f8f68
-        );
+            #5f8f68);
 
     border-radius: var(--my-radius-xl);
 
     box-shadow:
-        0 18px 45px
-        rgba(31,58,46,0.20);
+        0 18px 45px rgba(31, 58, 46, 0.20);
 }
 
 
@@ -298,7 +280,7 @@
     top: -150px;
 
     background:
-        rgba(255,255,255,0.07);
+        rgba(255, 255, 255, 0.07);
 
     border-radius: 50%;
 }
@@ -316,7 +298,7 @@
     bottom: -120px;
 
     background:
-        rgba(255,255,255,0.05);
+        rgba(255, 255, 255, 0.05);
 
     border-radius: 50%;
 }
@@ -349,7 +331,7 @@
     margin: 14px 0 0;
 
     color:
-        rgba(255,255,255,0.78);
+        rgba(255, 255, 255, 0.78);
 
     font-size: 15px;
 
@@ -362,10 +344,8 @@
    ========================================================= */
 
 .my-title-02 {
-    width: min(
-        calc(100% - 32px),
-        1024px
-    );
+    width: min(calc(100% - 32px),
+            1024px);
 
     margin: 28px auto 20px;
 
@@ -382,11 +362,9 @@
     text-align: center;
 
     background:
-        linear-gradient(
-            135deg,
+        linear-gradient(135deg,
             #718b6d,
-            #58745e
-        );
+            #58745e);
 
     border-radius:
         var(--my-radius-lg);
@@ -419,8 +397,7 @@
         var(--my-color-primary-100);
 
     border-left:
-        5px solid
-        var(--my-color-primary-500);
+        5px solid var(--my-color-primary-500);
 
     border-radius:
         var(--my-radius-md);
@@ -448,14 +425,10 @@
         var(--my-color-primary-100);
 
     border-bottom:
-        1px solid
-        var(--my-border-color);
+        1px solid var(--my-border-color);
 
     border-radius:
-        var(--my-radius-lg)
-        var(--my-radius-lg)
-        0
-        0;
+        var(--my-radius-lg) var(--my-radius-lg) 0 0;
 }
 
 
@@ -478,8 +451,7 @@
         var(--my-color-white);
 
     border-bottom:
-        1px solid
-        var(--my-border-color);
+        1px solid var(--my-border-color);
 }
 
 
@@ -503,8 +475,7 @@
     background-color: transparent;
 
     border-left:
-        4px solid
-        var(--my-color-primary-500);
+        4px solid var(--my-color-primary-500);
 }
 
 
@@ -524,8 +495,7 @@
         var(--my-card-background-color);
 
     border:
-        1px solid
-        var(--my-border-color);
+        1px solid var(--my-border-color);
 
     border-radius:
         var(--my-radius-lg);
@@ -633,8 +603,7 @@
         var(--my-color-primary-100);
 
     border:
-        1px solid
-        var(--my-color-primary-200);
+        1px solid var(--my-color-primary-200);
 }
 
 
@@ -659,8 +628,7 @@
         transparent;
 
     border:
-        1px solid
-        var(--my-color-primary-300);
+        1px solid var(--my-color-primary-300);
 }
 
 
@@ -734,8 +702,7 @@
         var(--my-color-white);
 
     border:
-        1px solid
-        var(--my-border-color-strong);
+        1px solid var(--my-border-color-strong);
 
     border-radius:
         var(--my-radius-md);
@@ -753,8 +720,7 @@
         var(--my-color-primary-500);
 
     box-shadow:
-        0 0 0 3px
-        rgba(95,143,104,0.15);
+        0 0 0 3px rgba(95, 143, 104, 0.15);
 }
 
 
@@ -827,8 +793,7 @@
         var(--my-footer-background-color);
 
     border-top:
-        1px solid
-        var(--my-border-color);
+        1px solid var(--my-border-color);
 }
 
 
@@ -865,8 +830,7 @@
         var(--my-card-background-color);
 
     border:
-        1px solid
-        var(--my-border-color);
+        1px solid var(--my-border-color);
 
     border-radius:
         var(--my-radius-xl);
@@ -995,8 +959,7 @@
         var(--my-color-primary-100);
 
     border:
-        1px solid
-        var(--my-color-primary-200);
+        1px solid var(--my-color-primary-200);
 
     border-radius:
         var(--my-radius-pill);
@@ -1037,7 +1000,6 @@
 
 
 .my-project-button {
-    display: inline-flex;
 
     align-items: center;
 
@@ -1061,6 +1023,8 @@
     box-shadow:
         var(--my-shadow-xs);
 
+    text-decoration: none;
+
     transition:
         all var(--my-transition-normal);
 }
@@ -1077,6 +1041,9 @@
 
     box-shadow:
         var(--my-shadow-md);
+
+
+    text-decoration: none;
 }
 
 
@@ -1128,15 +1095,41 @@
    28. My Font Weight
    ========================================================= */
 
-.my-fw-100 { font-weight: 100; }
-.my-fw-200 { font-weight: 200; }
-.my-fw-300 { font-weight: 300; }
-.my-fw-400 { font-weight: 400; }
-.my-fw-500 { font-weight: 500; }
-.my-fw-600 { font-weight: 600; }
-.my-fw-700 { font-weight: 700; }
-.my-fw-800 { font-weight: 800; }
-.my-fw-900 { font-weight: 900; }
+.my-fw-100 {
+    font-weight: 100;
+}
+
+.my-fw-200 {
+    font-weight: 200;
+}
+
+.my-fw-300 {
+    font-weight: 300;
+}
+
+.my-fw-400 {
+    font-weight: 400;
+}
+
+.my-fw-500 {
+    font-weight: 500;
+}
+
+.my-fw-600 {
+    font-weight: 600;
+}
+
+.my-fw-700 {
+    font-weight: 700;
+}
+
+.my-fw-800 {
+    font-weight: 800;
+}
+
+.my-fw-900 {
+    font-weight: 900;
+}
 
 
 /* =========================================================
@@ -1265,11 +1258,234 @@
     .my-project-button {
         width: 100%;
 
-        justify-content: center;
     }
 
     .my-footer {
         margin-top:
             55px;
     }
+}
+
+/* =========================================================
+31. My Introduction Section
+========================================================= */
+
+.my-intro-section {
+    width: min(calc(100% - 32px),
+            1200px);
+
+    margin: 0 auto;
+
+    padding: 48px 32px;
+
+    text-align: center;
+
+    color: var(--my-content-text-color);
+
+    background-color:
+        var(--my-content-background-color);
+
+    border:
+        1px solid var(--my-border-color);
+
+    border-radius:
+        var(--my-radius-xl);
+
+    box-shadow:
+        var(--my-shadow-sm);
+
+
+}
+
+/* =========================================================
+32. My Section Label
+========================================================= */
+
+.my-section-label {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color:
+        var(--my-color-primary-600);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing:
+        0.15em;
+
+
+}
+
+/* Introduction Title */
+
+.my-intro-section h2 {
+    margin:
+        0 0 14px;
+
+    color:
+        var(--my-content-heading-color);
+
+    font-size:
+        clamp(26px, 4vw, 38px);
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+
+}
+
+/* Introduction Text */
+
+.my-intro-section p {
+    max-width: 720px;
+
+    margin:
+        0 auto;
+
+    color:
+        var(--my-content-muted-text-color);
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+
+}
+
+/* =========================================================
+33. My Works Section
+========================================================= */
+
+.my-works-section {
+    width: min(calc(100% - 32px),
+            1200px);
+
+    margin:
+        48px auto 0;
+
+
+}
+
+/* =========================================================
+34. My Works Header
+========================================================= */
+
+.my-works-header {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+
+    padding:
+        0 4px;
+
+
+}
+
+.my-works-header h2 {
+    margin: 0;
+
+    color:
+        var(--my-content-heading-color);
+
+    font-size:
+        clamp(28px, 4vw, 38px);
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+
+}
+
+/* =========================================================
+35. My Works Header Section Label
+========================================================= */
+
+.my-works-header .my-section-label {
+    margin-bottom: 6px;
+}
+
+/* =========================================================
+36. Responsive - Introduction / Works
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .my-intro-section {
+        width:
+            calc(100% - 24px);
+
+        padding:
+            36px 22px;
+
+        border-radius:
+            var(--my-radius-lg);
+    }
+
+
+    .my-works-section {
+        width:
+            calc(100% - 24px);
+
+        margin-top:
+            36px;
+    }
+
+
+    .my-works-header {
+        margin-bottom:
+            20px;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+
+    .my-intro-section {
+        padding:
+            30px 18px;
+    }
+
+
+    .my-intro-section h2 {
+        font-size:
+            25px;
+    }
+
+
+    .my-intro-section p {
+        font-size:
+            14px;
+    }
+
+    .my-section-label {
+        font-size:
+            11px;
+
+        letter-spacing:
+            0.10em;
+    }
+
+
+    .my-works-section {
+        margin-top:
+            30px;
+    }
+
+
+    .my-works-header h2 {
+        font-size:
+            26px;
+    }
+
+
 }

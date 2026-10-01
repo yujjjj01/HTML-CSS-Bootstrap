@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boostrap</title>
+    <link rel="stylesheet" href="CSS/myAllcss.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+</head>
+
+<body>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/TravelFood.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-dark-subtle">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">關於我們</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                服務項目
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">搜尋</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="row row-cols-1 row-cols-md-2 g-4 mt-3" id="foodlist">
+            <div class="col">
+                <div class="card p-4">
+                    <img src="images/Horse.avif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="display-6 fw-700 text-start mb-3">餐廳名稱</div>
+                        <div class="h5 text-center mb-4">地址:xxxxx</div>
+                        <div class="h5 text-end mb-4">電話:09xxxxxxxx</div>
+                        <p class="card-text text-truncate">
+                            呵呵提到往往同意法規一份得知回答求購，大多數只見見面多少而且心情顯然文字百度導演主體發表招標破解，每月那麼多一直專題返回稱為興趣私服感動事務考核，請大家一條或者解決士兵競爭力把我，不懂因此來到介紹深入和我是否大廈轉變臨床，打了注重一天義務激情辦法不見同一。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">POWER BY Yu 2026.10.1</a>
+        </li>
+    </ul>
+
+
+    <script>
+
+        $("#foodlist").empty();
+
+        food.forEach(function (item) {
+            const strHTML = `<div class="col">
+                <div class="card p-4">
+                    <img src="${item.PicURL}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="fs-4 fw-bold text-start mb-3">${item.Name}</div>
+                        <div class="fs-5 text-center mb-4">地址:${item.City}${item.Town}${item.Address}</div>
+                        <div class="fs-6 text-end mb-4">電話:${item.Tel}</div>
+                        <p class="card-text text-truncate">
+                            ${item.HostWords}
+                        </p>
+                    </div>
+                </div>
+            </div>`
+            $("#foodlist").append(strHTML);
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

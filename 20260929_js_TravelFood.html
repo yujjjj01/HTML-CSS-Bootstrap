@@ -65,7 +65,7 @@
                 margin-left: 30px;
             }
 
-            .myTitle-02 {
+            .my-title-02 {
                 width: 95%;
                 font-size: 50px;
             }
@@ -80,13 +80,13 @@
     <script src="js/jquery-4.0.0.js"></script>
     <script src="js/TravelFood.js"></script>
 
-    <div class="display myTitle-02">地方美食列表</div>
+    <div class="display my-title-02">地方美食列表</div>
     <div class="wrapper" id="foodlist">
         <!-- <div class="demo">
             <div class="logo bg-img"></div>
-            <p class="myTitle-04">店家:xxxx</p>
-            <p class="myTitle-05">電話:xxxxx</p>
-            <p class="myTitle-05">地址:xxxxxx</p>
+            <p class="my-title-04">店家:xxxx</p>
+            <p class="my-title-05">電話:xxxxx</p>
+            <p class="my-title-05">地址:xxxxxx</p>
         </div> -->
     </div>
 
@@ -102,10 +102,10 @@
         food.forEach(function (item, index) {
 
             $("#foodlist").append(
-                '<div class="demo"><p class="logo bg-img" style="background-image:url(\'' + encodeURI(item.PicURL) + '\');"></p>' +
-                '<p class="myTitle-04">店家:' + item.Name + '</p>'+
-                '<p class="myTitle-05">電話:' + item.Tel + '</p>' +
-                '<p class="myTitle-05">地址:' + item.Address + '</p></div>'
+                '<div class="demo"><p class="logo my-bg-img" style="background-image:url(\'' + encodeURI(item.PicURL) + '\');"></p>' +
+                '<p class="	my-title-04">店家:' + item.Name + '</p>' +
+                '<p class="	my-title-05">電話:' + item.Tel + '</p>' +
+                '<p class="	my-title-05">地址:' + item.Address + '</p></div>'
             );
         })
 
