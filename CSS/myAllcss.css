@@ -1,234 +1,966 @@
-@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================================================
+   01. Design 
+   ========================================================= */
 
 :root {
-    /* 網頁主要背景色：自然米白 */
-    --page-background-color: #dfe6d8;
 
-    /* 導覽列背景色：深森林綠 */
-    --navigation-background-color: #234236;
+    /* ---------- Brand Colors ---------- */
 
-    /* 導覽列按鈕背景色：自然葉綠 */
-    --navigation-button-background-color: #4f7942;
+    --color-primary-900: #1f3a2e;
+    --color-primary-800: #294a3a;
+    --color-primary-700: #355f49;
+    --color-primary-600: #46775a;
+    --color-primary-500: #5f8f68;
+    --color-primary-400: #7eaa82;
+    --color-primary-300: #a8c4a5;
+    --color-primary-200: #d3e1cf;
+    --color-primary-100: #eaf1e7;
 
-    /* 導覽列按鈕文字色 */
-    --navigation-button-text-color: #ffffff;
 
-    /* 導覽列按鈕 Hover：較明亮的森林綠 */
-    --navigation-button-hover-background-color: #6b9b5a;
+    /* ---------- Neutral Colors ---------- */
 
-    /* 導覽列按鈕 Hover 陰影 */
-    --navigation-button-hover-shadow-color: rgb(45, 85, 51, 0.40);
+    --color-white: #ffffff;
 
-    /* 內容區背景色：溫暖米白 */
-    --content-background-color: #faf9f3;
+    --color-gray-50: #fafbf9;
+    --color-gray-100: #f4f6f3;
+    --color-gray-200: #e7ebe6;
+    --color-gray-300: #d5dcd4;
+    --color-gray-400: #b6c0b5;
+    --color-gray-500: #8d998c;
+    --color-gray-600: #687368;
+    --color-gray-700: #4c574e;
+    --color-gray-800: #343d37;
+    --color-gray-900: #202722;
 
-    /* 主要標題文字色：深森林綠 */
-    --content-heading-color: #2f4f3a;
 
-    /* 主要內文文字色：深木炭色 */
-    --content-text-color: #34443a;
+    /* ---------- Background ---------- */
 
-    /* 主要連結按鈕背景色 */
-    --content-link-background-color: #4f7942;
+    --page-background-color: #eef2ec;
 
-    /* 主要連結按鈕文字色 */
+    --content-background-color: #ffffff;
+
+    --surface-background-color: #f7f9f6;
+
+    --card-background-color: #ffffff;
+
+
+    /* ---------- Text ---------- */
+
+    --content-heading-color: #24362c;
+
+    --content-text-color: #465149;
+
+    --content-muted-text-color: #7a857c;
+
+    --content-light-text-color: #a0aaa2;
+
+
+    /* ---------- Navigation ---------- */
+
+    --navigation-background-color: #1f3a2e;
+
+    --navigation-text-color: #ffffff;
+
+    --navigation-button-background-color: transparent;
+
+    --navigation-button-text-color: #dce8de;
+
+    --navigation-button-hover-background-color: rgba(255,255,255,0.10);
+
+    --navigation-button-active-background-color: #5f8f68;
+
+
+    /* ---------- Links / Buttons ---------- */
+
+    --content-link-background-color: #46775a;
+
     --content-link-text-color: #ffffff;
 
-    /* 頁尾背景色：柔和鼠尾草綠 */
-    --footer-background-color: #d9dfd1;
+    --content-link-hover-background-color: #355f49;
 
-    /* 頁尾文字色 */
-    --footer-text-color: #405044;
+    --content-link-hover-shadow-color: rgba(53,95,73,0.25);
 
-    /* 共用元素陰影 */
-    --element-shadow-color: rgb(38, 55, 42, 0.25);
 
-    /* 內容按鈕 Hover 陰影 */
-    --content-link-hover-shadow-color: rgb(47, 79, 58, 0.30);
+    /* ---------- Footer ---------- */
 
-    /* 內容按鈕 Hover 背景色 */
-    --content-link-hover-background-color: #668f55;
+    --footer-background-color: #e3e9e0;
+
+    --footer-text-color: #59655b;
+
+
+    /* ---------- Border ---------- */
+
+    --border-color: #e1e6e0;
+
+    --border-color-strong: #ccd5cb;
+
+
+    /* ---------- Radius ---------- */
+
+    --radius-xs: 4px;
+
+    --radius-sm: 6px;
+
+    --radius-md: 10px;
+
+    --radius-lg: 14px;
+
+    --radius-xl: 18px;
+
+    --radius-2xl: 24px;
+
+    --radius-pill: 999px;
+
+
+    /* ---------- Shadow ---------- */
+
+    --shadow-xs:
+        0 1px 2px rgba(31,58,46,0.05);
+
+    --shadow-sm:
+        0 2px 6px rgba(31,58,46,0.07);
+
+    --shadow-md:
+        0 6px 18px rgba(31,58,46,0.10);
+
+    --shadow-lg:
+        0 12px 30px rgba(31,58,46,0.14);
+
+    --shadow-xl:
+        0 20px 45px rgba(31,58,46,0.16);
+
+
+    /* ---------- Spacing ---------- */
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 28px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+
+
+    /* ---------- Transition ---------- */
+
+    --transition-fast: 0.15s ease;
+
+    --transition-normal: 0.25s ease;
+
+    --transition-slow: 0.35s ease;
+
+
+    /* ---------- Layout ---------- */
+
+    --content-max-width: 1200px;
+
+    --content-width: 1024px;
 
 }
+
+
+/* =========================================================
+   02. Global Reset
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
-    font-family: "LXGW WenKai Mono TC", monospace;
+    margin: 0;
+
+    font-family:
+        "LXGW WenKai Mono TC",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: var(--content-text-color);
+
+    background-color: var(--page-background-color);
+
+    -webkit-font-smoothing: antialiased;
+
+    text-rendering: optimizeLegibility;
 }
 
 
-/* =========================
-   myTitle-01
-   最上層：網站主標題
-========================= */
+/* =========================================================
+   03. Typography
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+
+    color: var(--content-heading-color);
+
+    letter-spacing: -0.02em;
+}
+
+
+p {
+    margin-top: 0;
+
+    color: var(--content-text-color);
+}
+
+
+a {
+    color: var(--color-primary-600);
+
+    text-decoration: none;
+
+    transition:
+        color var(--transition-fast),
+        opacity var(--transition-fast);
+}
+
+
+a:hover {
+    color: var(--color-primary-800);
+}
+
+
+/* =========================================================
+   04. Page Layout
+   ========================================================= */
+
+.container {
+    width: min(
+        calc(100% - 32px),
+        var(--content-max-width)
+    );
+
+    margin-inline: auto;
+}
+
+
+.content {
+    width: min(
+        calc(100% - 32px),
+        var(--content-width)
+    );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   05. Navigation
+   ========================================================= */
+
+nav {
+    background-color: var(--navigation-background-color);
+
+    color: var(--navigation-text-color);
+
+    padding: 12px 20px;
+
+    box-shadow: var(--shadow-md);
+
+    position: relative;
+
+    z-index: 100;
+}
+
+
+nav a,
+.nav-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 9px 14px;
+
+    border-radius: var(--radius-md);
+
+    color: var(--navigation-button-text-color);
+
+    background-color: var(--navigation-button-background-color);
+
+    transition:
+        background-color var(--transition-normal),
+        color var(--transition-normal),
+        transform var(--transition-fast);
+}
+
+
+nav a:hover,
+.nav-button:hover {
+    color: var(--color-white);
+
+    background-color:
+        var(--navigation-button-hover-background-color);
+
+    transform: translateY(-1px);
+}
+
+
+nav a.active,
+.nav-button.active {
+    color: var(--color-white);
+
+    background-color:
+        var(--navigation-button-active-background-color);
+}
+
+
+/* =========================================================
+   06. myTitle-01
+   Website Main Title
+   ========================================================= */
 
 .myTitle-01 {
-    font-size: 60px;
+    width: min(
+        calc(100% - 32px),
+        1200px
+    );
+
+    margin: 32px auto 24px;
+
+    padding: 28px 32px;
+
+    font-size: clamp(36px, 5vw, 60px);
+
     font-weight: 700;
-    line-height: 1.3;
+
+    line-height: 1.2;
+
     text-align: center;
 
-    background-color: #8fa66f;
-    color: white;
+    color: var(--color-white);
 
-    padding: 20px 30px;
-    margin: 20px auto;
+    background:
+        linear-gradient(
+            135deg,
+            #6f956c,
+            #4f775b
+        );
 
-    border-radius: 10px;
+    border-radius: var(--radius-xl);
 
-    box-sizing: border-box;
+    box-shadow: var(--shadow-lg);
+
+    letter-spacing: -0.03em;
 }
 
 
-/* =========================
-   myTitle-02
-   頁面主要標題
-========================= */
+/* =========================================================
+   07. myTitle-02
+   Page Main Heading
+   ========================================================= */
 
 .myTitle-02 {
-    width: 1024px;
-    box-sizing: border-box;
+    width: min(
+        calc(100% - 32px),
+        var(--content-width)
+    );
 
-    font-size: 52px;
-    font-weight: 900;
-    line-height: 1.3;
+    margin: 28px auto 20px;
+
+    padding: 20px 28px;
+
+    font-size: clamp(32px, 4vw, 52px);
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
     text-align: center;
 
-    background-color: #71866b;
-    color: white;
+    color: var(--color-white);
 
-    padding: 15px 25px;
+    background:
+        linear-gradient(
+            135deg,
+            #718b6d,
+            #58745e
+        );
 
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
 
-    margin: 20px auto 15px;
+    box-shadow: var(--shadow-md);
+
+    letter-spacing: -0.025em;
 }
 
 
-/* =========================
-   myTitle-03
-   第二層 / 區塊標題
-========================= */
+/* =========================================================
+   08. myTitle-03
+   Section Heading
+   ========================================================= */
 
 .myTitle-03 {
-    font-size: 42px;
-    font-weight: 500;
-    line-height: 1.3;
-    text-align: center;
+    margin: 28px 0 16px;
 
-    background-color: #967657;
-    color: white;
+    padding: 14px 20px;
 
-    padding: 12px 20px;
+    font-size: clamp(26px, 3vw, 40px);
 
-    border-radius: 8px;
+    font-weight: 600;
 
-    margin: 15px 0 10px;
+    line-height: 1.35;
+
+    text-align: left;
+
+    color: var(--color-primary-900);
+
+    background-color: var(--color-primary-100);
+
+    border-left: 5px solid var(--color-primary-500);
+
+    border-radius: var(--radius-md);
+
 }
 
 
-/* =========================
-   myTitle-04
-   店家名稱
-========================= */
+/* =========================================================
+   09. myTitle-04
+   Store / Card Title
+   ========================================================= */
 
 .myTitle-04 {
+    margin: 0;
+
+    padding: 14px 18px;
+
     font-size: 20px;
+
     font-weight: 700;
+
     line-height: 1.5;
+
     text-align: left;
 
-    background-color: #8fa66f;
-    color: white;
+    color: var(--color-primary-900);
 
-    padding: 12px 20px;
+    background-color: var(--color-primary-100);
 
-    border-radius: 0;
+    border-bottom:
+        1px solid var(--border-color);
+
+    border-radius:
+        var(--radius-lg)
+        var(--radius-lg)
+        0
+        0;
 }
 
 
-/* =========================
-   myTitle-05
-   店家資訊 / 地址 / 電話
-========================= */
+/* =========================================================
+   10. myTitle-05
+   Store Information
+   ========================================================= */
 
 .myTitle-05 {
-    font-size: 18px;
+    margin: 0;
+
+    padding: 12px 18px;
+
+    font-size: 16px;
+
     font-weight: 400;
-    line-height: 1.6;
+
+    line-height: 1.7;
+
     text-align: left;
 
-    background-color: #f1eee5;
-    color: #4d5746;
+    color: var(--color-gray-700);
 
-    padding: 10px 20px;
+    background-color: var(--color-white);
 
-    border-radius: 0;
-
-    border-bottom: 1px solid #d8d3c4;
+    border-bottom:
+        1px solid var(--border-color);
 }
 
 
-/* =========================
-   myTitle-06
-   小標題 / 次要標題
-========================= */
+/* =========================================================
+   11. myTitle-06
+   Small Section Heading
+   ========================================================= */
 
 .myTitle-06 {
-    font-size: 32px;
-    font-weight: 500;
+    margin: 24px 0 12px;
+
+    padding: 10px 16px;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
     line-height: 1.4;
+
+    text-align: left;
+
+    color: var(--content-heading-color);
+
+    background-color: transparent;
+
+    border-left:
+        4px solid var(--color-primary-500);
+}
+
+
+/* =========================================================
+   12. Card System
+   ========================================================= */
+
+.card {
+    padding: 24px;
+
+    background-color:
+        var(--card-background-color);
+
+    border:
+        1px solid var(--border-color);
+
+    border-radius:
+        var(--radius-lg);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        border-color var(--transition-normal);
+}
+
+
+.card:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        var(--color-primary-300);
+
+    box-shadow:
+        var(--shadow-lg);
+}
+
+
+/* =========================================================
+   13. Buttons
+   ========================================================= */
+
+button,
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 10px 18px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: var(--color-white);
+
+    background-color:
+        var(--content-link-background-color);
+
+    border: none;
+
+    border-radius:
+        var(--radius-md);
+
+    cursor: pointer;
+
+    box-shadow:
+        var(--shadow-xs);
+
+    transition:
+        background-color var(--transition-normal),
+        transform var(--transition-fast),
+        box-shadow var(--transition-normal);
+}
+
+
+button:hover,
+.btn:hover {
+    background-color:
+        var(--content-link-hover-background-color);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        var(--content-link-hover-shadow-color);
+}
+
+
+button:active,
+.btn:active {
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+
+/* Secondary Button */
+
+.btn-secondary {
+    color: var(--color-primary-800);
+
+    background-color:
+        var(--color-primary-100);
+
+    border:
+        1px solid var(--color-primary-200);
+}
+
+
+.btn-secondary:hover {
+    color: var(--color-primary-900);
+
+    background-color:
+        var(--color-primary-200);
+}
+
+
+/* Outline Button */
+
+.btn-outline {
+    color: var(--color-primary-700);
+
+    background-color: transparent;
+
+    border:
+        1px solid var(--color-primary-300);
+}
+
+
+.btn-outline:hover {
+    color: var(--color-primary-900);
+
+    background-color:
+        var(--color-primary-100);
+}
+
+
+/* =========================================================
+   14. Links
+   ========================================================= */
+
+.content-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    color: var(--content-link-text-color);
+
+    background-color:
+        var(--content-link-background-color);
+
+    border-radius:
+        var(--radius-md);
+
+    font-weight: 600;
+
+    transition:
+        all var(--transition-normal);
+}
+
+
+.content-link:hover {
+    color: var(--color-white);
+
+    background-color:
+        var(--content-link-hover-background-color);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+
+/* =========================================================
+   15. Input / Form
+   ========================================================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    padding: 11px 14px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    color: var(--content-text-color);
+
+    background-color:
+        var(--color-white);
+
+    border:
+        1px solid var(--border-color-strong);
+
+    border-radius:
+        var(--radius-md);
+
+    outline: none;
+
+    transition:
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color:
+        var(--color-primary-500);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(95,143,104,0.15);
+}
+
+
+/* =========================================================
+   16. Badge / Tag
+   ========================================================= */
+
+.badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 4px 10px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--color-primary-800);
+
+    background-color:
+        var(--color-primary-100);
+
+    border-radius:
+        var(--radius-pill);
+}
+
+
+.badge-dark {
+    color: var(--color-white);
+
+    background-color:
+        var(--color-primary-700);
+}
+
+
+/* =========================================================
+   17. Divider
+   ========================================================= */
+
+.divider {
+    width: 100%;
+
+    height: 1px;
+
+    margin: 24px 0;
+
+    background-color:
+        var(--border-color);
+}
+
+
+/* =========================================================
+   18. Footer
+   ========================================================= */
+
+footer {
+    margin-top: 48px;
+
+    padding: 32px 20px;
+
     text-align: center;
 
-    background-color: #6f8065;
-    color: white;
+    color: var(--footer-text-color);
 
-    padding: 10px 20px;
+    background-color:
+        var(--footer-background-color);
 
-    border-radius: 8px;
-
-    margin: 15px 0 10px;
+    border-top:
+        1px solid var(--border-color);
 }
 
-/* 字體粗細度 */
-.fw-100 {
-    font-weight: 100;
-}
 
-.fw-200 {
-    font-weight: 200;
-}
+/* =========================================================
+   19. Font Weight
+   ========================================================= */
 
-.fw-300 {
-    font-weight: 300;
-}
+.fw-100 { font-weight: 100; }
+.fw-200 { font-weight: 200; }
+.fw-300 { font-weight: 300; }
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-800 { font-weight: 800; }
+.fw-900 { font-weight: 900; }
 
-.fw-400 {
-    font-weight: 400;
-}
 
-.fw-500 {
-    font-weight: 500;
-}
-
-.fw-600 {
-    font-weight: 600;
-}
-
-.fw-700 {
-    font-weight: 700;
-}
-
-.fw-800 {
-    font-weight: 800;
-}
-
-.fw-900 {
-    font-weight: 900;
-}
-
-/* 背景 */
+/* =========================================================
+   20. Background Image
+   ========================================================= */
 
 .bg-img {
-    background-position: center, center;
+    background-position: center;
+
+    background-repeat: no-repeat;
+
     background-size: cover;
+}
+
+
+/* =========================================================
+   21. Responsive
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .container,
+    .content {
+        width: calc(100% - 24px);
+    }
+
+
+    .myTitle-01 {
+        margin-top: 20px;
+
+        padding: 24px 20px;
+
+        border-radius:
+            var(--radius-lg);
+    }
+
+
+    .myTitle-02 {
+        padding: 18px 20px;
+
+        border-radius:
+            var(--radius-md);
+    }
+
+
+    .myTitle-03 {
+        padding: 12px 16px;
+    }
+
+
+    .card {
+        padding: 18px;
+    }
+
+
+    nav {
+        padding: 10px 12px;
+    }
+
+
+    nav a,
+    .nav-button {
+        padding: 8px 10px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 15px;
+    }
+
+
+    .myTitle-01 {
+        margin: 16px auto;
+
+        padding: 20px 16px;
+    }
+
+
+    .myTitle-02 {
+        margin: 20px auto 16px;
+
+        padding: 16px;
+    }
+
+
+    .myTitle-03 {
+        margin-top: 20px;
+
+        font-size: 25px;
+    }
+
+
+    .myTitle-06 {
+        font-size: 23px;
+    }
+
+
+    button,
+    .btn,
+    .content-link {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   22. Accessibility
+   ========================================================= */
+
+:focus-visible {
+    outline:
+        3px solid rgba(95,143,104,0.35);
+
+    outline-offset: 2px;
 }
