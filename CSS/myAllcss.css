@@ -2,189 +2,145 @@
 
 
 /* =========================================================
-   01. Design 
+   MY CSS
+   ---------------------------------------------------------
+   使用原則：
+   1. 不修改 Bootstrap 原本的元件
+   2. 不修改 body / nav / a / button / input 等全域元素
+   3. 不覆蓋 .container / .card / .btn 等 Bootstrap class
+   4. 只有 HTML 主動加入 my-* class 才會套用這份 CSS
+   ========================================================= */
+
+
+/* =========================================================
+   01. Design Variables
    ========================================================= */
 
 :root {
 
     /* ---------- Brand Colors ---------- */
 
-    --color-primary-900: #1f3a2e;
-    --color-primary-800: #294a3a;
-    --color-primary-700: #355f49;
-    --color-primary-600: #46775a;
-    --color-primary-500: #5f8f68;
-    --color-primary-400: #7eaa82;
-    --color-primary-300: #a8c4a5;
-    --color-primary-200: #d3e1cf;
-    --color-primary-100: #eaf1e7;
-
+    --my-color-primary-900: #1f3a2e;
+    --my-color-primary-800: #294a3a;
+    --my-color-primary-700: #355f49;
+    --my-color-primary-600: #46775a;
+    --my-color-primary-500: #5f8f68;
+    --my-color-primary-400: #7eaa82;
+    --my-color-primary-300: #a8c4a5;
+    --my-color-primary-200: #d3e1cf;
+    --my-color-primary-100: #eaf1e7;
 
     /* ---------- Neutral Colors ---------- */
 
-    --color-white: #ffffff;
+    --my-color-white: #ffffff;
 
-    --color-gray-50: #fafbf9;
-    --color-gray-100: #f4f6f3;
-    --color-gray-200: #e7ebe6;
-    --color-gray-300: #d5dcd4;
-    --color-gray-400: #b6c0b5;
-    --color-gray-500: #8d998c;
-    --color-gray-600: #687368;
-    --color-gray-700: #4c574e;
-    --color-gray-800: #343d37;
-    --color-gray-900: #202722;
-
+    --my-color-gray-50: #fafbf9;
+    --my-color-gray-100: #f4f6f3;
+    --my-color-gray-200: #e7ebe6;
+    --my-color-gray-300: #d5dcd4;
+    --my-color-gray-400: #b6c0b5;
+    --my-color-gray-500: #8d998c;
+    --my-color-gray-600: #687368;
+    --my-color-gray-700: #4c574e;
+    --my-color-gray-800: #343d37;
+    --my-color-gray-900: #202722;
 
     /* ---------- Background ---------- */
 
-    --page-background-color: #eef2ec;
-
-    --content-background-color: #ffffff;
-
-    --surface-background-color: #f7f9f6;
-
-    --card-background-color: #ffffff;
-
+    --my-page-background-color: #eef2ec;
+    --my-content-background-color: #ffffff;
+    --my-surface-background-color: #f7f9f6;
+    --my-card-background-color: #ffffff;
 
     /* ---------- Text ---------- */
 
-    --content-heading-color: #24362c;
-
-    --content-text-color: #465149;
-
-    --content-muted-text-color: #7a857c;
-
-    --content-light-text-color: #a0aaa2;
-
+    --my-content-heading-color: #24362c;
+    --my-content-text-color: #465149;
+    --my-content-muted-text-color: #7a857c;
+    --my-content-light-text-color: #a0aaa2;
 
     /* ---------- Navigation ---------- */
 
-    --navigation-background-color: #1f3a2e;
-
-    --navigation-text-color: #ffffff;
-
-    --navigation-button-background-color: transparent;
-
-    --navigation-button-text-color: #dce8de;
-
-    --navigation-button-hover-background-color: rgba(255,255,255,0.10);
-
-    --navigation-button-active-background-color: #5f8f68;
-
+    --my-navigation-background-color: #1f3a2e;
+    --my-navigation-text-color: #ffffff;
+    --my-navigation-button-background-color: transparent;
+    --my-navigation-button-text-color: #dce8de;
+    --my-navigation-button-hover-background-color: rgba(255,255,255,0.10);
+    --my-navigation-button-active-background-color: #5f8f68;
 
     /* ---------- Links / Buttons ---------- */
 
-    --content-link-background-color: #46775a;
-
-    --content-link-text-color: #ffffff;
-
-    --content-link-hover-background-color: #355f49;
-
-    --content-link-hover-shadow-color: rgba(53,95,73,0.25);
-
+    --my-content-link-background-color: #46775a;
+    --my-content-link-text-color: #ffffff;
+    --my-content-link-hover-background-color: #355f49;
+    --my-content-link-hover-shadow-color: rgba(53,95,73,0.25);
 
     /* ---------- Footer ---------- */
 
-    --footer-background-color: #e3e9e0;
-
-    --footer-text-color: #59655b;
-
+    --my-footer-background-color: #e3e9e0;
+    --my-footer-text-color: #59655b;
 
     /* ---------- Border ---------- */
 
-    --border-color: #e1e6e0;
-
-    --border-color-strong: #ccd5cb;
-
+    --my-border-color: #e1e6e0;
+    --my-border-color-strong: #ccd5cb;
 
     /* ---------- Radius ---------- */
 
-    --radius-xs: 4px;
-
-    --radius-sm: 6px;
-
-    --radius-md: 10px;
-
-    --radius-lg: 14px;
-
-    --radius-xl: 18px;
-
-    --radius-2xl: 24px;
-
-    --radius-pill: 999px;
-
+    --my-radius-xs: 4px;
+    --my-radius-sm: 6px;
+    --my-radius-md: 10px;
+    --my-radius-lg: 14px;
+    --my-radius-xl: 18px;
+    --my-radius-2xl: 24px;
+    --my-radius-pill: 999px;
 
     /* ---------- Shadow ---------- */
 
-    --shadow-xs:
+    --my-shadow-xs:
         0 1px 2px rgba(31,58,46,0.05);
 
-    --shadow-sm:
+    --my-shadow-sm:
         0 2px 6px rgba(31,58,46,0.07);
 
-    --shadow-md:
+    --my-shadow-md:
         0 6px 18px rgba(31,58,46,0.10);
 
-    --shadow-lg:
+    --my-shadow-lg:
         0 12px 30px rgba(31,58,46,0.14);
 
-    --shadow-xl:
+    --my-shadow-xl:
         0 20px 45px rgba(31,58,46,0.16);
-
 
     /* ---------- Spacing ---------- */
 
-    --space-1: 4px;
-    --space-2: 8px;
-    --space-3: 12px;
-    --space-4: 16px;
-    --space-5: 20px;
-    --space-6: 24px;
-    --space-7: 28px;
-    --space-8: 32px;
-    --space-10: 40px;
-    --space-12: 48px;
-    --space-16: 64px;
-
+    --my-space-1: 4px;
+    --my-space-2: 8px;
+    --my-space-3: 12px;
+    --my-space-4: 16px;
+    --my-space-5: 20px;
+    --my-space-6: 24px;
+    --my-space-7: 28px;
+    --my-space-8: 32px;
+    --my-space-10: 40px;
+    --my-space-12: 48px;
+    --my-space-16: 64px;
 
     /* ---------- Transition ---------- */
 
-    --transition-fast: 0.15s ease;
-
-    --transition-normal: 0.25s ease;
-
-    --transition-slow: 0.35s ease;
-
-
-    /* ---------- Layout ---------- */
-
-    --content-max-width: 1200px;
-
-    --content-width: 1024px;
-
+    --my-transition-fast: 0.15s ease;
+    --my-transition-normal: 0.25s ease;
+    --my-transition-slow: 0.35s ease;
 }
 
 
 /* =========================================================
-   02. Global Reset
+   02. My Font
+   ---------------------------------------------------------
+   只有加上 .my-font 才會使用這個字體
    ========================================================= */
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-
-html {
-    scroll-behavior: smooth;
-}
-
-
-body {
-    margin: 0;
-
+.my-font {
     font-family:
         "LXGW WenKai Mono TC",
         system-ui,
@@ -192,80 +148,33 @@ body {
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-
-    color: var(--content-text-color);
-
-    background-color: var(--page-background-color);
-
-    -webkit-font-smoothing: antialiased;
-
-    text-rendering: optimizeLegibility;
 }
 
 
 /* =========================================================
-   03. Typography
+   03. My Background
+   ---------------------------------------------------------
+   使用：
+   <div class="my-page">
    ========================================================= */
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin-top: 0;
-
-    color: var(--content-heading-color);
-
-    letter-spacing: -0.02em;
-}
-
-
-p {
-    margin-top: 0;
-
-    color: var(--content-text-color);
-}
-
-
-a {
-    color: var(--color-primary-600);
-
-    text-decoration: none;
-
-    transition:
-        color var(--transition-fast),
-        opacity var(--transition-fast);
-}
-
-
-a:hover {
-    color: var(--color-primary-800);
+.my-page {
+    color: var(--my-content-text-color);
+    background-color: var(--my-page-background-color);
 }
 
 
 /* =========================================================
-   04. Page Layout
+   04. My Container
+   ---------------------------------------------------------
+   使用：
+   <div class="my-container">
    ========================================================= */
 
-.container {
+.my-container {
     width: min(
         calc(100% - 32px),
-        var(--content-max-width)
-    );
-
-    margin-inline: auto;
-}
-
-
-.content {
-    width: min(
-        calc(100% - 32px),
-        var(--content-width)
+        1200px
     );
 
     margin-inline: auto;
@@ -273,709 +182,70 @@ a:hover {
 
 
 /* =========================================================
-   05. Navigation
+   05. My Navigation
+   ---------------------------------------------------------
+   使用：
+   <nav class="navbar my-navbar">
    ========================================================= */
 
-nav {
-    background-color: var(--navigation-background-color);
+.my-navbar {
+    color: var(--my-navigation-text-color);
+    background-color: var(--my-navigation-background-color);
 
-    color: var(--navigation-text-color);
-
-    padding: 12px 20px;
-
-    box-shadow: var(--shadow-md);
-
-    position: relative;
-
-    z-index: 100;
+    box-shadow: var(--my-shadow-md);
 }
 
 
-nav a,
-.nav-button {
+/* Navbar Link */
+
+.my-navbar .my-nav-link {
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 8px;
 
     padding: 9px 14px;
 
-    border-radius: var(--radius-md);
+    color: var(--my-navigation-button-text-color);
 
-    color: var(--navigation-button-text-color);
+    background-color:
+        var(--my-navigation-button-background-color);
 
-    background-color: var(--navigation-button-background-color);
+    border-radius:
+        var(--my-radius-md);
 
     transition:
-        background-color var(--transition-normal),
-        color var(--transition-normal),
-        transform var(--transition-fast);
+        background-color var(--my-transition-normal),
+        color var(--my-transition-normal),
+        transform var(--my-transition-fast);
 }
 
 
-nav a:hover,
-.nav-button:hover {
-    color: var(--color-white);
+.my-navbar .my-nav-link:hover {
+    color: var(--my-color-white);
 
     background-color:
-        var(--navigation-button-hover-background-color);
+        var(--my-navigation-button-hover-background-color);
 
     transform: translateY(-1px);
 }
 
 
-nav a.active,
-.nav-button.active {
-    color: var(--color-white);
+.my-navbar .my-nav-link.my-active {
+    color: var(--my-color-white);
 
     background-color:
-        var(--navigation-button-active-background-color);
+        var(--my-navigation-button-active-background-color);
 }
 
 
 /* =========================================================
-   06. myTitle-01
-   Website Main Title
+   06. My Title 01
    ========================================================= */
 
-.myTitle-01 {
-    width: min(
-        calc(100% - 32px),
-        1200px
-    );
-
-    margin: 32px auto 24px;
-
-    padding: 28px 32px;
-
-    font-size: clamp(36px, 5vw, 60px);
-
-    font-weight: 700;
-
-    line-height: 1.2;
-
-    text-align: center;
-
-    color: var(--color-white);
-
-    background:
-        linear-gradient(
-            135deg,
-            #6f956c,
-            #4f775b
-        );
-
-    border-radius: var(--radius-xl);
-
-    box-shadow: var(--shadow-lg);
-
-    letter-spacing: -0.03em;
-}
-
-
-/* =========================================================
-   07. myTitle-02
-   Page Main Heading
-   ========================================================= */
-
-.myTitle-02 {
-    width: min(
-        calc(100% - 32px),
-        var(--content-width)
-    );
-
-    margin: 28px auto 20px;
-
-    padding: 20px 28px;
-
-    font-size: clamp(32px, 4vw, 52px);
-
-    font-weight: 700;
-
-    line-height: 1.25;
-
-    text-align: center;
-
-    color: var(--color-white);
-
-    background:
-        linear-gradient(
-            135deg,
-            #718b6d,
-            #58745e
-        );
-
-    border-radius: var(--radius-lg);
-
-    box-shadow: var(--shadow-md);
-
-    letter-spacing: -0.025em;
-}
-
-
-/* =========================================================
-   08. myTitle-03
-   Section Heading
-   ========================================================= */
-
-.myTitle-03 {
-    margin: 28px 0 16px;
-
-    padding: 14px 20px;
-
-    font-size: clamp(26px, 3vw, 40px);
-
-    font-weight: 600;
-
-    line-height: 1.35;
-
-    text-align: left;
-
-    color: var(--color-primary-900);
-
-    background-color: var(--color-primary-100);
-
-    border-left: 5px solid var(--color-primary-500);
-
-    border-radius: var(--radius-md);
-
-}
-
-
-/* =========================================================
-   09. myTitle-04
-   Store / Card Title
-   ========================================================= */
-
-.myTitle-04 {
-    margin: 0;
-
-    padding: 14px 18px;
-
-    font-size: 20px;
-
-    font-weight: 700;
-
-    line-height: 1.5;
-
-    text-align: left;
-
-    color: var(--color-primary-900);
-
-    background-color: var(--color-primary-100);
-
-    border-bottom:
-        1px solid var(--border-color);
-
-    border-radius:
-        var(--radius-lg)
-        var(--radius-lg)
-        0
-        0;
-}
-
-
-/* =========================================================
-   10. myTitle-05
-   Store Information
-   ========================================================= */
-
-.myTitle-05 {
-    margin: 0;
-
-    padding: 12px 18px;
-
-    font-size: 16px;
-
-    font-weight: 400;
-
-    line-height: 1.7;
-
-    text-align: left;
-
-    color: var(--color-gray-700);
-
-    background-color: var(--color-white);
-
-    border-bottom:
-        1px solid var(--border-color);
-}
-
-
-/* =========================================================
-   11. myTitle-06
-   Small Section Heading
-   ========================================================= */
-
-.myTitle-06 {
-    margin: 24px 0 12px;
-
-    padding: 10px 16px;
-
-    font-size: 28px;
-
-    font-weight: 600;
-
-    line-height: 1.4;
-
-    text-align: left;
-
-    color: var(--content-heading-color);
-
-    background-color: transparent;
-
-    border-left:
-        4px solid var(--color-primary-500);
-}
-
-
-/* =========================================================
-   12. Card System
-   ========================================================= */
-
-.card {
-    padding: 24px;
-
-    background-color:
-        var(--card-background-color);
-
-    border:
-        1px solid var(--border-color);
-
-    border-radius:
-        var(--radius-lg);
-
-    box-shadow:
-        var(--shadow-sm);
-
-    transition:
-        transform var(--transition-normal),
-        box-shadow var(--transition-normal),
-        border-color var(--transition-normal);
-}
-
-
-.card:hover {
-    transform: translateY(-3px);
-
-    border-color:
-        var(--color-primary-300);
-
-    box-shadow:
-        var(--shadow-lg);
-}
-
-
-/* =========================================================
-   13. Buttons
-   ========================================================= */
-
-button,
-.btn {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    min-height: 42px;
-
-    padding: 10px 18px;
-
-    font-family: inherit;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    color: var(--color-white);
-
-    background-color:
-        var(--content-link-background-color);
-
-    border: none;
-
-    border-radius:
-        var(--radius-md);
-
-    cursor: pointer;
-
-    box-shadow:
-        var(--shadow-xs);
-
-    transition:
-        background-color var(--transition-normal),
-        transform var(--transition-fast),
-        box-shadow var(--transition-normal);
-}
-
-
-button:hover,
-.btn:hover {
-    background-color:
-        var(--content-link-hover-background-color);
-
-    transform: translateY(-1px);
-
-    box-shadow:
-        var(--content-link-hover-shadow-color);
-}
-
-
-button:active,
-.btn:active {
-    transform: translateY(0);
-
-    box-shadow: none;
-}
-
-
-/* Secondary Button */
-
-.btn-secondary {
-    color: var(--color-primary-800);
-
-    background-color:
-        var(--color-primary-100);
-
-    border:
-        1px solid var(--color-primary-200);
-}
-
-
-.btn-secondary:hover {
-    color: var(--color-primary-900);
-
-    background-color:
-        var(--color-primary-200);
-}
-
-
-/* Outline Button */
-
-.btn-outline {
-    color: var(--color-primary-700);
-
-    background-color: transparent;
-
-    border:
-        1px solid var(--color-primary-300);
-}
-
-
-.btn-outline:hover {
-    color: var(--color-primary-900);
-
-    background-color:
-        var(--color-primary-100);
-}
-
-
-/* =========================================================
-   14. Links
-   ========================================================= */
-
-.content-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 10px 18px;
-
-    color: var(--content-link-text-color);
-
-    background-color:
-        var(--content-link-background-color);
-
-    border-radius:
-        var(--radius-md);
-
-    font-weight: 600;
-
-    transition:
-        all var(--transition-normal);
-}
-
-
-.content-link:hover {
-    color: var(--color-white);
-
-    background-color:
-        var(--content-link-hover-background-color);
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        var(--shadow-md);
-}
-
-
-/* =========================================================
-   15. Input / Form
-   ========================================================= */
-
-input,
-textarea,
-select {
-    width: 100%;
-
-    padding: 11px 14px;
-
-    font-family: inherit;
-
-    font-size: 15px;
-
-    color: var(--content-text-color);
-
-    background-color:
-        var(--color-white);
-
-    border:
-        1px solid var(--border-color-strong);
-
-    border-radius:
-        var(--radius-md);
-
-    outline: none;
-
-    transition:
-        border-color var(--transition-normal),
-        box-shadow var(--transition-normal);
-}
-
-
-input:focus,
-textarea:focus,
-select:focus {
-    border-color:
-        var(--color-primary-500);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(95,143,104,0.15);
-}
-
-
-/* =========================================================
-   16. Badge / Tag
-   ========================================================= */
-
-.badge {
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 4px 10px;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    color: var(--color-primary-800);
-
-    background-color:
-        var(--color-primary-100);
-
-    border-radius:
-        var(--radius-pill);
-}
-
-
-.badge-dark {
-    color: var(--color-white);
-
-    background-color:
-        var(--color-primary-700);
-}
-
-
-/* =========================================================
-   17. Divider
-   ========================================================= */
-
-.divider {
-    width: 100%;
-
-    height: 1px;
-
-    margin: 24px 0;
-
-    background-color:
-        var(--border-color);
-}
-
-
-/* =========================================================
-   18. Footer
-   ========================================================= */
-
-footer {
-    margin-top: 48px;
-
-    padding: 32px 20px;
-
-    text-align: center;
-
-    color: var(--footer-text-color);
-
-    background-color:
-        var(--footer-background-color);
-
-    border-top:
-        1px solid var(--border-color);
-}
-
-
-/* =========================================================
-   19. Font Weight
-   ========================================================= */
-
-.fw-100 { font-weight: 100; }
-.fw-200 { font-weight: 200; }
-.fw-300 { font-weight: 300; }
-.fw-400 { font-weight: 400; }
-.fw-500 { font-weight: 500; }
-.fw-600 { font-weight: 600; }
-.fw-700 { font-weight: 700; }
-.fw-800 { font-weight: 800; }
-.fw-900 { font-weight: 900; }
-
-
-/* =========================================================
-   20. Background Image
-   ========================================================= */
-
-.bg-img {
-    background-position: center;
-
-    background-repeat: no-repeat;
-
-    background-size: cover;
-}
-
-
-/* =========================================================
-   21. Responsive
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    .container,
-    .content {
-        width: calc(100% - 24px);
-    }
-
-
-    .myTitle-01 {
-        margin-top: 20px;
-
-        padding: 24px 20px;
-
-        border-radius:
-            var(--radius-lg);
-    }
-
-
-    .myTitle-02 {
-        padding: 18px 20px;
-
-        border-radius:
-            var(--radius-md);
-    }
-
-
-    .myTitle-03 {
-        padding: 12px 16px;
-    }
-
-
-    .card {
-        padding: 18px;
-    }
-
-
-    nav {
-        padding: 10px 12px;
-    }
-
-
-    nav a,
-    .nav-button {
-        padding: 8px 10px;
-    }
-}
-
-
-@media (max-width: 480px) {
-
-    body {
-        font-size: 15px;
-    }
-
-
-    .myTitle-01 {
-        margin: 16px auto;
-
-        padding: 20px 16px;
-    }
-
-
-    .myTitle-02 {
-        margin: 20px auto 16px;
-
-        padding: 16px;
-    }
-
-
-    .myTitle-03 {
-        margin-top: 20px;
-
-        font-size: 25px;
-    }
-
-
-    .myTitle-06 {
-        font-size: 23px;
-    }
-
-
-    button,
-    .btn,
-    .content-link {
-        width: 100%;
-    }
-}
-
-
-/* =========================================================
-   22. Accessibility
-   ========================================================= */
-
-:focus-visible {
-    outline:
-        3px solid rgba(95,143,104,0.35);
-
-    outline-offset: 2px;
-}
-
-/* =========================================================
-   INDEX PAGE
-   Modern Portfolio UI
-   ========================================================= */
-
-
-/* =========================================================
-   Hero
-   ========================================================= */
-
-.myTitle-01 {
+.my-title-01 {
     position: relative;
 
     width: min(
@@ -988,10 +258,17 @@ footer {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
+    margin: 32px auto 24px;
+
+    padding: 28px 32px;
+
     overflow: hidden;
+
+    color: var(--my-color-white);
+
+    text-align: center;
 
     background:
         linear-gradient(
@@ -1001,8 +278,7 @@ footer {
             #5f8f68
         );
 
-    border-radius:
-        var(--radius-xl);
+    border-radius: var(--my-radius-xl);
 
     box-shadow:
         0 18px 45px
@@ -1010,7 +286,7 @@ footer {
 }
 
 
-.myTitle-01::before {
+.my-title-01::before {
     content: "";
 
     position: absolute;
@@ -1028,7 +304,7 @@ footer {
 }
 
 
-.myTitle-01::after {
+.my-title-01::after {
     content: "";
 
     position: absolute;
@@ -1046,46 +322,30 @@ footer {
 }
 
 
-.hero-content {
+.my-title-01 .my-title-content {
     position: relative;
 
     z-index: 2;
 
     text-align: center;
-
-    color: white;
 }
 
 
-.hero-icon {
-    font-size: 48px;
-
-    margin-bottom: 12px;
-
-    filter:
-        drop-shadow(
-            0 4px 10px
-            rgba(0,0,0,0.15)
-        );
-}
-
-
-.hero-content h1 {
+.my-title-01 h1 {
     margin: 0;
 
-    color: white;
+    color: var(--my-color-white);
 
     font-size:
         clamp(38px, 6vw, 64px);
 
     font-weight: 700;
 
-    letter-spacing:
-        -0.04em;
+    letter-spacing: -0.04em;
 }
 
 
-.hero-content p {
+.my-title-01 p {
     margin: 14px 0 0;
 
     color:
@@ -1093,162 +353,490 @@ footer {
 
     font-size: 15px;
 
-    letter-spacing:
-        0.15em;
+    letter-spacing: 0.15em;
 }
 
 
 /* =========================================================
-   Introduction
+   07. My Title 02
    ========================================================= */
 
-.intro-section {
-    width:
-        min(
-            calc(100% - 32px),
-            820px
-        );
+.my-title-02 {
+    width: min(
+        calc(100% - 32px),
+        1024px
+    );
 
-    margin:
-        50px auto 70px;
+    margin: 28px auto 20px;
 
-    padding:
-        35px 40px;
+    padding: 20px 28px;
+
+    color: var(--my-color-white);
+
+    font-size: clamp(32px, 4vw, 52px);
+
+    font-weight: 700;
+
+    line-height: 1.25;
 
     text-align: center;
 
     background:
-        rgba(255,255,255,0.88);
-
-    border:
-        1px solid
-        var(--border-color);
+        linear-gradient(
+            135deg,
+            #718b6d,
+            #58745e
+        );
 
     border-radius:
-        var(--radius-xl);
+        var(--my-radius-lg);
 
     box-shadow:
-        var(--shadow-sm);
+        var(--my-shadow-md);
 }
 
 
-.section-label {
-    display: inline-block;
+/* =========================================================
+   08. My Title 03
+   ========================================================= */
 
-    margin-bottom: 10px;
+.my-title-03 {
+    margin: 28px 0 16px;
 
-    color:
-        var(--color-primary-600);
+    padding: 14px 20px;
 
-    font-size: 12px;
+    color: var(--my-color-primary-900);
+
+    font-size: clamp(26px, 3vw, 40px);
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    text-align: left;
+
+    background-color:
+        var(--my-color-primary-100);
+
+    border-left:
+        5px solid
+        var(--my-color-primary-500);
+
+    border-radius:
+        var(--my-radius-md);
+}
+
+
+/* =========================================================
+   09. My Title 04
+   ========================================================= */
+
+.my-title-04 {
+    margin: 0;
+
+    padding: 14px 18px;
+
+    color: var(--my-color-primary-900);
+
+    font-size: 20px;
 
     font-weight: 700;
 
-    letter-spacing:
-        0.16em;
+    line-height: 1.5;
+
+    background-color:
+        var(--my-color-primary-100);
+
+    border-bottom:
+        1px solid
+        var(--my-border-color);
+
+    border-radius:
+        var(--my-radius-lg)
+        var(--my-radius-lg)
+        0
+        0;
 }
 
 
-.intro-section h2 {
-    margin:
-        0 0 12px;
+/* =========================================================
+   10. My Title 05
+   ========================================================= */
 
-    color:
-        var(--content-heading-color);
+.my-title-05 {
+    margin: 0;
 
-    font-size:
-        clamp(24px, 4vw, 34px);
+    padding: 12px 18px;
 
-    font-weight: 700;
-}
-
-
-.intro-section p {
-    max-width: 650px;
-
-    margin:
-        0 auto;
-
-    color:
-        var(--content-muted-text-color);
+    color: var(--my-color-gray-700);
 
     font-size: 16px;
 
-    line-height: 1.9;
+    line-height: 1.7;
+
+    background-color:
+        var(--my-color-white);
+
+    border-bottom:
+        1px solid
+        var(--my-border-color);
 }
 
 
 /* =========================================================
-   Works Section
+   11. My Title 06
    ========================================================= */
 
-.works-section {
-    width:
-        min(
-            calc(100% - 32px),
-            1100px
-        );
+.my-title-06 {
+    margin: 24px 0 12px;
 
-    margin:
-        0 auto;
+    padding: 10px 16px;
+
+    color: var(--my-content-heading-color);
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    background-color: transparent;
+
+    border-left:
+        4px solid
+        var(--my-color-primary-500);
 }
 
 
-.works-header {
-    display: flex;
+/* =========================================================
+   12. My Card
+   ---------------------------------------------------------
+   不使用 .card
+   使用 .my-card
+   ========================================================= */
 
-    align-items: end;
+.my-card {
+    padding: 24px;
 
-    justify-content: space-between;
+    color: var(--my-content-text-color);
 
-    margin-bottom: 28px;
-}
-
-
-.works-header h2 {
-    margin: 0;
-
-    color:
-        var(--content-heading-color);
-
-    font-size:
-        clamp(28px, 4vw, 38px);
-
-    font-weight: 700;
-}
-
-
-.works-count {
-    padding:
-        7px 12px;
-
-    color:
-        var(--color-primary-700);
-
-    background:
-        var(--color-primary-100);
+    background-color:
+        var(--my-card-background-color);
 
     border:
         1px solid
-        var(--color-primary-200);
+        var(--my-border-color);
 
     border-radius:
-        var(--radius-pill);
+        var(--my-radius-lg);
 
-    font-size: 12px;
+    box-shadow:
+        var(--my-shadow-sm);
 
-    font-weight: 700;
+    transition:
+        transform var(--my-transition-normal),
+        box-shadow var(--my-transition-normal),
+        border-color var(--my-transition-normal);
+}
 
-    letter-spacing:
-        0.08em;
+
+.my-card:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--my-color-primary-300);
+
+    box-shadow:
+        var(--my-shadow-lg);
 }
 
 
 /* =========================================================
-   Project Grid
+   13. My Button
+   ---------------------------------------------------------
+   不修改 .btn
+   使用 .my-button
    ========================================================= */
 
-.project-grid {
+.my-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 10px 18px;
+
+    color: var(--my-color-white);
+
+    background-color:
+        var(--my-content-link-background-color);
+
+    border: none;
+
+    border-radius:
+        var(--my-radius-md);
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        var(--my-shadow-xs);
+
+    transition:
+        background-color var(--my-transition-normal),
+        transform var(--my-transition-fast),
+        box-shadow var(--my-transition-normal);
+}
+
+
+.my-button:hover {
+    color: var(--my-color-white);
+
+    background-color:
+        var(--my-content-link-hover-background-color);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        var(--my-shadow-md);
+}
+
+
+.my-button:active {
+    transform:
+        translateY(0);
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   14. My Secondary Button
+   ========================================================= */
+
+.my-button-secondary {
+    color:
+        var(--my-color-primary-800);
+
+    background-color:
+        var(--my-color-primary-100);
+
+    border:
+        1px solid
+        var(--my-color-primary-200);
+}
+
+
+.my-button-secondary:hover {
+    color:
+        var(--my-color-primary-900);
+
+    background-color:
+        var(--my-color-primary-200);
+}
+
+
+/* =========================================================
+   15. My Outline Button
+   ========================================================= */
+
+.my-button-outline {
+    color:
+        var(--my-color-primary-700);
+
+    background-color:
+        transparent;
+
+    border:
+        1px solid
+        var(--my-color-primary-300);
+}
+
+
+.my-button-outline:hover {
+    color:
+        var(--my-color-primary-900);
+
+    background-color:
+        var(--my-color-primary-100);
+}
+
+
+/* =========================================================
+   16. My Link
+   ========================================================= */
+
+.my-link {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    color:
+        var(--my-content-link-text-color);
+
+    background-color:
+        var(--my-content-link-background-color);
+
+    border-radius:
+        var(--my-radius-md);
+
+    font-weight: 600;
+
+    transition:
+        all var(--my-transition-normal);
+}
+
+
+.my-link:hover {
+    color: var(--my-color-white);
+
+    background-color:
+        var(--my-content-link-hover-background-color);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        var(--my-shadow-md);
+}
+
+
+/* =========================================================
+   17. My Input
+   ---------------------------------------------------------
+   不修改 input / textarea / select
+   使用 .my-input
+   ========================================================= */
+
+.my-input {
+    width: 100%;
+
+    padding: 11px 14px;
+
+    color:
+        var(--my-content-text-color);
+
+    background-color:
+        var(--my-color-white);
+
+    border:
+        1px solid
+        var(--my-border-color-strong);
+
+    border-radius:
+        var(--my-radius-md);
+
+    outline: none;
+
+    transition:
+        border-color var(--my-transition-normal),
+        box-shadow var(--my-transition-normal);
+}
+
+
+.my-input:focus {
+    border-color:
+        var(--my-color-primary-500);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(95,143,104,0.15);
+}
+
+
+/* =========================================================
+   18. My Badge
+   ========================================================= */
+
+.my-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 4px 10px;
+
+    color:
+        var(--my-color-primary-800);
+
+    background-color:
+        var(--my-color-primary-100);
+
+    border-radius:
+        var(--my-radius-pill);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.my-badge-dark {
+    color:
+        var(--my-color-white);
+
+    background-color:
+        var(--my-color-primary-700);
+}
+
+
+/* =========================================================
+   19. My Divider
+   ========================================================= */
+
+.my-divider {
+    width: 100%;
+
+    height: 1px;
+
+    margin: 24px 0;
+
+    background-color:
+        var(--my-border-color);
+}
+
+
+/* =========================================================
+   20. My Footer
+   ========================================================= */
+
+.my-footer {
+    margin-top: 48px;
+
+    padding: 32px 20px;
+
+    color:
+        var(--my-footer-text-color);
+
+    text-align: center;
+
+    background-color:
+        var(--my-footer-background-color);
+
+    border-top:
+        1px solid
+        var(--my-border-color);
+}
+
+
+/* =========================================================
+   21. My Project Grid
+   ========================================================= */
+
+.my-project-grid {
     display: grid;
 
     grid-template-columns:
@@ -1259,10 +847,10 @@ footer {
 
 
 /* =========================================================
-   Project Card
+   22. My Project Card
    ========================================================= */
 
-.project-card {
+.my-project-card {
     position: relative;
 
     display: flex;
@@ -1274,49 +862,49 @@ footer {
     overflow: hidden;
 
     background:
-        var(--card-background-color);
+        var(--my-card-background-color);
 
     border:
         1px solid
-        var(--border-color);
+        var(--my-border-color);
 
     border-radius:
-        var(--radius-xl);
+        var(--my-radius-xl);
 
     box-shadow:
-        var(--shadow-sm);
+        var(--my-shadow-sm);
 
     transition:
-        transform var(--transition-normal),
-        box-shadow var(--transition-normal),
-        border-color var(--transition-normal);
+        transform var(--my-transition-normal),
+        box-shadow var(--my-transition-normal),
+        border-color var(--my-transition-normal);
 }
 
 
-.project-card:hover {
+.my-project-card:hover {
     transform:
         translateY(-6px);
 
     border-color:
-        var(--color-primary-300);
+        var(--my-color-primary-300);
 
     box-shadow:
-        var(--shadow-lg);
+        var(--my-shadow-lg);
 }
 
 
 /* =========================================================
-   Project Number
+   23. My Project Number
    ========================================================= */
 
-.project-number {
+.my-project-number {
     position: absolute;
 
     top: 20px;
     right: 22px;
 
     color:
-        var(--color-gray-300);
+        var(--my-color-gray-300);
 
     font-size: 38px;
 
@@ -1327,49 +915,48 @@ footer {
 
 
 /* =========================================================
-   Project Icon
+   24. My Project Icon
    ========================================================= */
 
-.project-icon {
+.my-project-icon {
     width: 58px;
     height: 58px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     margin:
         28px 24px 20px;
 
     background:
-        var(--color-primary-100);
+        var(--my-color-primary-100);
 
     border-radius:
-        var(--radius-lg);
+        var(--my-radius-lg);
 
     font-size: 28px;
 }
 
 
 /* =========================================================
-   Project Content
+   25. My Project Content
    ========================================================= */
 
-.project-content {
+.my-project-content {
     padding:
         0 24px;
 }
 
 
-.project-category {
+.my-project-category {
     display: block;
 
     margin-bottom: 8px;
 
     color:
-        var(--color-primary-600);
+        var(--my-color-primary-600);
 
     font-size: 12px;
 
@@ -1380,14 +967,14 @@ footer {
 }
 
 
-.project-content h3 {
+.my-project-content h3 {
     margin:
         0 0 10px;
 
     padding-right: 40px;
 
     color:
-        var(--content-heading-color);
+        var(--my-content-heading-color);
 
     font-size: 21px;
 
@@ -1395,24 +982,24 @@ footer {
 }
 
 
-.project-date {
+.my-project-date {
     display: inline-block;
 
     padding:
         4px 10px;
 
     color:
-        var(--color-primary-700);
+        var(--my-color-primary-700);
 
     background:
-        var(--color-primary-100);
+        var(--my-color-primary-100);
 
     border:
         1px solid
-        var(--color-primary-200);
+        var(--my-color-primary-200);
 
     border-radius:
-        var(--radius-pill);
+        var(--my-radius-pill);
 
     font-size: 12px;
 
@@ -1420,12 +1007,12 @@ footer {
 }
 
 
-.project-content p {
+.my-project-content p {
     margin:
         18px 0 0;
 
     color:
-        var(--content-muted-text-color);
+        var(--my-content-muted-text-color);
 
     font-size: 15px;
 
@@ -1434,10 +1021,10 @@ footer {
 
 
 /* =========================================================
-   Project Footer
+   26. My Project Footer
    ========================================================= */
 
-.project-footer {
+.my-project-footer {
     display: flex;
 
     justify-content: flex-end;
@@ -1449,7 +1036,7 @@ footer {
 }
 
 
-.project-button {
+.my-project-button {
     display: inline-flex;
 
     align-items: center;
@@ -1459,111 +1046,54 @@ footer {
     padding:
         10px 16px;
 
-    color:
-        white !important;
+    color: white;
 
     background:
-        var(--content-link-background-color);
+        var(--my-content-link-background-color);
 
     border-radius:
-        var(--radius-md);
+        var(--my-radius-md);
 
     font-size: 14px;
 
     font-weight: 600;
 
     box-shadow:
-        var(--shadow-xs);
+        var(--my-shadow-xs);
 
     transition:
-        all var(--transition-normal);
+        all var(--my-transition-normal);
 }
 
 
-.project-button span {
-    font-size: 18px;
-
-    transition:
-        transform var(--transition-normal);
-}
-
-
-.project-button:hover {
-    color: white !important;
+.my-project-button:hover {
+    color: white;
 
     background:
-        var(--content-link-hover-background-color);
+        var(--my-content-link-hover-background-color);
 
     transform:
         translateY(-2px);
 
     box-shadow:
-        var(--shadow-md);
-}
-
-
-.project-button:hover span {
-    transform:
-        translateX(4px);
+        var(--my-shadow-md);
 }
 
 
 /* =========================================================
-   Third Project
+   27. My Footer Content
    ========================================================= */
 
-.project-card:nth-child(3) {
-    grid-column:
-        1 / -1;
-
-    min-height: 300px;
-}
-
-
-.project-card:nth-child(3) .project-content {
-    max-width: 850px;
-}
-
-
-/* =========================================================
-   Footer
-   ========================================================= */
-
-footer {
-    margin-top:
-        80px;
-
-    padding:
-        42px 20px;
-
-    text-align: center;
-
-    color:
-        var(--footer-text-color);
-
-    background:
-        linear-gradient(
-            180deg,
-            #e8eee5,
-            #dfe7dc
-        );
-
-    border-top:
-        1px solid
-        var(--border-color);
-}
-
-
-.footer-icon {
+.my-footer-icon {
     margin-bottom: 8px;
 
     font-size: 24px;
 }
 
 
-.footer-title {
+.my-footer-title {
     color:
-        var(--content-heading-color);
+        var(--my-content-heading-color);
 
     font-size: 18px;
 
@@ -1571,11 +1101,11 @@ footer {
 }
 
 
-.footer-subtitle {
+.my-footer-subtitle {
     margin-top: 4px;
 
     color:
-        var(--content-muted-text-color);
+        var(--my-content-muted-text-color);
 
     font-size: 12px;
 
@@ -1584,61 +1114,89 @@ footer {
 }
 
 
-.footer-copyright {
+.my-footer-copyright {
     margin-top: 18px;
 
     color:
-        var(--content-light-text-color);
+        var(--my-content-light-text-color);
 
     font-size: 12px;
 }
 
 
 /* =========================================================
-   Responsive
+   28. My Font Weight
+   ========================================================= */
+
+.my-fw-100 { font-weight: 100; }
+.my-fw-200 { font-weight: 200; }
+.my-fw-300 { font-weight: 300; }
+.my-fw-400 { font-weight: 400; }
+.my-fw-500 { font-weight: 500; }
+.my-fw-600 { font-weight: 600; }
+.my-fw-700 { font-weight: 700; }
+.my-fw-800 { font-weight: 800; }
+.my-fw-900 { font-weight: 900; }
+
+
+/* =========================================================
+   29. My Background Image
+   ========================================================= */
+
+.my-bg-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* =========================================================
+   30. Responsive
    ========================================================= */
 
 @media (max-width: 768px) {
 
-    .myTitle-01 {
+    .my-container {
+        width: calc(100% - 24px);
+    }
+
+    .my-title-01 {
         min-height: 260px;
-    }
 
-
-    .intro-section {
         padding:
-            28px 24px;
+            24px 20px;
 
-        margin:
-            35px auto 50px;
+        border-radius:
+            var(--my-radius-lg);
     }
 
+    .my-title-02 {
+        padding:
+            18px 20px;
 
-    .project-grid {
-        grid-template-columns:
-            1fr;
+        border-radius:
+            var(--my-radius-md);
     }
 
-
-    .project-card:nth-child(3) {
-        grid-column:
-            auto;
+    .my-title-03 {
+        padding:
+            12px 16px;
     }
 
+    .my-card {
+        padding:
+            18px;
+    }
 
-    .works-header {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 12px;
+    .my-project-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 
 @media (max-width: 480px) {
 
-    .myTitle-01 {
+    .my-title-01 {
         width:
             calc(100% - 24px);
 
@@ -1646,81 +1204,72 @@ footer {
             230px;
 
         border-radius:
-            var(--radius-lg);
+            var(--my-radius-lg);
     }
 
-
-    .hero-icon {
-        font-size: 40px;
-    }
-
-
-    .hero-content h1 {
+    .my-title-01 h1 {
         font-size: 34px;
     }
 
-
-    .hero-content p {
+    .my-title-01 p {
         font-size: 11px;
 
         letter-spacing:
             0.08em;
     }
 
-
-    .intro-section {
-        width:
-            calc(100% - 24px);
+    .my-title-02 {
+        margin:
+            20px auto 16px;
 
         padding:
-            24px 18px;
-
-        border-radius:
-            var(--radius-lg);
+            16px;
     }
 
+    .my-title-03 {
+        margin-top:
+            20px;
 
-    .works-section {
-        width:
-            calc(100% - 24px);
+        font-size:
+            25px;
     }
 
+    .my-title-06 {
+        font-size:
+            23px;
+    }
 
-    .project-card {
+    .my-project-card {
         min-height:
             340px;
 
         border-radius:
-            var(--radius-lg);
+            var(--my-radius-lg);
     }
 
-
-    .project-icon {
+    .my-project-icon {
         margin:
             22px 18px 16px;
     }
 
-
-    .project-content {
+    .my-project-content {
         padding:
             0 18px;
     }
 
-
-    .project-footer {
+    .my-project-footer {
         padding:
             18px;
     }
 
-
-    .project-button {
+    .my-project-button {
         width: 100%;
+
+        justify-content: center;
     }
 
-
-    footer {
+    .my-footer {
         margin-top:
             55px;
     }
 }
-
