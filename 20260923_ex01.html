@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習01.使用css語法配置版面</title>
+
+    <style>
+
+        :root{
+            --bgcolor01: rgb(235, 223, 172);
+            --bgcolor02: rgb(201, 83, 83);
+
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body{
+            background-color:var(--bgcolor01);
+        }
+
+        .wrapper{
+            width: 1024px;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .logo{
+            width: 1024px;
+            height: 200px;
+            background-image: url(images/Nature.avif);
+            background-position: center,center;
+            background-size: cover; 
+        }
+
+
+        .nav{
+            background-color:var(--bgcolor02);
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            
+        } 
+
+        .nav ul{
+            display:inline-block;
+        } 
+
+        .nav ul li{
+            float: left;
+            list-style-type: none;
+        }
+
+        .nav ul li a{
+            text-decoration: none;
+            background-color: blueviolet;
+            color: aliceblue;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-right: 20px;
+            border-radius: 7px;
+            box-shadow: 0px 4px 6px -1px rgb(0, 0,0, 0.6);
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        
+        .nav ul li a:hover{
+            background-color: #1d4ed8;
+            transform: scale(2);
+            box-shadow: 0px 4px 14px 0 rgb(37,99,235,0.39);
+        }
+
+        .content{
+            padding: 30px 80px;
+            background-color: rgb(238, 204, 201);
+        }
+
+        .content h1{
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            color: brown;
+        }
+
+        .content p{
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .content a{
+            display: block;
+            background-color: rgb(9, 132, 136);
+            width: 100px;
+            height: 40px;
+            margin-top: 20px;
+            margin-bottom: 0px;
+            margin-left: auto;
+            margin-right: auto;
+            text-decoration: none;
+            color: aliceblue;
+            text-align: center;
+            border-radius: 7px;
+            box-shadow: 0px 4px 6px -1px rgb(0, 0,0, 0.6);
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 40px;
+        }
+
+        .content a:hover{
+
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0px 20px 40px rgb(0,0,0,0,0.12);
+
+        }
+
+        .footer{
+            background-color: #ec5b22;
+            color: rgb(51, 51, 53);
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            padding-right: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <div class="banner">
+            <div class="logo"></div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">最新消息</a></li>
+                    <li><a href="#">合作店家</a></li>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>歡迎光臨</h1>
+            <p>來說榮譽，排行法院提醒，註明模式遇到具體在此上市之類再次受傷全體主動收費熱點頭髮，學校睡覺當初擴大可惜方面，高手但是連結為什麼特殊商機的錢你說，擁有調整人員價格晚上明顯願意我是利用模樣實踐打擊升級行業，危機考慮攻擊臉上運作創造接受在那裡藍色多年豐富楠雅崗。</p>
+            <p>總數還沒，比如直到變化愛情總統版權所有保證服裝，加工可是推薦使用活力內存之一飲食，發揮我的心外國眼淚希望最低，衛生這個問題儘管專用很大友情取得動漫買了一套暴力網頁班，湖北告知身材，擁有部隊，這麼多凱文交友，文章採購任務追求幽默即使留言板，天然電力，室內資料庫，時尚各地參考人才每日有一定思路特價大家都浙江森林一半指南也不，一位幫你輸出兒童採用，說什麼當時上漲垃圾提供食物因素測試，各自殺手戀愛忘記是由組圖答應對象微笑優質保育石虎加入上網法律責任，提高全國江湖日記辦法和他雜誌頁面總統邀請主演戀愛價格。</p>
+            <p>收藏本地下載的人是一種虛擬國際預測留言板電子郵件五金同步，事務歷史最大探索清晰影片危機你會，命令安。</p>
+
+            <a href="#">了解更多</a>
+        </div>
+
+        <div class="footer">
+            PowerBy xxx 2026.09.23
+        </div>
+
+    </div>
+    
+</body>
+
+</html>
