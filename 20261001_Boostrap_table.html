@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boostrap-Table(表格)</title>
+
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/myAllcss.css">
+
+    <style>
+        @media screen and (max-width:768px) {
+
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                margin-top: 15px;
+                border: 2px solid var(--my-border-color);
+
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            /* 偽元素 */
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) ":";
+                font-weight: 900;
+                font-size: 18px;
+                color: #0898db;
+                display: block;
+                float: left;
+                width: 20%;
+                text-align: right;
+                padding-right: 15px;
+            }
+
+            .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 80%;
+                font-size: 16px;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+
+    <div class="container">
+
+        <div class="display-2 fw-bold text-center mt-4">飲料產品料表</div>
+
+        <table class="table mt-4 table-bordered table-sm table-rwd">
+            <thead class="table-dark">
+                <tr>
+                    <th>產品編號</th>
+                    <th>產品名稱</th>
+                    <th>產品價格</th>
+                    <th>產品數量</th>
+                    <th>產品備註</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td data-th="產品編號"><span>01</span></td>
+                    <td data-th="產品名稱"><span>拿鐵咖啡</span></td>
+                    <td data-th="產品價格"><span>100</span></td>
+                    <td data-th="產品數量"><span>15</span></td>
+                    <td data-th="產品備註">
+                        <span>食品曝光，高興畢業是以有限責任下載尤其是語文，大門有時警方可以，不出幾次儘管足夠放心都要，遺憾回事你想是一種描述就有精選突然客人把它在這性感，樣子情人外資機器，紛紛並非特價次數時尚突出經常資料，從此制度技能到達醫生站在招生對她級別，旅遊下了等人我又暴力網。</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>02</td>
+                    <td>美式咖啡</td>
+                    <td>80</td>
+                    <td>20</td>
+                    <td>無糖去冰</td>
+                </tr>
+
+                <tr>
+                    <td>03</td>
+                    <td>黑咖啡</td>
+                    <td>50</td>
+                    <td>30</td>
+                    <td>無糖去冰</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
