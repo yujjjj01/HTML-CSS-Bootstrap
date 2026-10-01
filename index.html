@@ -1,201 +1,317 @@
-<!DOCTYPE html> <html lang="zh-TW"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>學習歷程筆記展示</title>
+<!DOCTYPE html>
+<html lang="zh-TW">
 
-<link rel="stylesheet" href="CSS/myAllcss.css">
+<head>
 
-</head> <body>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>學習歷程筆記展示</title>
+
+    <link
+        rel="stylesheet"
+        href="CSS/myAllcss.css"
+    >
+
+</head>
+
+
+<body>
+
 <script src="js/jquery-4.0.0.js"></script>
 
-<!-- 網站標題 -->
+
+<!-- =========================================================
+     Header
+     ========================================================= -->
+
 <header class="myTitle-01">
-    🌿 學習歷程筆記展示
+
+    <div class="hero-content">
+
+        <h1>
+            學習歷程筆記展示
+        </h1>
+
+    </div>
+
 </header>
 
 
-<!-- 主要內容 -->
+
+<!-- =========================================================
+     Main
+     ========================================================= -->
+
 <main>
 
-    <section>
-        <p style="
-            text-align:center;
-            color:#405044;
-            font-size:20px;
-            margin:20px auto 30px;
-        ">
-            歡迎來到我的網頁設計學習歷程<br>
-            這裡記錄了練習成果。
+
+    <!-- =====================================================
+         Introduction
+         ===================================================== -->
+
+    <section class="intro-section">
+
+        <span class="section-label">
+            MY LEARNING JOURNEY
+        </span>
+
+        <h2>
+            歡迎來到我的網頁設計學習歷程
+        </h2>
+
+        <p>
+            這裡記錄了我的網頁設計練習與作品，
+            用來整理自己的學習成果。
         </p>
+
     </section>
 
 
-    <!-- 學習作品 -->
-    <section>
 
-        <div class="myTitle-05">
-            💻 學習作品
+    <!-- =====================================================
+         Works
+         ===================================================== -->
+
+    <section class="works-section">
+
+
+        <!-- Section Header -->
+
+        <div class="works-header">
+
+            <div>
+
+                <span class="section-label">
+                    PORTFOLIO
+                </span>
+
+                <h2>
+                    💻 學習作品
+                </h2>
+
+            </div>
+
         </div>
 
-        <ul style="
-            list-style:none;
-            padding:0;
-            max-width:900px;
-            margin:30px auto;
-        ">
 
-            <li style="
-                background:#faf9f3;
-                margin:20px 0;
-                padding:25px 30px;
-                border-radius:15px;
-                box-shadow:0 5px 15px rgba(38,55,42,0.20);
-            ">
 
-                <div class="myTitle-04">
-                    🌱 HTML & CSS 排版練習
+        <!-- =================================================
+             Project Grid
+             ================================================= -->
+
+        <div class="project-grid">
+
+
+            <!-- =================================================
+                 Project 01
+                 ================================================= -->
+
+            <article class="project-card">
+
+
+                <div class="project-number">
+                    01
                 </div>
 
-                <div class="myTitle-05">
-                    2026 / 09 / 23
+
+                <div class="project-icon">
+                    🌱
                 </div>
 
-                <p style="
-                    color:#34443a;
-                    font-size:18px;
-                    line-height:1.8;
-                    padding:10px 20px;
-                ">
-                    練習 HTML 結構與 CSS 網頁排版，
-                    學習如何建立基本的網頁版面。
-                </p>
 
-                <div style="text-align:center; padding:10px;">
-                    <a href="20260923_ex01.html"
-                       target="_blank"
-                       style="
-                           display:inline-block;
-                           background:#4f7942;
-                           color:white;
-                           padding:12px 30px;
-                           border-radius:8px;
-                           text-decoration:none;
-                           font-size:18px;
-                           box-shadow:0 4px 8px rgba(47,79,58,0.30);
-                       ">
-                        查看作品 →
+                <div class="project-content">
+
+                    <span class="project-category">
+                        HTML · CSS
+                    </span>
+
+                    <h3>
+                        HTML & CSS 排版練習
+                    </h3>
+
+                    <span class="project-date">
+                        2026 / 09 / 23
+                    </span>
+
+                    <p>
+                        練習 HTML 結構與 CSS 網頁排版，
+                        學習如何建立基本的網頁版面。
+                    </p>
+
+                </div>
+
+
+                <div class="project-footer">
+
+                    <a
+                        href="20260923_ex01.html"
+                        target="_blank"
+                        class="project-button"
+                    >
+                        查看作品
+                        <span>→</span>
                     </a>
+
                 </div>
 
-            </li>
+
+            </article>
 
 
-            <li style="
-                background:#faf9f3;
-                margin:20px 0;
-                padding:25px 30px;
-                border-radius:15px;
-                box-shadow:0 5px 15px rgba(38,55,42,0.20);
-            ">
 
-                <div class="myTitle-04">
-                    🤖 HTML & CSS 排版練習 By AI
+            <!-- =================================================
+                 Project 02
+                 ================================================= -->
+
+            <article class="project-card">
+
+
+                <div class="project-number">
+                    02
                 </div>
 
-                <div class="myTitle-05">
-                    2026 / 09 / 23
+
+                <div class="project-icon">
+                    🤖
                 </div>
 
-                <p style="
-                    color:#34443a;
-                    font-size:18px;
-                    line-height:1.8;
-                    padding:10px 20px;
-                ">
-                    嘗試利用 AI 協助網頁設計，
-                    比較不同的 HTML 與 CSS 排版方式。
-                </p>
 
-                <div style="text-align:center; padding:10px;">
-                    <a href="20260924_ex01_AI2.html"
-                       target="_blank"
-                       style="
-                           display:inline-block;
-                           background:#4f7942;
-                           color:white;
-                           padding:12px 30px;
-                           border-radius:8px;
-                           text-decoration:none;
-                           font-size:18px;
-                           box-shadow:0 4px 8px rgba(47,79,58,0.30);
-                       ">
-                        查看作品 →
+                <div class="project-content">
+
+                    <span class="project-category">
+                        HTML · CSS · AI
+                    </span>
+
+                    <h3>
+                        HTML & CSS 排版練習 By AI
+                    </h3>
+
+                    <span class="project-date">
+                        2026 / 09 / 23
+                    </span>
+
+                    <p>
+                        嘗試利用 AI 協助網頁設計，
+                        比較不同的 HTML 與 CSS 排版方式。
+                    </p>
+
+                </div>
+
+
+                <div class="project-footer">
+
+                    <a
+                        href="20260924_ex01_AI2.html"
+                        target="_blank"
+                        class="project-button"
+                    >
+                        查看作品
+                        <span>→</span>
                     </a>
+
                 </div>
 
-            </li>
+
+            </article>
 
 
-            <li style="
-                background:#faf9f3;
-                margin:20px 0;
-                padding:25px 30px;
-                border-radius:15px;
-                box-shadow:0 5px 15px rgba(38,55,42,0.20);
-            ">
 
-                <div class="myTitle-04">
-                    🍜 JavaScript × OpenData 旅遊美食
+            <!-- =================================================
+                 Project 03
+                 ================================================= -->
+
+            <article class="project-card">
+
+
+                <div class="project-number">
+                    03
                 </div>
 
-                <div class="myTitle-05">
-                    2026 / 09 / 29
+
+                <div class="project-icon">
+                    🍜
                 </div>
 
-                <p style="
-                    color:#34443a;
-                    font-size:18px;
-                    line-height:1.8;
-                    padding:10px 20px;
-                ">
-                    使用 JavaScript 搭配 OpenData，
-                    練習取得並呈現旅遊與美食相關資料。
-                </p>
 
-                <div style="text-align:center; padding:10px;">
-                    <a href="20260929_js_TravelFood.html"
-                       target="_blank"
-                       style="
-                           display:inline-block;
-                           background:#4f7942;
-                           color:white;
-                           padding:12px 30px;
-                           border-radius:8px;
-                           text-decoration:none;
-                           font-size:18px;
-                           box-shadow:0 4px 8px rgba(47,79,58,0.30);
-                       ">
-                        查看作品 →
+                <div class="project-content">
+
+                    <span class="project-category">
+                        JAVASCRIPT · OPENDATA
+                    </span>
+
+                    <h3>
+                        JavaScript × OpenData 旅遊美食
+                    </h3>
+
+                    <span class="project-date">
+                        2026 / 09 / 29
+                    </span>
+
+                    <p>
+                        使用 JavaScript 搭配 OpenData，
+                        練習取得並呈現旅遊與美食相關資料。
+                    </p>
+
+                </div>
+
+
+                <div class="project-footer">
+
+                    <a
+                        href="20260929_js_TravelFood.html"
+                        target="_blank"
+                        class="project-button"
+                    >
+                        查看作品
+                        <span>→</span>
                     </a>
+
                 </div>
 
-            </li>
 
-        </ul>
+            </article>
+
+
+        </div>
+
 
     </section>
+
 
 </main>
 
 
-<!-- 頁尾 -->
-<footer style="
-    background:#d9dfd1;
-    color:#405044;
-    text-align:center;
-    padding:25px;
-    margin-top:50px;
-    font-size:16px;
-">
-    🌿 我的學習歷程 ｜ By YU
+
+<!-- =========================================================
+     Footer
+     ========================================================= -->
+
+<footer>
+
+    <div class="footer-icon">
+        🌿
+    </div>
+
+    <div class="footer-title">
+        我的學習歷程
+    </div>
+
+    <div class="footer-subtitle">
+        Building · Learning · Improving
+    </div>
+
+    <div class="footer-copyright">
+        © 2026 By YU
+    </div>
+
 </footer>
 
-</body> </html>
+
+</body>
+
+</html>
