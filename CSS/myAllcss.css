@@ -43,7 +43,7 @@
 
     /* ---------- Text ---------- */
 
-    --my-content-heading-color: #24362c;
+    --my-content-heading-color: #316448;
     --my-content-text-color: #465149;
     --my-content-muted-text-color: #7a857c;
     --my-content-light-text-color: #a0aaa2;
@@ -71,7 +71,7 @@
 
     /* ---------- Border ---------- */
 
-    --my-border-color: #e1e6e0;
+    --my-border-color: #a84f07;
     --my-border-color-strong: #ccd5cb;
 
     /* ---------- Radius ---------- */
@@ -379,24 +379,29 @@
    ========================================================= */
 
 .my-title-03 {
+
+    font-family: "LXGW WenKai Mono TC";
+
     margin: 28px 0 16px;
 
     padding: 14px 20px;
 
     color: var(--my-color-primary-900);
 
-    font-size: clamp(26px, 3vw, 40px);
+    font-size: clamp(32px, 3vw, 40px);
 
-    font-weight: 600;
+    font-weight: 900;
 
     line-height: 1.35;
 
-    text-align: left;
+    text-align: center;
 
     background-color:
         var(--my-color-primary-100);
 
     border-left:
+        5px solid var(--my-color-primary-500);
+    border-right:
         5px solid var(--my-color-primary-500);
 
     border-radius:
@@ -468,14 +473,14 @@
 
     font-size: 28px;
 
-    font-weight: 600;
+    font-weight: 900;
 
     line-height: 1.4;
+    text-align: center;
 
     background-color: transparent;
 
-    border-left:
-        4px solid var(--my-color-primary-500);
+
 }
 
 

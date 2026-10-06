@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open-Data旅遊美食列表</title>
+
+
+    <link rel="stylesheet" href="CSS/myAllcss.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+
+    <style>
+        @media screen and (max-width:768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 3px solid var(--my-border-color);
+                margin-top: 15px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) ":";
+                font-family: "LXGW WenKai Mono TC";
+                font-size: 23px;
+                font-weight: 900;
+                display: block;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 20px;
+                color: var(--my-content-heading-color);
+            }
+
+            .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 70%;
+                font-family: "LXGW WenKai Mono TC";
+                color: var(--my-content-text-color);
+                font-size: 20px;
+                font-weight: 700;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+
+    <script>
+        //主程式:開始必定執行的地方
+        $(function () {
+            // 抓取外部資料_農村地方美食小吃特色料理
+            $.ajax({
+                type: "GET",
+                url: "https://data.moa.gov.tw/Service/OpenData/ODwsv/ODwsvTravelFood.aspx?IsTransData=1&UnitId=193",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    console.log(" 抓取外部資料_農村地方美食小吃特色料理-失敗");
+                }
+            });
+        });
+
+        //自訂函式:副程式
+        function showdata(data) {
+            console.log(data)
+            $("#mytbody").empty();
+            data.forEach(function (item) {
+                console.log(item.Name);
+
+                const strHTML = `<tr>
+                        <td data-th="餐廳名稱"><span>${item.Name}</span></td>
+
+                        <td data-th="餐廳圖片"><span><img src="${item.PicURL}" class="img-fluid" alt=""></span></td>
+
+                        <td data-th="餐廳地址"><span>${item.Address}</span></td>
+
+                        <td data-th="餐廳電話"><span>${item.Tel}</span></td>
+
+                        <td data-th="餐廳信箱"><span>${item.Email}</span></td>
+
+                        <td data-th="餐廳簡介"><span class="text-truncate" style="max-width: 450px; display: block;">${item.FoodFeature}</span></td>
+                    </tr>`;
+
+                $("#mytbody").append(strHTML);
+            });
+        }
+
+    </script>
+
+    <div class="container">
+
+        <div class="my-title-03">旅遊美食餐廳列表</div>
+
+        <table class="table table-bordered table-rwd">
+            <thead class="table-dark">
+                <tr>
+                    <th width="10%">餐廳名稱</th>
+                    <th width="25%">餐廳圖片</th>
+                    <th width="20%">餐廳地址</th>
+                    <th width="10%">餐廳電話</th>
+                    <th width="10%">餐廳信箱</th>
+                    <th width="25%">餐廳簡介</th>
+                </tr>
+            </thead>
+            <tbody id="mytbody">
+                <tr>
+                    <td data-th="餐廳名稱"><span>xxxxx</span></td>
+                    <td data-th="餐廳圖片"><span><img src="images/Nature.avif" class="img-fluid" alt=""></span></td>
+                    <td data-th="餐廳地址"><span>xxxxx</span></td>
+                    <td data-th="餐廳電話"><span>xxxxx</span></td>
+                    <td data-th="餐廳信箱"><span>xxxxx</span></td>
+                    <td data-th="餐廳簡介"><span class="text-truncate" style="max-width: 450px; display: block;">一步很熱上路回答共享刪除為此圖文，本週表面一支而言年輕人支持上升整合保健窗口一支感覺接受一人，打電話擁有設定精神不知高中人們兒童標題產生，分為醫藥一句話你還全國騎士道路供應交通是啊沒有任何，被人整合很大高雄，立即團體積極家人怎麼樣藥物前往，住了高雄全體希。</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
