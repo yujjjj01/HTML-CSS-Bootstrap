@@ -22,7 +22,7 @@
             line-height: 120px;
         }
 
-        .box03{
+        .box03 {
             border: 1px solid #ccc;
             padding: 5px;
             border-radius: 5px;
@@ -57,6 +57,8 @@
 <body>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+
 
     <div class="container">
 
@@ -89,7 +91,7 @@
         </div>
 
         <!-- 3 圖片+標題+內文 -->
-        <div class="row">
+        <div class="row" id="travelfood_list">
 
             <div class="col-md-6 col-lg-4
             mt-3">
@@ -98,80 +100,11 @@
                     <img src="images/tree.avif" class="img-fluid" alt="">
 
                     <div class="h3 my-font fw-bold text-center mt-3">景點標題01</div>
-
-                    <p class="my-font">常常筆記本新鮮目光資訊工業人群避免明星實驗工資也就是，瞭解實業，道德文本體系章節轉讓考生，本頁購物，光臨選單合理開展理論相應所以上網大聲給我信心供應依法，制定不太確保也能寵物公園學習能否要去用品難以本頁，偉大成員之下人口服務，私服全身自身，修改不管，早上。</p>
-
+                    <div class="h3 my-font">地址:xxxx</div>
+                    <div class="h3 my-font ">電話:xxxx</div>
+                    <div class="h3 my-font">簡介:xxxx</div>
                 </div>
             </div>
-
-            <div class="col-md-6 col-lg-4
-            mt-3">
-                <div class="box03">
-
-                    <img src="images/Bridge.avif" class="img-fluid" alt="">
-
-                    <div class="h3 my-font fw-bold text-center mt-3">景點標題02</div>
-
-                    <p class="my-font">常常筆記本新鮮目光資訊工業人群避免明星實驗工資也就是，瞭解實業，道德文本體系章節轉讓考生，本頁購物，光臨選單合理開展理論相應所以上網大聲給我信心供應依法，制定不太確保也能寵物公園學習能否要去用品難以本頁，偉大成員之下人口服務，私服全身自身，修改不管，早上。</p>
-
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4
-            mt-3">
-                <div class="box03">
-
-                    <img src="images/tree.avif" class="img-fluid" alt="">
-
-                    <div class="h3 my-font fw-bold text-center mt-3">景點標題03</div>
-
-                    <p class="my-font">常常筆記本新鮮目光資訊工業人群避免明星實驗工資也就是，瞭解實業，道德文本體系章節轉讓考生，本頁購物，光臨選單合理開展理論相應所以上網大聲給我信心供應依法，制定不太確保也能寵物公園學習能否要去用品難以本頁，偉大成員之下人口服務，私服全身自身，修改不管，早上。</p>
-
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4
-            mt-3">
-                <div class="box03">
-
-                    <img src="images/Bridge.avif" class="img-fluid" alt="">
-
-                    <div class="h3 my-font fw-bold text-center mt-3">景點標題04</div>
-
-                    <p class="my-font">常常筆記本新鮮目光資訊工業人群避免明星實驗工資也就是，瞭解實業，道德文本體系章節轉讓考生，本頁購物，光臨選單合理開展理論相應所以上網大聲給我信心供應依法，制定不太確保也能寵物公園學習能否要去用品難以本頁，偉大成員之下人口服務，私服全身自身，修改不管，早上。</p>
-
-                </div>
-            </div>
-
-
-            <div class="col-md-6 col-lg-4
-            mt-3">
-                <div class="box03">
-
-                    <img src="images/tree.avif" class="img-fluid" alt="">
-
-                   <div class="h3 my-font fw-bold text-center mt-3">景點標題05</div>
-
-                    <p class="my-font">常常筆記本新鮮目光資訊工業人群避免明星實驗工資也就是，瞭解實業，道德文本體系章節轉讓考生，本頁購物，光臨選單合理開展理論相應所以上網大聲給我信心供應依法，制定不太確保也能寵物公園學習能否要去用品難以本頁，偉大成員之下人口服務，私服全身自身，修改不管，早上。</p>
-
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4
-            mt-3">
-                <div class="box03">
-
-                    <img src="images/Bridge.avif" class="img-fluid" alt="">
-
-                    <div class="h3 my-font fw-bold text-center mt-3">景點標題06</div>
-
-                    <p class="my-font">常常筆記本新鮮目光資訊工業人群避免明星實驗工資也就是，瞭解實業，道德文本體系章節轉讓考生，本頁購物，光臨選單合理開展理論相應所以上網大聲給我信心供應依法，制定不太確保也能寵物公園學習能否要去用品難以本頁，偉大成員之下人口服務，私服全身自身，修改不管，早上。</p>
-
-                </div>
-            </div>
-
-
-
         </div>
 
         <!-- 4 footer -->
@@ -182,6 +115,44 @@
         </div>
 
     </div>
+
+    <script>
+        $(function () {
+            //介接資料
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/travelfood",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    console.log("介接失敗");
+                    alert("介接失敗");
+                }
+            });
+
+        });
+
+        function showdata(data) {
+            console.log(data);
+            $("#travelfood_list").empty();
+
+            data.forEach(function (item) {
+
+                const strHTML = `<div class="col-md-6 col-lg-4 mt-3">
+                                    <div class="box03">
+                                        <img src="images/tree.avif" class="img-fluid" alt="">
+                                        <div class="h1 my-font fw-bold text-center my-title-06 mt-3">${item.Name}</div>
+                                        <div class="h4 my-font my-h2">地址:${item.City}${item.Town}${item.Address}</div>
+                                        <div class="h4 my-font my-h2">電話:${item.Tel}</div>
+                                        <div class="h4 my-font my-h2 my-intro-text">簡介:${item.HostWords}</div>
+                                    </div>
+                                </div>`;
+
+            $("#travelfood_list").append(strHTML);
+
+            });
+        }
+    </script>
 </body>
 
 </html>
