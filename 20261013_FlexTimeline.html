@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch7 Flex_時間軸(timeline)</title>
+
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/myAllcss.css">
+
+    <style>
+        /* ---------- 圖片 ---------- */
+
+        .imgbox {
+            height: 220px;
+
+            background-color: #eaf1e7;
+
+            border: 1px solid #d3e1cf;
+            border-radius: 14px;
+
+            box-shadow:
+                0 6px 18px rgba(31, 58, 46, 0.10);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .imgbox:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(31, 58, 46, 0.14);
+        }
+
+
+        .timeline-section {
+            position: relative;
+        }
+
+
+        .timeline-section::before {
+            position: absolute;
+
+            content: "";
+
+            width: 4px;
+
+            background:
+                linear-gradient(180deg,
+                    #d3e1cf 0%,
+                    #7eaa82 25%,
+                    #5f8f68 50%,
+                    #7eaa82 75%,
+                    #d3e1cf 100%);
+
+            top: 0;
+            bottom: 0;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            border-radius: 999px;
+
+            opacity: 0.9;
+        }
+
+        .timeline-section-pointer {
+            position: relative;
+
+            padding-top: 18px;
+            padding-bottom: 18px;
+
+            margin-bottom: 20px;
+
+            transition:
+                transform 0.25s ease;
+        }
+
+
+        .timeline-section-pointer::before {
+            position: absolute;
+
+            content: "";
+
+            width: 24px;
+            height: 24px;
+
+            background-color: #eaf1e7;
+
+            border-radius: 50%;
+
+            border: 7px solid #5f8f68;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            top: 50%;
+
+            margin-top: -14px;
+
+            z-index: 3;
+
+            box-shadow:
+                0 0 0 5px rgba(95, 143, 104, 0.12),
+                0 3px 8px rgba(31, 58, 46, 0.12);
+
+            transition:
+                background-color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .timeline-section-pointer:hover::before {
+            background-color: #ffffff;
+
+            border-color: #355f49;
+
+            box-shadow:
+                0 0 0 7px rgba(95, 143, 104, 0.14),
+                0 4px 12px rgba(31, 58, 46, 0.16);
+        }
+
+
+
+        /* ---------- 文字卡片 ---------- */
+
+        .timeline-section-pointer p.my-h2 {
+            margin-bottom: 14px;
+
+            padding: 16px 18px;
+
+            color: #596b5e;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
+            background-color: #ffffff;
+
+            border: 1px solid #e7ebe6;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 2px 6px rgba(31, 58, 46, 0.05);
+
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .timeline-section-pointer p.my-h2:hover {
+            border-color: #a8c4a5;
+
+            box-shadow:
+                0 6px 18px rgba(31, 58, 46, 0.08);
+        }
+
+        @media (max-width: 768px) {
+
+            .container>.my-title-03 {
+                margin-top: 20px;
+                margin-bottom: 28px;
+
+                padding: 16px;
+
+                font-size: 30px;
+            }
+
+            .timeline-section {
+                padding-left: 28px;
+            }
+
+            /* 將中央軸線移至左側 */
+
+            .timeline-section::before {
+                left: 10px;
+
+                transform: none;
+            }
+
+            .timeline-section-pointer {
+                padding-top: 12px;
+                padding-bottom: 12px;
+
+                margin-bottom: 20px;
+            }
+
+            /* 手機版節點 */
+
+            .timeline-section-pointer::before {
+                width: 22px;
+                height: 22px;
+
+                border-width: 6px;
+
+                left: -15px;
+
+                top: 20%;
+
+                margin-top: -11px;
+
+                transform: none;
+            }
+
+            .timeline-section-pointer .h2 {
+                margin-top: 18px;
+                margin-bottom: 14px;
+
+                padding: 10px 12px;
+
+                font-size: 25px;
+            }
+
+            .timeline-section-pointer p.my-h2 {
+                padding: 14px 15px;
+
+                font-size: 15px;
+
+                line-height: 1.85;
+            }
+
+            .imgbox {
+                height: 220px;
+
+                border-radius: 12px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <div class="container">
+        <div class="display-2 my-title-03 my-font fw-bold">時間軸(timeline)</div>
+
+        <div class="timeline-section">
+
+            <div class="row mt-3 align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="imgbox my-bg-img roller-t" style="background-image: url(images/Bridge.avif);">
+
+                        <div class="rollerbox-t">
+                            <button class="btn btn-danger">
+                                查看更多
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="h2  text-center my-title-06">01標題</div>
+                    <p class="my-font my-h2">節目手指，據說格式並不是或是人類共有成立走到也能攻擊鍵盤請問收藏股份有限公司，各自開關，看起來，防。</p>
+                    <p class="my-font my-h2">點這裡新人總結來到頻道夥伴市政府東京組織如下構成承諾來到廣播，研究生聯繫電。</p>
+                </div>
+            </div>
+
+            <div class="row mt-3 flex-row-reverse align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="imgbox my-bg-img roller-b" style="background-image: url(images/Horse.avif);">
+
+                        <div class="rollerbox-b">
+                            <button class="btn btn-danger">
+                                查看更多
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h2  text-center my-title-06">02標題</div>
+                    <p class="my-font my-h2">節目手指，據說格式並不是或是人類共有成立走到也能攻擊鍵盤請問收藏股份有限公司，各自開關，看起來，防。</p>
+                    <p class="my-font my-h2">
+                        點這裡新人總結來到頻道夥伴市政府東京組織如下構成承諾來到廣播，研究生聯繫電話是這樣嘉義一起一座論壇近日，工廠趕緊以下都沒缺乏他就，發表寵物溝通，被人想到一流辦公室推坑王各自藥品尚未今後，新手楠雅一大設立組圖，烏日烏日教材轉變蘋果，原料已有可用，產業影響我。
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-3 align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="imgbox my-bg-img roller-l" style="background-image: url(images/Nature.avif);">
+
+                         <div class="rollerbox-l">
+                            <button class="btn btn-danger">
+                                查看更多
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h2 my-title-06 text-center">03標題</div>
+                    <p class="my-font my-h2">節目手指，據說格式並不是或是人類共有成立走到也能攻擊鍵盤請問收藏股份有限公司，各自開關，看起來，防。</p>
+                    <p class="my-font my-h2">
+                        點這裡新人總結來到頻道夥伴市政府東京組織如下構成承諾來到廣播，研究生聯繫電話是這樣嘉義一起一座論壇近日，工廠趕緊以下都沒缺乏他就，發表寵物溝通，被人想到一流辦公室推坑王各自藥品尚未今後，新手楠雅一大設立組圖，烏日烏日教材轉變蘋果，原料已有可用，產業影響我。
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-3 flex-row-reverse align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="imgbox my-bg-img roller-r" style="background-image: url(images/tree.avif);">
+
+                         <div class="rollerbox-r">
+                            <button class="btn btn-danger">
+                                查看更多
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="h2 my-title-06 text-center">04標題</div>
+                    <p class="my-font my-h2">節目手指，據說格式並不是或是人類共有成立走到也能攻擊鍵盤請問收藏股份有限公司，各自開關，看起來，防。</p>
+                    <p class="my-font my-h2">
+                        點這裡新人總結來到頻道夥伴市政府東京組織如下構成承諾來到廣播，研究生聯繫電話是這樣嘉義一起一座論壇近日，工廠趕緊以下都沒缺乏他就，發表寵物溝通，被人想到一流辦公室推坑王各自藥品尚未今後，新手楠雅一大設立組圖，烏日烏日教材轉變蘋果，原料已有可用，產業影響我。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
