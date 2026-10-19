@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YU 的網頁設計學習歷程、技能整理與實作作品。">
+    <title>YU｜個人履歷與學習作品集</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/myResumeCSS.css">
+</head>
+
+<body class="resume-page">
+
+    <!-- =====================================================
+         01. Hero：履歷主視覺
+         ===================================================== -->
+    <header class="resume-hero">
+        <div class="resume-hero-decoration resume-hero-decoration--one" aria-hidden="true"></div>
+        <div class="resume-hero-decoration resume-hero-decoration--two" aria-hidden="true"></div>
+
+        <div class="resume-hero-content">
+            <p class="resume-eyebrow">PERSONAL PROFILE · LEARNING PORTFOLIO</p>
+            <h1>學習每一步，<span>累積每個作品。</span></h1>
+            <p class="resume-hero-description">
+                這裡整理我的網頁設計學習歷程，從 HTML、CSS 開始，逐步接觸 JavaScript、
+                OpenData、Bootstrap 與 Flexbox，透過實作記錄每個階段的學習成果。
+            </p>
+
+        </div>
+    </header>
+
+    <!-- =====================================================
+         02. 履歷導覽卡：點擊後跳到對應內容
+         ===================================================== -->
+    <section class="resume-overview" aria-labelledby="resume-overview-title">
+        <div class="container resume-overview-container">
+            <div class="resume-overview-heading">
+                <p class="resume-panel-kicker">EXPLORE MY PROFILE</p>
+                <h2 id="resume-overview-title">快速認識我的履歷</h2>
+                <p>選擇想了解的項目，直接前往對應內容。</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-12 col-md-6">
+                    <a class="resume-overview-card resume-overview-card--about" href="#about-me">
+                        <span class="resume-overview-icon" aria-hidden="true">01</span>
+                        <span class="resume-overview-copy">
+                            <strong>關於我</strong>
+                            <span class="resume-overview-english">ABOUT ME</span>
+                            <span class="resume-overview-description">了解我的背景、學習方向與目前的學習歷程。</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <a class="resume-overview-card resume-overview-card--skills" href="#my-skills">
+                        <span class="resume-overview-icon" aria-hidden="true">02</span>
+                        <span class="resume-overview-copy">
+                            <strong>專業技能</strong>
+                            <span class="resume-overview-english">TECHNICAL SKILLS</span>
+                            <span class="resume-overview-description">查看目前接觸與實際練習過的網頁技術。</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <a class="resume-overview-card resume-overview-card--projects" href="#resume-timeline">
+                        <span class="resume-overview-icon" aria-hidden="true">03</span>
+                        <span class="resume-overview-copy">
+                            <strong>專案作品</strong>
+                            <span class="resume-overview-english">MY PROJECTS</span>
+                            <span class="resume-overview-description">直接前往作品時間軸，依日期瀏覽全部作品。</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <a class="resume-overview-card resume-overview-card--goal" href="#career-goal">
+                        <span class="resume-overview-icon" aria-hidden="true">04</span>
+                        <span class="resume-overview-copy">
+                            <strong>求職目標</strong>
+                            <span class="resume-overview-english">CAREER GOAL</span>
+                            <span class="resume-overview-description">了解接下來希望持續精進的能力與方向。</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- =====================================================
+         03. Main Layout：左側履歷資訊、右側作品時間軸
+         ===================================================== -->
+    <main class="resume-layout">
+
+        <!-- 左側個人履歷欄 -->
+        <aside class="resume-sidebar" aria-label="個人履歷資訊">
+
+            <!-- 個人資料 -->
+            <section class="resume-panel resume-profile-card" id="about-me">
+                <div class="resume-avatar" aria-label="YU 的文字標誌">YU</div>
+                <p class="resume-panel-kicker">ABOUT ME</p>
+                <h2 class="resume-profile-name">YU</h2>
+                <p class="resume-profile-role">軟體工程師</p>
+                <div class="resume-small-divider"></div>
+                <p class="resume-body-text">
+                    目前持續學習網頁設計與前端開發，透過不同主題的練習，熟悉網頁結構、視覺排版、資料呈現與響應式設計。
+                </p>
+            </section>
+
+            <!-- 技能整理 -->
+            <section class="resume-panel resume-skills-panel" id="my-skills">
+                <p class="resume-panel-kicker">TECHNICAL SKILLS</p>
+                <h2 class="resume-panel-title">學習技術</h2>
+                <p class="resume-body-text resume-skills-intro">
+                    以下整理目前作品中實際練習過的技術與主題。
+                </p>
+                <div class="resume-skill-list">
+                    <span class="resume-skill-tag">HTML5</span>
+                    <span class="resume-skill-tag">CSS3</span>
+                    <span class="resume-skill-tag">JavaScript</span>
+                    <span class="resume-skill-tag">OpenData</span>
+                    <span class="resume-skill-tag">JSON</span>
+                    <span class="resume-skill-tag">Bootstrap</span>
+                    <span class="resume-skill-tag">Bootstrap Table</span>
+                    <span class="resume-skill-tag">CSS Flexbox</span>
+                    <span class="resume-skill-tag">RWD</span>
+                    <span class="resume-skill-tag">HTML Forms</span>
+                    <span class="resume-skill-tag">Input Elements</span>
+                </div>
+            </section>
+
+            <!-- 學習方向 -->
+            <section class="resume-panel resume-focus-panel">
+                <p class="resume-panel-kicker">LEARNING FOCUS</p>
+                <h2 class="resume-panel-title">學習重點</h2>
+                <ul class="resume-focus-list">
+                    <li><span aria-hidden="true">01</span>網頁結構與視覺排版</li>
+                    <li><span aria-hidden="true">02</span>資料讀取與網頁呈現</li>
+                    <li><span aria-hidden="true">03</span>Bootstrap 與版面切版</li>
+                    <li><span aria-hidden="true">04</span>Flexbox 與響應式設計</li>
+                </ul>
+            </section>
+
+            <!-- 求職目標：供上方導覽卡跳轉 -->
+            <section class="resume-panel resume-goal-panel" id="career-goal">
+                <p class="resume-panel-kicker">CAREER GOAL</p>
+                <h2 class="resume-panel-title">求職目標</h2>
+                <p class="resume-body-text">
+                    持續精進網頁設計與前端開發技術，加強版面規劃、資料整合及互動功能，
+                    逐步提升獨立完成網頁作品的能力。
+                </p>
+            </section>
+
+
+
+
+
+        </aside>
+
+
+        <!-- 右側作品時間軸 -->
+        <section class="resume-work-section" id="resume-timeline" aria-labelledby="timeline-heading">
+            <div class="resume-section-heading">
+                <div>
+                    <p class="resume-panel-kicker" data-project-range>MY PROJECTS · 01—12</p>
+                    <h2 id="timeline-heading">學習與作品歷程</h2>
+                    <p class="resume-section-description">
+                        沿著時間軸，看看我從基礎排版到資料應用與響應式切版的練習紀錄。
+                    </p>
+                </div>
+                <div class="resume-project-count" data-project-count-aria aria-label="共 12 個作品">
+                    <strong data-project-count-number>12</strong>
+                    <span>PROJECTS</span>
+                </div>
+            </div>
+
+            <div class="resume-timeline">
+
+                <!-- =================================================
+                     Project 01
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--green">
+                            <span class="resume-project-visual-number">01</span>
+                            <span class="resume-project-emoji" aria-hidden="true">🌱</span>
+                            <span class="resume-project-visual-label">FIRST STEPS · WEB DESIGN</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">HTML · CSS · WEB DESIGN</p>
+                            <h3>HTML & CSS 網頁排版基礎練習</h3>
+                            <time class="resume-project-date" datetime="2026-09-23">2026 / 09 / 23</time>
+                            <p class="resume-project-description">
+                                第一次練習使用 HTML 與 CSS 建立完整的網頁結構， 從標題、段落、圖片到區塊配置，學習 HTML 語意結構 與
+                                CSS基本樣式設定，並嘗試調整文字、顏色、間距與版面配置，建立網頁設計的基礎概念。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20260923_ex01.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 02
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--violet">
+                            <span class="resume-project-visual-number">02</span>
+                            <span class="resume-project-emoji" aria-hidden="true">🤖</span>
+                            <span class="resume-project-visual-label">AI · CODE EXPLORATION</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">HTML · CSS · AI</p>
+                            <h3>HTML & CSS 排版練習 By AI</h3>
+                            <time class="resume-project-date" datetime="2026-09-24">2026 / 09 / 24</time>
+                            <p class="resume-project-description">
+                                嘗試利用 AI 協助網頁設計與程式撰寫， 透過 AI 產生 HTML 與 CSS 的設計方向，
+                                再根據自己的需求進行修改與調整。從過程中學習如何閱讀程式碼、理解版面結構，並思考AI 產生的程式是否符合實際需求。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20260924_ex01_AI2.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 03
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--coral">
+                            <span class="resume-project-visual-number">03</span>
+                            <span class="resume-project-emoji" aria-hidden="true">🍜</span>
+                            <span class="resume-project-visual-label">DATA · TRAVEL · FOOD</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">JAVASCRIPT · OPENDATA · JSON</p>
+                            <h3>JavaScript × OpenData 旅遊美食</h3>
+                            <time class="resume-project-date" datetime="2026-09-29">2026 / 09 / 29</time>
+                            <p class="resume-project-description">
+                                開始接觸 JavaScript 與 OpenData 的應用， 練習透過 API 取得公開資料，並使用 JavaScript 讀取與處理
+                                JSON格式的內容，再將旅遊景點與美食資訊動態呈現在網頁上，了解前端網頁如何 與外部資料進行互動。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20260929_js_TravelFood.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 04
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--blue">
+                            <span class="resume-project-visual-number">04</span>
+                            <span class="resume-project-emoji" aria-hidden="true">🅱️</span>
+                            <span class="resume-project-visual-label">BOOTSTRAP · OPENDATA</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">BOOTSTRAP · OPENDATA · RWD</p>
+                            <h3>Bootstrap × OpenData 旅遊美食</h3>
+                            <time class="resume-project-date" datetime="2026-10-01">2026 / 10 / 01</time>
+                            <p class="resume-project-description">
+                                將 Bootstrap 框架應用在 OpenData 資料展示上， 學習使用 Bootstrap 提供的元件與 Grid
+                                網格系統建立整齊的網頁版面，同時結合旅遊與美食資料，練習製作具有響應式設計的資訊展示頁面。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20261001_Boostrap.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 05
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--gold">
+                            <span class="resume-project-visual-number">05</span>
+                            <span class="resume-project-emoji" aria-hidden="true">📊</span>
+                            <span class="resume-project-visual-label">TABLE · DATA DISPLAY</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">BOOTSTRAP TABLE · OPENDATA · DATA</p>
+                            <h3>Bootstrap Table × OpenData 旅遊美食</h3>
+                            <time class="resume-project-date" datetime="2026-10-06">2026 / 10 / 06</time>
+                            <p class="resume-project-description">
+                                進一步學習 Bootstrap Table 的使用方式， 將 OpenData 中取得的旅遊與美食資訊整理成表格，
+                                練習資料欄位的呈現、表格樣式與資料閱讀性，讓大量資訊能夠以更清楚、有條理的方式呈現在網頁中。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20261006_BS_Table_Data.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 06
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--cyan">
+                            <span class="resume-project-visual-number">06</span>
+                            <span class="resume-project-emoji" aria-hidden="true">🎨</span>
+                            <span class="resume-project-visual-label">GRID · LAYOUT</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">BOOTSTRAP · GRID · RESPONSIVE</p>
+                            <h3>Ch6_切版_基礎功</h3>
+                            <time class="resume-project-date" datetime="2026-10-06">2026 / 10 / 06</time>
+                            <p class="resume-project-description">
+                                學習使用 Bootstrap 進行網頁切版，練習 Container、Row、Column 等 Grid 網格系統，並搭配
+                                Flex進行版面配置。透過實際製作不同區塊，將設計內容轉換成 HTML與Bootstrap 結構，進一步熟悉響應式網頁設計與不同螢幕尺寸的版面調整。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20261006_ch6_切版.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 07
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--violet">
+                            <span class="resume-project-visual-number">07</span>
+                            <span class="resume-project-emoji" aria-hidden="true">🧩</span>
+                            <span class="resume-project-visual-label">LAYOUT PRACTICE</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">BOOTSTRAP · LAYOUT · RWD</p>
+                            <h3>Bootstrap_切版練習_EX01</h3>
+                            <time class="resume-project-date" datetime="2026-10-06">2026 / 10 / 06</time>
+                            <p class="resume-project-description">
+                                開始練習使用 Bootstrap 進行網頁切版， 學習 Container、Row、Column 等基本 Grid 系統，
+                                將設計內容拆分成不同區塊並安排版面位置，同時了解響應式網頁設計的概念，讓網頁能適應 不同螢幕尺寸。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20261006_ch6_切版_ex01.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 08
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--blue">
+                            <span class="resume-project-visual-number">08</span>
+                            <span class="resume-project-emoji" aria-hidden="true">🎨</span>
+                            <span class="resume-project-visual-label">LAYOUT PRACTICE · EX02</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">BOOTSTRAP · LAYOUT · RESPONSIVE</p>
+                            <h3>Bootstrap_切版練習_EX02</h3>
+                            <time class="resume-project-date" datetime="2026-10-08">2026 / 10 / 08</time>
+                            <p class="resume-project-description">
+                                延續 Bootstrap 切版練習，進一步熟悉網格系統、Flex 排版與響應式設計的使用方式。透過實際製作不同區塊的版面配置，練習將網頁設計稿轉換成 HTML 與
+                                Bootstrap 結構，提升自己對網頁整體版面與視覺配置的掌握度。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20261008_ch6_切版_ex02.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 09
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--coral">
+                            <span class="resume-project-visual-number">09</span>
+                            <span class="resume-project-emoji" aria-hidden="true">🎨</span>
+                            <span class="resume-project-visual-label">FLEXBOX · LAYOUT</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">FLEX · LAYOUT · RESPONSIVE</p>
+                            <h3>Ch7_Flex_基礎功</h3>
+                            <time class="resume-project-date" datetime="2026-10-08">2026 / 10 / 08</time>
+                            <p class="resume-project-description">
+                                開始深入練習 CSS Flexbox 排版，學習使用 display:
+                                flex、justify-content、align-items、flex-direction 等屬性控制網頁元素的位置與排列方式。透過實際的版面練習，了解
+                                Flex在水平與垂直配置上的應用，提升自己對網頁排版與區塊配置的掌握度。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20261008_ch7_flex.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 10
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--gold">
+                            <span class="resume-project-visual-number">10</span>
+                            <span class="resume-project-emoji" aria-hidden="true">📐</span>
+                            <span class="resume-project-visual-label">FLEXBOX · TIMELINE</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">FLEX · TIMELINE · RESPONSIVE</p>
+                            <h3>Ch7_Flex_TimeLine</h3>
+                            <time class="resume-project-date" datetime="2026-10-13">2026 / 10 / 13</time>
+                            <p class="resume-project-description">
+                                本次開始深入練習 CSS Flexbox 排版，學習運用 display: flex、justify-content、align-items 與 flex-direction
+                                等屬性，控制元素的排列方向、對齊方式與間距。透過製作時間軸版面，練習使用 Flexbox
+                                配置內容區塊，並結合響應式設計（RWD），讓頁面在不同裝置尺寸下都能維持良好的版面結構與閱讀體驗。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20261013_FlexTimeline.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+
+                <!-- =================================================
+                     Project 11
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--cyan">
+                            <span class="resume-project-visual-number">11</span>
+                            <span class="resume-project-emoji" aria-hidden="true">📝</span>
+                            <span class="resume-project-visual-label">HTML FORMS · USER INPUT</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">HTML FORMS · INPUT · USER INTERACTION</p>
+                            <h3>Ch8_Forms</h3>
+                            <time class="resume-project-date" datetime="2026-10-15">2026 / 10 / 15</time>
+                            <p class="resume-project-description">
+                                本次練習 HTML 表單（Forms）的基本結構與應用，學習運用
+                                form、label、input、select、textarea等表單元素建立使用者輸入介面，並認識不同輸入類型的用途與設定方式。透過表單欄位的配置與屬性應用，熟悉資料輸入、選項選擇及文字填寫等功能，進一步提升網頁互動性與表單設計的實作能力。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20261015_Ch8_Forms.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- =================================================
+                     Project 12
+                     ================================================= -->
+                <article class="resume-timeline-item">
+                    <div class="resume-project-card">
+                        <div class="resume-project-visual resume-visual--violet">
+                            <span class="resume-project-visual-number">12</span>
+                            <span class="resume-project-emoji" aria-hidden="true">📝</span>
+                            <span class="resume-project-visual-label">FORM ELEMENTS · BASIC INPUT</span>
+                        </div>
+                        <div class="resume-project-content">
+                            <p class="resume-project-category">HTML FORMS · FORM ELEMENTS · BASIC INPUT</p>
+                            <h3>Ch8_Forms_Ex01</h3>
+                            <time class="resume-project-date" datetime="2026-10-15">2026 / 10 / 15</time>
+                            <p class="resume-project-description">
+                                延續 HTML Forms 的學習，本次透過實際練習熟悉表單的基本語法與元素配置，運用 form 建立表單結構，搭配 label 標示欄位，並使用
+                                input建立不同類型的輸入項目。透過實際操作，加深對表單標籤及輸入欄位用途的理解，練習將 HTML 表單元素組合成完整的輸入介面，提升表單結構規劃與網頁製作的熟練度。
+                            </p>
+                            <div class="resume-project-footer">
+                                <a class="resume-project-button" href="20261015_Ch8_Forms_Ex01.html" target="_blank"
+                                    rel="noopener noreferrer">查看作品 <span aria-hidden="true">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         04. Footer
+         ===================================================== -->
+    <footer class="resume-footer">
+        <div class="resume-footer-mark" aria-hidden="true">YU</div>
+        <p class="resume-footer-title">持續學習，持續累積。</p>
+        <p class="resume-footer-subtitle">BUILDING · LEARNING · IMPROVING</p>
+        <p class="resume-footer-copyright">© 2026 By YU · Personal Learning Portfolio</p>
+    </footer>
+
+    <!-- =====================================================
+         自動更新作品總數與編號
+         新增／刪除 .resume-timeline-item 後會自動重新計算
+         ===================================================== -->
+    <script>
+        (() => {
+            const timeline = document.querySelector(".resume-timeline");
+
+            if (!timeline) return;
+
+            function updateProjectSummary() {
+                // 只計算時間軸第一層的作品項目，避免誤算卡片內部元素。
+                const projects = Array.from(
+                    timeline.querySelectorAll(":scope > .resume-timeline-item")
+                );
+                const count = projects.length;
+                const endNumber = String(count).padStart(2, "0");
+                const startNumber = count > 0 ? "01" : "00";
+
+                // 1. 更新首頁「探索我的 N 個作品」文字。
+                const heroCount = document.querySelector("[data-project-count-cta]");
+                if (heroCount) {
+                    heroCount.textContent = `探索我的 ${count} 個作品`;
+                }
+
+                // 2. 更新時間軸標題 MY PROJECTS · 01—N。
+                const projectRange = document.querySelector("[data-project-range]");
+                if (projectRange) {
+                    projectRange.textContent = `MY PROJECTS · ${startNumber}—${endNumber}`;
+                }
+
+                // 3. 更新作品總數徽章及其無障礙標籤。
+                const projectCountNumber = document.querySelector("[data-project-count-number]");
+                if (projectCountNumber) {
+                    projectCountNumber.textContent = String(count);
+                }
+
+                const projectCountLabel = document.querySelector("[data-project-count-aria]");
+                if (projectCountLabel) {
+                    projectCountLabel.setAttribute("aria-label", `共 ${count} 個作品`);
+                }
+
+                // 同步更新搜尋引擎摘要中的作品總數。
+                const description = document.querySelector('meta[name="description"]');
+                if (description) {
+                    description.setAttribute(
+                        "content",
+                        `YU 的網頁設計學習歷程、技能整理與 ${count} 個實作作品。`
+                    );
+                }
+
+                // 依照時間軸順序自動更新每張作品卡片上的編號。
+                projects.forEach((project, index) => {
+                    const number = String(index + 1).padStart(2, "0");
+                    const visualNumber = project.querySelector(".resume-project-visual-number");
+                    if (visualNumber) visualNumber.textContent = number;
+                });
+            }
+
+            // 網頁載入時先計算一次。
+            updateProjectSummary();
+
+            // 若有程式在目前頁面動態新增／移除作品，也會重新計算。
+            const projectObserver = new MutationObserver((mutations) => {
+                if (mutations.some((mutation) => mutation.addedNodes.length || mutation.removedNodes.length)) {
+                    updateProjectSummary();
+                }
+            });
+
+            projectObserver.observe(timeline, { childList: true });
+        })();
+    </script>
+</body>
+
+</html>
