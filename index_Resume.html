@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="YU 的網頁設計學習歷程、技能整理與實作作品。">
-    <title>YU｜個人履歷與學習作品集</title>
+    <title>YU｜個人履歷</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/myResumeCSS.css">
@@ -13,23 +13,91 @@
 
 <body class="resume-page">
 
-    <!-- =====================================================
-         01. Hero：履歷主視覺
-         ===================================================== -->
-    <header class="resume-hero">
-        <div class="resume-hero-decoration resume-hero-decoration--one" aria-hidden="true"></div>
-        <div class="resume-hero-decoration resume-hero-decoration--two" aria-hidden="true"></div>
 
-        <div class="resume-hero-content">
-            <p class="resume-eyebrow">PERSONAL PROFILE · LEARNING PORTFOLIO</p>
-            <h1>學習每一步，<span>累積每個作品。</span></h1>
-            <p class="resume-hero-description">
-                這裡整理我的網頁設計學習歷程，從 HTML、CSS 開始，逐步接觸 JavaScript、
-                OpenData、Bootstrap 與 Flexbox，透過實作記錄每個階段的學習成果。
-            </p>
+    <!-- =====================================================
+     01. Hero：履歷主視覺
+     ===================================================== -->
+    <header class="resume-hero" id="resume-home">
+
+        <div class="resume-hero-inner">
+
+            <!-- 左側：個人介紹 -->
+            <div class="resume-hero-content">
+
+                <p class="resume-eyebrow">
+                    PERSONAL PROFILE · LEARNING PORTFOLIO
+                </p>
+
+                <h1 class="resume-hero-title">
+                    學習每一步，<br>
+                    <span>累積每個作品。</span>
+                </h1>
+
+                <p class="resume-hero-description">
+                    這裡整理我的網頁設計學習歷程，從 HTML、CSS 開始，
+                    逐步接觸 JavaScript、OpenData、Bootstrap 與 Flexbox，
+                    透過實作記錄每個階段的學習成果。
+                </p>
+
+                <div class="resume-hero-buttons">
+                    <a href="#resume-timeline" class="resume-hero-button">
+                        探索我的作品
+                        <span aria-hidden="true">↘</span>
+                    </a>
+
+                    <a href="#about-me" class="resume-hero-link">
+                        關於我
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <div class="resume-hero-footer">
+                    <span>HTML · CSS · WEB DESIGN</span>
+                </div>
+
+            </div>
+
+            <!-- 右側：作品數量與技能標籤 -->
+            <aside class="resume-hero-panel" aria-label="作品與學習技能">
+
+                <div class="resume-hero-panel-heading">
+                    <span>MY LEARNING JOURNEY</span>
+                    <span>2026</span>
+                </div>
+
+                <div class="resume-hero-project-count">
+                    <span class="resume-hero-number" data-project-count>12</span>
+
+                    <span class="resume-hero-project-label">
+                        PROJECTS
+                    </span>
+                </div>
+
+                <p class="resume-hero-panel-description">
+                    每一次練習，都是累積設計與開發能力的一步。
+                </p>
+
+                <div class="resume-hero-panel-divider"></div>
+
+                <h2 class="resume-hero-skills-title">
+                    SKILLS & TECHNOLOGIES
+                </h2>
+
+                <div class="resume-hero-skills">
+                    <span class="resume-skill-tag">HTML</span>
+                    <span class="resume-skill-tag">CSS</span>
+                    <span class="resume-skill-tag">JavaScript</span>
+                    <span class="resume-skill-tag">Bootstrap</span>
+                    <span class="resume-skill-tag">Flexbox</span>
+                    <span class="resume-skill-tag">RWD</span>
+                    <span class="resume-skill-tag">OpenData</span>
+                </div>
+            </aside>
 
         </div>
+
     </header>
+
 
     <!-- =====================================================
          02. 履歷導覽卡：點擊後跳到對應內容
