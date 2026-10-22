@@ -157,282 +157,305 @@
 
                 </div>
             </div>
+            <!--range-->
+            <div class="col-12 bg-light">
+                <div class="mb-2">
+                    <label for="" class="form-label">程式能力自我評估:<span class="text-primary fs-3">5</span>分</label>
+                    <input type="range" class="form-range" min="1" max="10" step="1" value="5" id="range01">
+                    <div class="d-flex justify-content-between">
+                        <span class="text-secondary">1-完全不會</span>
+                        <span class="text-secondary">10-非常熟悉</span>
+                    </div>
+                </div>
+            </div>
 
+            <!--按鈕-->
             <div class="col-12 text-center mt-3">
                 <button class="btn btn-primary my-font" id="ok_btn">確認送出</button>
                 <button class="btn btn-secondary my-font" id="reset_btn">重新填寫</button>
             </div>
-        </div>
 
-        <!---顯示輸入的訊息區塊-->
-        <div class="row">
-            <div class="col-12">
-                <div class="my-title-06">報名資料確認</div>
+            <!---顯示輸入的訊息區塊-->
+            <div class="row">
+                <div class="col-12">
+                    <div class="my-title-06">報名資料確認</div>
+                </div>
+                <div class="col-12" id="showmsg">
+                </div>
             </div>
-            <div class="col-12" id="showmsg">
-            </div>
-        </div>
 
-        <script>
+            <script>
 
-            let flag_username = false;//布林值
-            let flag_email = false;
-            let flag_password = false;
-            let flag_tel = false;
-            let flag_city = false;
-            let flag_interest = false;
-            let flag_classMode = false;
-            let interest = [];
-            let classMode = '';
-            let switch01 = false;
+                let flag_username = false;
+                let flag_email = false;
+                let flag_password = false;
+                let flag_tel = false;
+                let flag_city = false;
+                let flag_interest = false;
+                let flag_classMode = false;
+                let interest = [];
+                let classMode = '';
+                let switch01 = false;
 
-            $(function () {
-                //監聽 #username
-                $("#username").on("input", function () {
+                $(function () {
+                    //監聽 #username
+                    $("#username").on("input", function () {
 
-                    // 如果輸入框是空的
-                    if ($(this).val().length == 0) {
-                        $(this).removeClass("is-valid is-invalid");
-                        flag_username = false;
-                    }
+                        // 如果輸入框是空的
+                        if ($(this).val().length == 0) {
+                            $(this).removeClass("is-valid is-invalid");
+                            flag_username = false;
+                        }
 
-                    // 輸入長度大於 1 且小於 9
-                    else if ($(this).val().length > 1 && $(this).val().length < 9) {
-                        $(this).removeClass("is-invalid");
-                        $(this).addClass("is-valid");
-                        flag_username = true;
-                    }
+                        // 輸入長度大於 1 且小於 9
+                        else if ($(this).val().length > 1 && $(this).val().length < 9) {
+                            $(this).removeClass("is-invalid");
+                            $(this).addClass("is-valid");
+                            flag_username = true;
+                        }
 
-                    // 不符合規定
-                    else {
-                        $(this).removeClass("is-valid");
-                        $(this).addClass("is-invalid");
-                        flag_username = false;
-                    }
+                        // 不符合規定
+                        else {
+                            $(this).removeClass("is-valid");
+                            $(this).addClass("is-invalid");
+                            flag_username = false;
+                        }
 
-                });
-
-                //監聽Email
-                $('#email').on("input", function () {
-
-                    let email = $(this).val();
-                    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-                    // 如果輸入框是空的
-                    if ($(this).val().length == 0) {
-                        $(this).removeClass("is-valid is-invalid");
-                        flag_email = false;
-                    }
-
-                    else if (email.length > 7 && email.length < 16 && emailRegex.test(email)) {
-
-                        $(this).removeClass("is-invalid")
-                        $(this).addClass("is-valid");
-                        flag_email = true;
-
-                    } else {
-
-                        $(this).removeClass("is-valid")
-                        $(this).addClass("is-invalid");
-                        flag_email = false;
-
-                    }
-                });
-
-                //監聽密碼
-                $('#password').on("input", function () {
-
-                    let password = $(this).val();
-
-                    // 如果輸入框是空的
-                    if ($(this).val().length == 0) {
-                        $(this).removeClass("is-valid is-invalid");
-                        flag_password = false;
-                    }
-                    else if (password.length > 7 && password.length < 17) {
-
-                        $(this).removeClass("is-invalid")
-                        $(this).addClass("is-valid");
-                        flag_password = true;
-
-                    } else {
-
-                        $(this).removeClass("is-valid")
-                        $(this).addClass("is-invalid");
-                        flag_password = false;
-
-                    }
-                });
-
-                //監聽手機號碼
-                $('#tel').on("input", function () {
-
-                    let tel = $(this).val();
-
-                    // 如果輸入框是空的
-                    if ($(this).val().length == 0) {
-                        $(this).removeClass("is-valid is-invalid");
-                        flag_tel = false;
-                    }
-
-                    else if (tel.length == 10 && tel.startsWith("09") && /^\d+$/.test(tel)) {
-
-                        $(this).removeClass("is-invalid")
-                        $(this).addClass("is-valid");
-                        flag_tel = true;
-
-                    } else {
-
-                        $(this).removeClass("is-valid")
-                        $(this).addClass("is-invalid");
-                        flag_tel = false;
-
-                    }
-                });
-
-                //監聽縣市
-                $('#city').on("change", function () {
-                    $(this).removeClass("is-invalid")
-                    $(this).addClass("is-valid");
-                    flag_city = true;
-                });
-
-                //監聽checkbox
-                $('input[name="interest"]').on("change", function () {
-                    interest = [];
-                    $('input[name="interest"]:checked').each(function () {
-                        interest.push($(this).val());
                     });
 
-                    if (interest.length > 0) {
-                        flag_interest = true;
-                        $("#interest_msg").removeClass("text-secondary text-danger").addClass("text-success").text("已選擇" + interest.length + "項課程");
-                    } else {
+                    //監聽Email
+                    $('#email').on("input", function () {
+
+                        let email = $(this).val();
+                        let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+                        // 如果輸入框是空的
+                        if ($(this).val().length == 0) {
+                            $(this).removeClass("is-valid is-invalid");
+                            flag_email = false;
+                        }
+
+                        else if (email.length > 7 && email.length < 16 && emailRegex.test(email)) {
+
+                            $(this).removeClass("is-invalid")
+                            $(this).addClass("is-valid");
+                            flag_email = true;
+
+                        } else {
+
+                            $(this).removeClass("is-valid")
+                            $(this).addClass("is-invalid");
+                            flag_email = false;
+
+                        }
+                    });
+
+                    //監聽密碼
+                    $('#password').on("input", function () {
+
+                        let password = $(this).val();
+
+                        // 如果輸入框是空的
+                        if ($(this).val().length == 0) {
+                            $(this).removeClass("is-valid is-invalid");
+                            flag_password = false;
+                        }
+                        else if (password.length > 7 && password.length < 17) {
+
+                            $(this).removeClass("is-invalid")
+                            $(this).addClass("is-valid");
+                            flag_password = true;
+
+                        } else {
+
+                            $(this).removeClass("is-valid")
+                            $(this).addClass("is-invalid");
+                            flag_password = false;
+
+                        }
+                    });
+
+                    //監聽手機號碼
+                    $('#tel').on("input", function () {
+
+                        let tel = $(this).val();
+
+                        // 如果輸入框是空的
+                        if ($(this).val().length == 0) {
+                            $(this).removeClass("is-valid is-invalid");
+                            flag_tel = false;
+                        }
+
+                        else if (tel.length == 10 && tel.startsWith("09") && /^\d+$/.test(tel)) {
+
+                            $(this).removeClass("is-invalid")
+                            $(this).addClass("is-valid");
+                            flag_tel = true;
+
+                        } else {
+
+                            $(this).removeClass("is-valid")
+                            $(this).addClass("is-invalid");
+                            flag_tel = false;
+
+                        }
+                    });
+
+                    //監聽縣市
+                    $('#city').on("change", function () {
+                        $(this).removeClass("is-invalid")
+                        $(this).addClass("is-valid");
+                        flag_city = true;
+                    });
+
+                    //監聽checkbox
+                    $('input[name="interest"]').on("change", function () {
+                        interest = [];
+                        $('input[name="interest"]:checked').each(function () {
+                            interest.push($(this).val());
+                        });
+
+                        if (interest.length > 0) {
+                            flag_interest = true;
+                            $("#interest_msg").removeClass("text-secondary text-danger").addClass("text-success").text("已選擇" + interest.length + "項課程");
+                        } else {
+                            flag_interest = false;
+                            $("#interest_msg").removeClass("text-secondary text-danger").addClass("text-danger").text("請至少選擇一項課程");
+                        }
+                    });
+
+                    //監聽radio
+                    $('input[name="classMode"]').on("change", function () {
+
+                        classMode = $('input[name="classMode"]:checked').val();
+
+                        if (classMode) {
+                            flag_classMode = true;
+                            $("#classMode_msg").removeClass("text-secondary text-danger").addClass("text-success").text("已選擇" + classMode);
+                        }
+                    });
+
+
+                    //監聽switch
+                    $('#switch01').on("change", function () {
+                        switch01 = $(this).is(":checked");
+                        if (switch01) {
+                            $("#switch_msg").removeClass("text-secondary").addClass("text-success").text("目前狀態:開啟");
+                        } else {
+                            $("#switch_msg").removeClass("text-success").addClass("text-secondary").text("目前狀態:關閉");
+                        }
+                    });
+
+                    //監聽range
+                    $('#range01').on("input", function () {
+                        let rangeValue = $(this).val();
+                        $(this).prev().find("span").text(rangeValue);
+                    });
+
+
+                    //讀取json檔案
+                    $.ajax({
+                        type: "GET",
+                        url: "js/json/CityCountyData.json",
+                        dataType: "JSON",
+                        success: showdata_city,
+                        error: function () {
+                            alert("讀取失敗!");
+                        }
+                    });
+                    //顯示縣市資料
+                    function showdata_city(data) {
+                        // console.log(data);
+                        $("#city").empty();
+                        $("#city").append(`<option value="" selected disabled class="my-title-06">---請選擇縣市名稱---</option>`);
+                        data.forEach(function (item, index) {
+                            const count = index + 1;
+                            const strHTML = `<option value="${item.CityName}">${count}:${item.CityName}</option>`;
+                            $("#city").append(strHTML);
+                        });
+
+                    }
+
+                    //監聽 #ok_btn確認送出
+                    $("#ok_btn").on("click", function () {
+                        if (flag_username && flag_email && flag_password && flag_tel && flag_city && flag_interest && flag_classMode) {
+                            const strHTML = `
+                                <div class="h2 my-title-04">姓名: ${$("#username").val()}</div>
+                                <div class="h2 my-title-04">Email: ${$("#email").val()}</div>
+                                <div class="h2 my-title-04">密碼: ${$("#password").val()}</div>
+                                <div class="h2 my-title-04">手機號碼: ${$("#tel").val()}</div>
+                                <div class="h2 my-title-04">居住地: ${$("#city").val()}</div>
+                                <div class="h2 my-title-04">選擇的課程: ${interest.join(", ")}</div>
+                                <div class="h2 my-title-04">偏好的上課方式: ${classMode}</div>
+                                <div class="h2 my-title-04">課程通知設定: ${switch01 ? "開啟" : "關閉"}</div>
+                                <div class="h2 my-title-04">程式能力自我評估: ${$("#range01").val()}分</div>`;
+                            $("#showmsg").html(strHTML);
+
+                        } else {
+                            // console.log("不符合規定!");
+                            alert("不符合規定")
+                        }
+
+                    });
+
+                    // 監聽重新填寫按鈕
+                    $("#reset_btn").on("click", function () {
+
+                        // 清空所有輸入欄位
+                        $("#username").val("");
+                        $("#email").val("");
+                        $("#password").val("");
+                        $("#tel").val("");
+                        $("#city").val("");
+                        $("input[name='interest']").prop("checked", false);
+                        $("input[name='classMode']").prop("checked", false);
+                        $("#switch01").prop("checked", false);
+
+
+                        // 移除驗證樣式
+                        $("#username, #email, #password, #tel, #city")
+                            .removeClass("is-valid is-invalid");
+
+                        // 將驗證旗標恢復為 false
+                        flag_username = false;
+                        flag_email = false;
+                        flag_password = false;
+                        flag_tel = false;
+                        flag_city = false;
                         flag_interest = false;
-                        $("#interest_msg").removeClass("text-secondary text-danger").addClass("text-danger").text("請至少選擇一項課程");
-                    }
-                });
-
-                //監聽radio
-                $('input[name="classMode"]').on("change", function () {
-
-                    classMode = $('input[name="classMode"]:checked').val();
-
-                    if (classMode) {
-                        flag_classMode = true;
-                        $("#classMode_msg").removeClass("text-secondary text-danger").addClass("text-success").text("已選擇" + classMode);
-                    }
-                });
+                        flag_classMode = false;
+                        switch01 = false;
 
 
-                //監聽switch
-                $('#switch01').on("change", function () {
-                    switch01 = $(this).is(":checked");
-                    if (switch01) {
-                        $("#switch_msg").removeClass("text-secondary").addClass("text-success").text("目前狀態:開啟");
-                    } else {
-                        $("#switch_msg").removeClass("text-success").addClass("text-secondary").text("目前狀態:關閉");
-                    }
-                });
+                        // 重設課程提示訊息
+                        $("#interest_msg")
+                            .removeClass("text-success text-danger")
+                            .addClass("text-secondary")
+                            .text("請至少選擇一項課程");
 
-                $.ajax({
-                    type: "GET",
-                    url: "js/json/CityCountyData.json",
-                    dataType: "JSON",
-                    success: showdata_city,
-                    error: function () {
-                        alert("讀取失敗!");
-                    }
-                });
+                        // 重設上課方式提示訊息
+                        $("#classMode_msg")
+                            .removeClass("text-success text-danger")
+                            .addClass("text-secondary")
+                            .text("請選擇上課方式");
 
-                function showdata_city(data) {
-                    // console.log(data);
-                    $("#city").empty();
-                    $("#city").append(`<option value="" selected disabled class="my-title-06">---請選擇縣市名稱---</option>`);
-                    data.forEach(function (item, index) {
-                        const count = index + 1;
-                        const strHTML = `<option value="${item.CityName}">${count}:${item.CityName}</option>`;
-                        $("#city").append(strHTML);
+                        // 重設課程通知提示訊息
+                        $("#switch_msg")
+                            .removeClass("text-success text-danger")
+                            .addClass("text-secondary")
+                            .text("目前狀態:關閉");
+
+                        // 重設程式能力自我評估
+                        $("#range01").val(5);
+                        $("#range01").prev().find("span").text(5);
+
+                        // 清空報名資料確認區塊
+                        $("#showmsg").html("");
+                        $("#city").addClass("is-invalid"); // 重設縣市選擇
+
                     });
-
-                }
-
-                //監聽 #ok_btn確認送出
-                $("#ok_btn").on("click", function () {
-                    if (flag_username && flag_email && flag_password && flag_tel && flag_city && flag_interest && flag_classMode) {
-
-                        // console.log("符合規定!");
-                        const strHTML = `
-                    <div class="h2 my-title-04">姓名: ${$("#username").val()}</div>
-                    <div class="h2 my-title-04">Email: ${$("#email").val()}</div>
-                    <div class="h2 my-title-04">密碼: ${$("#password").val()}</div>
-                    <div class="h2 my-title-04">手機號碼: ${$("#tel").val()}</div>
-                    <div class="h2 my-title-04">居住地: ${$("#city").val()}</div>
-                    <div class="h2 my-title-04">選擇的課程: ${interest.join(", ")}</div>
-                    <div class="h2 my-title-04">偏好的上課方式: ${classMode}</div>
-                    <div class="h2 my-title-04">課程通知設定: ${switch01 ? "開啟" : "關閉"}</div>
-                    `;
-                        $("#showmsg").html(strHTML);
-
-                    } else {
-                        // console.log("不符合規定!");
-                        alert("不符合規定")
-                    }
-
                 });
-
-                // 監聽重新填寫按鈕
-                $("#reset_btn").on("click", function () {
-
-                    // 清空所有輸入欄位
-                    $("#username").val("");
-                    $("#email").val("");
-                    $("#password").val("");
-                    $("#tel").val("");
-                    $("#city").val("");
-                    $("input[name='interest']").prop("checked", false);
-                    $("input[name='classMode']").prop("checked", false);
-                    $("#switch01").prop("checked", false);
-
-                    // 移除驗證樣式
-                    $("#username, #email, #password, #tel, #city")
-                        .removeClass("is-valid is-invalid");
-
-                    // 將驗證旗標恢復為 false
-                    flag_username = false;
-                    flag_email = false;
-                    flag_password = false;
-                    flag_tel = false;
-                    flag_city = false;
-                    flag_interest = false;
-                    flag_classMode = false;
-                    switch01 = false;
-
-                    // 重設課程提示訊息
-                    $("#interest_msg")
-                        .removeClass("text-success text-danger")
-                        .addClass("text-secondary")
-                        .text("請至少選擇一項課程");
-
-                    // 重設上課方式提示訊息
-                    $("#classMode_msg")
-                        .removeClass("text-success text-danger")
-                        .addClass("text-secondary")
-                        .text("請選擇上課方式");
-
-                    // 重設課程通知提示訊息
-                    $("#switch_msg")
-                        .removeClass("text-success text-danger")
-                        .addClass("text-secondary")
-                        .text("目前狀態:關閉");
-
-                    // 清空報名資料確認區塊
-                    $("#showmsg").html("");
-                    $("#city").addClass("is-invalid"); // 重設縣市選擇
-
-                });
-            });
-        </script>
+            </script>
 
 </body>
 
