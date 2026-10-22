@@ -44,7 +44,8 @@
             <div class="col-12 bg-light">
                 <div class="mb-2">
                     <label for="password" class="form-label">密碼</label>
-                    <input type="password" class="form-control form-control-lg" id="password" placeholder="密碼長度8-16!">
+                    <input type="password" class="form-control form-control-lg" id="password"
+                        placeholder="密碼長度8-16!，請輸入英數字及特殊符號混合">
                     <div class="valid-feedback">密碼長度符合規定</div>
                     <div class="invalid-feedback">密碼長度需為 8-16 字</div>
                 </div>
@@ -115,6 +116,7 @@
             $('#email').on("input", function () {
 
                 let email = $(this).val();
+                let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
                 // 如果輸入框是空的
                 if ($(this).val().length == 0) {
@@ -122,7 +124,7 @@
                     flag_email = false;
                 }
 
-                else if (email.length > 7 && email.length < 16 && email.includes("@")) {
+                else if (email.length > 7 && email.length < 16 && emailRegex.test(email)) {
 
                     $(this).removeClass("is-invalid")
                     $(this).addClass("is-valid");
