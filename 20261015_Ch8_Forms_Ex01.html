@@ -34,7 +34,8 @@
             <div class="col-12 bg-light">
                 <div class="mb-2">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control form-control-lg" id="email" placeholder="Email字串長度8-15字!">
+                    <input type="email" class="form-control form-control-lg" id="email"
+                        placeholder="Email字串長度8-15字並且包含@!">
                     <div class="valid-feedback">Email 格式符合規定</div>
                     <div class="invalid-feedback">Email 長度需為 8-15 字且必須包含 @</div>
                 </div>
@@ -87,29 +88,41 @@
         $(function () {
             //監聽 #username
             $("#username").on("input", function () {
-                //console.log($("#username").val());
-                //console.log("input:" + $(this).val().length);
-                if ($(this).val().length > 1 && $(this).val().length < 9) {
 
-                    // console.log("符合規定!");
-                    //避免衝突要先移除不正確的
-                    $(this).removeClass("is-invalid")
+                // 如果輸入框是空的
+                if ($(this).val().length == 0) {
+                    $(this).removeClass("is-valid is-invalid");
+                    flag_username = false;
+                }
+
+                // 輸入長度大於 1 且小於 9
+                else if ($(this).val().length > 1 && $(this).val().length < 9) {
+                    $(this).removeClass("is-invalid");
                     $(this).addClass("is-valid");
                     flag_username = true;
-                } else {
-                    // console.log("不符合規定!");
-                    //避免衝突要先移除正確的
-                    $(this).removeClass("is-valid")
+                }
+
+                // 不符合規定
+                else {
+                    $(this).removeClass("is-valid");
                     $(this).addClass("is-invalid");
                     flag_username = false;
                 }
+
             });
 
             //監聽Email
             $('#email').on("input", function () {
 
                 let email = $(this).val();
-                if (email.length > 7 && email.length < 16 && email.includes("@")) {
+
+                // 如果輸入框是空的
+                if ($(this).val().length == 0) {
+                    $(this).removeClass("is-valid is-invalid");
+                    flag_email = false;
+                }
+
+                else if (email.length > 7 && email.length < 16 && email.includes("@")) {
 
                     $(this).removeClass("is-invalid")
                     $(this).addClass("is-valid");
@@ -128,7 +141,13 @@
             $('#password').on("input", function () {
 
                 let password = $(this).val();
-                if (password.length > 7 && password.length < 17) {
+
+                // 如果輸入框是空的
+                if ($(this).val().length == 0) {
+                    $(this).removeClass("is-valid is-invalid");
+                    flag_password = false;
+                }
+                else if (password.length > 7 && password.length < 17) {
 
                     $(this).removeClass("is-invalid")
                     $(this).addClass("is-valid");
@@ -147,7 +166,14 @@
             $('#tel').on("input", function () {
 
                 let tel = $(this).val();
-                if (tel.length == 10 && tel.startsWith("09") && /^\d+$/.test(tel)) {
+
+                // 如果輸入框是空的
+                if ($(this).val().length == 0) {
+                    $(this).removeClass("is-valid is-invalid");
+                    flag_tel = false;
+                }
+
+                else if (tel.length == 10 && tel.startsWith("09") && /^\d+$/.test(tel)) {
 
                     $(this).removeClass("is-invalid")
                     $(this).addClass("is-valid");
