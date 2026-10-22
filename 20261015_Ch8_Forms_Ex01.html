@@ -63,11 +63,82 @@
             <div class="col-12 bg-light">
                 <div class="mb-2">
                     <label for="city" class="form-label">居住縣市</label>
-                    <select class="form-select form-control-lg" id="city">
+                    <select class="form-select form-control-lg is-invalid" id="city">
                         <option value="" selected disabled class="my-title-06">---請選擇縣市名稱---</option>
                         <option value="Taipei">臺北市</option>
                     </select>
+                    <div class="valid-feedback">已選擇居住縣市</div>
+                    <div class="invalid-feedback">未選擇居住縣市</div>
                 </div>
+            </div>
+
+            <div class="col-12 bg-light">
+                <div class="mb-2">
+                    <label for="" class="form-label">
+                        感興趣的課程(可複選)
+                    </label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="chk01" value="HTML/CSS" name="interest">
+                            <label class="form-check-label" for="chk01">HTML/CSS</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="chk01" value="JavaScript"
+                                name="interest">
+                            <label class="form-check-label" for="chk01">JavaScript</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="chk01" value="Python" name="interest">
+                            <label class="form-check-label" for="chk01">Python</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="chk01" value="AI協作開發" name="interest">
+                            <label class="form-check-label" for="chk01">AI協作開發</label>
+                        </div>
+
+                    </div>
+
+                    <div id="interest_msg" class="text-secondary">
+                        請至少選擇一項課程
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 bg-light">
+                <div class="mb-2">
+                    <label for="" class="form-label">
+                        偏好的上課方式(單選)
+                    </label>
+                    <div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="rad01" value="實體課程" name="classMode">
+                            <label class="form-check-label" for="rad01">實體課程</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="rad02" value="線上課程" name="classMode">
+                            <label class="form-check-label" for="rad02">線上課程</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="rad03" value="混合課程" name="classMode">
+                            <label class="form-check-label" for="rad03">混合課程</label>
+                        </div>
+
+                    </div>
+
+                    <div id="classMode_msg" class="text-secondary">
+                        選擇上課方式
+                    </div>
+
+                </div>
+
             </div>
 
 
@@ -94,6 +165,10 @@
         let flag_password = false;
         let flag_tel = false;
         let flag_city = false;
+        let flag_interest = false;
+        let flag_classMode = false;
+        let interest = [];
+        let selectedRadio = [];
 
         $(function () {
             //監聽 #username
@@ -201,19 +276,40 @@
 
             //監聽縣市
             $('#city').on("change", function () {
-                if ($(this).val() != "") {
-                    $(this).removeClass("is-invalid")
-                    $(this).addClass("is-valid");
-                    flag_city = true;
+                $(this).removeClass("is-invalid")
+                $(this).addClass("is-valid");
+                flag_city = true;
+            });
+
+            //監聽checkbox
+            $('input[name="interest"]').on("change", function () {
+                interest = [];
+                $('input[name="interest"]:checked').each(function () {
+                    interest.push($(this).val());
+                });
+
+                if (interest.length > 0) {
+                    flag_interest = true;
+                    $("#interest_msg").removeClass("text-secondary text-danger").addClass("text-success").text("已選擇" + interest.length + "項課程");
                 } else {
-                    $(this).removeClass("is-valid")
-                    $(this).addClass("is-invalid");
-                    flag_city = false;
+                    flag_interest = false;
+                    $("#interest_msg").removeClass("text-secondary text-danger").addClass("text-danger").text("請至少選擇一項課程");
+                }
+            });
+
+            //監聽radio
+            $('input[name="classMode"]').on("change", function () {
+                selectedRadio = [];
+                $('input[name="classMode"]:checked').each(function () {
+                    selectedRadio.push($(this).val());
+                });
+                if (selectedRadio.length > 0) {
+                    flag_classMode = true;
+                    $("#classMode_msg").removeClass("text-secondary text-danger").addClass("text-success").text("已選擇" + selectedRadio);
                 }
             });
 
             $.ajax({
-
                 type: "GET",
                 url: "js/json/CityCountyData.json",
                 dataType: "JSON",
@@ -237,7 +333,7 @@
 
             //監聽 #ok_btn確認送出
             $("#ok_btn").on("click", function () {
-                if (flag_username && flag_email && flag_password && flag_tel && flag_city == true) {
+                if (flag_username && flag_email && flag_password && flag_tel && flag_city && flag_interest && flag_classMode) {
 
                     // console.log("符合規定!");
                     const strHTML = `
@@ -245,7 +341,9 @@
                     <div class="h2 my-title-04">Email: ${$("#email").val()}</div>
                     <div class="h2 my-title-04">密碼: ${$("#password").val()}</div>
                     <div class="h2 my-title-04">手機號碼: ${$("#tel").val()}</div>
-                    <div class="h2 my-title-04">縣市: ${$("#city").val()}</div>
+                    <div class="h2 my-title-04">居住地: ${$("#city").val()}</div>
+                    <div class="h2 my-title-04">選擇的課程: ${interest.join(", ")}</div>
+                    <div class="h2 my-title-04">偏好的上課方式: ${selectedRadio}</div>
                     `;
                     $("#showmsg").html(strHTML);
 
@@ -265,13 +363,12 @@
                 $("#password").val("");
                 $("#tel").val("");
                 $("#city").val("");
+                $("input[name='interest']").prop("checked", false);
+                $("input[name='classMode']").prop("checked", false);
 
                 // 移除驗證樣式
-                $("#username").removeClass("is-valid is-invalid");
-                $("#email").removeClass("is-valid is-invalid");
-                $("#password").removeClass("is-valid is-invalid");
-                $("#tel").removeClass("is-valid is-invalid");
-                $("#city").removeClass("is-valid is-invalid");
+                $("#username, #email, #password, #tel, #city")
+                    .removeClass("is-valid is-invalid");
 
                 // 將驗證旗標恢復為 false
                 flag_username = false;
@@ -279,9 +376,22 @@
                 flag_password = false;
                 flag_tel = false;
                 flag_city = false;
+                flag_interest = false;
+                flag_classMode = false;
 
+                // 重設課程提示訊息
+                $("#interest_msg")
+                    .removeClass("text-success text-danger")
+                    .addClass("text-secondary")
+                    .text("請至少選擇一項課程");
+                // 重設上課方式提示訊息
+                $("#classMode_msg")
+                    .removeClass("text-success text-danger")
+                    .addClass("text-secondary")
+                    .text("請選擇上課方式");
                 // 清空報名資料確認區塊
                 $("#showmsg").html("");
+                $("#city").addClass("is-invalid"); // 重設縣市選擇
 
             });
         });
