@@ -168,7 +168,7 @@
         let flag_interest = false;
         let flag_classMode = false;
         let interest = [];
-        let selectedRadio = [];
+        let classMode = '';
 
         $(function () {
             //監聽 #username
@@ -299,13 +299,12 @@
 
             //監聽radio
             $('input[name="classMode"]').on("change", function () {
-                selectedRadio = [];
-                $('input[name="classMode"]:checked').each(function () {
-                    selectedRadio.push($(this).val());
-                });
-                if (selectedRadio.length > 0) {
+
+                classMode = $('input[name="classMode"]:checked').val();
+
+                if (classMode) {
                     flag_classMode = true;
-                    $("#classMode_msg").removeClass("text-secondary text-danger").addClass("text-success").text("已選擇" + selectedRadio);
+                    $("#classMode_msg").removeClass("text-secondary text-danger").addClass("text-success").text("已選擇" + classMode);
                 }
             });
 
@@ -343,7 +342,7 @@
                     <div class="h2 my-title-04">手機號碼: ${$("#tel").val()}</div>
                     <div class="h2 my-title-04">居住地: ${$("#city").val()}</div>
                     <div class="h2 my-title-04">選擇的課程: ${interest.join(", ")}</div>
-                    <div class="h2 my-title-04">偏好的上課方式: ${selectedRadio}</div>
+                    <div class="h2 my-title-04">偏好的上課方式: ${classMode}</div>
                     `;
                     $("#showmsg").html(strHTML);
 
