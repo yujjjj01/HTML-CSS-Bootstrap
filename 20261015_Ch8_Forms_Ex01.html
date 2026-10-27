@@ -203,14 +203,17 @@
                     //監聽 #username
                     $("#username").on("input", function () {
 
+                        let username = $(this).val();
+                        localStorage.setItem("username", username);
+
                         // 如果輸入框是空的
-                        if ($(this).val().length == 0) {
+                        if (username.length == 0) {
                             $(this).removeClass("is-valid is-invalid");
                             flag_username = false;
                         }
 
                         // 輸入長度大於 1 且小於 9
-                        else if ($(this).val().length > 1 && $(this).val().length < 9) {
+                        else if (username.length > 1 && username.length < 9) {
                             $(this).removeClass("is-invalid");
                             $(this).addClass("is-valid");
                             flag_username = true;
@@ -222,14 +225,25 @@
                             $(this).addClass("is-invalid");
                             flag_username = false;
                         }
-
                     });
+
+                    //讀取localStorage.username
+                    let savedUsername = localStorage.getItem("username")
+
+                    if (savedUsername != null) {
+                        $("#username").val(savedUsername);
+                        //執行驗證
+                        $("#username").trigger("input")
+                    }
+
 
                     //監聽Email
                     $('#email').on("input", function () {
 
                         let email = $(this).val();
                         let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+                        localStorage.setItem("email", email);
 
                         // 如果輸入框是空的
                         if ($(this).val().length == 0) {
@@ -251,6 +265,16 @@
 
                         }
                     });
+
+                    //讀取localStorage.email
+
+                    let savedEmail = localStorage.getItem("email");
+
+                    if (savedEmail != null) {
+                        $("#email").val(savedEmail);
+                        //執行驗證
+                        $("#email").trigger("input");
+                    }
 
                     //監聽密碼
                     $('#password').on("input", function () {
@@ -281,6 +305,7 @@
                     $('#tel').on("input", function () {
 
                         let tel = $(this).val();
+                        localStorage.setItem("tel", tel)
 
                         // 如果輸入框是空的
                         if ($(this).val().length == 0) {
@@ -302,6 +327,17 @@
 
                         }
                     });
+
+                    //讀取localStorage.tel
+
+                    let savedTel = localStorage.getItem("tel");
+
+                    if (savedTel != null) {
+                        $("#tel").val(savedTel);
+                        //執行驗證
+                        $("#tel").trigger("input");
+                    }
+
 
                     //監聽縣市
                     $('#city').on("change", function () {
@@ -403,6 +439,8 @@
                                 timer: 1500
                             });
 
+                            clearLocalStorage();
+
                         } else {
                             // console.log("不符合規定!");
                             //alert("不符合規定")
@@ -480,7 +518,16 @@
                         $("#showmsg").html("");
                         $("#city").addClass("is-invalid"); // 重設縣市選擇
 
+                        clearLocalStorage();
+
                     });
+
+                    //送出後清除LocalStorage
+                    function clearLocalStorage() {
+                        localStorage.removeItem("username")
+                        localStorage.removeItem("email")
+                        localStorage.removeItem("tel")
+                    }
                 });
             </script>
 
