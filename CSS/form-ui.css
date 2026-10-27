@@ -678,24 +678,45 @@ body.pixel-game-page {
     background-color: #fff5f3;
 }
 
+
+/* 驗證提示的基本樣式 */
 .quest-form-panel .invalid-feedback,
 .quest-form-panel .valid-feedback,
 .quest-field-feedback {
-    display: block;
     margin-top: 5px;
     font-size: 0.83rem;
     font-weight: 700;
 }
 
+/* 預設隱藏成功與錯誤提示 */
 .quest-form-panel .invalid-feedback,
-.quest-field-feedback.is-error {
+.quest-form-panel .valid-feedback {
+    display: none;
+}
+
+/* 驗證成功：顯示綠色提示 */
+.quest-form-panel .form-control.is-valid~.valid-feedback {
+    display: block;
+    color: #147541;
+}
+
+/* 驗證失敗：顯示紅色提示 */
+.quest-form-panel .form-control.is-invalid~.invalid-feedback {
+    display: block;
     color: #c62828;
 }
 
-.quest-form-panel .valid-feedback,
+/* 其他自訂提示 */
+.quest-field-feedback.is-error {
+    display: block;
+    color: #c62828;
+}
+
 .quest-field-feedback.is-success {
+    display: block;
     color: #147541;
 }
+
 
 .quest-form-panel .form-check {
     margin-bottom: 10px;
