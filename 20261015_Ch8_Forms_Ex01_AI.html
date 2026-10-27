@@ -380,10 +380,14 @@
             // 顯示提示視窗
             function showAlert(options) {
                 if (window.Swal) {
-                    Swal.fire(options);
-                } else {
-                    alert(options.text || options.title || "請檢查表單內容。");
+                    return Swal.fire(options);
                 }
+
+                return Promise.resolve({
+                    isConfirmed: window.confirm(
+                        options.text || options.title || "請確認是否繼續。"
+                    )
+                });
             }
 
             // 清除 LocalStorage
@@ -1318,6 +1322,7 @@
             // 重新填寫按鈕
             // ========================================
 
+
             $("#reset_btn").on("click", function () {
 
                 showAlert({
@@ -1330,17 +1335,30 @@
                     confirmButtonColor: "#d93636"
                 }).then(function (result) {
 
+                    console.log("SweetAlert 結果：", result);
+
                     if (result.isConfirmed) {
 
+                        console.log("開始執行 resetForm");
+
                         resetForm();
+
+                        console.log("resetForm 執行完成");
 
                         $("#quest-form").get(0).scrollIntoView({
                             behavior: "smooth",
                             block: "start"
                         });
                     }
+
+                }).catch(function (error) {
+
+                    console.error("重新填寫發生錯誤：", error);
+
                 });
+
             });
+
 
 
             // 完成畫面中的重新開始按鈕
@@ -1360,6 +1378,8 @@
             // ========================================
 
             function resetForm() {
+                console.log("resetForm 開始");
+
 
                 $("#username, #email, #password, #tel")
                     .val("")
