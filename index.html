@@ -3,533 +3,277 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>學習歷程筆記展示</title>
-
+    <meta name="theme-color" content="#35231d">
+    <meta name="description" content="記錄 HTML、CSS、JavaScript 與網頁設計的學習歷程和作品圖鑑。">
+    <title>學習歷程筆記展示｜RPG 冒險圖鑑</title>
+    <!-- 保留原本 CSS，不修改其內容；RPG 樣式放在獨立檔案中 -->
     <link rel="stylesheet" href="CSS/myAllcss.css">
-
+    <link rel="stylesheet" href="CSS/myRPGcss.css">
 </head>
 
 <body>
-    <script src="js/jquery-4.0.0.js"></script>
-    <!-- ========================================================= Main ========================================================= -->
-    <main>
-        <!-- =====================================================
-     Introduction
-     ===================================================== -->
+    <a class="rpg-skip-link" href="#main-content">跳至主要內容</a>
 
-        <section class="my-intro-section">
+    <header class="rpg-topbar" aria-label="冒險者狀態列">
+        <a class="rpg-brand" href="#top" aria-label="回到冒險圖鑑首頁">
+            <span class="rpg-brand-mark" aria-hidden="true">✦</span>
+            <span>YU'S ADVENTURE LOG</span>
+        </a>
+        <div class="rpg-status">
+            <span class="rpg-status-label">ADVENTURER</span>
+            <span class="rpg-level">LV. 13</span>
+            <span class="rpg-status-dot" aria-hidden="true"></span>
+            <span class="rpg-status-text">持續探索中</span>
+        </div>
+    </header>
 
-            <span class="my-section-label">
-                MY LEARNING JOURNEY
-            </span>
-
-            <h2>
-                歡迎來到我的網頁設計學習歷程
-            </h2>
-
-            <p>
-                這裡記錄了我的網頁設計練習與作品，
-                用來整理自己的學習成果。
-            </p>
-
+    <main id="main-content">
+        <!-- 冒險旅程主視覺 -->
+        <section class="my-intro-section rpg-hero" id="top" aria-labelledby="intro-title">
+            <div class="rpg-hero-spark rpg-spark-one" aria-hidden="true">✦</div>
+            <div class="rpg-hero-spark rpg-spark-two" aria-hidden="true">✧</div>
+            <div class="rpg-hero-topline"><span class="rpg-pixel-heart" aria-hidden="true">♥</span> SAVE DATA 01 <span
+                    class="rpg-topline-divider">/</span> LEARNING JOURNEY</div>
+            <div class="rpg-hero-emblem" aria-hidden="true"><span>YU</span><i>✦</i></div>
+            <span class="my-section-label">MY LEARNING JOURNEY</span>
+            <h1 id="intro-title">歡迎來到我的<br class="rpg-mobile-break">網頁設計學習歷程</h1>
+            <p>這裡記錄了我的網頁設計練習與作品，<br class="rpg-desktop-break">用來整理自己的學習成果。</p>
+            <div class="rpg-hero-divider"><span>◆</span></div>
+            <div class="rpg-hero-stats" aria-label="學習歷程統計">
+                <div class="rpg-stat"><span class="rpg-stat-label">QUESTS</span><strong>13</strong><span
+                        class="rpg-stat-caption">已記錄任務</span></div>
+                <div class="rpg-stat-separator" aria-hidden="true"></div>
+                <div class="rpg-stat"><span class="rpg-stat-label">CLASS</span><strong>WEB</strong><span
+                        class="rpg-stat-caption">Front-end learner</span></div>
+                <div class="rpg-stat-separator" aria-hidden="true"></div>
+                <div class="rpg-stat"><span class="rpg-stat-label">EXP</span><strong>+∞</strong><span
+                        class="rpg-stat-caption">持續累積經驗</span></div>
+            </div>
+            <a class="rpg-start-button" href="#works"><span aria-hidden="true">▶</span> 開始冒險 <span
+                    class="rpg-button-en">START QUEST</span></a>
+            <div class="rpg-hero-bottomline"><span>PRESS START TO CONTINUE</span><span class="rpg-blink"
+                    aria-hidden="true">▌</span></div>
         </section>
 
-
-
-        <!-- =====================================================
-     Works
-     ===================================================== -->
-
-        <section class="my-works-section">
-
-
-            <!-- Section Header -->
-
-            <div class="my-works-header my-font">
-
-                <div>
-
-                    <h2>
-                        💻 學習作品
-                    </h2>
-
+        <!-- 學習作品圖鑑 -->
+        <section class="my-works-section" id="works" aria-labelledby="works-title">
+            <div class="rpg-section-eyebrow"><span>CHAPTER 01</span><span>THE ARCHIVE OF LEARNING</span></div>
+            <div class="my-works-header my-font rpg-works-heading">
+                <div class="rpg-heading-icon" aria-hidden="true">▤</div>
+                <div class="rpg-heading-copy"><span class="rpg-heading-kicker">QUEST ARCHIVE / 13 RECORDS</span>
+                    <h2 id="works-title">學習作品圖鑑</h2>
                 </div>
-
+                <div class="rpg-heading-stamp">MISSION<br>LOG</div>
             </div>
-
-
-
-            <!-- =================================================
-         Project Grid
-         ================================================= -->
+            <p class="rpg-works-intro">每一項練習都是一段冒險紀錄。選擇任務，查看作品成果。</p>
 
             <div class="my-project-grid">
-
-
-                <!-- ================================================= Project 01 ================================================= -->
-
+                <!-- Project 01 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 01 </div>
-
-                    <div class="my-project-icon"> 🌱 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font"> HTML · CSS · WEB DESIGN </span>
-
-                        <h3 class="my-font"> HTML & CSS 網頁排版基礎練習 </h3>
-
-                        <span class="my-project-date my-font"> 2026 / 09 / 23 </span>
-
-                        <p class="my-font"> 第一次練習使用 HTML 與 CSS 建立完整的網頁結構， 從標題、段落、圖片到區塊配置，學習 HTML 語意結構 與 CSS
-                            基本樣式設定，並嘗試調整文字、顏色、間距
-                            與版面配置，建立網頁設計的基礎概念。 </p>
-
+                    <div class="my-project-number">01</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">HTML · CSS · WEB
+                            DESIGN</span>
+                        <h3 class="my-font">HTML &amp; CSS 網頁排版基礎練習</h3><span class="my-project-date my-font">2026 / 09
+                            / 23</span>
+                        <p class="my-font">第一次練習使用 HTML 與 CSS 建立完整的網頁結構，從標題、段落、圖片到區塊配置，學習 HTML 語意結構與 CSS
+                            基本樣式設定，並嘗試調整文字、顏色、間距與版面配置，建立網頁設計的基礎概念。</p>
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20260923_ex01.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span> </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20260923_ex01.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-                <!-- ================================================= Project 02 ================================================= -->
-
+                <!-- Project 02 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 02 </div>
-
-                    <div class="my-project-icon"> 🤖 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font"> HTML · CSS · AI </span>
-
-                        <h3 class="my-font"> HTML & CSS 排版練習 By AI </h3>
-
-                        <span class="my-project-date my-font"> 2026 / 09 / 24 </span>
-
-                        <p class="my-font"> 嘗試利用 AI 協助網頁設計與程式撰寫， 透過 AI 產生 HTML 與 CSS 的設計方向， 再根據自己的需求進行修改與調整。
-                            從過程中學習如何閱讀程式碼、理解版面結構， 並思考
-                            AI 產生的程式是否符合實際需求。 </p>
-
+                    <div class="my-project-number">02</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">HTML · CSS · AI</span>
+                        <h3 class="my-font">HTML &amp; CSS 排版練習 By AI</h3><span class="my-project-date my-font">2026 /
+                            09 / 24</span>
+                        <p class="my-font">嘗試利用 AI 協助網頁設計與程式撰寫，透過 AI 產生 HTML 與 CSS
+                            的設計方向，再根據自己的需求進行修改與調整。從過程中學習如何閱讀程式碼、理解版面結構，並思考 AI 產生的程式是否符合實際需求。</p>
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20260924_ex01_AI2.html" target="_blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20260924_ex01_AI2.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-                <!-- ================================================= Project 03 ================================================= -->
-
+                <!-- Project 03 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 03 </div>
-
-                    <div class="my-project-icon"> 🍜 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font"> JAVASCRIPT · OPENDATA · JSON </span>
-
-                        <h3 class="my-font"> JavaScript × OpenData 旅遊美食 </h3>
-
-                        <span class="my-project-date my-font"> 2026 / 09 / 29 </span>
-
-                        <p class="my-font"> 開始接觸 JavaScript 與 OpenData 的應用， 練習透過 API 取得公開資料，並使用 JavaScript 讀取與處理 JSON
-                            格式的內容，再將旅遊景點與
-                            美食資訊動態呈現在網頁上，了解前端網頁如何 與外部資料進行互動。 </p>
-
+                    <div class="my-project-number">03</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">JAVASCRIPT · OPENDATA ·
+                            JSON</span>
+                        <h3 class="my-font">JavaScript × OpenData 旅遊美食</h3><span class="my-project-date my-font">2026 /
+                            09 / 29</span>
+                        <p class="my-font">開始接觸 JavaScript 與 OpenData 的應用，練習透過 API 取得公開資料，並使用 JavaScript 讀取與處理 JSON
+                            格式的內容，再將旅遊景點與美食資訊動態呈現在網頁上，了解前端網頁如何與外部資料進行互動。</p>
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20260929_js_TravelFood.html" target="_blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span> </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20260929_js_TravelFood.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-                <!-- ================================================= Project 04 ================================================= -->
-
+                <!-- Project 04 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 04 </div>
-
-                    <div class="my-project-icon"> 🅱️ </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font"> BOOTSTRAP · OPENDATA · RWD </span>
-
-                        <h3 class="my-font"> Bootstrap × OpenData 旅遊美食 </h3>
-
-                        <span class="my-project-date my-font"> 2026 / 10 / 01 </span>
-
-                        <p class="my-font"> 將 Bootstrap 框架應用在 OpenData 資料展示上， 學習使用 Bootstrap 提供的元件與 Grid 網格系統
-                            建立整齊的網頁版面，同時結合旅遊與美食資料，
-                            練習製作具有響應式設計的資訊展示頁面。 </p>
-
+                    <div class="my-project-number">04</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP · OPENDATA ·
+                            RWD</span>
+                        <h3 class="my-font">Bootstrap × OpenData 旅遊美食</h3><span class="my-project-date my-font">2026 /
+                            10 / 01</span>
+                        <p class="my-font">將 Bootstrap 框架應用在 OpenData 資料展示上，學習使用 Bootstrap 提供的元件與 Grid
+                            網格系統建立整齊的網頁版面，同時結合旅遊與美食資料，練習製作具有響應式設計的資訊展示頁面。</p>
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20261001_Boostrap.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20261001_Boostrap.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-                <!-- ================================================= Project 05 ================================================= -->
-
+                <!-- Project 05 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 05 </div>
-
-                    <div class="my-project-icon"> 📊 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font"> BOOTSTRAP TABLE · OPENDATA · DATA </span>
-
-                        <h3 class="my-font"> Bootstrap Table × OpenData 旅遊美食 </h3>
-
-                        <span class="my-project-date my-font"> 2026 / 10 / 06 </span>
-
-                        <p class="my-font"> 進一步學習 Bootstrap Table 的使用方式， 將 OpenData 中取得的旅遊與美食資訊整理成表格，
-                            練習資料欄位的呈現、表格樣式與資料閱讀性，
-                            讓大量資訊能夠以更清楚、有條理的方式呈現在網頁中。 </p>
-
+                    <div class="my-project-number">05</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP TABLE · OPENDATA
+                            · DATA</span>
+                        <h3 class="my-font">Bootstrap Table × OpenData 旅遊美食</h3><span
+                            class="my-project-date my-font">2026 / 10 / 06</span>
+                        <p class="my-font">進一步學習 Bootstrap Table 的使用方式，將 OpenData
+                            中取得的旅遊與美食資訊整理成表格，練習資料欄位的呈現、表格樣式與資料閱讀性，讓大量資訊能夠以更清楚、有條理的方式呈現在網頁中。</p>
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20261006_BS_Table_Data.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20261006_BS_Table_Data.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-
-                <!-- ================================================= Project 06 ================================================= -->
-
+                <!-- Project 06 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 06 </div>
-
-                    <div class="my-project-icon"> 🎨 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font"> BOOTSTRAP · GRID · RESPONSIVE </span>
-
-                        <h3 class="my-font">Ch6_切版_基礎功</h3>
-
-                        <span class="my-project-date my-font">2026 / 10 / 06</span>
-
+                    <div class="my-project-number">06</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP · GRID ·
+                            RESPONSIVE</span>
+                        <h3 class="my-font">Ch6_切版_基礎功</h3><span class="my-project-date my-font">2026 / 10 / 06</span>
                         <p class="my-font">學習使用 Bootstrap 進行網頁切版，練習 Container、Row、Column 等 Grid 網格系統，並搭配 Flex
                             進行版面配置。透過實際製作不同區塊，將設計內容轉換成 HTML 與 Bootstrap 結構，進一步熟悉響應式網頁設計與不同螢幕尺寸的版面調整。</p>
-
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20261006_ch6_切版.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20261006_ch6_切版.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-                <!-- ================================================= Project 07 ================================================= -->
-
+                <!-- Project 07 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 07 </div>
-
-                    <div class="my-project-icon"> 🧩 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font"> BOOTSTRAP · LAYOUT · RWD </span>
-
-                        <h3 class="my-font"> Bootstrap_切版練習_EX01 </h3>
-
-                        <span class="my-project-date my-font"> 2026 / 10 / 06 </span>
-
-                        <p class="my-font"> 開始練習使用 Bootstrap 進行網頁切版， 學習 Container、Row、Column 等基本 Grid 系統，
-                            將設計內容拆分成不同區塊並安排版面位置，
-                            同時了解響應式網頁設計的概念，讓網頁能適應 不同螢幕尺寸。 </p>
-
+                    <div class="my-project-number">07</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP · LAYOUT ·
+                            RWD</span>
+                        <h3 class="my-font">Bootstrap_切版練習_EX01</h3><span class="my-project-date my-font">2026 / 10 /
+                            06</span>
+                        <p class="my-font">開始練習使用 Bootstrap 進行網頁切版，學習 Container、Row、Column 等基本 Grid
+                            系統，將設計內容拆分成不同區塊並安排版面位置，同時了解響應式網頁設計的概念，讓網頁能適應不同螢幕尺寸。</p>
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20261006_ch6_切版_ex01.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20261006_ch6_切版_ex01.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-                <!-- ================================================= Project 08 ================================================= -->
-
+                <!-- Project 08 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 08 </div>
-
-                    <div class="my-project-icon"> 🎨 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font"> BOOTSTRAP · LAYOUT · RESPONSIVE </span>
-
-                        <h3 class="my-font"> Bootstrap_切版練習_EX02 </h3>
-
-                        <span class="my-project-date my-font"> 2026 / 10 / 08 </span>
-
-                        <p class="my-font"> 延續 Bootstrap 切版練習，進一步熟悉網格系統、Flex
-                            排版與響應式設計的使用方式。透過實際製作不同區塊的版面配置，練習將網頁設計稿轉換成HTML與Bootstrap 結構，提升自己對網頁整體版面與視覺配置的掌握度。 </p>
-
+                    <div class="my-project-number">08</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP · LAYOUT ·
+                            RESPONSIVE</span>
+                        <h3 class="my-font">Bootstrap_切版練習_EX02</h3><span class="my-project-date my-font">2026 / 10 /
+                            08</span>
+                        <p class="my-font">延續 Bootstrap 切版練習，進一步熟悉網格系統、Flex 排版與響應式設計的使用方式。透過實際製作不同區塊的版面配置，練習將網頁設計稿轉換成
+                            HTML 與 Bootstrap 結構，提升自己對網頁整體版面與視覺配置的掌握度。</p>
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20261008_ch6_切版_ex02.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20261008_ch6_切版_ex02.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-                <!-- ================================================= Project 09 ================================================= -->
-
+                <!-- Project 09 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 09 </div>
-
-                    <div class="my-project-icon"> 🎨 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font"> FLEX · LAYOUT · RESPONSIVE </span>
-
-                        <h3 class="my-font">Ch7_Flex_基礎功</h3>
-
-                        <span class="my-project-date my-font">2026 / 10 / 08</span>
-
+                    <div class="my-project-number">09</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">FLEX · LAYOUT ·
+                            RESPONSIVE</span>
+                        <h3 class="my-font">Ch7_Flex_基礎功</h3><span class="my-project-date my-font">2026 / 10 / 08</span>
                         <p class="my-font">開始深入練習 CSS Flexbox 排版，學習使用 display:
                             flex、justify-content、align-items、flex-direction 等屬性控制網頁元素的位置與排列方式。透過實際的版面練習，了解 Flex
                             在水平與垂直配置上的應用，提升自己對網頁排版與區塊配置的掌握度。</p>
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20261008_ch7_flex.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20261008_ch7_flex.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-
-                <!-- ================================================= Project 10 ================================================= -->
-
+                <!-- Project 10 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 10 </div>
-
-                    <div class="my-project-icon"> 📐 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font">
-                            FLEX · TIMELINE · RESPONSIVE
-                        </span>
-
-                        <h3 class="my-font">Ch7_Flex_TimeLine</h3>
-
-                        <span class="my-project-date my-font">2026 / 10 / 13</span>
-
-                        <p class="my-font">
-                            本次開始深入練習 CSS Flexbox 排版，學習運用 display: flex、
-                            justify-content、align-items 與 flex-direction 等屬性，
-                            控制元素的排列方向、對齊方式與間距。透過製作時間軸版面，
-                            練習使用 Flexbox 配置內容區塊，並結合響應式設計（RWD），
-                            讓頁面在不同裝置尺寸下都能維持良好的版面結構與閱讀體驗。
+                    <div class="my-project-number">10</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">FLEX · TIMELINE ·
+                            RESPONSIVE</span>
+                        <h3 class="my-font">Ch7_Flex_TimeLine</h3><span class="my-project-date my-font">2026 / 10 /
+                            13</span>
+                        <p class="my-font">本次開始深入練習 CSS Flexbox 排版，學習運用 display: flex、justify-content、align-items 與
+                            flex-direction 等屬性，控制元素的排列方向、對齊方式與間距。透過製作時間軸版面，練習使用 Flexbox
+                            配置內容區塊，並結合響應式設計（RWD），讓頁面在不同裝置尺寸下都能維持良好的版面結構與閱讀體驗。</p>
+                    </div>
+                    <div class="my-project-footer"><a href="20261013_FlexTimeline.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                </article>
+                <!-- Project 11 -->
+                <article class="my-project-card">
+                    <div class="my-project-number">11</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">HTML FORMS · INPUT · USER
+                            INTERACTION</span>
+                        <h3 class="my-font">Ch8_Forms</h3><span class="my-project-date my-font">2026 / 10 / 15</span>
+                        <p class="my-font">本次練習 HTML 表單（Forms）的基本結構與應用，學習運用 form、label、input、select、textarea
+                            等表單元素建立使用者輸入介面，並認識不同輸入類型的用途與設定方式。透過表單欄位的配置與屬性應用，熟悉資料輸入、選項選擇及文字填寫等功能，進一步提升網頁互動性與表單設計的實作能力。
                         </p>
                     </div>
-
-
-                    <div class="my-project-footer">
-
-                        <a href="20261013_FlexTimeline.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20261015_Ch8_Forms.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-
-                <!-- ================================================= Project 11 ================================================= -->
-
+                <!-- Project 12 -->
                 <article class="my-project-card">
-
-                    <div class="my-project-number"> 11 </div>
-
-                    <div class="my-project-icon"> 📝 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font">
-                            HTML FORMS · INPUT · USER INTERACTION
-                        </span>
-
-                        <h3 class="my-font">Ch8_Forms</h3>
-
-                        <span class="my-project-date my-font">2026 / 10 / 15</span>
-
-                        <p class="my-font">
-                            本次練習 HTML 表單（Forms）的基本結構與應用，
-                            學習運用 form、label、input、select、textarea
-                            等表單元素建立使用者輸入介面，並認識不同輸入類型
-                            的用途與設定方式。透過表單欄位的配置與屬性應用，
-                            熟悉資料輸入、選項選擇及文字填寫等功能，
-                            進一步提升網頁互動性與表單設計的實作能力。
-                        </p>
+                    <div class="my-project-number">12</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">HTML FORMS · FORM ELEMENTS
+                            · BASIC INPUT</span>
+                        <h3 class="my-font">Ch8_Forms_Ex01</h3><span class="my-project-date my-font">2026 / 10 /
+                            15</span>
+                        <p class="my-font">本次練習以 HTML Forms 為主題，學習表單的基本結構與常用元素，透過 form、label、input
+                            等標籤建立表單欄位，並練習設定不同的輸入類型與相關屬性。藉由實際操作表單元素，熟悉 HTML 表單的基本語法與使用方式，進一步掌握網頁表單的建立與應用。</p>
                     </div>
-
-
-                    <div class="my-project-footer">
-
-                        <a href="20261015_Ch8_Forms.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20261015_Ch8_Forms_Ex01.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
-
-                <!-- ================================================= Project 12 ================================================= -->
-
-                <article class="my-project-card">
-
-                    <div class="my-project-number"> 12 </div>
-
-                    <div class="my-project-icon"> 📝 </div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font">
-                            HTML FORMS · FORM ELEMENTS · BASIC INPUT
-                        </span>
-                        </span>
-
-                        <h3 class="my-font">Ch8_Forms_Ex01</h3>
-
-                        <span class="my-project-date my-font">2026 / 10 / 15</span>
-
-                        <p class="my-font">
-                            本次練習以 HTML Forms 為主題，學習表單的基本結構與常用元素，透過
-                            form、label、input等標籤建立表單欄位，並練習設定不同的輸入類型與相關屬性。藉由實際操作表單元素，熟悉 HTML 表單的基本語法與使用方式，進一步掌握網頁表單的建立與應用。
-                        </p>
-                    </div>
-
-
-                    <div class="my-project-footer">
-
-                        <a href="20261015_Ch8_Forms_Ex01.html" target="blank" class="my-project-button my-font"> 查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
-                </article>
-
-                <!-- ================================================= Project 13 ================================================= -->
-
-                <article class="my-project-card">
-
+                <!-- Project 13 -->
+                <article class="my-project-card ">
                     <div class="my-project-number">13</div>
-
-                    <div class="my-project-icon">📝</div>
-
-                    <div class="my-project-content">
-
-                        <span class="my-project-category my-font">
-                            HTML FORMS · JQUERY · AI-ASSISTED DEVELOPMENT
-                        </span>
-
-                        <h3 class="my-font">Ch8_Forms_Ex01_AI</h3>
-
-                        <span class="my-project-date my-font">2026 / 10 / 27</span>
-
-                        <p class="my-font">
-                            本次作品以課程報名表為主題，結合 HTML、CSS、Bootstrap、JavaScript、jQuery 與
+                    <div class="my-project-content"><span class="my-project-category my-font">HTML FORMS · JQUERY ·
+                            AI-ASSISTED DEVELOPMENT</span>
+                        <h3 class="my-font">Ch8_Forms_Ex01_AI</h3><span class="my-project-date my-font">2026 / 10 /
+                            27</span>
+                        <p class="my-font">本次作品以課程報名表為主題，結合 HTML、CSS、Bootstrap、JavaScript、jQuery 與
                             AJAX，設計具有遊戲冒險風格的多步驟互動表單。透過欄位驗證、縣市資料載入、課程選擇、表單草稿暫存、進度條與報名資料摘要等功能，練習表單操作與資料處理流程，並運用 AI
-                            協助開發與調整程式碼，進一步了解前端互動設計及表單功能整合的實作方式。
-                        </p>
-
+                            協助開發與調整程式碼，進一步了解前端互動設計及表單功能整合的實作方式。</p>
                     </div>
-
-                    <div class="my-project-footer">
-
-                        <a href="20261015_Ch8_Forms_Ex01_AI.html" target="_blank" class="my-project-button my-font">
-                            查看作品
-                            <span>→</span>
-                        </a>
-
-                    </div>
-
+                    <div class="my-project-footer"><a href="20261015_Ch8_Forms_Ex01_AI.html" target="_blank"
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
 
-
+                <!-- Project 14 -->
+                <article class="my-project-card rpg-final-quest">
+                    <div class="rpg-final-ribbon">LATEST QUEST</div>
+                    <div class="my-project-number">14</div>
+                    <div class="my-project-content"><span class="my-project-category my-font">HTML FORMS · JQUERY ·
+                            AI-ASSISTED DEVELOPMENT</span>
+                        <h3 class="my-font">SPA</h3><span class="my-project-date my-font">2026 / 10 /
+                            27</span>
+                        <p class="my-font">本次作品以課程報名表為主題，結合 HTML、CSS、Bootstrap、JavaScript、jQuery 與
+                            AJAX，設計具有遊戲冒險風格的多步驟互動表單。透過欄位驗證、縣市資料載入、課程選擇、表單草稿暫存、進度條與報名資料摘要等功能，練習表單操作與資料處理流程，並運用 AI
+                            協助開發與調整程式碼，進一步了解前端互動設計及表單功能整合的實作方式。</p>
+                    </div>
+                    <div class="my-project-footer"><a href="20261027-SPA.html" target="_blank" rel="noopener noreferrer"
+                            class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                </article>
             </div>
-
-
         </section>
 
+        <section class="rpg-save-panel" aria-label="冒險紀錄摘要">
+            <span class="rpg-save-icon" aria-hidden="true">✦</span>
+            <div><span class="rpg-save-label">ADVENTURE SAVED</span>
+                <h2>每一次練習，都是新的經驗值。</h2>
+                <p>持續探索、持續建構，下一個任務正在等待解鎖。</p>
+            </div>
+            <a href="#top" class="rpg-back-top">回到頂端 ↑</a>
+        </section>
     </main>
-    <!-- ========================================================= Footer ========================================================= -->
-    <footer class="my-footer">
-        <div class="my-footer-icon">
-            🌿
-        </div>
 
-        <div class="my-footer-title my-font">
-            我的學習歷程
-        </div>
-
-        <div class="my-footer-subtitle my-font">
-            Building · Learning · Improving
-        </div>
-
-        <div class="my-footer-copyright my-font">
-            © 2026 By YU
-        </div>
-
+    <footer class="my-footer rpg-footer">
+        <div class="my-footer-icon" aria-hidden="true">🌿</div>
+        <div class="my-footer-title my-font">我的學習歷程</div>
+        <div class="my-footer-subtitle my-font">Building · Learning · Improving</div>
+        <div class="rpg-footer-divider"><span>✦</span></div>
+        <div class="my-footer-copyright my-font">© 2026 By YU</div>
+        <div class="rpg-footer-note">THANK YOU FOR VISITING MY ADVENTURE LOG</div>
     </footer>
 </body>
 
