@@ -722,22 +722,149 @@ body.pixel-game-page {
     margin-bottom: 10px;
 }
 
-.quest-form-panel .form-check-input {
-    width: 1.15em;
-    height: 1.15em;
+
+/* 課程通知 Switch */
+.quest-form-panel .form-check-input[type="checkbox"] {
+    width: 2.5em;
+    height: 1.25em;
     border: 2px solid #7892ad;
-    border-radius: 0;
+    border-radius: 2em;
     box-shadow: none;
+    cursor: pointer;
+    background-color: #fff5df;
+    background-position: left center;
+    transition: none;
 }
 
-.quest-form-panel .form-check-input:checked {
+
+/* =========================================================
+   表單核取方塊與 Switch 樣式
+   一般課程選項：維持方形 Checkbox
+   課程通知設定：使用長條 Switch
+   ========================================================= */
+
+/* 一般核取方塊：感興趣的課程 */
+.quest-form-panel .form-check-input[type="checkbox"]:not(#switch01) {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 1.15em;
+    height: 1.15em;
+    min-height: 1.15em;
+    margin-top: 0.25em;
+
+    background-color: #fff7e4;
+    background-image: none;
+    border: 2px solid #7892ad;
+    border-radius: 0;
+
+    box-shadow: none;
+    cursor: pointer;
+}
+
+/* 一般核取方塊：勾選狀態 */
+.quest-form-panel .form-check-input[type="checkbox"]:not(#switch01):checked {
     background-color: #1976a8;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m5 10 3 3 7-7'/%3e%3c/svg%3e");
     border-color: #1976a8;
 }
 
+/* 一般核取方塊：聚焦狀態 */
+.quest-form-panel .form-check-input[type="checkbox"]:not(#switch01):focus {
+    border-color: #147eaf;
+    box-shadow: 0 0 0 3px rgba(73, 201, 245, 0.25);
+}
+
+/* 一般核取方塊：停用狀態 */
+.quest-form-panel .form-check-input[type="checkbox"]:not(#switch01):disabled {
+    background-color: #e3e7ec;
+    border-color: #aab7c5;
+    cursor: not-allowed;
+}
+
+/* =========================================================
+   課程通知 Switch
+   只針對 #switch01，不影響其他 Checkbox
+   ========================================================= */
+
+/* Switch 外層排列 */
+.quest-form-panel .form-switch {
+    display: flex;
+    align-items: center;
+    min-height: 1.5em;
+    margin: 0;
+    padding-left: 0;
+}
+
+/* Switch 本體 */
+.quest-form-panel .form-switch .form-check-input#switch01 {
+    appearance: none;
+    -webkit-appearance: none;
+
+    flex-shrink: 0;
+    width: 2.8em;
+    height: 1.4em;
+    min-height: 1.4em;
+    margin: 0;
+
+    background-color: #fff5df;
+    background-image: none;
+    border: 2px solid #7892ad;
+    border-radius: 2em;
+
+    box-shadow: none;
+    cursor: pointer;
+    transition: none;
+}
+
+/* Switch 開啟狀態 */
+.quest-form-panel .form-switch .form-check-input#switch01:checked {
+    background-color: #1976a8;
+    background-image: none;
+    border-color: #1976a8;
+}
+
+/* Switch 內部滑塊 */
+.quest-form-panel .form-switch .form-check-input#switch01::before {
+    display: block;
+    width: 0.9em;
+    height: 0.9em;
+    margin: 0.1em;
+
+    content: "";
+    background-color: #7892ad;
+    border-radius: 50%;
+    transition: none;
+}
+
+/* Switch 開啟時，滑塊移到右側 */
+.quest-form-panel .form-switch .form-check-input#switch01:checked::before {
+    margin-left: 1.35em;
+    background-color: #ffffff;
+}
+
+/* Switch 聚焦狀態 */
+.quest-form-panel .form-switch .form-check-input#switch01:focus {
+    border-color: #7892ad;
+    box-shadow: none;
+}
+
+/* Switch 開啟且聚焦 */
+.quest-form-panel .form-switch .form-check-input#switch01:checked:focus {
+    border-color: #1976a8;
+}
+
+/* Switch 停用狀態 */
+.quest-form-panel .form-switch .form-check-input#switch01:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* Checkbox 與文字的間距 */
 .quest-form-panel .form-check-label {
     padding-left: 4px;
 }
+
 
 .quest-form-panel input[type="range"] {
     accent-color: #1976a8;

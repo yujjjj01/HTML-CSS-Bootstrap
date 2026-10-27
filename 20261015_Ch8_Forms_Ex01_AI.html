@@ -354,6 +354,8 @@
         let classMode = "";
         let switch01 = false;
         let rangeValue = 5;
+        // 是否已完成草稿還原
+        let draftsLoaded = false;
 
         $(function () {
 
@@ -398,6 +400,16 @@
 
             // 儲存表單草稿，不儲存密碼
             function saveDrafts() {
+
+                // 草稿還原完成前，不執行儲存
+                if (draftsLoaded == false) {
+                    return;
+                }
+
+                console.log("saveDrafts 被呼叫");
+                console.log("目前 Email 輸入框：", $("#email").val());
+                console.trace("呼叫來源");
+
                 localStorage.setItem("username", $("#username").val());
                 localStorage.setItem("email", $("#email").val());
                 localStorage.setItem("tel", $("#tel").val());
@@ -476,72 +488,63 @@
             }
 
 
-            // ========================================
-            // 第一關：Email
-            // ========================================
-
-            // Email 驗證
-            // ========================================
-            // 第一關：Email
-            // ========================================
-
-            // Email 驗證
 
             // ========================================
             // 第一關：Email
             // ========================================
 
-            // Email 驗證
+            // 先讀取之前儲存的 Email
+            let savedEmail = localStorage.getItem("email");
+
+            // 還原 Email 輸入框
+            if (savedEmail != null) {
+                $("#email").val(savedEmail);
+            }
+
+            // 監聽 Email 輸入
             $("#email").on("input", function () {
 
-                let email = $(this).val().trim();
+                let email = $(this).val();
 
-                let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                let emailRegex =
+                    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
                 // 儲存 Email
                 localStorage.setItem("email", email);
 
-                // 尚未輸入時，不顯示驗證訊息
+                // 驗證 Email
                 if (email.length == 0) {
 
-                    $(this).removeClass("is-valid");
-                    $(this).removeClass("is-invalid");
-
+                    $(this).removeClass("is-valid is-invalid");
                     flag_email = false;
 
                 } else if (
-                    email.length >= 8 &&
-                    email.length <= 15 &&
+                    email.length > 7 &&
+                    email.length < 16 &&
                     emailRegex.test(email)
                 ) {
 
                     $(this).removeClass("is-invalid");
                     $(this).addClass("is-valid");
-
                     flag_email = true;
 
                 } else {
 
                     $(this).removeClass("is-valid");
                     $(this).addClass("is-invalid");
-
                     flag_email = false;
+
                 }
 
+                saveDrafts();
             });
 
-
-            // 還原之前儲存的 Email
-            let savedEmail = localStorage.getItem("email");
-
-            if (savedEmail != null) {
-
-                $("#email").val(savedEmail);
-
-                // 重新執行 Email 驗證
+            // 還原後重新驗證 Email
+            if (savedEmail != null && savedEmail != "") {
                 $("#email").trigger("input");
-
             }
+
+
 
 
 
@@ -1288,7 +1291,7 @@
                 showAlert({
                     icon: "success",
                     title: "報名任務完成！",
-                    text: "這是前端教學模擬，沒有將資料送往後端。",
+                    text: "這是表單模擬，沒有將資料送往後端。",
                     confirmButtonText: "太棒了！"
                 });
 
@@ -1532,6 +1535,8 @@
                     rangeValue = Number($("#range01").val());
 
                     $("#range_value").text(rangeValue);
+
+                    draftsLoaded = true;
                 },
 
                 error: function () {
