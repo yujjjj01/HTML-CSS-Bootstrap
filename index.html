@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#35231d">
     <meta name="description" content="記錄 HTML、CSS、JavaScript 與網頁設計的學習歷程和作品圖鑑。">
-    <title>學習歷程筆記展示｜RPG 冒險圖鑑</title>
+    <title>學習歷程筆記展示</title>
     <!-- 保留原本 CSS，不修改其內容；RPG 樣式放在獨立檔案中 -->
-    <link rel="stylesheet" href="CSS/myAllcss.css">
     <link rel="stylesheet" href="CSS/myRPGcss.css">
 </head>
 
@@ -18,11 +17,10 @@
     <header class="rpg-topbar" aria-label="冒險者狀態列">
         <a class="rpg-brand" href="#top" aria-label="回到冒險圖鑑首頁">
             <span class="rpg-brand-mark" aria-hidden="true">✦</span>
-            <span>YU'S ADVENTURE LOG</span>
         </a>
         <div class="rpg-status">
             <span class="rpg-status-label">ADVENTURER</span>
-            <span class="rpg-level">LV. 13</span>
+            <span class="rpg-level">LV. <span id="level-count">0</span></span>
             <span class="rpg-status-dot" aria-hidden="true"></span>
             <span class="rpg-status-text">持續探索中</span>
         </div>
@@ -33,15 +31,12 @@
         <section class="my-intro-section rpg-hero" id="top" aria-labelledby="intro-title">
             <div class="rpg-hero-spark rpg-spark-one" aria-hidden="true">✦</div>
             <div class="rpg-hero-spark rpg-spark-two" aria-hidden="true">✧</div>
-            <div class="rpg-hero-topline"><span class="rpg-pixel-heart" aria-hidden="true">♥</span> SAVE DATA 01 <span
-                    class="rpg-topline-divider">/</span> LEARNING JOURNEY</div>
-            <div class="rpg-hero-emblem" aria-hidden="true"><span>YU</span><i>✦</i></div>
             <span class="my-section-label">MY LEARNING JOURNEY</span>
             <h1 id="intro-title">歡迎來到我的<br class="rpg-mobile-break">網頁設計學習歷程</h1>
-            <p>這裡記錄了我的網頁設計練習與作品，<br class="rpg-desktop-break">用來整理自己的學習成果。</p>
+            <p>這裡記錄了我的網頁設計練習與作品<br class="rpg-desktop-break">用來整理自己的學習成果</p>
             <div class="rpg-hero-divider"><span>◆</span></div>
             <div class="rpg-hero-stats" aria-label="學習歷程統計">
-                <div class="rpg-stat"><span class="rpg-stat-label">QUESTS</span><strong>13</strong><span
+                <div class="rpg-stat"><span class="rpg-stat-label">WORKS</span><strong id="quest-count">0</strong><span
                         class="rpg-stat-caption">已記錄任務</span></div>
                 <div class="rpg-stat-separator" aria-hidden="true"></div>
                 <div class="rpg-stat"><span class="rpg-stat-label">CLASS</span><strong>WEB</strong><span
@@ -50,8 +45,21 @@
                 <div class="rpg-stat"><span class="rpg-stat-label">EXP</span><strong>+∞</strong><span
                         class="rpg-stat-caption">持續累積經驗</span></div>
             </div>
-            <a class="rpg-start-button" href="#works"><span aria-hidden="true">▶</span> 開始冒險 <span
-                    class="rpg-button-en">START QUEST</span></a>
+
+            <!-- 💡 新增：RPG 經驗值進度條 -->
+            <div class="rpg-exp-container" aria-label="學習經驗值進度">
+                <div class="rpg-exp-header">
+                    <span class="rpg-exp-title">EXP PROGRESS</span>
+                    <span class="rpg-exp-text"><span id="exp-current">0</span> / <span id="exp-max">20</span>
+                        WORKS</span>
+                </div>
+                <div class="rpg-bar-track">
+                    <div class="rpg-bar-fill" id="exp-bar-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <a class="rpg-start-button" href="#works"><span aria-hidden="true">▶</span> 開始冒險</a>
+
             <div class="rpg-hero-bottomline"><span>PRESS START TO CONTINUE</span><span class="rpg-blink"
                     aria-hidden="true">▌</span></div>
         </section>
@@ -61,12 +69,26 @@
             <div class="rpg-section-eyebrow"><span>CHAPTER 01</span><span>THE ARCHIVE OF LEARNING</span></div>
             <div class="my-works-header my-font rpg-works-heading">
                 <div class="rpg-heading-icon" aria-hidden="true">▤</div>
-                <div class="rpg-heading-copy"><span class="rpg-heading-kicker">QUEST ARCHIVE / 13 RECORDS</span>
+                <div class="rpg-heading-copy"><span class="rpg-heading-kicker">WORKS ARCHIVE / <span
+                            id="archive-count">0</span> RECORDS</span>
                     <h2 id="works-title">學習作品圖鑑</h2>
                 </div>
                 <div class="rpg-heading-stamp">MISSION<br>LOG</div>
             </div>
             <p class="rpg-works-intro">每一項練習都是一段冒險紀錄。選擇任務，查看作品成果。</p>
+
+            <!-- 💡 新增：RPG 任務分類篩選列 -->
+            <div class="rpg-filter-bar" aria-label="任務分類篩選">
+                <button class="rpg-filter-btn active" data-filter="all">全部任務 (<span
+                        id="filter-all-count">0</span>)</button>
+                <button class="rpg-filter-btn" data-filter="html-css">HTML & CSS</button>
+                <button class="rpg-filter-btn" data-filter="flex">CSS Flex</button>
+                <button class="rpg-filter-btn" data-filter="bootstrap">Bootstrap</button>
+                <button class="rpg-filter-btn" data-filter="js">JavaScript</button>
+                <button class="rpg-filter-btn" data-filter="forms">HTML Forms</button>
+                <button class="rpg-filter-btn" data-filter="ai">AI 協作</button>
+                <button class="rpg-filter-btn" data-filter="spa">SPA</button>
+            </div>
 
             <div class="my-project-grid">
                 <!-- Project 01 -->
@@ -74,7 +96,7 @@
                     <div class="my-project-number">01</div>
                     <div class="my-project-content"><span class="my-project-category my-font">HTML · CSS · WEB
                             DESIGN</span>
-                        <h3 class="my-font">HTML &amp; CSS 網頁排版基礎練習</h3><span class="my-project-date my-font">2026 / 09
+                        <h3 class="my-font">HTML & CSS 網頁排版基礎練習</h3><span class="my-project-date my-font">2026 / 09
                             / 23</span>
                         <p class="my-font">第一次練習使用 HTML 與 CSS 建立完整的網頁結構，從標題、段落、圖片到區塊配置，學習 HTML 語意結構與 CSS
                             基本樣式設定，並嘗試調整文字、顏色、間距與版面配置，建立網頁設計的基礎概念。</p>
@@ -86,7 +108,7 @@
                 <article class="my-project-card">
                     <div class="my-project-number">02</div>
                     <div class="my-project-content"><span class="my-project-category my-font">HTML · CSS · AI</span>
-                        <h3 class="my-font">HTML &amp; CSS 排版練習 By AI</h3><span class="my-project-date my-font">2026 /
+                        <h3 class="my-font">HTML & CSS 排版練習 By AI</h3><span class="my-project-date my-font">2026 /
                             09 / 24</span>
                         <p class="my-font">嘗試利用 AI 協助網頁設計與程式撰寫，透過 AI 產生 HTML 與 CSS
                             的設計方向，再根據自己的需求進行修改與調整。從過程中學習如何閱讀程式碼、理解版面結構，並思考 AI 產生的程式是否符合實際需求。</p>
@@ -225,7 +247,7 @@
                             rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
                 </article>
                 <!-- Project 13 -->
-                <article class="my-project-card ">
+                <article class="my-project-card">
                     <div class="my-project-number">13</div>
                     <div class="my-project-content"><span class="my-project-category my-font">HTML FORMS · JQUERY ·
                             AI-ASSISTED DEVELOPMENT</span>
@@ -240,41 +262,240 @@
                 </article>
 
                 <!-- Project 14 -->
-                <article class="my-project-card rpg-final-quest">
-                    <div class="rpg-final-ribbon">LATEST QUEST</div>
+                <article class="my-project-card">
                     <div class="my-project-number">14</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">HTML FORMS · JQUERY ·
-                            AI-ASSISTED DEVELOPMENT</span>
-                        <h3 class="my-font">SPA</h3><span class="my-project-date my-font">2026 / 10 /
-                            27</span>
-                        <p class="my-font">本次作品以課程報名表為主題，結合 HTML、CSS、Bootstrap、JavaScript、jQuery 與
-                            AJAX，設計具有遊戲冒險風格的多步驟互動表單。透過欄位驗證、縣市資料載入、課程選擇、表單草稿暫存、進度條與報名資料摘要等功能，練習表單操作與資料處理流程，並運用 AI
-                            協助開發與調整程式碼，進一步了解前端互動設計及表單功能整合的實作方式。</p>
+
+                    <div class="my-project-content">
+                        <span class="my-project-category my-font">
+                            HTML · CSS · JAVASCRIPT · SPA
+                        </span>
+
+                        <h3 class="my-font">SPA_單頁式網站設計</h3>
+
+                        <span class="my-project-date my-font">
+                            2026 / 10 / 27
+                        </span>
+
+                        <p class="my-font">
+                            本次作品以 SPA（Single Page Application，單頁式應用程式）為主題，
+                            練習將網站內容整合在單一頁面中，透過不同區塊的規劃與版面配置，
+                            建立清楚的資訊層次與瀏覽動線。藉由 HTML 與 CSS 調整頁面結構、
+                            文字樣式、色彩及間距，並結合 JavaScript 增加頁面互動性，
+                            進一步熟悉單頁式網站的設計概念與前端網頁整合方式。
+                        </p>
                     </div>
-                    <div class="my-project-footer"><a href="20261027-SPA.html" target="_blank" rel="noopener noreferrer"
-                            class="my-project-button my-font">查看作品 <span>→</span></a></div>
+
+                    <div class="my-project-footer">
+                        <a href="20261027-SPA.html" target="_blank" rel="noopener noreferrer"
+                            class="my-project-button my-font">
+                            查看作品 <span>→</span>
+                        </a>
+                    </div>
                 </article>
+
             </div>
         </section>
 
-        <section class="rpg-save-panel" aria-label="冒險紀錄摘要">
-            <span class="rpg-save-icon" aria-hidden="true">✦</span>
-            <div><span class="rpg-save-label">ADVENTURE SAVED</span>
-                <h2>每一次練習，都是新的經驗值。</h2>
-                <p>持續探索、持續建構，下一個任務正在等待解鎖。</p>
+        <!-- 📜 RPG 浮動傳送卷軸（回到頂端按鈕） -->
+        <a href="#top" class="rpg-floating-top" id="rpgFloatingTop" aria-label="傳送回頂端">
+            <span aria-hidden="true">📜</span> TOP ↑
+        </a>
+
+        <!-- 🏆 冒險者等級成就彈跳提示 -->
+        <div class="rpg-achievement-popup" id="achievementPopup" role="status" aria-live="polite">
+            <div class="rpg-achievement-icon">🏆</div>
+            <div class="rpg-achievement-content">
+                <span class="rpg-achievement-title">ACHIEVEMENT UNLOCKED!</span>
+                <span class="rpg-achievement-desc">冒險者圖鑑展開：載入中...</span>
             </div>
-            <a href="#top" class="rpg-back-top">回到頂端 ↑</a>
-        </section>
+        </div>
+
     </main>
 
     <footer class="my-footer rpg-footer">
-        <div class="my-footer-icon" aria-hidden="true">🌿</div>
-        <div class="my-footer-title my-font">我的學習歷程</div>
         <div class="my-footer-subtitle my-font">Building · Learning · Improving</div>
         <div class="rpg-footer-divider"><span>✦</span></div>
         <div class="my-footer-copyright my-font">© 2026 By YU</div>
         <div class="rpg-footer-note">THANK YOU FOR VISITING MY ADVENTURE LOG</div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const projectCards = document.querySelectorAll(".my-project-grid .my-project-card");
+            const projectCount = projectCards.length;
+
+            // 1. 自動更新作品總數與狀態列
+            const questCount = document.getElementById("quest-count");
+            const archiveCount = document.getElementById("archive-count");
+            const levelCount = document.getElementById("level-count");
+            const filterAllCount = document.getElementById("filter-all-count");
+
+            if (questCount) questCount.textContent = projectCount;
+            if (archiveCount) archiveCount.textContent = projectCount;
+            if (levelCount) levelCount.textContent = projectCount;
+            if (filterAllCount) filterAllCount.textContent = projectCount;
+
+            // 2. 清除並重新加上最後一張作品的「最新作品」標記
+            projectCards.forEach(function (card) {
+                card.classList.remove("rpg-final-quest");
+                const oldRibbon = card.querySelector(".rpg-final-ribbon");
+                if (oldRibbon) oldRibbon.remove();
+            });
+
+            if (projectCards.length > 0) {
+                const latestCard = projectCards[projectCards.length - 1];
+                latestCard.classList.add("rpg-final-quest");
+
+                const ribbon = document.createElement("div");
+                ribbon.className = "rpg-final-ribbon";
+                ribbon.textContent = "LATEST WORK";
+                latestCard.prepend(ribbon);
+            }
+
+            // 3. 🏆 冒險者動態成就解鎖提示（以 20 個作品為章節完整目標）
+            const achievementPopup = document.getElementById("achievementPopup");
+            if (achievementPopup) {
+                const descSpan = achievementPopup.querySelector(".rpg-achievement-desc");
+                const titleSpan = achievementPopup.querySelector(".rpg-achievement-title");
+                const iconDiv = achievementPopup.querySelector(".rpg-achievement-icon");
+
+                const chapterTarget = 20; // 🎯 設定每一章節的滿等目標
+
+                if (projectCount >= chapterTarget) {
+                    // 🌟 狀況 A：當前章節滿等達成
+                    if (titleSpan) titleSpan.textContent = "CHAPTER COMPLETED!";
+                    if (descSpan) descSpan.textContent = `第 1 章冒險圓滿達成：已收集全數 ${projectCount} 項任務！`;
+                    if (iconDiv) iconDiv.textContent = "👑";
+                } else {
+                    // ⚔️ 狀況 B：冒險進行中（顯示目前的 13/20 進度）
+                    if (titleSpan) titleSpan.textContent = "ADVENTURE IN PROGRESS";
+                    if (descSpan) descSpan.textContent = `當前章節進度：已解鎖 ${projectCount} / ${chapterTarget} 項冒險任務，繼續加油！`;
+                    if (iconDiv) iconDiv.textContent = "📜";
+                }
+
+                // 頁面載入 1 秒後自動彈出，4 秒後收回
+                setTimeout(function () {
+                    achievementPopup.classList.add("show");
+
+                    setTimeout(function () {
+                        achievementPopup.classList.remove("show");
+                    }, 4000);
+                }, 1000);
+            }
+
+            // 4. 🌟 多階段章節與經驗值進度條動態計算
+            const expCurrent = document.getElementById("exp-current");
+            const expMax = document.getElementById("exp-max");
+            const expBarFill = document.getElementById("exp-bar-fill");
+            const expTitle = document.querySelector(".rpg-exp-title");
+            const sectionEyebrow = document.querySelector(".rpg-section-eyebrow");
+
+            const maxPerChapter = 20;
+            const currentQuests = projectCount;
+
+            const currentChapter = Math.floor((currentQuests - 1) / maxPerChapter) + 1;
+
+            let currentInChapter = currentQuests % maxPerChapter;
+            if (currentInChapter === 0 && currentQuests > 0) {
+                currentInChapter = maxPerChapter;
+            }
+
+            const percentage = Math.round((currentInChapter / maxPerChapter) * 100);
+
+            if (expCurrent) expCurrent.textContent = currentInChapter;
+            if (expMax) expMax.textContent = maxPerChapter;
+
+            if (expTitle) {
+                expTitle.textContent = `CHAPTER ${String(currentChapter).padStart(2, '0')} EXP`;
+            }
+
+            if (sectionEyebrow) {
+                const chapterSpans = sectionEyebrow.querySelectorAll("span");
+                if (chapterSpans.length > 0) {
+                    chapterSpans[0].textContent = `CHAPTER ${String(currentChapter).padStart(2, '0')}`;
+                }
+            }
+
+            if (expBarFill) {
+                setTimeout(function () {
+                    expBarFill.style.width = percentage + "%";
+                }, 150);
+            }
+
+            if (currentInChapter === maxPerChapter && currentQuests > 0) {
+                if (expTitle) {
+                    expTitle.textContent = `⭐ CHAPTER ${String(currentChapter).padStart(2, '0')} MAX!`;
+                    expTitle.style.color = "#c84c43";
+                }
+                if (expBarFill) {
+                    expBarFill.classList.add("rpg-max-glow");
+                }
+            }
+
+            // 5. 智慧自動為卡片貼上分類標記（對應精準分類）
+            projectCards.forEach(function (card) {
+                const catText = card.querySelector(".my-project-category").textContent.toUpperCase();
+                let categories = [];
+
+                // 🌟 只要分類文字包含 HTML，就一定會被歸類到 html-css 篩選中！
+                if (catText.includes("HTML") && !catText.includes("FORMS")) {
+                    categories.push("html-css");
+                }
+                if (catText.includes("FLEX")) {
+                    categories.push("flex");
+                }
+                if (catText.includes("BOOTSTRAP")) {
+                    categories.push("bootstrap");
+                }
+                if (catText.includes("JAVASCRIPT")) {
+                    categories.push("js");
+                }
+                if (catText.includes("FORMS")) {
+                    categories.push("forms");
+                }
+                if (catText.includes("AI")) {
+                    categories.push("ai");
+                }
+                if (catText.includes("SPA")) {
+                    categories.push("spa");
+                }
+
+                card.setAttribute("data-categories", categories.join(" "));
+            });
+
+            // 6. 篩選按鈕點擊互動邏輯
+            const filterBtns = document.querySelectorAll(".rpg-filter-btn");
+            filterBtns.forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    filterBtns.forEach(b => b.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const filterValue = this.getAttribute("data-filter");
+
+                    projectCards.forEach(function (card) {
+                        const cardCategories = card.getAttribute("data-categories") || "";
+                        if (filterValue === "all" || cardCategories.includes(filterValue)) {
+                            card.style.display = "";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+
+        // 📜 浮動傳送卷軸按鈕：向下捲動超過 300px 時自動浮現
+        const floatingTopBtn = document.getElementById("rpgFloatingTop");
+        if (floatingTopBtn) {
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 300) {
+                    floatingTopBtn.classList.add("show");
+                } else {
+                    floatingTopBtn.classList.remove("show");
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

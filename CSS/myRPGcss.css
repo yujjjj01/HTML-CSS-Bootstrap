@@ -440,162 +440,12 @@ main {
     font-size: .9rem;
 }
 
-/* Quest cards */
+/* Quest cards grid */
 .my-project-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
     align-items: stretch;
-}
-
-.my-project-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    padding: 22px 18px 17px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, .55), transparent 45%), var(--rpg-paper);
-    border: 3px solid var(--rpg-brown);
-    box-shadow: 4px 4px 0 var(--rpg-gold), 7px 7px 0 rgba(65, 42, 27, .18), inset 0 0 0 2px #fff8df, inset 0 0 0 6px rgba(166, 116, 52, .14);
-    transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.my-project-card::before {
-    content: "";
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 8px;
-    height: 8px;
-    background: var(--rpg-gold);
-    box-shadow: -1px 0 0 #fff8df;
-}
-
-.my-project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 4px 9px 0 var(--rpg-gold), 7px 12px 0 rgba(65, 42, 27, .18), inset 0 0 0 2px #fff8df, inset 0 0 0 6px rgba(166, 116, 52, .14);
-}
-
-.my-project-number {
-    position: relative;
-    display: grid;
-    place-items: center;
-    flex: 0 0 66px;
-    width: 66px;
-    height: 66px;
-    margin: 4px 0 10px;
-    color: #fff5d5;
-    background: var(--rpg-brown-dark);
-    border: 3px solid var(--rpg-gold);
-    box-shadow: 3px 3px 0 #2c1c17, inset 0 0 0 2px #87613b;
-    font-family: "Courier New", monospace;
-    font-size: 1.55rem;
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: .03em;
-}
-
-.my-project-content {
-    flex: 1;
-    min-width: 0;
-}
-
-.my-project-category {
-    display: inline-block;
-    margin: 0 0 10px;
-    padding: 3px 7px;
-    color: #234e60;
-    background: #d9edf0;
-    border: 1px solid #6a9dad;
-    box-shadow: 2px 2px 0 rgba(55, 88, 94, .14);
-    font-family: "Courier New", "Noto Sans TC", monospace, sans-serif;
-    font-size: .65rem;
-    font-weight: 900;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
-}
-
-.my-project-content h3 {
-    margin: 0 0 8px;
-    color: #40291e;
-    font-size: 1.08rem;
-    font-weight: 900;
-    line-height: 1.55;
-    overflow-wrap: anywhere;
-}
-
-.my-project-date {
-    display: block;
-    margin-bottom: 10px;
-    color: #765333;
-    font-size: .78rem;
-    font-weight: 800;
-}
-
-.my-project-date::before {
-    content: "▣ ";
-    color: #8d6331;
-}
-
-.my-project-content p {
-    margin: 0 0 18px;
-    color: #5c4633;
-    font-size: .88rem;
-    line-height: 1.9;
-    overflow-wrap: anywhere;
-}
-
-.my-project-footer {
-    display: flex;
-    justify-content: center;
-    margin-top: auto;
-    padding-top: 10px;
-}
-
-.my-project-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    min-width: 150px;
-    padding: 9px 18px;
-    color: #fff0bd;
-    background: linear-gradient(180deg, #79512f, #493022);
-    border: 3px solid #2f2019;
-    box-shadow: inset 0 0 0 2px var(--rpg-gold), 3px 3px 0 #bd8b3e;
-    text-decoration: none;
-    text-align: center;
-    font-size: .88rem;
-    font-weight: 900;
-    line-height: 1.5;
-    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
-}
-
-.my-project-button span {
-    color: #ffdb69;
-    font-size: 1.1em;
-    transition: transform .15s ease;
-}
-
-.my-project-button:hover {
-    color: #fffbe8;
-    background: linear-gradient(180deg, #986b3b, #624027);
-    transform: translate(-1px, -1px);
-    box-shadow: inset 0 0 0 2px #ffe6a0, 4px 4px 0 #bd8b3e;
-}
-
-.my-project-button:hover span {
-    transform: translateX(4px);
-}
-
-.my-project-button:active {
-    transform: translate(2px, 2px);
-    box-shadow: inset 0 0 0 2px var(--rpg-gold);
-}
-
-.rpg-final-quest {
-    background: linear-gradient(135deg, rgba(255, 255, 255, .5), transparent 48%), #ffedc0;
-    border-color: #9a6530;
 }
 
 .rpg-final-ribbon {
@@ -610,10 +460,7 @@ main {
     font-size: .6rem;
     font-weight: 900;
     letter-spacing: .08em;
-}
-
-.rpg-final-quest .my-project-number {
-    margin-top: 18px;
+    z-index: 2;
 }
 
 /* Closing save panel and footer */
@@ -693,19 +540,6 @@ main {
     text-align: center;
 }
 
-.rpg-footer .my-footer-icon {
-    margin-bottom: 4px;
-    font-size: 1.8rem;
-    line-height: 1.3;
-}
-
-.rpg-footer .my-footer-title {
-    color: #ffe7a0;
-    font-size: 1.2rem;
-    font-weight: 900;
-    letter-spacing: .12em;
-}
-
 .rpg-footer .my-footer-subtitle {
     margin-top: 4px;
     color: #f6dfb4;
@@ -742,6 +576,430 @@ main {
     letter-spacing: .14em;
 }
 
+/* =========================================================
+   RPG 任務分類篩選器樣式
+   ========================================================= */
+.rpg-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.rpg-filter-btn {
+    padding: 7px 16px;
+    color: #5c4633;
+    background: #fff8df;
+    border: 2px solid var(--rpg-brown);
+    box-shadow: 2px 2px 0 var(--rpg-gold), 4px 4px 0 rgba(65, 42, 27, .15);
+    font-family: "Courier New", "Noto Sans TC", monospace, sans-serif;
+    font-size: .78rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform .12s ease, background .12s ease, color .12s ease, box-shadow .12s ease;
+}
+
+.rpg-filter-btn:hover {
+    background: #ffe6a0;
+    transform: translateY(-1px);
+    box-shadow: 2px 3px 0 var(--rpg-gold), 4px 5px 0 rgba(65, 42, 27, .15);
+}
+
+.rpg-filter-btn.active {
+    color: #fff0bd;
+    background: linear-gradient(180deg, #79512f, #493022);
+    border-color: #2f2019;
+    box-shadow: inset 0 0 0 1px var(--rpg-gold), 2px 2px 0 #bd8b3e;
+    transform: translateY(1px);
+}
+
+/* =========================================================
+   RPG 經驗值進度條樣式
+   ========================================================= */
+.rpg-exp-container {
+    max-width: 380px;
+    margin: 0 auto 22px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, .65);
+    border: 2px solid var(--rpg-brown);
+    box-shadow: 3px 3px 0 rgba(65, 42, 27, .15);
+}
+
+.rpg-exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-family: "Courier New", monospace;
+    font-size: .7rem;
+    font-weight: 900;
+    letter-spacing: .1em;
+    color: var(--rpg-ink-soft);
+}
+
+.rpg-bar-track {
+    position: relative;
+    height: 14px;
+    background: #2f2019;
+    border: 2px solid var(--rpg-brown);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.rpg-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #d2ad67, var(--rpg-gold), #ffe7a0);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4);
+    width: 0%;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================================
+   RPG 浮動傳送卷軸按鈕（回到頂端）
+   ========================================================= */
+.rpg-floating-top {
+    position: fixed;
+    z-index: 999;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    color: #fff0bd;
+    background: linear-gradient(180deg, #79512f, #493022);
+    border: 3px solid #2f2019;
+    box-shadow: inset 0 0 0 2px var(--rpg-gold), 4px 4px 0 #bd8b3e;
+    font-family: "Courier New", "Noto Sans TC", monospace, sans-serif;
+    font-size: .8rem;
+    font-weight: 900;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.rpg-floating-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.rpg-floating-top:hover {
+    color: #fffbe8;
+    background: linear-gradient(180deg, #986b3b, #624027);
+    transform: translate(-1px, -1px);
+    box-shadow: inset 0 0 0 2px #ffe6a0, 6px 6px 0 #bd8b3e;
+}
+
+.rpg-floating-top:active {
+    transform: translate(2px, 2px);
+    box-shadow: inset 0 0 0 2px var(--rpg-gold);
+}
+
+/* =========================================================
+   🌟 最新任務（LATEST WORK）金色魔法呼吸燈專屬樣式
+   ========================================================= */
+
+@keyframes rpg-glow-pulse {
+
+    0%,
+    100% {
+        box-shadow: 3px 3px 0 var(--rpg-gold), 0 0 12px rgba(230, 185, 85, 0.4), inset 0 0 0 2px #ffe7a0, inset 0 0 0 6px rgba(230, 185, 85, 0.3);
+    }
+
+    50% {
+        box-shadow: 3px 3px 0 var(--rpg-gold), 0 0 30px rgba(230, 185, 85, 0.95), inset 0 0 0 2px #ffe7a0, inset 0 0 0 6px rgba(230, 185, 85, 0.6);
+    }
+}
+
+/* 透過多重選擇器與 !important 確保樣式完美覆蓋，全權由 CSS 控制 */
+body .my-project-grid .my-project-card.rpg-final-quest {
+    background: linear-gradient(135deg, rgba(255, 255, 255, .6), transparent 48%), #ffedc0 !important;
+    border-color: #9a6530 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    animation: rpg-glow-pulse 3s infinite ease-in-out !important;
+}
+
+body .my-project-grid .my-project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 20px 22px 18px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, .55), transparent 45%), var(--rpg-paper);
+    border: 3px solid var(--rpg-brown);
+    box-shadow: 3px 3px 0 var(--rpg-gold), 5px 5px 0 rgba(65, 42, 27, .13), inset 0 0 0 2px #fff8df, inset 0 0 0 5px rgba(166, 116, 52, .11);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+body .my-project-grid .my-project-card::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--rpg-gold);
+    box-shadow: -1px 0 0 #fff8df;
+}
+
+body .my-project-grid .my-project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 9px 0 var(--rpg-gold), 8px 13px 0 rgba(65, 42, 27, .2), inset 0 0 0 2px #fff8df, inset 0 0 0 6px rgba(230, 185, 85, .25);
+}
+
+body .my-project-grid .my-project-card:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--rpg-gold), 3px 3px 0 rgba(65, 42, 27, .15), inset 0 0 0 2px #fff8df;
+}
+
+body .my-project-grid .my-project-card .my-project-number {
+    position: relative;
+    inset: auto;
+    align-self: flex-start;
+    display: grid;
+    place-items: center;
+    flex: 0 0 54px;
+    width: 54px;
+    height: 54px;
+    margin: 0 0 14px;
+    transform: none;
+    z-index: 1;
+    color: #fff5d5;
+    background: var(--rpg-brown-dark);
+    border: 3px solid var(--rpg-gold);
+    box-shadow: 2px 2px 0 #2c1c17, inset 0 0 0 2px #87613b;
+    font-family: "Courier New", monospace;
+    font-size: 1.3rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: .03em;
+}
+
+body .my-project-grid .my-project-card .my-project-content {
+    flex: 1;
+    min-width: 0;
+}
+
+body .my-project-grid .my-project-card .my-project-category {
+    display: inline-block;
+    margin: 0 0 9px;
+    padding: 3px 7px;
+    color: #234e60;
+    background: #d9edf0;
+    border: 1px solid #6a9dad;
+    box-shadow: 2px 2px 0 rgba(55, 88, 94, .14);
+    font-family: "Courier New", "Noto Sans TC", monospace, sans-serif;
+    font-size: .62rem;
+    font-weight: 900;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+    transition: background .15s ease, color .15s ease;
+}
+
+body .my-project-grid .my-project-card:hover .my-project-category {
+    color: #fff0bd;
+    background: #35231d;
+    border-color: var(--rpg-gold);
+}
+
+body .my-project-grid .my-project-card .my-project-content h3 {
+    margin: 0 0 9px;
+    color: #40291e;
+    font-size: 1.1rem;
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: .01em;
+    overflow-wrap: anywhere;
+}
+
+body .my-project-grid .my-project-card .my-project-date {
+    display: block;
+    margin-bottom: 12px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: #eaf0e4;
+    border: 1px solid #d1dfc9;
+    color: #765333;
+    font-size: .75rem;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+body .my-project-grid .my-project-card .my-project-date::before {
+    content: "▣ ";
+    color: #8d6331;
+}
+
+body .my-project-grid .my-project-card .my-project-content p {
+    margin: 0 0 16px;
+    color: #5c4633;
+    font-size: .87rem;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+body .my-project-grid .my-project-card .my-project-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding-top: 14px;
+}
+
+body .my-project-grid .my-project-card .my-project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 154px;
+    padding: 8px 17px;
+    color: #fff0bd;
+    background: linear-gradient(180deg, #79512f, #493022);
+    border: 3px solid #2f2019;
+    box-shadow: inset 0 0 0 2px var(--rpg-gold), 3px 3px 0 #bd8b3e;
+    text-decoration: none;
+    text-align: center;
+    font-size: .88rem;
+    font-weight: 900;
+    line-height: 1.5;
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+body .my-project-grid .my-project-card .my-project-button span {
+    color: #ffdb69;
+    font-size: 1.1em;
+    transition: transform .15s ease;
+}
+
+body .my-project-grid .my-project-card .my-project-button:hover {
+    color: #fffbe8;
+    background: linear-gradient(180deg, #986b3b, #624027);
+    transform: translate(-1px, -1px);
+    box-shadow: inset 0 0 0 2px #ffe6a0, 4px 4px 0 #bd8b3e;
+}
+
+body .my-project-grid .my-project-card .my-project-button:hover span {
+    transform: translateX(4px);
+}
+
+body .my-project-grid .my-project-card .my-project-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: inset 0 0 0 2px var(--rpg-gold);
+}
+
+
+body .my-project-grid .my-project-card.rpg-final-quest .my-project-number {
+    margin-top: 0;
+}
+
+/* 最後一張作品：傳說級裝備外框裝飾 */
+body .my-project-grid article.my-project-card.rpg-final-quest {
+    border: 3px solid #b37424 !important;
+    background: linear-gradient(135deg, rgba(255, 245, 210, .9), #ffe7a0) !important;
+}
+
+/* 在四個角落加上像素金角裝飾 */
+body .my-project-grid article.my-project-card.rpg-final-quest::after {
+    content: "✦";
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    color: #9a5f1a;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+body .my-project-grid .my-project-card:hover .my-project-number {
+    background: var(--rpg-gold) !important;
+    color: var(--rpg-brown-dark) !important;
+    transform: scale(1.08) rotate(-3deg);
+    transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+@keyframes rpg-arrow-jump {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+body .my-project-grid .my-project-card .my-project-button:hover span {
+    animation: rpg-arrow-jump 0.6s infinite ease-in-out;
+}
+
+/* =========================================================
+   🏆 冒險者等級成就徽章彈跳提示（Achievement Popup）
+   ========================================================= */
+.rpg-achievement-popup {
+    position: fixed;
+    top: -80px;
+    /* 預設藏在畫面最上方外面 */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #fff0bd;
+    background: linear-gradient(180deg, #493022, #2d1c17);
+    border: 3px solid var(--rpg-gold);
+    box-shadow: 0 6px 0 #1b110e, 0 10px 20px rgba(0, 0, 0, 0.4), inset 0 0 0 2px #ffe7a0;
+    font-family: "Courier New", "Noto Sans TC", monospace, sans-serif;
+    font-size: .85rem;
+    font-weight: 900;
+    letter-spacing: .05em;
+    opacity: 0;
+    transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    /* 彈跳黏滯感動畫 */
+}
+
+/* 當加上 .show 時，滑落到畫面頂部下方 */
+.rpg-achievement-popup.show {
+    top: 20px;
+    opacity: 1;
+}
+
+.rpg-achievement-icon {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    color: #35231d;
+    background: var(--rpg-gold);
+    border: 2px solid #fff0bd;
+    font-size: 1.1rem;
+    box-shadow: inset 0 0 0 2px #b98a3e;
+}
+
+.rpg-achievement-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.rpg-achievement-title {
+    color: #ffd768;
+    font-size: .65rem;
+    letter-spacing: .12em;
+}
+
+.rpg-achievement-desc {
+    color: #fff6e0;
+    font-size: .8rem;
+}
+
+/* =========================================================
+   RWD Media Queries
+   ========================================================= */
 @media (min-width: 1100px) {
     .my-project-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -906,24 +1164,25 @@ main {
         gap: 17px;
     }
 
-    .my-project-card {
-        padding: 20px 17px 16px;
+    body .my-project-grid .my-project-card {
+        padding: 18px 17px 16px;
     }
 
-    .my-project-number {
-        flex-basis: 58px;
-        width: 58px;
-        height: 58px;
-        font-size: 1.35rem;
+    body .my-project-grid .my-project-card .my-project-number {
+        flex-basis: 50px;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 12px;
+        font-size: 1.2rem;
     }
 
-    .my-project-content h3 {
+    body .my-project-grid .my-project-card .my-project-content h3 {
         font-size: 1.04rem;
     }
 
-    .my-project-content p {
+    body .my-project-grid .my-project-card .my-project-content p {
         font-size: .87rem;
-        line-height: 1.85;
+        line-height: 1.8;
     }
 
     .my-project-button {
