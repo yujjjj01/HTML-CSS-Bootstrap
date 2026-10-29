@@ -8,12 +8,1016 @@
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/all.min.css">
     <link rel="stylesheet" href="CSS/myAllcss.css">
+    <link rel="stylesheet" href="CSS/myResumeCSS.css">
+
+
+
+    <style>
+        /* ========================================
+       Section 03：作品展示輪播
+    ======================================== */
+
+        #s03.resume-showcase {
+            --resume-accent: #c66b50;
+            --resume-text: #fffaf5;
+            --resume-muted: #e1d7d0;
+
+            width: 100%;
+            overflow: hidden;
+            background-color: #28211e;
+        }
+
+        /* 輪播基本結構 */
+        #s03 .carousel,
+        #s03 .carousel-inner,
+        #s03 .carousel-item {
+            width: 100%;
+        }
+
+        #s03 .carousel-item.resume-slide {
+            position: relative;
+            height: 80vh;
+            min-height: 540px;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 背景圖片 */
+        #s03 .resume-slide-01 {
+            background-image: url("../images/Bridge.avif");
+        }
+
+        #s03 .resume-slide-02 {
+            background-image: url("../images/tree.avif");
+        }
+
+        #s03 .resume-slide-03 {
+            background-image: url("../images/Horse.avif");
+        }
+
+        /* 背景遮罩 */
+        #s03 .resume-slide::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background: linear-gradient(90deg,
+                    rgba(28, 21, 18, 0.88) 0%,
+                    rgba(28, 21, 18, 0.68) 48%,
+                    rgba(28, 21, 18, 0.18) 100%);
+        }
+
+        /* 文字資訊卡 */
+        #s03 .resume-caption {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: auto;
+            bottom: auto;
+            transform: translateY(-50%);
+
+            width: min(680px, 72%);
+            margin: 0;
+            padding: 36px 40px;
+
+            color: var(--resume-text);
+            text-align: left;
+
+            background-color: rgba(35, 27, 24, 0.82);
+            border-left: 5px solid var(--resume-accent);
+            border-radius: 4px;
+
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 英文小標 */
+        #s03 .resume-caption-label {
+            display: inline-block;
+            margin-bottom: 16px;
+
+            color: #e6a18b;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        /* 主標題 */
+        #s03 .resume-caption h3 {
+            margin-bottom: 16px;
+
+            color: var(--resume-text);
+            font-size: clamp(26px, 3vw, 38px);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* 標題說明 */
+        #s03 .resume-caption-intro {
+            margin-bottom: 22px;
+
+            color: var(--resume-muted);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        /* 條列式內容 */
+        #s03 .resume-feature-list {
+            display: grid;
+            gap: 12px;
+
+            margin: 0 0 26px;
+            padding: 0;
+            list-style: none;
+        }
+
+        #s03 .resume-feature-list li {
+            position: relative;
+            padding-left: 24px;
+
+            color: var(--resume-text);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* 自訂條列符號 */
+        #s03 .resume-feature-list li::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 0;
+
+            width: 8px;
+            height: 8px;
+
+            background-color: var(--resume-accent);
+            border-radius: 2px;
+        }
+
+        /* 技能標籤 */
+        #s03 .resume-skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        #s03 .resume-skill-tags span {
+            display: inline-block;
+            padding: 7px 13px;
+
+            color: #f7c3b0;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+
+            background-color: rgba(198, 107, 80, 0.15);
+            border: 1px solid rgba(230, 161, 139, 0.55);
+            border-radius: 3px;
+        }
+
+        /* 輪播切換按鈕 */
+        #s03 .carousel-control-prev,
+        #s03 .carousel-control-next {
+            width: 8%;
+            opacity: 0.85;
+        }
+
+        #s03 .carousel-control-prev:hover,
+        #s03 .carousel-control-next:hover {
+            opacity: 1;
+        }
+
+        /* 輪播指示點 */
+        #s03 .carousel-indicators {
+            margin-bottom: 22px;
+        }
+
+        #s03 .carousel-indicators button {
+            width: 28px;
+            height: 4px;
+            margin: 0 5px;
+
+            border: 0;
+            border-radius: 2px;
+            background-color: #fffaf5;
+            opacity: 0.45;
+        }
+
+        #s03 .carousel-indicators button.active {
+            width: 42px;
+
+            background-color: var(--resume-accent);
+            opacity: 1;
+        }
+
+
+        /* ========================================
+       Section 04：個人亮點與學習成果
+    ======================================== */
+
+        #s04.profile-highlight {
+            --profile-cream: #faf6f0;
+            --profile-brown: #35231d;
+            --profile-red: #bd6048;
+            --profile-muted: #76675f;
+
+            overflow: hidden;
+            background-color: var(--profile-cream);
+            color: var(--profile-brown);
+        }
+
+        /* 左側圖片 */
+        #s04 .profile-highlight-image {
+            position: relative;
+            min-height: 620px;
+            padding: 0;
+            overflow: hidden;
+
+            background-color: #35231d;
+        }
+
+        #s04 .profile-highlight-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 620px;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* 圖片下方漸層 */
+        #s04 .profile-highlight-image::after {
+            content: "";
+            position: absolute;
+            inset: 40% 0 0;
+
+            background: linear-gradient(transparent,
+                    rgba(30, 20, 16, 0.82));
+
+            pointer-events: none;
+        }
+
+        /* 圖片上的文字 */
+        #s04 .profile-image-caption {
+            position: absolute;
+            z-index: 1;
+            left: 40px;
+            bottom: 38px;
+
+            color: #fffaf5;
+        }
+
+        #s04 .profile-image-caption span {
+            display: inline-block;
+            margin-bottom: 10px;
+
+            color: #f0b39d;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        #s04 .profile-image-caption p {
+            margin: 0;
+
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* 右側主內容 */
+        #s04 .profile-highlight-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 64px clamp(28px, 5vw, 76px);
+        }
+
+        /* 英文眉標 */
+        #s04 .profile-eyebrow {
+            display: inline-block;
+            margin-bottom: 22px;
+
+            color: var(--profile-red);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+        }
+
+        /* 主標題 */
+        #s04 .profile-heading h2 {
+            margin-bottom: 22px;
+
+            color: var(--profile-brown);
+            font-size: clamp(30px, 3vw, 43px);
+            font-weight: 800;
+            line-height: 1.5;
+            letter-spacing: 1px;
+        }
+
+        #s04 .profile-heading h2 span {
+            color: var(--profile-red);
+        }
+
+        /* 介紹文字 */
+        #s04 .profile-intro {
+            max-width: 560px;
+            margin-bottom: 32px;
+
+            color: var(--profile-muted);
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        /* 數據卡片排列 */
+        #s04 .profile-stats {
+            margin-bottom: 26px;
+        }
+
+        #s04 .profile-stat-card {
+            height: 100%;
+            min-height: 145px;
+            padding: 22px 20px;
+
+            background-color: #fffdf9;
+            border: 1px solid #eaded4;
+            border-top: 4px solid var(--profile-red);
+        }
+
+        /* 大數字 */
+        #s04 .profile-stat-number {
+            display: block;
+            margin-bottom: 8px;
+
+            color: var(--profile-red);
+            font-size: clamp(32px, 3vw, 43px);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
+        /* 數據標題 */
+        #s04 .profile-stat-card h3 {
+            margin-bottom: 7px;
+
+            color: var(--profile-brown);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* 數據英文小字 */
+        #s04 .profile-stat-card p {
+            margin: 0;
+
+            color: #99867b;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        /* 底部標語 */
+        #s04 .profile-bottom-note {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-top: 4px;
+        }
+
+        #s04 .profile-note-line {
+            flex-shrink: 0;
+            width: 32px;
+            height: 3px;
+
+            background-color: var(--profile-red);
+        }
+
+        #s04 .profile-bottom-note p {
+            margin: 0;
+
+            color: var(--profile-muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+
+        /* ========================================
+       Section 05：我的工作信念
+    ======================================== */
+
+        .resume-beliefs {
+            padding: 90px 0;
+
+            background-color: #F7F3ED;
+            color: #352820;
+        }
+
+        /* 區塊主標題 */
+        .resume-beliefs .my-title-03 {
+            position: relative;
+            margin-bottom: 0;
+
+            color: #352820;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        /* 標題裝飾線 */
+        .resume-beliefs .my-title-03::after {
+            content: "";
+            display: block;
+            width: 64px;
+            height: 4px;
+            margin: 18px auto 0;
+
+            background-color: #A84F3C;
+            border-radius: 2px;
+        }
+
+        /* 區塊介紹 */
+        .resume-beliefs .resume-beliefs-intro {
+            max-width: 650px;
+            margin: 22px auto 0;
+
+            color: #78685D;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* 信念卡片 */
+        .resume-beliefs .belief-card {
+            position: relative;
+            height: 100%;
+            padding: 36px 26px;
+            overflow: hidden;
+
+            background-color: #FFFCF8;
+            border: 1px solid #E8DED3;
+            border-top: 4px solid #A84F3C;
+            border-radius: 8px;
+
+            box-shadow: 0 4px 16px rgba(53, 40, 32, 0.05);
+        }
+
+        /* 卡片裝飾線 */
+        .resume-beliefs .belief-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 4px;
+
+            background-color: #A84F3C;
+        }
+
+        /* 圖示 */
+        .resume-beliefs .belief-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 76px;
+            height: 76px;
+            margin: 0 auto 20px;
+
+            background-color: #F3E5DC;
+            border-radius: 50%;
+
+            color: #A84F3C;
+            font-size: 30px;
+        }
+
+        /* 編號 */
+        .resume-beliefs .belief-number {
+            display: block;
+            margin-bottom: 10px;
+
+            color: #A84F3C;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* 卡片標題 */
+        .resume-beliefs .belief-card .my-title-06 {
+            margin-bottom: 16px;
+
+            color: #352820;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        /* 卡片說明 */
+        .resume-beliefs .belief-card p {
+            margin-bottom: 0;
+
+            color: #78685D;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        /* 滑鼠移入：保留原本的顏色變化 */
+        .resume-beliefs .belief-card:hover {
+            border-color: #D8B6A5;
+            box-shadow: 0 6px 20px rgba(53, 40, 32, 0.08);
+        }
+
+        .resume-beliefs .belief-card:hover .belief-icon {
+            background-color: #A84F3C;
+            color: #FFFCF8;
+        }
+
+        .resume-beliefs .belief-card:hover .my-title-06 {
+            color: #A84F3C;
+        }
+
+        /* 鍵盤操作焦點 */
+        .resume-beliefs .belief-card:focus-within {
+            outline: 2px solid #A84F3C;
+            outline-offset: 4px;
+        }
+
+
+        /* ========================================
+       Section 06：關於我
+    ======================================== */
+
+        #s06.about-section {
+            position: relative;
+            padding: 80px 0;
+
+            background-color: #f8f6f2;
+            color: #352c28;
+
+            overflow: hidden;
+        }
+
+        /* 左側人物圖片：保留原有定位 */
+        #s06 .about-image {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+
+            height: auto;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 右側文字區域 */
+        #s06 .about-content {
+            padding: 20px 30px 20px 45px;
+        }
+
+        /* 區塊標題 */
+        #s06 .h2.my {
+            margin-bottom: 8px;
+
+            color: #352c28;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        /* 標題裝飾線 */
+        #s06 .h2.my span {
+            display: inline-block;
+            width: 34px;
+            height: 3px;
+            margin-left: 10px;
+
+            vertical-align: middle;
+            background-color: #a6533c;
+        }
+
+        /* 英文小標 */
+        #s06 .about-en {
+            margin-bottom: 28px;
+
+            color: #a6533c;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* 主要標題 */
+        #s06 .about-title {
+            margin-bottom: 24px;
+
+            color: #352c28;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        /* 自我介紹內文 */
+        #s06 .about-text {
+            margin-bottom: 18px;
+
+            color: #625953;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 2;
+
+            text-align: justify;
+        }
+
+        /* 技能區域 */
+        #s06 .about-skills {
+            margin-top: 32px;
+            padding-top: 24px;
+
+            border-top: 1px solid #ded6cd;
+        }
+
+        /* 技能標題 */
+        #s06 .about-skills h5 {
+            margin-bottom: 16px;
+
+            color: #a6533c;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* 技能標籤排列 */
+        #s06 .about-skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* 單一技能標籤 */
+        #s06 .about-skill-list span {
+            display: inline-block;
+            padding: 8px 13px;
+
+            background-color: #fffdf9;
+            border: 1px solid #ded2c8;
+            border-radius: 4px;
+
+            color: #51433b;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* 了解更多連結 */
+        #s06 .about-more {
+            margin-top: 26px;
+        }
+
+        #s06 .about-more a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding-bottom: 6px;
+
+            color: #a6533c;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+
+            border-bottom: 1px solid #a6533c;
+        }
+
+        /* 了解更多箭頭 */
+        #s06 .about-more a span {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        /* 滑鼠移入：只改變顏色 */
+        #s06 .about-more a:hover {
+            color: #352c28;
+            border-bottom-color: #352c28;
+        }
+
+        /* 鍵盤操作焦點 */
+        #s06 .about-more a:focus-visible {
+            outline: 2px solid #a6533c;
+            outline-offset: 4px;
+        }
+
+
+        /* ========================================
+       平板版：991.98px 以下
+    ======================================== */
+
+        @media (max-width: 991.98px) {
+
+            /* Section 03：作品展示輪播 */
+            #s03 .carousel-item.resume-slide {
+                height: 75vh;
+                min-height: 520px;
+            }
+
+            #s03 .resume-caption {
+                left: 9%;
+                width: 78%;
+                padding: 30px;
+            }
+
+            /* Section 04：個人亮點 */
+            #s04 .profile-highlight-image,
+            #s04 .profile-highlight-image img {
+                min-height: 540px;
+            }
+
+            #s04 .profile-highlight-content {
+                padding: 42px 28px;
+            }
+
+            #s04 .profile-heading h2 {
+                font-size: 30px;
+            }
+
+            #s04 .profile-stat-card {
+                padding: 18px 14px;
+            }
+
+            /* Section 06：關於我 */
+            #s06.about-section {
+                padding: 55px 0;
+            }
+
+            #s06 .about-content {
+                padding: 15px 20px 15px 30px;
+            }
+
+            #s06 .about-title {
+                font-size: 25px;
+            }
+
+            #s06 .about-text {
+                font-size: 14px;
+                line-height: 1.9;
+            }
+
+            #s06 .about-skill-list {
+                gap: 8px;
+            }
+        }
+
+
+        /* ========================================
+       手機版：767.98px 以下
+    ======================================== */
+
+        @media (max-width: 767.98px) {
+
+            /* ---------- Section 03：作品展示輪播 ---------- */
+
+            #s03 .carousel-item.resume-slide {
+                height: auto;
+                min-height: 650px;
+
+                background-position: center;
+            }
+
+            /* 手機版背景遮罩 */
+            #s03 .resume-slide::before {
+                background: rgba(28, 21, 18, 0.68);
+            }
+
+            /* 手機版文字資訊卡 */
+            #s03 .resume-caption {
+                top: 50%;
+                left: 10%;
+                right: auto;
+                bottom: auto;
+                transform: translateY(-50%);
+
+                width: 80%;
+                padding: 24px 22px;
+            }
+
+            #s03 .resume-caption-label {
+                margin-bottom: 12px;
+
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            #s03 .resume-caption h3 {
+                margin-bottom: 12px;
+                font-size: 25px;
+            }
+
+            #s03 .resume-caption-intro {
+                margin-bottom: 18px;
+                font-size: 14px;
+            }
+
+            #s03 .resume-feature-list {
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            #s03 .resume-feature-list li {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            #s03 .resume-skill-tags {
+                gap: 7px;
+            }
+
+            #s03 .resume-skill-tags span {
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            #s03 .carousel-control-prev,
+            #s03 .carousel-control-next {
+                width: 8%;
+            }
+
+            #s03 .carousel-indicators {
+                margin-bottom: 14px;
+            }
+
+
+            /* ---------- Section 04：個人亮點 ---------- */
+
+            #s04 .profile-highlight-image,
+            #s04 .profile-highlight-image img {
+                height: 300px;
+                min-height: 300px;
+            }
+
+            #s04 .profile-image-caption {
+                left: 24px;
+                bottom: 24px;
+            }
+
+            #s04 .profile-image-caption p {
+                font-size: 19px;
+            }
+
+            #s04 .profile-highlight-content {
+                padding: 42px 22px;
+            }
+
+            #s04 .profile-eyebrow {
+                margin-bottom: 16px;
+
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+
+            #s04 .profile-heading h2 {
+                margin-bottom: 16px;
+
+                font-size: 29px;
+                line-height: 1.55;
+            }
+
+            #s04 .profile-intro {
+                margin-bottom: 24px;
+                font-size: 14px;
+            }
+
+            #s04 .profile-stat-card {
+                min-height: 130px;
+                padding: 18px 14px;
+            }
+
+            #s04 .profile-stat-number {
+                font-size: 34px;
+            }
+
+            #s04 .profile-stat-card h3 {
+                font-size: 14px;
+            }
+
+            #s04 .profile-stat-card p {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+
+            #s04 .profile-bottom-note p {
+                font-size: 12px;
+            }
+
+
+            /* ---------- Section 05：我的工作信念 ---------- */
+
+            .resume-beliefs {
+                padding: 60px 0;
+            }
+
+            .resume-beliefs .my-title-03 {
+                font-size: 2rem;
+            }
+
+            .resume-beliefs .my-title-03::after {
+                width: 48px;
+                margin-top: 14px;
+            }
+
+            .resume-beliefs .resume-beliefs-intro {
+                font-size: 15px;
+            }
+
+            .resume-beliefs .belief-card {
+                padding: 30px 24px;
+            }
+
+
+            /* ---------- Section 06：關於我 ---------- */
+
+            #s06.about-section {
+                padding: 0 0 45px;
+            }
+
+            /* 手機版取消絕對定位，避免圖片遮擋文字 */
+            #s06 .about-image {
+                position: relative;
+                top: auto;
+                bottom: auto;
+                left: auto;
+
+                width: 100%;
+                height: 320px;
+                margin: 0;
+
+                background-position: center 35%;
+            }
+
+            #s06 .about-content {
+                padding: 35px 20px 10px;
+            }
+
+            #s06 .h2.my {
+                font-size: 28px;
+            }
+
+            #s06 .about-en {
+                margin-bottom: 22px;
+
+                font-size: 11px;
+                letter-spacing: 1.5px;
+            }
+
+            #s06 .about-title {
+                margin-bottom: 20px;
+
+                font-size: 23px;
+                line-height: 1.7;
+            }
+
+            #s06 .about-text {
+                margin-bottom: 16px;
+
+                font-size: 14px;
+                line-height: 1.9;
+
+                text-align: left;
+            }
+
+            #s06 .about-skills {
+                margin-top: 26px;
+                padding-top: 22px;
+            }
+
+            #s06 .about-skill-list span {
+                padding: 7px 10px;
+                font-size: 12px;
+            }
+
+            #s06 .about-more {
+                margin-top: 24px;
+            }
+        }
+
+
+        /* ========================================
+       尊重使用者減少動態效果的偏好
+    ======================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            #s03 .carousel-control-prev,
+            #s03 .carousel-control-next {
+                transition: none;
+            }
+        }
+    </style>
+
+
 </head>
 
-<body>
+<body class="resume-page">
 
     <!-- section01 社群連結 -->
-
     <section id="s01" class="bg-secondary">
         <div class="container py-2">
             <div class="row">
@@ -29,7 +1033,886 @@
 
     </section>
 
+    <!-- section02 選單navbar -->
+    <section id="s02" class="bg-light">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#">
+                        <i class="fa-brands fa-connectdevelop fa-2x"></i>
+                    </a>
+
+                    <!-- 手機版漢堡選單按鈕 -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- 導覽列內容 -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <!-- 左側導覽選單 -->
+                        <ul class="navbar-nav me-auto">
+
+                            <!-- 首頁 -->
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fa-solid fa-house text-danger me-1"></i>
+                                    首頁
+                                </a>
+                            </li>
+
+                            <!-- 工作經驗 -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fa-solid fa-briefcase me-1"></i>
+                                    工作經驗
+                                </a>
+                            </li>
+
+                            <!-- 專長項目下拉選單 -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+
+                                    <i class="fa-solid fa-code me-1"></i>
+                                    專長項目
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa-brands fa-html5 me-2"></i>
+                                            HTML / CSS
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa-brands fa-js me-2"></i>
+                                            JavaScript
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa-solid fa-database me-2"></i>
+                                            資料庫
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <i class="fa-solid fa-laptop-code me-2"></i>
+                                            其他技術
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div>
+
+                            <button class="btn btn-outline-success" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">註冊</button>
+                            <button class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">登入</button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ==================== 會員註冊 Modal ==================== -->
+    <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="registerModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content member-modal">
+
+                <!-- 標題區 -->
+                <div class="modal-header member-modal-header">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="member-modal-icon">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+                        <div>
+                            <h5 class="modal-title" id="registerModalLabel">
+                                建立新帳號
+                            </h5>
+                            <p class="mb-0 text-muted small">
+                                歡迎加入我們！
+                            </p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- 內容區 -->
+                <div class="modal-body member-modal-body">
+                    <div class="row g-4">
+
+                        <!-- 左側：會員服務條款 -->
+                        <div class="col-12 col-lg-6">
+                            <div class="register-terms h-100">
+
+                                <div class="terms-heading">
+                                    <div>
+                                        <h5>會員註冊服務條款</h5>
+                                        <p>MEMBER TERMS & CONDITIONS</p>
+                                    </div>
+                                </div>
+
+                                <p class="terms-intro">
+                                    歡迎加入本網站！註冊前請仔細閱讀以下條款，
+                                    以保障您的會員權益。
+                                </p>
+
+                                <div class="terms-content">
+
+                                    <div class="terms-content">
+
+                                        <div class="terms-item">
+                                            <h6>
+                                                <span>01</span>
+                                                會員資料與帳號安全
+                                            </h6>
+                                            <p>
+                                                請提供正確的註冊資料，並妥善保管帳號與密碼，
+                                                不得冒用他人身分。
+                                            </p>
+                                        </div>
+
+                                        <div class="terms-item">
+                                            <h6>
+                                                <span>02</span>
+                                                個人資料與隱私
+                                            </h6>
+                                            <p>
+                                                本網站將依告知的目的及必要範圍處理會員個人資料，
+                                                並遵守相關個人資料保護法令。
+                                            </p>
+                                        </div>
+
+                                        <div class="terms-item">
+                                            <h6>
+                                                <span>03</span>
+                                                網站使用規範
+                                            </h6>
+                                            <p>
+                                                會員應遵守相關法令，不得從事違法行為、
+                                                侵害他人權益或影響網站正常運作。
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- 同意條款 -->
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+
+                                    <label class="form-check-label small" for="agreeTerms">
+                                        我已閱讀並同意會員註冊服務條款
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- 右側：註冊表單 -->
+                        <div class="col-12 col-lg-6">
+                            <div class="register-form-panel">
+
+                                <div class="register-form-heading">
+                                    <h5>填寫會員資料</h5>
+                                    <p>請填寫以下資訊以建立您的帳號。</p>
+                                </div>
+
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="registerName" class="form-label">
+                                            <i class="fa-regular fa-user me-2"></i>
+                                            姓名
+                                        </label>
+                                        <input type="text" class="form-control member-input" id="registerName"
+                                            placeholder="請輸入姓名" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="registerEmail" class="form-label">
+                                            <i class="fa-regular fa-envelope me-2"></i>
+                                            Email
+                                        </label>
+                                        <input type="email" class="form-control member-input" id="registerEmail"
+                                            placeholder="請輸入電子郵件" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="registerPassword" class="form-label">
+                                            <i class="fa-solid fa-lock me-2"></i>
+                                            密碼
+                                        </label>
+                                        <input type="password" class="form-control member-input" id="registerPassword"
+                                            placeholder="請設定密碼" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="registerPasswordConfirm" class="form-label">
+                                            <i class="fa-solid fa-shield-halved me-2"></i>
+                                            確認密碼
+                                        </label>
+                                        <input type="password" class="form-control member-input"
+                                            id="registerPasswordConfirm" placeholder="請再次輸入密碼" required>
+                                    </div>
+
+
+
+                                    <button type="submit" class="btn member-btn w-100">
+                                        <i class="fa-solid fa-user-plus me-2"></i>
+                                        立即註冊
+                                    </button>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 底部區 -->
+                <div class="modal-footer member-modal-footer">
+                    <p class="mb-0 small text-muted">
+                        已經有帳號了嗎？
+                        <button type="button" class="btn btn-link p-0" data-bs-target="#loginModal"
+                            data-bs-toggle="modal" data-bs-dismiss="modal">
+                            立即登入
+                        </button>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 會員登入 Modal ==================== -->
+    <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content member-modal">
+
+                <!-- 標題區 -->
+                <div class="modal-header member-modal-header">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="member-modal-icon">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                        </div>
+                        <div>
+                            <h5 class="modal-title" id="loginModalLabel">
+                                歡迎回來
+                            </h5>
+                            <p class="mb-0 text-muted small">
+                                請登入你的會員帳號
+                            </p>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- 內容區 -->
+                <div class="modal-body member-modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">
+                                <i class="fa-regular fa-envelope me-2"></i>Email
+                            </label>
+                            <input type="email" class="form-control member-input" id="loginEmail" placeholder="請輸入電子郵件"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">
+                                <i class="fa-solid fa-lock me-2"></i>密碼
+                            </label>
+                            <input type="password" class="form-control member-input" id="loginPassword"
+                                placeholder="請輸入密碼" required>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label small" for="rememberMe">
+                                    記住我
+                                </label>
+                            </div>
+
+                            <a href="#" class="small member-link">
+                                忘記密碼？
+                            </a>
+                        </div>
+
+                        <button type="submit" class="btn member-btn w-100">
+                            <i class="fa-solid fa-right-to-bracket me-2"></i>
+                            登入會員
+                        </button>
+                    </form>
+                </div>
+
+                <!-- 底部區 -->
+                <div class="modal-footer member-modal-footer">
+                    <p class="mb-0 small text-muted">
+                        還沒有帳號嗎？
+                        <button type="button" class="btn btn-link p-0" data-bs-target="#registerModal"
+                            data-bs-toggle="modal" data-bs-dismiss="modal">
+                            立即註冊
+                        </button>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- section03 --幻燈片效果carousel -->
+    <!-- <section id="s03">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+
+            </div>
+            <div class="carousel-inner">
+
+                <div class="carousel-item active" style="background-image: url(images/Bridge.avif);height: 80vh;">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4"
+                        style="background-color: rgba(0, 0, 0, 0.3);">
+                        <h3>標題01</h3>
+                        <p>篇文章走勢，我一花園而已徹底如果您，全身最大資料釣魚都有人士內地強化女孩子愛情保證，夥伴老婆權力放在驚訝暫無採用任務配合海外總是禮物富岡，刺激規模打電話轉讓即將合理免費電影，現實我是費用跟我溫暖操作系統土地家人性能庫存，都要指揮分鐘下面，深刻細節在我，引。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item " style="background-image: url(images/tree.avif);height: 80vh;">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4"
+                        style="background-color: rgba(0, 0, 0, 0.3);">
+                        <h5>標題02</h5>
+                        <p>您現在和諧，出去我這批發看了承認服務理由你想話題要有整個負責每次之下，隨後聰明一條性能眼神生物優化限制平時祝福我在你自己，集團尚未各級，請問國務院戰略城市，如果種類什麼事，信心小子糖尿病機械當時熱情跟着保護哪裡，在他三年各位許可，蒐集主機選擇，轉讓哪些你。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item " style="background-image: url(images/Horse.avif);height: 80vh;">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-4"
+                        style="background-color: rgba(0, 0, 0, 0.3);">
+                        <h5>標題03</h5>
+                        <p>演唱會為何驚訝是個地方在那裡溝通總算，突出孩子差距總部成長想想平時超級趕緊不管決策所有無論食品西安，雜誌起點氣氛房價是有水溝拿出司機地上位於提前，我還建材，之前高速意識優秀排行榜當初，人才特點技能郵件人才寶貝在這網絡翻譯一年產品既然，出口頻道，發言我在請。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </section> -->
+
+    <!-- section03 --幻燈片效果carousel_AI -->
+    <section id="s03" class="resume-showcase">
+        <div id="carouselExampleCaptions" class="carousel slide">
+
+            <!-- 底部切換指示點 -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="專案實作經驗"></button>
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="程式設計技能"></button>
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="問題分析與協作"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+                <!-- 第一張：專案實作經驗 -->
+                <div class="carousel-item active resume-slide resume-slide-01">
+
+                    <div class="carousel-caption resume-caption">
+                        <span class="resume-caption-label">
+                            EXPERIENCE / 01
+                        </span>
+
+                        <h3>專案實作經驗</h3>
+
+                        <p class="resume-caption-intro">
+                            從需求分析到功能實作，累積實際開發經驗。
+                        </p>
+
+                        <ul class="resume-feature-list">
+                            <li>規劃網頁結構與頁面版面</li>
+                            <li>設計表單與使用者互動功能</li>
+                            <li>整合前端技術完成專案實作</li>
+                        </ul>
+
+                        <div class="resume-skill-tags">
+                            <span>網頁設計</span>
+                            <span>功能實作</span>
+                            <span>專案整合</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 第二張：程式設計技能 -->
+                <div class="carousel-item resume-slide resume-slide-02">
+
+                    <div class="carousel-caption resume-caption">
+                        <span class="resume-caption-label">
+                            TECHNICAL SKILLS / 02
+                        </span>
+
+                        <h3>程式設計與開發技能</h3>
+
+                        <p class="resume-caption-intro">
+                            運用不同技術建立網頁介面與應用功能。
+                        </p>
+
+                        <ul class="resume-feature-list">
+                            <li>HTML、CSS：網頁結構與樣式設計</li>
+                            <li>JavaScript、jQuery：互動功能開發</li>
+                            <li>Bootstrap、AJAX：響應式排版與資料處理</li>
+                        </ul>
+
+                        <div class="resume-skill-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Bootstrap</span>
+                            <span>jQuery</span>
+                            <span>AJAX</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 第三張：問題分析與協作 -->
+                <div class="carousel-item resume-slide resume-slide-03">
+
+                    <div class="carousel-caption resume-caption">
+                        <span class="resume-caption-label">
+                            PROBLEM SOLVING / 03
+                        </span>
+
+                        <h3>問題分析與系統整合</h3>
+
+                        <p class="resume-caption-intro">
+                            以清楚的邏輯分析問題，逐步完成開發目標。
+                        </p>
+
+                        <ul class="resume-feature-list">
+                            <li>分析需求並規劃實作流程</li>
+                            <li>整合不同技術與開發工具</li>
+                            <li>透過測試與除錯持續改善功能</li>
+                        </ul>
+
+                        <div class="resume-skill-tags">
+                            <span>需求分析</span>
+                            <span>系統整合</span>
+                            <span>測試除錯</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 上一張 -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                <span class="visually-hidden">上一張</span>
+            </button>
+
+            <!-- 下一張 -->
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                <span class="visually-hidden">下一張</span>
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- section04 --counterup可以量化的數據 -->
+    <!-- <section id="s04">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5 my-bg-img" style="background-image: url(images/Bridge.avif);"></div>
+
+                <div class="col-md-7 py-5  text-center">
+                    <h1>決定什麼事富岡，進。</h1>
+                    <h1>要是愛情，好多技術。</h1>
+                    <p>飯店簽名學習錯誤號碼，請求即可安徽看見。</p>
+                    <p>飯店簽名學習錯誤號碼，請求即可安徽看見。</p>
+
+                    <div class="row mb-3 ">
+                        <div class="col-md-3">
+                            <h4>工作年資</h4>
+                            <div class="h4"><span class="h2 text-danger fw-bold">8</span>年</div>
+                        </div>
+                        <div class="col-md-3">
+                            <h4>工作年資</h4>
+                            <div class="h4"><span class="h2 text-danger fw-bold">8</span>年</div>
+                        </div>
+                        <div class="col-md-3">
+                            <h4>工作年資</h4>
+                            <div class="h4"><span class="h2 text-danger fw-bold">8</span>年</div>
+                        </div>
+                        <div class="col-md-3">
+                            <h4>工作年資</h4>
+                            <div class="h4"><span class="h2 text-danger fw-bold">8</span>年</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section> -->
+    <!-- section04 --counterup可以量化的數據_AI -->
+    <section id="s04" class="profile-highlight">
+        <div class="container-fluid">
+            <div class="row align-items-stretch">
+
+                <!-- 左側圖片 -->
+                <div class="col-md-5 profile-highlight-image">
+                    <img src="images/Bridge.avif" alt="代表學習與成長的風景">
+                    <div class="profile-image-caption">
+                        <span>KEEP LEARNING</span>
+                        <p>持續學習，持續實踐。</p>
+                    </div>
+                </div>
+
+                <!-- 右側內容 -->
+                <div class="col-md-7 profile-highlight-content">
+
+                    <div class="profile-heading">
+                        <span class="profile-eyebrow">
+                            MY PROFILE / ACHIEVEMENTS
+                        </span>
+
+                        <h2>
+                            讓每一次學習，<br>
+                            都成為<span>看得見的成果。</span>
+                        </h2>
+
+                        <p class="profile-intro">
+                            從網頁設計到程式開發，透過不同專案累積實作經驗，
+                            將技術、邏輯與創意結合，持續打造更完整的作品。
+                        </p>
+                    </div>
+
+                    <!-- 成果數據 -->
+                    <div class="row g-3 profile-stats">
+
+                        <div class="col-6">
+                            <div class="profile-stat-card">
+                                <span class="profile-stat-number counter01">12</span>
+                                <h3>作品專案</h3>
+                                <p>PROJECTS</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="profile-stat-card">
+                                <span class="profile-stat-number counter02">50</span>
+                                <h3>開發技術領域</h3>
+                                <p>TECH DOMAINS</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="profile-stat-card">
+                                <span class="profile-stat-number counter03">10+</span>
+                                <h3>核心開發技術</h3>
+                                <p>TECHNOLOGIES</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="profile-stat-card">
+                                <span class="profile-stat-number counter04">20</span>
+                                <h3>個人作品集</h3>
+                                <p>PORTFOLIO WEBSITE</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="profile-bottom-note">
+                        <span class="profile-note-line"></span>
+                        <p>把所學化為實踐，讓每個作品成為成長的證明。</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- section05 --個人特質(風格) -->
+    <!-- <section id="s05">
+        <div class="container">
+            <h2 class="text-center display-4 fw-bold my-title-03">我的工作信念</h2>
+            <div class="row g-5">
+                <div class="col-md-4 text-center shadow-sm">
+                    <i class="fa-solid fa-location-crosshairs fa-5x"></i>
+                    <h3 class="my-title-06">主動解決問題</h3>
+                    <p>面對問題釐清拆解....等</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa-solid fa-location-crosshairs fa-5x"></i>
+                    <h3 class="my-title-06">主動解決問題</h3>
+                    <p>面對問題釐清拆解....等</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa-solid fa-location-crosshairs fa-5x"></i>
+                    <h3 class="my-title-06">主動解決問題</h3>
+                    <p>面對問題釐清拆解....等</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- section05 -- 個人特質(風格)_AI-->
+    <section id="s05" class="resume-beliefs">
+        <div class="container">
+
+            <h2 class="text-center display-4 fw-bold">
+                我的工作信念
+            </h2>
+
+            <p class="resume-beliefs-intro text-center">
+                從問題分析到實際開發，持續累積經驗，讓每個作品更加完整。
+            </p>
+
+            <div class="row g-4 mt-3">
+
+                <!-- 特質 01 -->
+                <div class="col-md-4">
+                    <div class="belief-card text-center h-100">
+                        <div class="belief-icon">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+
+                        <span class="belief-number">01</span>
+
+                        <h3 class="my-title-06">
+                            主動解決問題
+                        </h3>
+
+                        <p>
+                            面對開發過程中的問題，先釐清需求並拆解原因，
+                            再逐步尋找合適的解決方式，培養獨立分析與除錯能力。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 特質 02 -->
+                <div class="col-md-4">
+                    <div class="belief-card text-center h-100">
+                        <div class="belief-icon">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+
+                        <span class="belief-number">02</span>
+
+                        <h3 class="my-title-06">
+                            持續學習與實踐
+                        </h3>
+
+                        <p>
+                            透過不同專案練習程式設計與新技術，
+                            從實作、測試到修正，將學習到的知識轉化為實際成果。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 特質 03 -->
+                <div class="col-md-4">
+                    <div class="belief-card text-center h-100">
+                        <div class="belief-icon">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <span class="belief-number">03</span>
+
+                        <h3 class="my-title-06">
+                            重視整合與細節
+                        </h3>
+
+                        <p>
+                            開發時不只關注單一功能，也重視介面設計、
+                            資料處理與系統流程之間的整合，提升作品的完整性與實用性。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- section06 -- 關於我-->
+    <!-- <section id="s06" style="position: relative;">
+        <div class="row">
+            <div class="col-md-5 my-bg-img" style="background-image: url(images/person.jpg); height: 500px; position: absolute; top: 0;bottom: 0;"></div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7">
+                    <div class="h2 my">關於我 <span ></span></div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- section06 -- 關於我_AI -->
+    <section id="s06" class="about-section">
+
+        <div class="row">
+            <div class="col-md-5 my-bg-img about-image" style="background-image: url(images/person.jpg);">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7 about-content">
+
+                    <div class="h2 my">關於我 <span></span></div>
+
+                    <p class="about-en">ABOUT ME · SOFTWARE ENGINEER</p>
+
+                    <h3 class="about-title">
+                        以技術解決問題，<br>
+                        將想法實踐為成果。
+                    </h3>
+
+                    <p class="about-text">
+                        我具備資訊工程背景，對軟體開發與系統設計抱持熱忱。
+                        透過不同類型的專案實作，我逐步累積程式設計、
+                        資料庫應用與系統整合的經驗，並持續探索如何運用技術
+                        解決實際問題。
+                    </p>
+
+                    <p class="about-text">
+                        在開發過程中，我重視需求分析、程式邏輯與功能規劃，
+                        從設計、實作到測試與調整，培養獨立分析問題、
+                        整合不同技術及持續改善系統的能力。
+                    </p>
+
+                    <p class="about-text">
+                        未來，我期望持續精進軟體開發與全端技術，
+                        將所學應用於實際情境，打造兼具實用性、
+                        穩定性與良好使用體驗的系統，
+                        並在每一次專案挑戰中累積經驗、持續成長。
+                    </p>
+
+                    <div class="about-skills">
+                        <h5>TECHNICAL SKILLS</h5>
+
+                        <div class="about-skill-list">
+                            <span>Flutter</span>
+                            <span>.NET</span>
+                            <span>Database</span>
+                            <span>Python</span>
+                            <span>Image Recognition</span>
+                            <span>HTML / CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- 了解更多 -->
+                    <div class="about-more">
+                        <a href="#">
+                            了解更多
+                            <span>→</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+
+    <script>
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach(entry => {
+                const el = entry.target
+                if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                    counterUp(el, {
+                        duration: 1000,
+                        delay: 16,
+                    })
+                    el.classList.add('is-visible')
+                }
+            })
+        }
+
+        const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+        const el01 = document.querySelector('.counter01')
+        IO.observe(el01)
+
+        const el02 = document.querySelector('.counter02')
+        IO.observe(el02)
+
+        const el03 = document.querySelector('.counter03')
+        IO.observe(el03)
+
+        const el04 = document.querySelector('.counter04')
+        IO.observe(el04)
+    </script>
 
 </body>
 
