@@ -997,6 +997,11 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
     font-size: .8rem;
 }
 
+.diamond-icon {
+    transform: rotate(45deg);
+    font-size: 0.65em;
+}
+
 /* =========================================================
    RWD Media Queries
    ========================================================= */

@@ -7,9 +7,9 @@
     <meta name="theme-color" content="#35231d">
     <meta name="description" content="記錄 HTML、CSS、JavaScript 與網頁設計的學習歷程和作品圖鑑。">
     <title>學習歷程筆記展示</title>
-    <!-- 保留原本 CSS，不修改其內容；RPG 樣式放在獨立檔案中 -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="CSS/myRPGcss.css">
-    <link rel="stylesheet" href="CSS/all.min.css">
 </head>
 
 <body>
@@ -17,7 +17,8 @@
 
     <header class="rpg-topbar" aria-label="冒險者狀態列">
         <a class="rpg-brand" href="#top" aria-label="回到冒險圖鑑首頁">
-            <span class="rpg-brand-mark" aria-hidden="true">✦</span>
+            <span class="rpg-brand-mark" aria-hidden="true"><i class="fa-solid fa-square diamond-icon"
+                    aria-hidden="true"></i></span>
         </a>
         <div class="rpg-status">
             <span class="rpg-status-label">ADVENTURER</span>
@@ -30,12 +31,15 @@
     <main id="main-content">
         <!-- 冒險旅程主視覺 -->
         <section class="my-intro-section rpg-hero" id="top" aria-labelledby="intro-title">
-            <div class="rpg-hero-spark rpg-spark-one" aria-hidden="true">✦</div>
-            <div class="rpg-hero-spark rpg-spark-two" aria-hidden="true">✧</div>
+            <div class="rpg-hero-spark rpg-spark-one" aria-hidden="true"><i class="fa-solid fa-square diamond-icon"
+                    aria-hidden="true"></i>
+            </div>
+            <div class="rpg-hero-spark rpg-spark-two" aria-hidden="true"><i class="fa-regular fa-star"
+                    aria-hidden="true"></i></i></div>
             <span class="my-section-label">MY LEARNING JOURNEY</span>
             <h1 id="intro-title">歡迎來到我的<br class="rpg-mobile-break">網頁設計學習歷程</h1>
             <p>這裡記錄了我的網頁設計練習與作品<br class="rpg-desktop-break">用來整理自己的學習成果</p>
-            <div class="rpg-hero-divider"><span>◆</span></div>
+            <div class="rpg-hero-divider"><span aria-hidden="true"><i class="fa-solid fa-gem"></i></span></div>
             <div class="rpg-hero-stats" aria-label="學習歷程統計">
                 <div class="rpg-stat"><span class="rpg-stat-label">WORKS</span><strong id="quest-count">0</strong><span
                         class="rpg-stat-caption">已記錄任務</span></div>
@@ -47,7 +51,7 @@
                         class="rpg-stat-caption">持續累積經驗</span></div>
             </div>
 
-            <!-- 💡 新增：RPG 經驗值進度條 -->
+            <!-- RPG 經驗值進度條 -->
             <div class="rpg-exp-container" aria-label="學習經驗值進度">
                 <div class="rpg-exp-header">
                     <span class="rpg-exp-title">EXP PROGRESS</span>
@@ -59,17 +63,18 @@
                 </div>
             </div>
 
-            <a class="rpg-start-button" href="#works"><span aria-hidden="true">▶</span> 開始冒險</a>
+            <a class="rpg-start-button" href="#works"><span aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+                開始冒險</a>
 
             <div class="rpg-hero-bottomline"><span>PRESS START TO CONTINUE</span><span class="rpg-blink"
-                    aria-hidden="true">▌</span></div>
+                    aria-hidden="true"><i class="fa-solid fa-i-cursor"></i></span></div>
         </section>
 
         <!-- 學習作品圖鑑 -->
         <section class="my-works-section" id="works" aria-labelledby="works-title">
             <div class="rpg-section-eyebrow"><span>CHAPTER 01</span><span>THE ARCHIVE OF LEARNING</span></div>
             <div class="my-works-header my-font rpg-works-heading">
-                <div class="rpg-heading-icon" aria-hidden="true">▤</div>
+                <div class="rpg-heading-icon" aria-hidden="true"><i class="fa-solid fa-book-open"></i></div>
                 <div class="rpg-heading-copy"><span class="rpg-heading-kicker">WORKS ARCHIVE / <span
                             id="archive-count">0</span> RECORDS</span>
                     <h2 id="works-title">學習作品圖鑑</h2>
@@ -78,7 +83,7 @@
             </div>
             <p class="rpg-works-intro">每一項練習都是一段冒險紀錄。選擇任務，查看作品成果。</p>
 
-            <!-- 💡 新增：RPG 任務分類篩選列 -->
+            <!-- RPG 任務分類篩選列 -->
             <div class="rpg-filter-bar" aria-label="任務分類篩選">
                 <button class="rpg-filter-btn active" data-filter="all">全部任務 (<span
                         id="filter-all-count">0</span>)</button>
@@ -103,7 +108,8 @@
                             基本樣式設定，並嘗試調整文字、顏色、間距與版面配置，建立網頁設計的基礎概念。</p>
                     </div>
                     <div class="my-project-footer"><a href="20260923_ex01.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 02 -->
                 <article class="my-project-card">
@@ -115,7 +121,8 @@
                             的設計方向，再根據自己的需求進行修改與調整。從過程中學習如何閱讀程式碼、理解版面結構，並思考 AI 產生的程式是否符合實際需求。</p>
                     </div>
                     <div class="my-project-footer"><a href="20260924_ex01_AI2.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 03 -->
                 <article class="my-project-card">
@@ -128,7 +135,8 @@
                             格式的內容，再將旅遊景點與美食資訊動態呈現在網頁上，了解前端網頁如何與外部資料進行互動。</p>
                     </div>
                     <div class="my-project-footer"><a href="20260929_js_TravelFood.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 04 -->
                 <article class="my-project-card">
@@ -141,7 +149,8 @@
                             網格系統建立整齊的網頁版面，同時結合旅遊與美食資料，練習製作具有響應式設計的資訊展示頁面。</p>
                     </div>
                     <div class="my-project-footer"><a href="20261001_Boostrap.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 05 -->
                 <article class="my-project-card">
@@ -154,7 +163,8 @@
                             中取得的旅遊與美食資訊整理成表格，練習資料欄位的呈現、表格樣式與資料閱讀性，讓大量資訊能夠以更清楚、有條理的方式呈現在網頁中。</p>
                     </div>
                     <div class="my-project-footer"><a href="20261006_BS_Table_Data.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 06 -->
                 <article class="my-project-card">
@@ -166,7 +176,8 @@
                             進行版面配置。透過實際製作不同區塊，將設計內容轉換成 HTML 與 Bootstrap 結構，進一步熟悉響應式網頁設計與不同螢幕尺寸的版面調整。</p>
                     </div>
                     <div class="my-project-footer"><a href="20261006_ch6_切版.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 07 -->
                 <article class="my-project-card">
@@ -179,7 +190,8 @@
                             系統，將設計內容拆分成不同區塊並安排版面位置，同時了解響應式網頁設計的概念，讓網頁能適應不同螢幕尺寸。</p>
                     </div>
                     <div class="my-project-footer"><a href="20261006_ch6_切版_ex01.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 08 -->
                 <article class="my-project-card">
@@ -192,7 +204,8 @@
                             HTML 與 Bootstrap 結構，提升自己對網頁整體版面與視覺配置的掌握度。</p>
                     </div>
                     <div class="my-project-footer"><a href="20261008_ch6_切版_ex02.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 09 -->
                 <article class="my-project-card">
@@ -205,7 +218,8 @@
                             在水平與垂直配置上的應用，提升自己對網頁排版與區塊配置的掌握度。</p>
                     </div>
                     <div class="my-project-footer"><a href="20261008_ch7_flex.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 10 -->
                 <article class="my-project-card">
@@ -219,7 +233,8 @@
                             配置內容區塊，並結合響應式設計（RWD），讓頁面在不同裝置尺寸下都能維持良好的版面結構與閱讀體驗。</p>
                     </div>
                     <div class="my-project-footer"><a href="20261013_FlexTimeline.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 11 -->
                 <article class="my-project-card">
@@ -232,7 +247,8 @@
                         </p>
                     </div>
                     <div class="my-project-footer"><a href="20261015_Ch8_Forms.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 12 -->
                 <article class="my-project-card">
@@ -245,7 +261,8 @@
                             等標籤建立表單欄位，並練習設定不同的輸入類型與相關屬性。藉由實際操作表單元素，熟悉 HTML 表單的基本語法與使用方式，進一步掌握網頁表單的建立與應用。</p>
                     </div>
                     <div class="my-project-footer"><a href="20261015_Ch8_Forms_Ex01.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
                 <!-- Project 13 -->
                 <article class="my-project-card">
@@ -259,7 +276,8 @@
                             協助開發與調整程式碼，進一步了解前端互動設計及表單功能整合的實作方式。</p>
                     </div>
                     <div class="my-project-footer"><a href="20261015_Ch8_Forms_Ex01_AI.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span>→</span></a></div>
+                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
+                                    class="fa-solid fa-arrow-right"></i></span></a></div>
                 </article>
 
                 <!-- Project 14 -->
@@ -289,7 +307,7 @@
                     <div class="my-project-footer">
                         <a href="20261027-SPA.html" target="_blank" rel="noopener noreferrer"
                             class="my-project-button my-font">
-                            查看作品 <span>→</span>
+                            查看作品 <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
                         </a>
                     </div>
                 </article>
@@ -297,14 +315,14 @@
             </div>
         </section>
 
-        <!-- 📜 RPG 浮動傳送卷軸（回到頂端按鈕） -->
+        <!-- RPG 浮動傳送卷軸（回到頂端按鈕） -->
         <a href="#top" class="rpg-floating-top" id="rpgFloatingTop" aria-label="傳送回頂端">
-            <i class="fa-solid fa-arrow-up-long"></i>
+            <i class="fa-solid fa-arrow-up-long" aria-hidden="true"></i>
         </a>
 
-        <!-- 🏆 冒險者等級成就彈跳提示 -->
+        <!-- 冒險者等級成就彈跳提示 -->
         <div class="rpg-achievement-popup" id="achievementPopup" role="status" aria-live="polite">
-            <div class="rpg-achievement-icon">🏆</div>
+            <div class="rpg-achievement-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></div>
             <div class="rpg-achievement-content">
                 <span class="rpg-achievement-title">ACHIEVEMENT UNLOCKED!</span>
                 <span class="rpg-achievement-desc">冒險者圖鑑展開：載入中...</span>
@@ -315,7 +333,7 @@
 
     <footer class="my-footer rpg-footer">
         <div class="my-footer-subtitle my-font">Building · Learning · Improving</div>
-        <div class="rpg-footer-divider"><span>✦</span></div>
+        <div class="rpg-footer-divider"><span aria-hidden="true"><i class="fa-solid fa-star"></i></span></div>
         <div class="my-footer-copyright my-font">© 2026 By YU</div>
         <div class="rpg-footer-note">THANK YOU FOR VISITING MY ADVENTURE LOG</div>
     </footer>
@@ -353,25 +371,25 @@
                 latestCard.prepend(ribbon);
             }
 
-            // 3. 🏆 冒險者動態成就解鎖提示（以 20 個作品為章節完整目標）
+            // 3. 冒險者動態成就解鎖提示（以 20 個作品為章節完整目標）
             const achievementPopup = document.getElementById("achievementPopup");
             if (achievementPopup) {
                 const descSpan = achievementPopup.querySelector(".rpg-achievement-desc");
                 const titleSpan = achievementPopup.querySelector(".rpg-achievement-title");
                 const iconDiv = achievementPopup.querySelector(".rpg-achievement-icon");
 
-                const chapterTarget = 20; // 🎯 設定每一章節的滿等目標
+                const chapterTarget = 20; // 設定每一章節的滿等目標
 
                 if (projectCount >= chapterTarget) {
-                    // 🌟 狀況 A：當前章節滿等達成
+                    // 狀況 A：當前章節滿等達成
                     if (titleSpan) titleSpan.textContent = "CHAPTER COMPLETED!";
                     if (descSpan) descSpan.textContent = `第 1 章冒險圓滿達成：已收集全數 ${projectCount} 項任務！`;
-                    if (iconDiv) iconDiv.textContent = "👑";
+                    if (iconDiv) iconDiv.innerHTML = '<i class="fa-solid fa-crown" aria-hidden="true"></i>';
                 } else {
-                    // ⚔️ 狀況 B：冒險進行中（顯示目前的 13/20 進度）
+                    // 狀況 B：冒險進行中（顯示目前的作品進度）
                     if (titleSpan) titleSpan.textContent = "ADVENTURE IN PROGRESS";
                     if (descSpan) descSpan.textContent = `當前章節進度：已解鎖 ${projectCount} / ${chapterTarget} 項冒險任務，繼續加油！`;
-                    if (iconDiv) iconDiv.textContent = "📜";
+                    if (iconDiv) iconDiv.innerHTML = '<i class="fa-solid fa-scroll" aria-hidden="true"></i>';
                 }
 
                 // 頁面載入 1 秒後自動彈出，4 秒後收回
@@ -384,7 +402,7 @@
                 }, 1000);
             }
 
-            // 4. 🌟 多階段章節與經驗值進度條動態計算
+            // 4. 多階段章節與經驗值進度條動態計算
             const expCurrent = document.getElementById("exp-current");
             const expMax = document.getElementById("exp-max");
             const expBarFill = document.getElementById("exp-bar-fill");
@@ -425,7 +443,7 @@
 
             if (currentInChapter === maxPerChapter && currentQuests > 0) {
                 if (expTitle) {
-                    expTitle.textContent = `⭐ CHAPTER ${String(currentChapter).padStart(2, '0')} MAX!`;
+                    expTitle.innerHTML = `<i class="fa-solid fa-star" aria-hidden="true"></i> CHAPTER ${String(currentChapter).padStart(2, '0')} MAX!`;
                     expTitle.style.color = "#c84c43";
                 }
                 if (expBarFill) {
@@ -438,7 +456,7 @@
                 const catText = card.querySelector(".my-project-category").textContent.toUpperCase();
                 let categories = [];
 
-                // 🌟 只要分類文字包含 HTML，就一定會被歸類到 html-css 篩選中！
+                // 只要分類文字包含 HTML，就會被歸類到 html-css 篩選中！
                 if (catText.includes("HTML") && !catText.includes("FORMS")) {
                     categories.push("html-css");
                 }
@@ -485,7 +503,7 @@
             });
         });
 
-        // 📜 浮動傳送卷軸按鈕：向下捲動超過 300px 時自動浮現
+        // 浮動傳送卷軸按鈕：向下捲動超過 300px 時自動浮現
         const floatingTopBtn = document.getElementById("rpgFloatingTop");
         if (floatingTopBtn) {
             window.addEventListener("scroll", function () {
