@@ -15,9 +15,10 @@
 <body>
     <a class="rpg-skip-link" href="#main-content">跳至主要內容</a>
 
+    <!--top bar用到flex的justify-content: space-between-->
     <header class="rpg-topbar" aria-label="冒險者狀態列">
         <a class="rpg-brand" href="#top" aria-label="回到冒險圖鑑首頁">
-            <span class="rpg-brand-mark" aria-hidden="true"><i class="fa-solid fa-square diamond-icon"
+            <span class="rpg-brand-mark" aria-hidden="true"><i class="fa-solid fa-diamond"
                     aria-hidden="true"></i></span>
         </a>
         <div class="rpg-status">
@@ -31,43 +32,71 @@
     <main id="main-content">
         <!-- 冒險旅程主視覺 -->
         <section class="my-intro-section rpg-hero" id="top" aria-labelledby="intro-title">
-            <div class="rpg-hero-spark rpg-spark-one" aria-hidden="true"><i class="fa-solid fa-square diamond-icon"
+
+            <!--底圖的左邊dimanod-->
+            <div class="rpg-hero-spark rpg-spark-one" aria-hidden="true"><i class="fa-solid fa-diamond"
                     aria-hidden="true"></i>
             </div>
+
+            <!--底圖的右邊star-->
             <div class="rpg-hero-spark rpg-spark-two" aria-hidden="true"><i class="fa-regular fa-star"
                     aria-hidden="true"></i></i></div>
+
             <span class="my-section-label">MY LEARNING JOURNEY</span>
+
             <h1 id="intro-title">歡迎來到我的<br class="rpg-mobile-break">網頁設計學習歷程</h1>
+
             <p>這裡記錄了我的網頁設計練習與作品<br class="rpg-desktop-break">用來整理自己的學習成果</p>
+
+            <!--中間分隔線-->
             <div class="rpg-hero-divider"><span aria-hidden="true"><i class="fa-solid fa-gem"></i></span></div>
+
+            <!--統計區塊-->
             <div class="rpg-hero-stats" aria-label="學習歷程統計">
-                <div class="rpg-stat"><span class="rpg-stat-label">WORKS</span><strong id="quest-count">0</strong><span
-                        class="rpg-stat-caption">已記錄任務</span></div>
+
+                <div class="rpg-stat"><span class="rpg-stat-label">WORKS</span><strong id="quest-count"
+                        class="counter">0</strong><span class="rpg-stat-caption">已記錄任務</span></div>
+
+                <!--分隔線-->
                 <div class="rpg-stat-separator" aria-hidden="true"></div>
+
                 <div class="rpg-stat"><span class="rpg-stat-label">CLASS</span><strong>WEB</strong><span
                         class="rpg-stat-caption">Front-end learner</span></div>
+
+                <!--分隔線-->
                 <div class="rpg-stat-separator" aria-hidden="true"></div>
+
                 <div class="rpg-stat"><span class="rpg-stat-label">EXP</span><strong>+∞</strong><span
                         class="rpg-stat-caption">持續累積經驗</span></div>
+
             </div>
 
             <!-- RPG 經驗值進度條 -->
             <div class="rpg-exp-container" aria-label="學習經驗值進度">
+
                 <div class="rpg-exp-header">
                     <span class="rpg-exp-title">EXP PROGRESS</span>
                     <span class="rpg-exp-text"><span id="exp-current">0</span> / <span id="exp-max">20</span>
                         WORKS</span>
                 </div>
+
+                <!--外層用一個track，內層再用fill，進度條先0%用js控制-->
                 <div class="rpg-bar-track">
                     <div class="rpg-bar-fill" id="exp-bar-fill" style="width: 0%;"></div>
                 </div>
+
             </div>
 
+            <!--開始按鈕，使用超連結主要是跳轉到同一頁面，href會對應id=work-->
             <a class="rpg-start-button" href="#works"><span aria-hidden="true"><i class="fa-solid fa-play"></i></span>
                 開始冒險</a>
 
-            <div class="rpg-hero-bottomline"><span>PRESS START TO CONTINUE</span><span class="rpg-blink"
-                    aria-hidden="true"><i class="fa-solid fa-i-cursor"></i></span></div>
+            <!--底部文字-->
+            <div class="rpg-hero-bottomline">
+                <span>PRESS START TO CONTINUE</span>
+                <span class="rpg-blink" aria-hidden="true">▌</i>
+                </span>
+            </div>
         </section>
 
         <!-- 學習作品圖鑑 -->
@@ -343,6 +372,31 @@
             const projectCards = document.querySelectorAll(".my-project-grid .my-project-card");
             const projectCount = projectCards.length;
 
+            //數字跳動套件
+            const counterUp = window.counterUp.default
+            const callback = entries => {
+                entries.forEach(entry => {
+                    const el = entry.target
+                    if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                        counterUp(el, {
+                            duration: 1000,
+                            delay: 16,
+                        })
+                        el.classList.add('is-visible')
+                    }
+                })
+            }
+
+            const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+            // 選取所有需要執行動畫的數字
+            const els = document.querySelectorAll('.counter')
+
+            // 讓每個數字都能被觀察
+            els.forEach(el => {
+                IO.observe(el)
+            })
+
             // 1. 自動更新作品總數與狀態列
             const questCount = document.getElementById("quest-count");
             const archiveCount = document.getElementById("archive-count");
@@ -514,7 +568,30 @@
                 }
             });
         }
+
+        // 避免瀏覽器重新整理時恢復舊的捲動位置
+        if ("scrollRestoration" in history) {
+            history.scrollRestoration = "manual";
+        }
+
+        // 如果網址是 #works，重新載入後回到頁面最上方
+        window.addEventListener("pageshow", function () {
+            if (window.location.hash === "#works") {
+                history.replaceState(
+                    null,
+                    "",
+                    window.location.pathname + window.location.search
+                );
+
+                setTimeout(function () {
+                    window.scrollTo(0, 0);
+                }, 0);
+            }
+        });
     </script>
+
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+
 </body>
 
 </html>

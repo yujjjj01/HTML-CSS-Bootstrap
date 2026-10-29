@@ -698,6 +698,7 @@ main {
     box-shadow: inset 0 0 0 2px var(--rpg-gold);
 }
 
+
 /* =========================================================
    🌟 最新任務（LATEST WORK）金色魔法呼吸燈專屬樣式
    ========================================================= */
@@ -995,11 +996,6 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 .rpg-achievement-desc {
     color: #fff6e0;
     font-size: .8rem;
-}
-
-.diamond-icon {
-    transform: rotate(45deg);
-    font-size: 0.65em;
 }
 
 /* =========================================================
