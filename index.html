@@ -9,10 +9,14 @@
     <title>學習歷程筆記展示</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="CSS/myRPGcss.css">
+
 </head>
 
 <body>
+    <div class="rpg-magic-particles" id="magicParticles" aria-hidden="true"></div>
+
     <a class="rpg-skip-link" href="#main-content">跳至主要內容</a>
 
     <!--top bar用到flex的justify-content: space-between-->
@@ -39,12 +43,21 @@
             </div>
 
             <!--底圖的右邊star-->
-            <div class="rpg-hero-spark rpg-spark-two" aria-hidden="true"><i class="fa-regular fa-star"
-                    aria-hidden="true"></i></i></div>
+            <div class="rpg-hero-spark rpg-spark-two" aria-hidden="true">
+                <i class="fa-regular fa-star" aria-hidden="true"></i>
+            </div>
 
             <span class="my-section-label">MY LEARNING JOURNEY</span>
 
-            <h1 id="intro-title">歡迎來到我的<br class="rpg-mobile-break">網頁設計學習歷程</h1>
+            <h1 id="intro-title">
+                <span class="wow animate__zoomInDown" data-wow-duration="1.5s">
+                    歡迎來到我的
+                </span>
+
+                <span class="wow animate__zoomInUp" data-wow-duration="1.5s">
+                    網頁設計學習歷程
+                </span>
+            </h1>
 
             <p>這裡記錄了我的網頁設計練習與作品<br class="rpg-desktop-break">用來整理自己的學習成果</p>
 
@@ -367,10 +380,75 @@
         <div class="rpg-footer-note">THANK YOU FOR VISITING MY ADVENTURE LOG</div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+
+    <script>
+        new WOW({
+            animateClass: 'animate__animated'
+        }).init();
+    </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const projectCards = document.querySelectorAll(".my-project-grid .my-project-card");
             const projectCount = projectCards.length;
+            const particleContainer = document.getElementById("magicParticles");
+
+            // 找不到容器或使用者偏好減少動態效果時，不執行
+            if (!particleContainer ||
+                window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                return;
+            }
+
+            // 魔法粒子顏色
+            const particleColors = [
+                "#f5d98b",  // 魔法金
+                "#a9dcff",  // 淡藍色
+                "#ffffff"   // 星光白
+            ];
+
+            // 建立 45 顆魔法粒子
+            const particleCount = 45;
+
+            for (let i = 0; i < particleCount; i++) {
+
+                const particle = document.createElement("span");
+
+                particle.className = "rpg-magic-particle";
+
+                // 隨機設定粒子大小
+                const size = Math.random() * 10 + 1.5;
+
+                // 隨機設定位置
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+
+                // 隨機設定漂浮時間
+                const duration = Math.random() * 8 + 7;
+
+                // 隨機設定動畫延遲
+                const delay = Math.random() * -15;
+
+                // 隨機設定顏色
+                const color = particleColors[
+                    Math.floor(Math.random() * particleColors.length)
+                ];
+
+                // 隨機設定光點亮度
+                const opacity = Math.random() * 0.4 + 0.4;
+
+                particle.style.setProperty("--particle-size", size + "px");
+                particle.style.setProperty("--particle-left", left + "%");
+                particle.style.setProperty("--particle-top", top + "%");
+                particle.style.setProperty("--particle-duration", duration + "s");
+                particle.style.setProperty("--particle-delay", delay + "s");
+                particle.style.setProperty("--particle-color", color);
+                particle.style.setProperty("--particle-opacity", opacity);
+
+                particleContainer.appendChild(particle);
+            }
+
 
             //數字跳動套件
             const counterUp = window.counterUp.default
@@ -590,7 +668,7 @@
         });
     </script>
 
-    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+
 
 </body>
 

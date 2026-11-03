@@ -1239,3 +1239,313 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
         transition-duration: .01ms !important;
     }
 }
+
+/* =========================================================
+   Hero 主標題：WOW.js 彈跳動畫
+   ========================================================= */
+
+.my-intro-section h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.my-intro-section h1 span {
+    display: block;
+}
+
+
+/* =========================================================
+   RPG 裝飾圖示：星星與鑽石持續動態特效
+   ========================================================= */
+
+/* 所有裝飾圖示基本設定 */
+.rpg-hero-spark i,
+.rpg-brand-mark i,
+.rpg-hero-divider i,
+.rpg-footer-divider i {
+    display: inline-block;
+    transform-origin: center;
+}
+
+/* =========================================================
+   01. Hero 左側鑽石：上下浮動＋旋轉＋發光
+   ========================================================= */
+
+.rpg-spark-one i {
+    animation: rpgDiamondFloat 3s ease-in-out infinite;
+
+    color: #e6bd75;
+
+    filter:
+        drop-shadow(0 0 5px rgba(230, 189, 117, 0.7)) drop-shadow(0 0 12px rgba(230, 189, 117, 0.4));
+}
+
+@keyframes rpgDiamondFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: translateY(-10px) rotate(12deg) scale(1.08);
+    }
+
+    50% {
+        transform: translateY(-16px) rotate(25deg) scale(1.15);
+    }
+
+    75% {
+        transform: translateY(-7px) rotate(12deg) scale(1.08);
+    }
+}
+
+/* =========================================================
+   02. Hero 右側星星：連續跳動＋閃爍
+   ========================================================= */
+
+.rpg-spark-two i {
+    animation: rpgStarBounce 2.2s ease-in-out infinite;
+
+    color: #f5d68d;
+
+    filter:
+        drop-shadow(0 0 5px rgba(245, 214, 141, 0.8)) drop-shadow(0 0 12px rgba(245, 214, 141, 0.5));
+}
+
+@keyframes rpgStarBounce {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 0.75;
+    }
+
+    30% {
+        transform: translateY(-12px) scale(1.25) rotate(15deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-16px) scale(1.4) rotate(25deg);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateY(-5px) scale(1.15) rotate(10deg);
+        opacity: 0.9;
+    }
+}
+
+/* =========================================================
+   03. 頂部品牌鑽石：緩慢旋轉
+   ========================================================= */
+
+.rpg-brand-mark i {
+    animation: rpgBrandDiamond 4s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 4px rgba(230, 189, 117, 0.7));
+}
+
+@keyframes rpgBrandDiamond {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.15);
+    }
+}
+
+/* =========================================================
+   04. Hero 中間寶石：旋轉＋閃光
+   ========================================================= */
+
+.rpg-hero-divider i {
+    animation: rpgGemGlow 2.5s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255, 213, 130, 0.7));
+}
+
+@keyframes rpgGemGlow {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 3px rgba(255, 213, 130, 0.4));
+    }
+
+    50% {
+        transform: rotate(0deg) scale(1.3);
+        filter: drop-shadow(0 0 12px rgba(255, 213, 130, 0.9));
+    }
+}
+
+/* =========================================================
+   05. Footer 星星：緩慢跳動＋旋轉
+   ========================================================= */
+
+.rpg-footer-divider i {
+    animation: rpgFooterStar 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 5px rgba(245, 214, 141, 0.7));
+}
+
+@keyframes rpgFooterStar {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: translateY(-7px) rotate(180deg) scale(1.2);
+    }
+}
+
+/* =========================================================
+   06. 不同動畫延遲，避免所有圖示同時動作
+   ========================================================= */
+
+.rpg-spark-one i {
+    animation-delay: 0s;
+}
+
+.rpg-spark-two i {
+    animation-delay: 0.6s;
+}
+
+.rpg-brand-mark i {
+    animation-delay: 0.3s;
+}
+
+.rpg-hero-divider i {
+    animation-delay: 1s;
+}
+
+.rpg-footer-divider i {
+    animation-delay: 0.8s;
+}
+
+/* =========================================================
+   07. 尊重使用者減少動態效果設定
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .rpg-hero-spark i,
+    .rpg-brand-mark i,
+    .rpg-hero-divider i,
+    .rpg-footer-divider i {
+        animation: none;
+    }
+}
+
+/* 持續探索中：綠色指示燈閃爍 */
+.rpg-status-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background-color: #45e879;
+    box-shadow: 0 0 6px #45e879,
+        0 0 12px rgba(69, 232, 121, 0.7);
+    animation: rpgStatusBlink 1.5s ease-in-out infinite;
+}
+
+/* 綠燈呼吸閃爍 */
+@keyframes rpgStatusBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 6px #45e879,
+            0 0 12px rgba(69, 232, 121, 0.7);
+    }
+
+    50% {
+        opacity: 0.35;
+        box-shadow: 0 0 2px #45e879,
+            0 0 5px rgba(69, 232, 121, 0.3);
+    }
+}
+
+/* =====================================================
+   全站魔法粒子背景
+===================================================== */
+
+/* 粒子容器：固定覆蓋整個瀏覽器視窗 */
+.rpg-magic-particles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 9999;
+    isolation: isolate;
+}
+
+/* 單顆魔法粒子 */
+.rpg-magic-particle {
+    position: absolute;
+    display: block;
+    width: var(--particle-size);
+    height: var(--particle-size);
+    left: var(--particle-left);
+    top: var(--particle-top);
+    border-radius: 50%;
+    background: var(--particle-color);
+    opacity: 0;
+    box-shadow:
+        0 0 5px var(--particle-color),
+        0 0 12px var(--particle-color);
+    animation:
+        rpgParticleFloat var(--particle-duration) ease-in-out var(--particle-delay) infinite;
+}
+
+/* 粒子漂浮與閃爍 */
+@keyframes rpgParticleFloat {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 15px, 0) scale(0.5);
+    }
+
+    25% {
+        opacity: var(--particle-opacity);
+    }
+
+    50% {
+        opacity: 0.35;
+        transform: translate3d(15px, -25px, 0) scale(1.2);
+    }
+
+    75% {
+        opacity: var(--particle-opacity);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(-10px, -55px, 0) scale(0.5);
+    }
+}
+
+/* 手機版減少粒子數量以降低負擔 */
+@media (max-width: 768px) {
+    .rpg-magic-particle:nth-child(n+26) {
+        display: none;
+    }
+}
+
+/* 使用者偏好減少動態效果時，關閉粒子動畫 */
+@media (prefers-reduced-motion: reduce) {
+    .rpg-magic-particles {
+        display: none;
+    }
+}
