@@ -7,6 +7,7 @@
     <title>SPA-個人履歷排版練習</title>
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="CSS/myAllcss.css">
     <link rel="stylesheet" href="CSS/myResumeCSS.css">
 
@@ -708,6 +709,708 @@
 
 
         /* ========================================
+   Section 07：精選作品集
+======================================== */
+
+        #s07.resume-portfolio {
+            --portfolio-cream: #faf6f0;
+            --portfolio-white: #fffdf9;
+            --portfolio-brown: #35231d;
+            --portfolio-red: #a6533c;
+            --portfolio-muted: #78685d;
+
+            padding: 90px 0;
+
+            background-color: var(--portfolio-cream);
+            color: var(--portfolio-brown);
+        }
+
+        /* 區塊標題 */
+        #s07 .portfolio-heading {
+            max-width: 720px;
+            margin: 0 auto 55px;
+        }
+
+        /* 英文眉標 */
+        #s07 .portfolio-eyebrow {
+            display: inline-block;
+            margin-bottom: 16px;
+
+            color: var(--portfolio-red);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        /* 中文標題 */
+        #s07 .portfolio-heading h2 {
+            margin-bottom: 0;
+
+            color: var(--portfolio-brown);
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        /* 標題裝飾線 */
+        #s07 .portfolio-title-line {
+            width: 55px;
+            height: 4px;
+            margin: 18px auto 22px;
+
+            background-color: var(--portfolio-red);
+            border-radius: 2px;
+        }
+
+        /* 區塊介紹 */
+        #s07 .portfolio-heading p {
+            margin: 0;
+
+            color: var(--portfolio-muted);
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        /* 作品卡片 */
+        #s07 .portfolio-card {
+            height: 100%;
+            min-height: 370px;
+            padding: 30px;
+
+            background-color: var(--portfolio-white);
+            border: 1px solid #e8ded3;
+            border-radius: 8px;
+
+            box-shadow: 0 4px 18px rgba(53, 35, 29, 0.04);
+        }
+
+        /* 卡片上方 */
+        #s07 .portfolio-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+
+            border-bottom: 1px solid #eee5dc;
+        }
+
+        /* 圖示背景 */
+        #s07 .portfolio-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 62px;
+            height: 62px;
+
+            background-color: #f3e5dc;
+            border-radius: 6px;
+
+            color: var(--portfolio-red);
+            font-size: 25px;
+        }
+
+        /* 作品編號 */
+        #s07 .portfolio-number {
+            color: #b9a79a;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* 作品日期 */
+        #s07 .portfolio-date {
+            display: inline-block;
+            margin-bottom: 12px;
+
+            color: var(--portfolio-red);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* 作品標題 */
+        #s07 .portfolio-card-content h3 {
+            margin-bottom: 15px;
+
+            color: var(--portfolio-brown);
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        /* 作品介紹 */
+        #s07 .portfolio-description {
+            min-height: 90px;
+            margin-bottom: 20px;
+
+            color: var(--portfolio-muted);
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        /* 技術標籤 */
+        #s07 .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-bottom: 25px;
+        }
+
+        /* 單一標籤 */
+        #s07 .portfolio-tags span {
+            display: inline-block;
+            padding: 6px 11px;
+
+            background-color: #f6eee8;
+            border: 1px solid #ead9cd;
+            border-radius: 3px;
+
+            color: #81513f;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* 作品連結 */
+        #s07 .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            padding-bottom: 7px;
+
+            color: var(--portfolio-red);
+            border-bottom: 1px solid var(--portfolio-red);
+
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        /* 箭頭 */
+        #s07 .portfolio-link i {
+            font-size: 12px;
+        }
+
+        /* 按鈕移入只改變顏色 */
+        #s07 .portfolio-link:hover {
+            color: var(--portfolio-brown);
+            border-bottom-color: var(--portfolio-brown);
+        }
+
+        /* 鍵盤焦點 */
+        #s07 .portfolio-link:focus-visible {
+            outline: 2px solid var(--portfolio-red);
+            outline-offset: 5px;
+        }
+
+        /* 底部標語 */
+        #s07 .portfolio-footer {
+            margin-top: 55px;
+            padding-top: 30px;
+
+            border-top: 1px solid #e5d9ce;
+        }
+
+        #s07 .portfolio-footer span {
+            color: var(--portfolio-red);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        #s07 .portfolio-footer p {
+            margin: 12px 0 0;
+
+            color: var(--portfolio-muted);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+   Section 09：聯絡我 CONTACT ME
+======================================== */
+
+        #s09 {
+            padding: 70px 0;
+            background-color: #faf6f0;
+            color: #35231d;
+        }
+
+        /* 區塊標題 */
+        #s09 .section-title {
+            margin-bottom: 35px !important;
+            color: #35231d;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* 標題底線 */
+        #s09 .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            margin: 14px auto 0;
+            background-color: #a6533c;
+            border-radius: 3px;
+        }
+
+        /* 表單欄位 */
+        #s09 .form-control,
+        #s09 .form-select {
+            color: #35231d;
+            background-color: #fffdf9;
+            border: 1px solid #dfd2c6;
+            border-radius: 8px;
+            box-shadow: none;
+        }
+
+        /* 輸入提示文字 */
+        #s09 .form-control::placeholder {
+            color: #a99a8e;
+        }
+
+        /* 表單標籤 */
+        #s09 .form-floating label {
+            color: #78685d;
+        }
+
+        /* 欄位聚焦效果 */
+        #s09 .form-control:focus,
+        #s09 .form-select:focus {
+            border-color: #a6533c;
+            box-shadow: 0 0 0 0.2rem rgba(166, 83, 60, 0.15);
+        }
+
+        /* 下拉選單 */
+        #s09 .form-select {
+            color: #625953;
+        }
+
+        /* 文字輸入區 */
+        #s09 textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        /* 按鈕共通樣式 */
+        #s09 .btn {
+            padding: 10px 26px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+        }
+
+        /* 取消按鈕 */
+        #s09 .btn-secondary {
+            color: #625953;
+            background-color: #e8dfd6;
+        }
+
+        /* 送出按鈕 */
+        #s09 .btn-primary {
+            color: #fffdf9;
+            background-color: #a6533c;
+        }
+
+        /* 地圖 */
+        #s09 iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            border: 1px solid #dfd2c6 !important;
+            border-radius: 12px;
+        }
+
+
+        /* ========================================
+   Section 10：未來展望 / 職涯發展
+======================================== */
+
+        #s10 {
+            overflow: hidden;
+            background-color: #35231d;
+        }
+
+        /* 左右兩個背景區塊 */
+        #s10 .row {
+            margin: 0;
+        }
+
+        #s10 .row>.col-md-6 {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 480px;
+            padding: 55px !important;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 背景深色漸層 */
+        #s10 .row>.col-md-6::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                    rgba(53, 35, 29, 0.82),
+                    rgba(53, 35, 29, 0.45));
+        }
+
+        /* 內容卡片 */
+        #s10 .col-8 {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 430px;
+            padding: 32px !important;
+
+            background-color: rgba(250, 246, 240, 0.12) !important;
+            border: 1px solid rgba(250, 246, 240, 0.35);
+            border-radius: 12px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        /* 主標題 */
+        #s10 .h1 {
+            margin-bottom: 5px;
+            color: #faf6f0 !important;
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        /* 英文副標 */
+        #s10 small {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #d6a18c !important;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* 內文標題 */
+        #s10 .h2 {
+            margin-bottom: 18px;
+            color: #fffdf9 !important;
+            font-size: 23px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* 說明文字 */
+        #s10 p {
+            margin-bottom: 28px;
+            color: rgba(255, 253, 249, 0.85) !important;
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        /* 按鈕 */
+        #s10 .btn {
+            padding: 11px 18px;
+            color: #faf6f0 !important;
+            border: 1px solid #d6a18c !important;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* 按鈕滑鼠移入 */
+        #s10 .btn:hover {
+            color: #35231d !important;
+            background-color: #d6a18c !important;
+            border-color: #d6a18c !important;
+        }
+
+        /* ========================================
+   Section 10：平板 RWD
+======================================== */
+        @media (max-width: 991.98px) {
+            #s10 .row>.col-md-6 {
+                min-height: 420px;
+                padding: 35px !important;
+            }
+
+            #s10 .col-8 {
+                padding: 25px !important;
+            }
+
+            #s10 .h1 {
+                font-size: 30px;
+            }
+
+            #s10 .h2 {
+                font-size: 21px;
+            }
+        }
+
+        /* ========================================
+   Section 10：手機 RWD
+======================================== */
+        @media (max-width: 767.98px) {
+            #s10 .row>.col-md-6 {
+                min-height: 400px;
+                padding: 30px 22px !important;
+            }
+
+            #s10 .col-8 {
+                max-width: 100%;
+                padding: 25px !important;
+            }
+
+            #s10 .h1 {
+                font-size: 28px;
+            }
+
+            #s10 .h2 {
+                font-size: 20px;
+            }
+
+            #s10 p {
+                font-size: 14px;
+            }
+        }
+
+
+        /* ========================================
+   Section 09：平板 RWD
+======================================== */
+        @media (max-width: 991.98px) {
+            #s09 {
+                padding: 55px 0;
+            }
+
+            #s09 .section-title {
+                font-size: 34px;
+            }
+
+            #s09 iframe {
+                min-height: 380px;
+                margin-top: 25px;
+            }
+        }
+
+        /* ========================================
+   Section 09：手機 RWD
+======================================== */
+        @media (max-width: 767.98px) {
+            #s09 {
+                padding: 40px 0;
+            }
+
+            #s09 .section-title {
+                font-size: 28px;
+            }
+
+            #s09 .btn {
+                padding: 9px 20px;
+                font-size: 14px;
+            }
+
+            #s09 iframe {
+                min-height: 300px;
+                margin-top: 20px;
+            }
+        }
+
+
+
+        /* ========================================
+   Section 07：平板版
+======================================== */
+
+        @media (max-width: 991.98px) {
+
+            #s07.resume-portfolio {
+                padding: 70px 0;
+            }
+
+            #s07 .portfolio-card {
+                padding: 25px;
+            }
+
+            #s07 .portfolio-card-content h3 {
+                font-size: 19px;
+            }
+
+        }
+
+
+        /* ========================================
+   Section 07：手機版
+======================================== */
+
+        @media (max-width: 767.98px) {
+
+            #s07.resume-portfolio {
+                padding: 60px 0;
+            }
+
+            #s07 .portfolio-heading {
+                margin-bottom: 38px;
+            }
+
+            #s07 .portfolio-heading h2 {
+                font-size: 29px;
+            }
+
+            #s07 .portfolio-heading p {
+                font-size: 14px;
+            }
+
+            #s07 .portfolio-card {
+                min-height: auto;
+                padding: 24px 22px;
+            }
+
+            #s07 .portfolio-card-top {
+                margin-bottom: 20px;
+                padding-bottom: 16px;
+            }
+
+            #s07 .portfolio-icon {
+                width: 54px;
+                height: 54px;
+                font-size: 22px;
+            }
+
+            #s07 .portfolio-card-content h3 {
+                font-size: 19px;
+            }
+
+            #s07 .portfolio-description {
+                min-height: auto;
+                font-size: 14px;
+            }
+
+            #s07 .portfolio-footer {
+                margin-top: 38px;
+            }
+
+        }
+
+
+
+        /* ========================================
+           Section 08：學經歷介紹
+        ======================================== */
+
+        #s08 {
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+            background-color: #faf6f0;
+            color: #35231d;
+        }
+
+        /* 左側文字內容 */
+        #s08 .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        #s08 .col-md-7 {
+            padding: 20px 35px;
+        }
+
+        /* 主標題 */
+        #s08 .h1 {
+            position: relative;
+            margin-bottom: 35px !important;
+            color: #35231d !important;
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-align: left !important;
+        }
+
+        #s08 .h1::after {
+            content: "";
+            display: block;
+            width: 90px;
+            height: 5px;
+            margin-top: 14px;
+            background-color: #a6533c;
+            border-radius: 3px;
+        }
+
+        /* 學經歷列表 */
+        #s08 dl.row {
+            margin-top: 15px;
+        }
+
+        #s08 dt {
+            padding-top: 12px;
+            color: #583426;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        #s08 dd {
+            padding: 5px 0 20px 18px;
+            margin-bottom: 8px;
+            color: #625953;
+            font-size: 15px;
+            line-height: 1.9;
+            border-bottom: 1px solid #e5d9ce;
+        }
+
+        #s08 dd p {
+            margin-bottom: 6px;
+        }
+
+        /* 巢狀列表 */
+        #s08 dd dl {
+            margin: 0;
+        }
+
+        #s08 dd dl dt {
+            color: #a6533c;
+            font-size: 15px;
+        }
+
+        #s08 dd dl dd {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        /* 右側背景圖片 */
+        #s08 .my-bg-img {
+            position: absolute !important;
+            top: 0;
+            right: 0;
+            width: 41.666667%;
+            height: 100% !important;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* 圖片左側漸層 */
+        #s08 .my-bg-img::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 28%;
+            background: linear-gradient(to right,
+                    #faf6f0,
+                    rgba(250, 246, 240, 0));
+        }
+
+
+        /* ========================================
        平板版：991.98px 以下
     ======================================== */
 
@@ -763,6 +1466,28 @@
 
             #s06 .about-skill-list {
                 gap: 8px;
+            }
+
+
+            /* Section 08：學經歷介紹 */
+            #s08 {
+                padding: 60px 0;
+            }
+
+            #s08 .col-md-7 {
+                padding: 20px;
+            }
+
+            #s08 .h1 {
+                font-size: 34px;
+            }
+
+            #s08 dt {
+                font-size: 15px;
+            }
+
+            #s08 dd {
+                font-size: 14px;
             }
         }
 
@@ -995,6 +1720,34 @@
 
             #s06 .about-more {
                 margin-top: 24px;
+            }
+
+
+            /* ---------- Section 08：學經歷介紹 ---------- */
+            #s08 {
+                padding: 45px 0;
+            }
+
+            #s08 .col-md-7 {
+                padding: 10px 20px;
+            }
+
+            #s08 .h1 {
+                font-size: 30px;
+                text-align: center !important;
+            }
+
+            #s08 .h1::after {
+                margin: 14px auto 0;
+            }
+
+            #s08 dt {
+                font-size: 14px;
+            }
+
+            #s08 dd {
+                padding-left: 0;
+                font-size: 14px;
             }
         }
 
@@ -1446,7 +2199,6 @@
 
         </div>
     </section> -->
-
     <!-- section03 --幻燈片效果carousel_AI -->
     <section id="s03" class="resume-showcase">
         <div id="carouselExampleCaptions" class="carousel slide">
@@ -1468,7 +2220,8 @@
                 <!-- 第一張：專案實作經驗 -->
                 <div class="carousel-item active resume-slide resume-slide-01">
 
-                    <div class="carousel-caption resume-caption">
+                    <div class="carousel-caption resume-caption wow animate__bounceInUp" data-wow-duration="2s"
+                        data-wow-delay="0s" data-wow-iteration="1">
                         <span class="resume-caption-label">
                             EXPERIENCE / 01
                         </span>
@@ -1878,10 +2631,458 @@
 
     </section>
 
+    <!-- section07 -- 作品集 -->
+    <!-- <section id="s07">
+        <div class="container my-5">
+            <div class="h1 text-center fw-bold text-info my-4">精選作品集</div>
+            <p class="text-center">以下是我在學習過程中累積下來的練習作品從簡單到複雜，從前端到後端</p>
+
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <i class="fa-solid fa-laptop fa-6x text-danger me-3"></i>
+                    <div>
+                        <div class="h3">作品名稱編號01</div>
+                        <p class="mb-0">使用技術: HTML, CSS, JavaScript</p>
+                        <p>作品簡介:結合前端切版布局....</p>
+                        <a href="#" class="btn btn-outline-success d-block">作品連接</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <i class="fa-solid fa-laptop fa-6x text-danger me-3"></i>
+                    <div>
+                        <div class="h3">作品名稱編號01</div>
+                        <p class="mb-0">使用技術: HTML, CSS, JavaScript</p>
+                        <p>作品簡介:結合前端切版布局....</p>
+                        <a href="#" class="btn btn-outline-success d-block">作品連接</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <i class="fa-solid fa-laptop fa-6x text-danger me-3"></i>
+                    <div>
+                        <div class="h3">作品名稱編號01</div>
+                        <p class="mb-0">使用技術: HTML, CSS, JavaScript</p>
+                        <p>作品簡介:結合前端切版布局....</p>
+                        <a href="#" class="btn btn-outline-success d-block">作品連接</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 d-flex align-items-center mt-3">
+                    <i class="fa-solid fa-laptop fa-6x text-danger me-3"></i>
+                    <div>
+                        <div class="h3">作品名稱編號01</div>
+                        <p class="mb-0">使用技術: HTML, CSS, JavaScript</p>
+                        <p>作品簡介:結合前端切版布局....</p>
+                        <a href="#" class="btn btn-outline-success d-block">作品連接</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section> -->
+    <!-- section07 -- 作品集_AI -->
+    <section id="s07" class="resume-portfolio">
+
+        <div class="container">
+
+            <!-- 區塊標題 -->
+            <div class="portfolio-heading text-center">
+                <span class="portfolio-eyebrow">MY SELECTED WORKS · 2026</span>
+
+                <h2>精選作品集</h2>
+
+                <div class="portfolio-title-line"></div>
+
+                <p>
+                    從基礎網頁排版到資料應用，記錄每一次學習與實作的成果。
+                    <br>
+                    透過不同技術的練習，逐步累積前端開發與網頁設計能力。
+                </p>
+            </div>
+
+            <!-- 作品列表 -->
+            <div class="row g-4 portfolio-list">
+
+                <!-- 作品 01 -->
+                <div class="col-lg-6">
+
+                    <div class="portfolio-card">
+
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+
+                            <span class="portfolio-number">PROJECT 01</span>
+                        </div>
+
+                        <div class="portfolio-card-content">
+
+                            <span class="portfolio-date">2026 / 09 / 23</span>
+
+                            <h3>HTML & CSS 網頁排版基礎練習</h3>
+
+                            <p class="portfolio-description">
+                                從 HTML 網頁結構開始，搭配 CSS 進行頁面排版與視覺設計，
+                                練習文字、區塊、間距及版面配置，
+                                建立網頁前端開發的基礎能力。
+                            </p>
+
+                            <div class="portfolio-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>Web Design</span>
+                            </div>
+
+                            <a href="20260923_ex01.html" class="portfolio-link">
+                                查看作品
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 作品 02 -->
+                <div class="col-lg-6">
+
+                    <div class="portfolio-card">
+
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+
+                            <span class="portfolio-number">PROJECT 02</span>
+                        </div>
+
+                        <div class="portfolio-card-content">
+
+                            <span class="portfolio-date">2026 / 09 / 29</span>
+
+                            <h3>JavaScript × OpenData 旅遊美食</h3>
+
+                            <p class="portfolio-description">
+                                結合 JavaScript 與政府 OpenData 資料，
+                                練習取得外部資料並進行整理與呈現，
+                                將旅遊及美食資訊整合到網頁中，
+                                學習動態資料應用的開發方式。
+                            </p>
+
+                            <div class="portfolio-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>OpenData</span>
+                            </div>
+
+                            <a href="20260929_js_TravelFood.html" class="portfolio-link">
+                                查看作品
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 作品 03 -->
+                <div class="col-lg-6">
+
+                    <div class="portfolio-card">
+
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">
+                                <i class="fa-brands fa-bootstrap"></i>
+                            </div>
+
+                            <span class="portfolio-number">PROJECT 03</span>
+                        </div>
+
+                        <div class="portfolio-card-content">
+
+                            <span class="portfolio-date">2026 / 10 / 01</span>
+
+                            <h3>Bootstrap × OpenData 旅遊美食</h3>
+
+                            <p class="portfolio-description">
+                                將 Bootstrap 框架應用於旅遊美食資料展示，
+                                運用 Grid 網格系統與現成元件進行版面配置，
+                                練習響應式網頁設計，讓不同裝置都能有良好的瀏覽體驗。
+                            </p>
+
+                            <div class="portfolio-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>Bootstrap</span>
+                                <span>OpenData</span>
+                            </div>
+
+                            <a href="20261001_Boostrap.html" class="portfolio-link">
+                                查看作品
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 作品 04 -->
+                <div class="col-lg-6">
+
+                    <div class="portfolio-card">
+
+                        <div class="portfolio-card-top">
+                            <div class="portfolio-icon">
+                                <i class="fa-solid fa-table"></i>
+                            </div>
+
+                            <span class="portfolio-number">PROJECT 04</span>
+                        </div>
+
+                        <div class="portfolio-card-content">
+
+                            <span class="portfolio-date">2026 / 10 / 06</span>
+
+                            <h3>Bootstrap Table × OpenData</h3>
+
+                            <p class="portfolio-description">
+                                練習運用 Bootstrap Table 元件呈現資料，
+                                將 OpenData 內容整理成表格形式，
+                                學習資料欄位配置、表格結構與網頁資訊呈現，
+                                提升資料展示的清晰度與可讀性。
+                            </p>
+
+                            <div class="portfolio-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>Bootstrap</span>
+                                <span>OpenData</span>
+                            </div>
+
+                            <a href="20261006_BS_Table_Data.html" class="portfolio-link">
+                                查看作品
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- section08 -- 學經歷介紹 -->
+    <!-- <section id="s08" style="position: relative;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="h1 text-center fw-bold text-info my-4">學經歷介紹</div>
+                    <dl class="row">
+                        <dt class="col-sm-3">個人特質</dt>
+                        <dd class="col-sm-9">工作經驗不到一年的前端工程師</dd>
+
+                        <dt class="col-sm-3">學歷</dt>
+                        <dd class="col-sm-9">
+                            <p>1.學歷簡介</p>
+                            <p>2.學歷簡介</p>
+                            <p>3.學歷簡介</p>
+                        </dd>
+
+                        <dt class="col-sm-3">工作年資</dt>
+                        <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+
+                        <dt class="col-sm-3 text-truncate">公司經歷</dt>
+                        <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+
+                        <dt class="col-sm-3">公司經歷</dt>
+                        <dd class="col-sm-9">
+                            <dl class="row">
+                                <dt class="col-sm-4">Nested definition list</dt>
+                                <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list
+                                    inside your definition list.</dd>
+                            </dl>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-md-5 my-bg-img d-none d-md-block" style="position: absolute; background-image: url(images/Bridge.avif); height: 100%; "></div>
+
+        </div>
+    </section> -->
+    <!-- section08 -- 學經歷介紹_AI -->
+    <section id="s08" style="position: relative;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+
+                    <div class="h1 text-center fw-bold text-info my-4">
+                        學經歷介紹
+                    </div>
+
+                    <dl class="row">
+                        <dt class="col-sm-3">個人特質</dt>
+                        <dd class="col-sm-9">
+                            工作經驗不到一年的前端工程師
+                        </dd>
+
+                        <dt class="col-sm-3">學歷</dt>
+                        <dd class="col-sm-9">
+                            <p>1.學歷簡介</p>
+                            <p>2.學歷簡介</p>
+                            <p>3.學歷簡介</p>
+                        </dd>
+
+                        <dt class="col-sm-3">工作年資</dt>
+                        <dd class="col-sm-9">
+                            This definition is short, so no extra paragraphs or anything.
+                        </dd>
+
+                        <dt class="col-sm-3 text-truncate">公司經歷</dt>
+                        <dd class="col-sm-9">
+                            This can be useful when space is tight. Adds an ellipsis at the end.
+                        </dd>
+
+                        <dt class="col-sm-3">公司經歷</dt>
+                        <dd class="col-sm-9">
+                            <dl class="row">
+                                <dt class="col-sm-4">Nested definition list</dt>
+                                <dd class="col-sm-8">
+                                    I heard you like definition lists. Let me put a definition list
+                                    inside your definition list.
+                                </dd>
+                            </dl>
+                        </dd>
+                    </dl>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 右側背景圖片 -->
+        <div class="row justify-content-end">
+            <div class="col-md-5 my-bg-img d-none d-md-block"
+                style="position: absolute; background-image: url(images/Bridge.avif); height: 100%;">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- section09 -- 聯絡我 -->
+    <section id="s09">
+        <div class="container py-4">
+            <div class="row">
+                <div class="h1 text-center section-title my-4">
+                    聯絡我 CONTACT ME
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control form-control-lg" placeholder="">
+                        <label for="username" class="form-label">姓名</label>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="form-control form-control-lg" placeholder="">
+                        <label for="username" class="form-label">電子信箱</label>
+                    </div>
+                    <select name="" id="" class="form-select form-select-lg">
+                        <option value="" class="text-center" disabled selected>---聯絡主題---</option>
+                        <option value="面試邀約">面試邀約</option>
+                        <option value="專案討論">專案討論</option>
+                        <option value="接案洽詢">接案洽詢</option>
+                        <option value="其它">其它</option>
+                    </select>
+                    <textarea class="form-control my-3" name="" id="" cols="10" rows="8"
+                        placeholder="請輸入您的訊息"></textarea>
+
+                    <div class="text-end my-3">
+                        <button class="btn btn-secondary btn-lg">取消</button>
+                        <button class="btn btn-primary btn-lg">送出</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.03420146457!2d120.6075480764068!3d24.170533278385914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693e048d342aa9%3A0x2b6f18a6783fa3b!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5Lit5b2w5oqV5YiG572y77yI6Ie65Lit6IG36KiT5bGA77yJ!5e0!3m2!1szh-TW!2stw!4v1793674501675!5m2!1szh-TW!2stw"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- section10 -- 未來展望 -->
+    <section id="s10">
+        <div class="row">
+            <div class="col-md-6 my-bg-img p-5" style="background-image: url(images/tree.avif);">
+                <div class="col-8 p-3 shadow-sm" style="background-color: rgba(0, 0, 0, 0.3);">
+                    <div class="h1 text-light">未來展望</div><small class="text-info">Future Vision</small>
+                    <div class="h2 text-white">持續精進，累積實作能力</div>
+                    <p class="text-white">從每一次的學習與實作中累積經驗，持續精進 HTML、CSS、JavaScript
+                        與前端開發技術。我相信好的作品不只是完成畫面，更需要兼顧使用者體驗、版面設計與程式邏輯。未來也希望透過更多實際專案，提升問題分析與獨立開發的能力。</p>
+                    <a href="#s07" class="btn btn-outline-info w-100">探索我的作品</a>
+                </div>
+            </div>
+            <div class="col-md-6 my-bg-img p-5" style="background-image: url(images/tree.avif);">
+                <div class="col-8 p-3 shadow-sm" style="background-color: rgba(0, 0, 0, 0.3);">
+                    <div class="h1 text-light">職涯發展</div><small class="text-info">Career Development</small>
+                    <div class="h2 text-white">探索新技術，拓展更多可能</div>
+                    <p class="text-white">
+                        除了持續深化前端開發能力，也希望接觸人工智慧、資料應用與新興技術，了解不同技術之間的整合方式。未來期望將所學運用於實際需求，培養跨領域整合與團隊合作能力，逐步朝具備技術廣度與實作能力的開發者邁進。
+                    </p>
+                    <a href="#s09" class="btn btn-outline-info w-100">與我聯絡</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- section11 -- footer -->
+    <section id="s11">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
 
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <!-- 先初始化 WOW.js -->
+    <script>
+        new WOW({
+            boxClass: 'wow',
+            animateClass: 'animate__animated',
+            offset: 0,
+            mobile: true,
+            live: true
+        }).init();
+    </script>
 
     <script>
         const counterUp = window.counterUp.default
