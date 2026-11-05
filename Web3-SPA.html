@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080B14">
+
+  <title>WEB3｜Digital Universe</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="CSS/Web3-SPA.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+         Intro 開場動畫
+    ====================================================== -->
+  <div id="intro" aria-label="Web3 intro">
+    <div class="intro-grid"></div>
+    <div class="intro-orb"></div>
+
+    <div class="intro-content">
+      <div class="intro-mark">
+        <i class="fa-solid fa-cubes-stacked"></i>
+      </div>
+
+      <p class="eyebrow">WELCOME TO THE NEXT INTERNET</p>
+
+      <h1>WEB<span>3</span></h1>
+
+      <div class="intro-loader">
+        <span></span>
+      </div>
+
+      <small>INITIALIZING DECENTRALIZED WORLD</small>
+    </div>
+  </div>
+
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- =====================================================
+     s01 Navbar
+====================================================== -->
+
+  <section id="s01">
+
+    <nav class="navbar navbar-expand-lg web3-nav">
+
+      <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand" href="#" id="logoHome">
+
+          <span class="brand-icon">
+            <i class="fa-solid fa-cubes-stacked"></i>
+          </span>
+
+          WEB<span class="gradient-text">3</span>
+
+          <small>DIGITAL UNIVERSE</small>
+
+        </a>
+
+        <!-- 右側資源連結與選單按鈕 -->
+        <div class="nav-right-tools">
+
+          <!-- Web3 資源連結 -->
+          <div class="nav-social-links">
+
+            <a href="https://ethereum.org/" target="_blank" rel="noopener noreferrer" aria-label="Ethereum">
+
+              <i class="fa-brands fa-ethereum"></i>
+
+            </a>
+
+            <a href="https://bitcoin.org/" target="_blank" rel="noopener noreferrer" aria-label="Bitcoin">
+
+              <i class="fa-brands fa-bitcoin"></i>
+
+            </a>
+
+          </div>
+
+          <!-- 手機選單按鈕 -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#web3Menu"
+            aria-controls="web3Menu" aria-label="開啟導覽">
+
+            <span class="navbar-toggler-icon"></span>
+
+          </button>
+
+        </div>
+
+        <!-- 桌面版 Navbar -->
+        <div class="collapse navbar-collapse">
+
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+
+            <li>
+              <a class="nav-link" href="#s03">概念</a>
+            </li>
+
+            <li>
+              <a class="nav-link" href="#s04">技術</a>
+            </li>
+
+            <li>
+              <a class="nav-link" href="#s06">演進</a>
+            </li>
+
+            <li>
+              <a class="nav-link" href="#s07">生態</a>
+            </li>
+
+            <li>
+              <a class="nav-link" href="#s13">未來</a>
+            </li>
+
+            <li>
+              <a class="nav-link nav-cta" href="#s14">
+                加入探索
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+  </section>
+
+  <!-- =====================================================
+     手機 Offcanvas 導覽
+====================================================== -->
+
+  <div class="offcanvas offcanvas-end web3-offcanvas" tabindex="-1" id="web3Menu" aria-labelledby="web3MenuLabel">
+
+    <div class="offcanvas-header">
+
+      <h5 id="web3MenuLabel">
+        WEB<span class="gradient-text">3</span> NAVIGATION
+      </h5>
+
+      <button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="關閉">
+      </button>
+
+    </div>
+
+    <div class="offcanvas-body">
+
+      <a href="#s02">首頁</a>
+      <a href="#s03">Web3 核心概念</a>
+      <a href="#s04">底層技術</a>
+      <a href="#s05">去中心化</a>
+      <a href="#s06">發展歷程</a>
+      <a href="#s07">Web3 生態</a>
+      <a href="#s08">DApp</a>
+      <a href="#s09">數位身份</a>
+      <a href="#s10">安全與風險</a>
+      <a href="#s11">DAO</a>
+      <a href="#s12">學習心得</a>
+      <a href="#s13">未來展望</a>
+      <a href="#s14">聯絡</a>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+         s02 Hero
+    ====================================================== -->
+  <section id="s02" class="hero-section section-dark">
+
+    <div class="hero-cinematic-image" aria-hidden="true"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-noise"></div>
+
+    <div class="container position-relative">
+
+      <div class="row align-items-center min-vh-hero">
+
+        <div class="col-lg-7 hero-copy reveal">
+
+          <div class="hero-kicker">
+            <span class="live-dot"></span>
+            DECENTRALIZED INTERNET / 2026
+          </div>
+
+          <h1>
+            WELCOME TO<br>
+            <span class="hero-gradient">WEB3</span><br>
+            <em>THE NEXT DIGITAL ERA.</em>
+          </h1>
+
+          <p class="hero-lead">
+            從中心化平台走向使用者自主，探索區塊鏈、數位身份、去中心化應用與新世代網路的可能性。
+          </p>
+
+          <div class="hero-actions">
+
+          </div>
+
+          <div class="hero-meta">
+
+            <span>
+              <i class="fa-solid fa-link"></i>
+              CONNECTED WORLD
+            </span>
+
+            <span>
+              <i class="fa-solid fa-shield-halved"></i>
+              USER-CENTRIC
+            </span>
+
+            <span>
+              <i class="fa-solid fa-code-branch"></i>
+              OPEN ECOSYSTEM
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-5 hero-art-wrap reveal">
+
+          <div class="hero-art">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="orbit orbit-three"></div>
+
+            <div class="core-sphere">
+
+              <div class="sphere-gloss"></div>
+
+              <span class="sphere-symbol">
+                W<span>3</span>
+              </span>
+
+              <div class="sphere-ring"></div>
+
+            </div>
+
+            <div class="float-chip chip-a">
+              <i class="fa-solid fa-cube"></i>
+              <span>BLOCKCHAIN</span>
+            </div>
+
+            <div class="float-chip chip-b">
+              <i class="fa-solid fa-fingerprint"></i>
+              <span>IDENTITY</span>
+            </div>
+
+            <div class="float-chip chip-c">
+              <i class="fa-solid fa-network-wired"></i>
+              <span>NETWORK</span>
+            </div>
+
+            <div class="orbit-node node-a"></div>
+            <div class="orbit-node node-b"></div>
+            <div class="orbit-node node-c"></div>
+
+          </div>
+
+          <div class="art-caption">
+
+            <span>01 / THE INTERNET REIMAGINED</span>
+
+            <span>
+              SCROLL TO EXPLORE
+              <i class="fa-solid fa-arrow-down"></i>
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="hero-bottom-line"></div>
+
+    <!-- Web3 Marquee -->
+    <div class="world-marquee" aria-label="Web3 world keywords">
+
+      <div class="world-marquee-track">
+
+        <span>DECENTRALIZED WORLD</span>
+        <i>✦</i>
+
+        <span>OWN YOUR DIGITAL LIFE</span>
+        <i>✦</i>
+
+        <span>BEYOND THE PLATFORM</span>
+        <i>✦</i>
+
+        <span>BUILD THE OPEN FUTURE</span>
+        <i>✦</i>
+
+        <span>DECENTRALIZED WORLD</span>
+        <i>✦</i>
+
+        <span>OWN YOUR DIGITAL LIFE</span>
+        <i>✦</i>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s03 Concept
+    ====================================================== -->
+
+
+  <section id="s03" class="section section-light">
+
+    <div class="container">
+
+      <!-- Section 標題 -->
+      <div class="section-heading scroll-reveal">
+
+        <span class="section-index">01 / CONCEPT</span>
+
+        <h2>
+          重新想像<span class="gradient-text">網路的權力</span>
+        </h2>
+
+        <p>
+          Web3 不只是新技術，更是一種關於所有權、信任與參與方式的思考。
+        </p>
+
+      </div>
+
+      <!-- Concept Carousel -->
+      <div id="conceptCarousel" class="carousel slide concept-carousel scroll-reveal" data-bs-interval="false"
+        data-bs-touch="true">
+
+        <!-- 輪播內容 -->
+        <div class="carousel-inner">
+
+          <!-- Card 01 -->
+          <div class="carousel-item active">
+
+            <article class="glass-card concept-card mx-auto">
+
+              <div class="card-topline">
+                <span>01</span>
+                <i class="fa-solid fa-users"></i>
+              </div>
+
+              <h3>使用者自主</h3>
+
+              <p>
+                讓使用者更直接掌握自己的數位身份、資產與資料，而不是完全依賴單一平台。
+              </p>
+
+              <div class="card-tags">
+                <span>OWNERSHIP</span>
+                <span>CONTROL</span>
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- Card 02 -->
+          <div class="carousel-item">
+
+            <article class="glass-card concept-card mx-auto">
+
+              <div class="card-topline">
+                <span>02</span>
+                <i class="fa-solid fa-link"></i>
+              </div>
+
+              <h3>可信任協作</h3>
+
+              <p>
+                透過區塊鏈與密碼學，讓參與者能在公開規則下驗證資料與交易。
+              </p>
+
+              <div class="card-tags">
+                <span>VERIFIABLE</span>
+                <span>TRANSPARENT</span>
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- Card 03 -->
+          <div class="carousel-item">
+
+            <article class="glass-card concept-card mx-auto">
+
+              <div class="card-topline">
+                <span>03</span>
+                <i class="fa-solid fa-globe"></i>
+              </div>
+
+              <h3>開放網路</h3>
+
+              <p>
+                以開放協議與可組合服務，讓應用能互相連接，形成持續擴展的生態。
+              </p>
+
+              <div class="card-tags">
+                <span>OPEN</span>
+                <span>COMPOSABLE</span>
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+        <!-- 左側切換按鈕 -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#conceptCarousel" data-bs-slide="prev"
+          aria-label="上一張">
+
+          <i class="fa-solid fa-chevron-left"></i>
+
+        </button>
+
+        <!-- 右側切換按鈕 -->
+        <button class="carousel-control-next" type="button" data-bs-target="#conceptCarousel" data-bs-slide="next"
+          aria-label="下一張">
+
+          <i class="fa-solid fa-chevron-right"></i>
+
+        </button>
+
+        <!-- 輪播指示點 -->
+        <div class="carousel-indicators">
+
+          <button type="button" data-bs-target="#conceptCarousel" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="第 1 張">
+          </button>
+
+          <button type="button" data-bs-target="#conceptCarousel" data-bs-slide-to="1" aria-label="第 2 張">
+          </button>
+
+          <button type="button" data-bs-target="#conceptCarousel" data-bs-slide-to="2" aria-label="第 3 張">
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+         s04 Technology
+    ====================================================== -->
+
+  <section id="s04" class="section section-dark">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">02 / THE STACK</span>
+
+        <h2>
+          Web3 的<span class="gradient-text">技術底座</span>
+        </h2>
+
+        <p>
+          不同技術共同構成去中心化應用的基礎，從資料驗證到使用者互動。
+        </p>
+
+      </div>
+
+      <div class="stack-layout">
+
+        <div class="stack-visual reveal">
+
+          <div class="stack-orbit">
+
+            <span class="stack-label label-chain">BLOCKCHAIN</span>
+            <span class="stack-label label-contract">SMART CONTRACT</span>
+            <span class="stack-label label-wallet">WALLET</span>
+
+            <div class="stack-center">
+              <i class="fa-solid fa-layer-group"></i>
+              <b>WEB3<br>STACK</b>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="stack-list">
+
+          <article class="stack-row reveal">
+
+            <span class="stack-number">01</span>
+
+            <div>
+              <h3>Blockchain</h3>
+              <p>以分散式帳本與共識機制，記錄可驗證的交易與狀態。</p>
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </article>
+
+          <article class="stack-row reveal">
+
+            <span class="stack-number">02</span>
+
+            <div>
+              <h3>Smart Contracts</h3>
+              <p>將規則寫入程式，在符合條件時自動執行鏈上操作。</p>
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </article>
+
+          <article class="stack-row reveal">
+
+            <span class="stack-number">03</span>
+
+            <div>
+              <h3>Cryptography</h3>
+              <p>使用公私鑰、簽章與雜湊，建立驗證與權限控制。</p>
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </article>
+
+          <article class="stack-row reveal">
+
+            <span class="stack-number">04</span>
+
+            <div>
+              <h3>Wallet & Protocol</h3>
+              <p>錢包協助管理密鑰與簽署操作，協議定義應用如何互通。</p>
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s05 Decentralization
+    ====================================================== -->
+
+  <section id="s05" class="section section-gradient">
+
+    <div class="container">
+
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-6 reveal">
+
+          <span class="section-index">03 / DECENTRALIZATION</span>
+
+          <h2 class="display-title">
+            從平台中心<br>
+            走向<span class="gradient-text">網路協作</span>
+          </h2>
+
+          <p class="section-copy">
+            去中心化並非代表完全沒有治理，而是將部分權力、驗證與決策分散給多個參與者，降低對單一控制點的依賴。
+          </p>
+
+          <a href="#s07" class="text-link">
+            探索 Web3 生態
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+        <div class="col-lg-6 reveal">
+
+          <div class="network-map">
+
+            <svg viewBox="0 0 600 430" role="img" aria-label="去中心化網路節點示意">
+
+              <g class="network-lines">
+
+                <path
+                  d="M300 210 L110 90 M300 210 L490 90 M300 210 L80 300 M300 210 L520 300 M300 210 L300 40 M300 210 L300 390 M110 90 L490 90 M80 300 L520 300 M110 90 L80 300 M490 90 L520 300 M110 90 L300 40 M490 90 L300 40 M80 300 L300 390 M520 300 L300 390" />
+
+              </g>
+
+              <g class="network-nodes">
+
+                <circle cx="300" cy="210" r="48" class="central-node" />
+                <circle cx="110" cy="90" r="20" />
+                <circle cx="490" cy="90" r="20" />
+                <circle cx="80" cy="300" r="20" />
+                <circle cx="520" cy="300" r="20" />
+                <circle cx="300" cy="40" r="18" />
+                <circle cx="300" cy="390" r="18" />
+                <circle cx="205" cy="145" r="12" />
+                <circle cx="405" cy="145" r="12" />
+                <circle cx="190" cy="270" r="12" />
+                <circle cx="410" cy="270" r="12" />
+
+              </g>
+
+              <text x="300" y="216" text-anchor="middle">WEB3</text>
+
+            </svg>
+
+            <div class="network-caption">
+              <span class="live-dot"></span>
+              PEER-TO-PEER NETWORK
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s06 Evolution timeline
+    ====================================================== -->
+
+  <section id="s06" class="section section-light">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">04 / EVOLUTION</span>
+
+        <h2>
+          網路演進的<span class="gradient-text">下一章</span>
+        </h2>
+
+        <p>
+          從資訊展示到互動平台，再到資產與身份可攜的網路體驗。
+        </p>
+
+      </div>
+
+      <div class="evolution-timeline">
+
+        <article class="timeline-item reveal">
+
+          <span class="timeline-year">WEB 1.0</span>
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <h3>Read</h3>
+
+            <p>
+              早期網路以靜態頁面為主，使用者主要閱讀與取得資訊。
+            </p>
+
+            <span class="timeline-chip">1990s — EARLY WEB</span>
+
+          </div>
+
+        </article>
+
+        <article class="timeline-item reveal">
+
+          <span class="timeline-year">WEB 2.0</span>
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <h3>Read / Write</h3>
+
+            <p>
+              社群、影音與平台服務讓使用者能創作內容，但資料與服務多由平台集中管理。
+            </p>
+
+            <span class="timeline-chip">SOCIAL & PLATFORM</span>
+
+          </div>
+
+        </article>
+
+        <article class="timeline-item reveal">
+
+          <span class="timeline-year">WEB 3.0</span>
+
+          <div class="timeline-dot"></div>
+
+          <div class="timeline-content">
+
+            <h3>Read / Write / Own</h3>
+
+            <p>
+              以區塊鏈、智能合約與數位資產探索更開放的所有權與協作模式。
+            </p>
+
+            <span class="timeline-chip">OPEN & USER-CENTRIC</span>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s07 Ecosystem
+    ====================================================== -->
+
+  <section id="s07" class="section section-dark">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">05 / ECOSYSTEM</span>
+
+        <h2>
+          一個持續擴展的<span class="gradient-text">Web3 生態</span>
+        </h2>
+
+        <p>
+          多種服務與協議相互連結，構成不斷演進的數位環境。
+        </p>
+
+      </div>
+
+      <div class="ecosystem-grid">
+
+        <article class="eco-card eco-large reveal">
+
+          <div class="eco-icon purple">
+            <i class="fa-solid fa-coins"></i>
+          </div>
+
+          <span class="eco-tag">DIGITAL VALUE</span>
+
+          <h3>DeFi</h3>
+
+          <p>探索借貸、交易與資產管理等鏈上金融服務。</p>
+
+          <div class="eco-wave"></div>
+
+        </article>
+
+        <article class="eco-card reveal">
+
+          <div class="eco-icon cyan">
+            <i class="fa-solid fa-image"></i>
+          </div>
+
+          <span class="eco-tag">DIGITAL OWNERSHIP</span>
+
+          <h3>NFT</h3>
+
+          <p>以鏈上紀錄表達特定數位物件或權利。</p>
+
+        </article>
+
+        <article class="eco-card reveal">
+
+          <div class="eco-icon green">
+            <i class="fa-solid fa-users"></i>
+          </div>
+
+          <span class="eco-tag">COMMUNITY</span>
+
+          <h3>DAO</h3>
+
+          <p>透過共同規則與治理流程協調社群參與。</p>
+
+        </article>
+
+        <article class="eco-card reveal">
+
+          <div class="eco-icon pink">
+            <i class="fa-solid fa-gamepad"></i>
+          </div>
+
+          <span class="eco-tag">INTERACTIVE WORLD</span>
+
+          <h3>Gaming & Metaverse</h3>
+
+          <p>結合虛擬世界、互動體驗與數位物件。</p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s08 DApps
+    ====================================================== -->
+
+  <section id="s08" class="section section-light">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">06 / APPLICATIONS</span>
+
+        <h2>
+          去中心化應用<span class="gradient-text">DApps</span>
+        </h2>
+
+        <p>
+          DApp 將前端介面、智能合約與區塊鏈網路連接，提供不同型態的服務。
+        </p>
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4 reveal">
+
+          <div class="app-card">
+
+            <div class="app-card-head">
+              <span>01 / FINANCE</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="app-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <h3>鏈上金融</h3>
+
+            <p>在公開協議上探索交易、借貸與流動性服務。</p>
+
+            <div class="app-progress">
+              <span style="width:84%"></span>
+            </div>
+
+            <small>SMART CONTRACT BASED</small>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+
+          <div class="app-card">
+
+            <div class="app-card-head">
+              <span>02 / IDENTITY</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="app-icon">
+              <i class="fa-solid fa-id-card"></i>
+            </div>
+
+            <h3>數位身份</h3>
+
+            <p>探索可攜式身份、憑證與使用者授權機制。</p>
+
+            <div class="app-progress">
+              <span style="width:68%"></span>
+            </div>
+
+            <small>USER-CONTROLLED</small>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+
+          <div class="app-card">
+
+            <div class="app-card-head">
+              <span>03 / COMMUNITY</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </div>
+
+            <div class="app-icon">
+              <i class="fa-solid fa-comments"></i>
+            </div>
+
+            <h3>社群協作</h3>
+
+            <p>讓社群透過公開提案與治理工具共同參與。</p>
+
+            <div class="app-progress">
+              <span style="width:76%"></span>
+            </div>
+
+            <small>COMMUNITY-DRIVEN</small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s09 Identity
+    ====================================================== -->
+
+  <section id="s09" class="section section-gradient">
+
+    <div class="container">
+
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-5 reveal">
+
+          <span class="section-index">07 / DIGITAL IDENTITY</span>
+
+          <h2 class="display-title">
+            你的身份<br>
+            不該只屬於<span class="gradient-text">一個平台</span>
+          </h2>
+
+          <p class="section-copy">
+            數位身份與可驗證憑證正在探索新的可能。使用者可以思考如何管理授權、選擇分享內容，並在不同服務之間建立更可控的互動。
+          </p>
+
+          <div class="identity-pills">
+
+            <span>
+              <i class="fa-solid fa-fingerprint"></i>
+              Self-sovereign
+            </span>
+
+            <span>
+              <i class="fa-solid fa-lock"></i>
+              Privacy-aware
+            </span>
+
+            <span>
+              <i class="fa-solid fa-key"></i>
+              Verifiable
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-7 reveal">
+
+          <div class="identity-card">
+
+            <div class="identity-card-top">
+
+              <span class="identity-dot"></span>
+              <span class="identity-dot"></span>
+              <span class="identity-dot"></span>
+
+              <small>IDENTITY / PROTOCOL</small>
+
+            </div>
+
+            <div class="identity-avatar">
+              <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+
+            <div class="identity-name">
+              DIGITAL CITIZEN
+              <span>WEB3 MEMBER</span>
+            </div>
+
+            <div class="identity-data">
+
+              <div>
+                <small>ACCESS</small>
+                <b>SELECTIVE</b>
+              </div>
+
+              <div>
+                <small>PROOF</small>
+                <b>VERIFIABLE</b>
+              </div>
+
+              <div>
+                <small>CONTROL</small>
+                <b>USER-OWNED</b>
+              </div>
+
+            </div>
+
+            <div class="identity-code">
+              0x7F...A91C
+              <i class="fa-solid fa-copy"></i>
+            </div>
+
+            <div class="identity-card-glow"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s10 Security
+    ====================================================== -->
+
+  <section id="s10" class="section section-light">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">08 / SECURITY</span>
+
+        <h2>
+          自由與創新，也需要<span class="gradient-text">安全意識</span>
+        </h2>
+
+        <p>
+          Web3 的自主性伴隨新的責任。理解風險、確認資訊與保護密鑰是重要的基本功。
+        </p>
+
+      </div>
+
+      <div class="security-grid">
+
+        <article class="security-card reveal">
+
+          <span class="security-number">01</span>
+
+          <i class="fa-solid fa-key"></i>
+
+          <h3>密鑰保護</h3>
+
+          <p>
+            妥善保管私鑰與助記詞，不向任何人透露，也避免存放在不安全的位置。
+          </p>
+
+          <span class="security-line"></span>
+
+        </article>
+
+        <article class="security-card reveal">
+
+          <span class="security-number">02</span>
+
+          <i class="fa-solid fa-fish"></i>
+
+          <h3>辨識釣魚</h3>
+
+          <p>
+            確認網址、來源與合約資訊，警惕假客服、空投誘導與不明簽署請求。
+          </p>
+
+          <span class="security-line"></span>
+
+        </article>
+
+        <article class="security-card reveal">
+
+          <span class="security-number">03</span>
+
+          <i class="fa-solid fa-file-signature"></i>
+
+          <h3>理解授權</h3>
+
+          <p>
+            送出交易或簽署前，先理解操作內容、權限範圍與可能造成的影響。
+          </p>
+
+          <span class="security-line"></span>
+
+        </article>
+
+      </div>
+
+      <div class="security-alert reveal">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+        <div>
+          <b>Remember:</b>
+          區塊鏈交易可能無法撤回。不要因為網站看起來專業或承諾高報酬，就忽略風險與查證。
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s11 DAO
+    ====================================================== -->
+
+  <section id="s11" class="section section-dark">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">09 / GOVERNANCE</span>
+
+        <h2>
+          DAO：由社群參與<span class="gradient-text">共同治理</span>
+        </h2>
+
+        <p>
+          DAO 是以規則、提案與協作流程組織參與者的概念，不同專案的治理方式與權限設計各有差異。
+        </p>
+
+      </div>
+
+      <div class="dao-flow reveal">
+
+        <div class="dao-step">
+
+          <span>01</span>
+          <i class="fa-solid fa-lightbulb"></i>
+
+          <h3>提案</h3>
+          <p>提出想法與改善方向</p>
+
+        </div>
+
+        <div class="dao-connector">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+        <div class="dao-step">
+
+          <span>02</span>
+          <i class="fa-solid fa-comments"></i>
+
+          <h3>討論</h3>
+          <p>社群檢視與交換意見</p>
+
+        </div>
+
+        <div class="dao-connector">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+        <div class="dao-step">
+
+          <span>03</span>
+          <i class="fa-solid fa-check-to-slot"></i>
+
+          <h3>治理</h3>
+          <p>依專案規則決定方向</p>
+
+        </div>
+
+        <div class="dao-connector">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+        <div class="dao-step">
+
+          <span>04</span>
+          <i class="fa-solid fa-code"></i>
+
+          <h3>執行</h3>
+          <p>落實決策與追蹤成果</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s12 Learning
+    ====================================================== -->
+
+  <section id="s12" class="section section-light">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">10 / LEARNING JOURNEY</span>
+
+        <h2>
+          從主題研究到<span class="gradient-text">網站實作</span>
+        </h2>
+
+        <p>
+          本次專題將 Web3 知識整理與前端技術結合，透過互動式單頁網站呈現學習成果。
+        </p>
+
+      </div>
+
+      <div class="learning-counters row g-3">
+
+        <div class="col-6 col-lg-3 reveal">
+
+          <div class="counter-box">
+            <strong data-count="14">0</strong>
+            <span>SECTIONS</span>
+          </div>
+
+        </div>
+
+        <div class="col-6 col-lg-3 reveal">
+
+          <div class="counter-box">
+            <strong data-count="4">0</strong>
+            <span>CORE TECH</span>
+          </div>
+
+        </div>
+
+        <div class="col-6 col-lg-3 reveal">
+
+          <div class="counter-box">
+            <strong data-count="3">0</strong>
+            <span>WEB ERAS</span>
+          </div>
+
+        </div>
+
+        <div class="col-6 col-lg-3 reveal">
+
+          <div class="counter-box">
+            <strong data-count="∞">∞</strong>
+            <span>WAYS TO EXPLORE</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="learning-note reveal">
+
+        <div class="quote-mark">“</div>
+
+        <p>
+          透過網站設計，我不只整理 Web3 的技術與概念，也練習如何將資訊轉化成清楚的視覺層次、互動流程與響應式體驗。
+        </p>
+
+        <span>LEARN · BUILD · ITERATE</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s13 Future
+    ====================================================== -->
+
+  <section id="s13" class="section future-section">
+
+    <div class="future-stars"></div>
+
+    <div class="container position-relative">
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">11 / WHAT'S NEXT</span>
+
+        <h2>
+          下一個網路，<span class="gradient-text">正在形成</span>
+        </h2>
+
+        <p>
+          Web3 仍在發展，技術成熟度、使用體驗與治理方式都需要持續探索。
+        </p>
+
+      </div>
+
+      <div class="future-grid">
+
+        <article class="future-card reveal">
+
+          <div class="future-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+
+          <span>SCALABILITY</span>
+
+          <h3>更順暢的體驗</h3>
+
+          <p>
+            研究 Layer 2、跨鏈與其他擴展方案，改善速度、成本與可用性。
+          </p>
+
+        </article>
+
+        <article class="future-card reveal">
+
+          <div class="future-icon">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+
+          <span>PRIVACY</span>
+
+          <h3>更好的數位自主</h3>
+
+          <p>
+            探索隱私保護、身份管理與使用者授權的新工具。
+          </p>
+
+        </article>
+
+        <article class="future-card reveal">
+
+          <div class="future-icon">
+            <i class="fa-solid fa-puzzle-piece"></i>
+          </div>
+
+          <span>INTEROPERABILITY</span>
+
+          <h3>互通的開放生態</h3>
+
+          <p>
+            讓不同協議、應用與數位服務能更容易協作與組合。
+          </p>
+
+        </article>
+
+      </div>
+
+      <div class="future-cta reveal">
+
+        <p>
+          THE FUTURE IS NOT A PLACE.<br>
+          <strong>IT'S A PROTOCOL WE BUILD TOGETHER.</strong>
+        </p>
+
+        <a href="#s14" class="btn-neon">
+          加入對話
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+         s14 Contact / Footer
+    ====================================================== -->
+
+  <section id="s14" class="section section-dark contact-section">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <span class="section-index">12 / CONNECT</span>
+
+        <h2>
+          讓我們一起<span class="gradient-text">探索 Web3</span>
+        </h2>
+
+        <p>
+          留下你的想法，分享對去中心化網路、數位身份或網站設計的看法。
+        </p>
+
+      </div>
+
+      <div class="row justify-content-center">
+
+        <div class="col-lg-8 reveal">
+
+          <form id="web3Form" class="contact-panel" novalidate>
+
+            <div class="row g-3">
+
+              <div class="col-md-6">
+
+                <label for="web3Name">姓名</label>
+
+                <input id="web3Name" class="form-control" placeholder="你的名稱" required>
+
+              </div>
+
+              <div class="col-md-6">
+
+                <label for="web3Email">Email</label>
+
+                <input id="web3Email" type="email" class="form-control" placeholder="name@example.com" required>
+
+              </div>
+
+              <div class="col-12">
+
+                <label for="web3Topic">想討論的主題</label>
+
+                <select id="web3Topic" class="form-select" required>
+
+                  <option value="">選擇一個主題</option>
+                  <option>Blockchain</option>
+                  <option>DeFi</option>
+                  <option>Digital Identity</option>
+                  <option>DAO</option>
+                  <option>Web3 Design</option>
+                  <option>Other</option>
+
+                </select>
+
+              </div>
+
+              <div class="col-12">
+
+                <label for="web3Message">訊息</label>
+
+                <textarea id="web3Message" class="form-control" rows="5" placeholder="寫下你的想法……" required></textarea>
+
+              </div>
+
+              <div class="col-12">
+
+                <div class="form-check">
+
+                  <input id="web3Agree" class="form-check-input" type="checkbox" required>
+
+                  <label class="form-check-label" for="web3Agree">
+                    我確認以上內容並同意送出。
+                  </label>
+
+                </div>
+
+              </div>
+
+              <div class="col-12">
+
+                <button class="btn-neon" type="submit">
+                  送出訊息
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+                <div id="web3Feedback" role="status" aria-live="polite">
+                </div>
+
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+
+      <!-- Footer -->
+      <footer class="site-footer">
+
+        <div class="footer-brand">
+
+          <span class="brand-icon">
+            <i class="fa-solid fa-cubes-stacked"></i>
+          </span>
+
+          WEB<span class="gradient-text">3</span>
+
+        </div>
+
+        <p>DECENTRALIZED DIGITAL UNIVERSE</p>
+
+        <div class="footer-links">
+
+          <a href="#s02">首頁</a>
+          <a href="#s03">概念</a>
+          <a href="#s07">生態</a>
+          <a href="#s13">未來</a>
+
+        </div>
+
+        <small>
+          © 2026 WEB3 DIGITAL REVOLUTION · EDUCATIONAL PROJECT
+        </small>
+
+      </footer>
+
+    </div>
+
+  </section>
+
+
+  <!-- 回到頂部按鈕 -->
+  <button class="back-top" id="backTop" aria-label="回到頂部">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+
+
+  <!-- Bootstrap JavaScript：負責互動功能 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- WOW.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+
+
+
+  <script>
+
+    // =====================================================
+    // 01. Intro 開場動畫
+    // =====================================================
+
+    window.addEventListener('load', () => {
+
+      setTimeout(() => {
+        document.getElementById('intro').classList.add('intro-out');
+      }, 1650);
+
+    });
+
+
+    // =====================================================
+    // 02. WOW 動畫初始化
+    // =====================================================
+
+    if (window.WOW) {
+
+      new WOW({
+        boxClass: 'wow',
+        animateClass: 'animate__animated',
+        offset: 60,
+        mobile: true,
+        live: true
+      }).init();
+
+    }
+    // =====================================================
+    // Logo 點擊後重新播放開場動畫
+    // =====================================================
+
+    document.getElementById('logoHome').addEventListener('click', function (e) {
+
+      e.preventDefault();
+
+      const intro = document.getElementById('intro');
+
+      // 回到頁面頂部
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+
+      // 重新顯示開場動畫
+      intro.classList.remove('intro-out');
+
+      // 動畫結束後再次隱藏
+      setTimeout(() => {
+        intro.classList.add('intro-out');
+      }, 1650);
+
+    });
+
+
+
+
+    // =====================================================
+    // 03. 取得頁面元素
+    // =====================================================
+
+    const progress = document.getElementById('scrollProgress');
+    const backTop = document.getElementById('backTop');
+    const glow = document.getElementById('cursorGlow');
+
+    const heroVisual = document.querySelector('.hero-cinematic-image');
+
+
+    // =====================================================
+    // 04. 捲動進度條與回到頂部按鈕
+    // =====================================================
+
+    window.addEventListener('scroll', () => {
+
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (progress) {
+
+        progress.style.width =
+          (max > 0 ? window.scrollY / max * 100 : 0) + '%';
+
+      }
+
+      if (backTop) {
+
+        backTop.classList.toggle('visible', window.scrollY > 500);
+
+      }
+
+    });
+
+
+    // =====================================================
+    // 05. 滑鼠跟隨光暈
+    // =====================================================
+
+    window.addEventListener('pointermove', e => {
+
+      if (glow) {
+
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+
+      }
+
+    });
+
+
+    // =====================================================
+    // 06. Hero 視差效果
+    // =====================================================
+
+    window.addEventListener('scroll', () => {
+
+      if (heroVisual) {
+
+        heroVisual.style.transform =
+          `translate3d(0, ${window.scrollY * 0.22}px, 0) scale(1.08)`;
+
+      }
+
+    }, { passive: true });
+
+
+    // =====================================================
+    // 07. 回到頁面頂部
+    // =====================================================
+
+    if (backTop) {
+
+      backTop.addEventListener('click', () => {
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+
+      });
+
+    }
+
+
+    // =====================================================
+    // 08. 手機 Offcanvas 導覽
+    // =====================================================
+
+    document.querySelectorAll('#web3Menu a').forEach(link => {
+
+      link.addEventListener('click', () => {
+
+        const target = link.getAttribute('href');
+        const menu = document.getElementById('web3Menu');
+        const instance = bootstrap.Offcanvas.getInstance(menu);
+
+        if (instance) {
+          instance.hide();
+        }
+
+        if (target && target.startsWith('#')) {
+
+          const section = document.querySelector(target);
+
+          if (section) {
+
+            setTimeout(() => {
+
+              section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+
+            }, 350);
+
+          }
+
+        }
+
+      });
+
+    });
+
+
+    // =====================================================
+    // 09. 區塊進場動畫
+    // =====================================================
+
+    const revealObserver = new IntersectionObserver(entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add('active');
+
+          revealObserver.unobserve(entry.target);
+
+        }
+
+      });
+
+    }, {
+      threshold: 0.14
+    });
+
+
+    // 原本的區塊進場動畫
+    document.querySelectorAll('.reveal').forEach(el => {
+
+      revealObserver.observe(el);
+
+    });
+
+
+    // S03 標題與輪播進場動畫
+    document.querySelectorAll('#s03 .scroll-reveal').forEach(el => {
+
+      revealObserver.observe(el);
+
+    });
+
+
+    // =====================================================
+    // 10. 數字計數動畫
+    // =====================================================
+
+    const countObserver = new IntersectionObserver(entries => {
+
+      entries.forEach(entry => {
+
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        const el = entry.target;
+        const target = Number(el.dataset.count);
+
+        if (!Number.isFinite(target)) {
+
+          countObserver.unobserve(el);
+          return;
+
+        }
+
+        let n = 0;
+
+        const step = Math.max(1, Math.ceil(target / 32));
+
+        const timer = setInterval(() => {
+
+          n = Math.min(target, n + step);
+
+          el.textContent = n;
+
+          if (n >= target) {
+            clearInterval(timer);
+          }
+
+        }, 35);
+
+        countObserver.unobserve(el);
+
+      });
+
+    }, {
+      threshold: 0.6
+    });
+
+
+    document.querySelectorAll('[data-count]').forEach(el => {
+
+      countObserver.observe(el);
+
+    });
+
+
+    // =====================================================
+    // 11. 聯絡表單驗證
+    // =====================================================
+
+    const web3Form = document.getElementById('web3Form');
+
+    if (web3Form) {
+
+      web3Form.addEventListener('submit', e => {
+
+        e.preventDefault();
+
+        const name = document.getElementById('web3Name').value.trim();
+
+        const email = document.getElementById('web3Email').value.trim();
+
+        const topic = document.getElementById('web3Topic').value;
+
+        const message = document.getElementById('web3Message').value.trim();
+
+        const agree = document.getElementById('web3Agree').checked;
+
+        const feedback = document.getElementById('web3Feedback');
+
+        feedback.className = 'form-feedback';
+        feedback.textContent = '';
+
+
+        // 檢查必填欄位
+        if (!name || !topic || !message || !agree) {
+
+          feedback.classList.add('error');
+
+          feedback.textContent = '請完整填寫欄位並勾選確認。';
+
+          return;
+
+        }
+
+
+        // 檢查 Email 格式
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+          feedback.classList.add('error');
+
+          feedback.textContent = '請輸入有效的 Email。';
+
+          return;
+
+        }
+
+
+        // 驗證成功
+        feedback.classList.add('success');
+
+        feedback.textContent =
+          '前端驗證成功！此展示網站尚未連接後端，訊息沒有實際傳送。';
+
+        e.target.reset();
+
+      });
+
+    }
+
+  </script>
+
+</body>
+
+</html>
