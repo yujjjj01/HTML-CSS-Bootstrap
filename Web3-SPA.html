@@ -11,7 +11,6 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
     rel="stylesheet">
@@ -32,8 +31,8 @@
 <body>
 
   <!-- =====================================================
-         Intro 開場動畫
-    ====================================================== -->
+       Intro 開場動畫
+  ====================================================== -->
   <div id="intro" aria-label="Web3 intro">
     <div class="intro-grid"></div>
     <div class="intro-orb"></div>
@@ -58,10 +57,10 @@
   <div class="cursor-glow" id="cursorGlow"></div>
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- =====================================================
-     s01 Navbar
-====================================================== -->
 
+  <!-- =====================================================
+       s01 Navbar +  Offcanvas
+  ====================================================== -->
   <section id="s01">
 
     <nav class="navbar navbar-expand-lg web3-nav">
@@ -84,19 +83,14 @@
         <!-- 右側資源連結與選單按鈕 -->
         <div class="nav-right-tools">
 
-          <!-- Web3 資源連結 -->
           <div class="nav-social-links">
 
             <a href="https://ethereum.org/" target="_blank" rel="noopener noreferrer" aria-label="Ethereum">
-
               <i class="fa-brands fa-ethereum"></i>
-
             </a>
 
             <a href="https://bitcoin.org/" target="_blank" rel="noopener noreferrer" aria-label="Bitcoin">
-
               <i class="fa-brands fa-bitcoin"></i>
-
             </a>
 
           </div>
@@ -151,49 +145,49 @@
 
     </nav>
 
+
+    <!-- =====================================================
+       Offcanvas 導覽
+    ====================================================== -->
+    <div class="offcanvas offcanvas-end web3-offcanvas" tabindex="-1" id="web3Menu" aria-labelledby="web3MenuLabel">
+
+      <div class="offcanvas-header">
+
+        <h5 id="web3MenuLabel">
+          WEB<span class="gradient-text">3</span> NAVIGATION
+        </h5>
+
+        <button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="關閉">
+        </button>
+
+      </div>
+
+      <div class="offcanvas-body">
+
+        <a href="#s02">首頁</a>
+        <a href="#s03">Web3 核心概念</a>
+        <a href="#s04">底層技術</a>
+        <a href="#s05">去中心化</a>
+        <a href="#s06">發展歷程</a>
+        <a href="#s07">Web3 生態</a>
+        <a href="#s08">DApp</a>
+        <a href="#s09">數位身份</a>
+        <a href="#s10">安全與風險</a>
+        <a href="#s11">DAO</a>
+        <a href="#s12">學習心得</a>
+        <a href="#s13">未來展望</a>
+        <a href="#s14">聯絡</a>
+
+      </div>
+
+    </div>
+
   </section>
 
-  <!-- =====================================================
-     手機 Offcanvas 導覽
-====================================================== -->
-
-  <div class="offcanvas offcanvas-end web3-offcanvas" tabindex="-1" id="web3Menu" aria-labelledby="web3MenuLabel">
-
-    <div class="offcanvas-header">
-
-      <h5 id="web3MenuLabel">
-        WEB<span class="gradient-text">3</span> NAVIGATION
-      </h5>
-
-      <button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="關閉">
-      </button>
-
-    </div>
-
-    <div class="offcanvas-body">
-
-      <a href="#s02">首頁</a>
-      <a href="#s03">Web3 核心概念</a>
-      <a href="#s04">底層技術</a>
-      <a href="#s05">去中心化</a>
-      <a href="#s06">發展歷程</a>
-      <a href="#s07">Web3 生態</a>
-      <a href="#s08">DApp</a>
-      <a href="#s09">數位身份</a>
-      <a href="#s10">安全與風險</a>
-      <a href="#s11">DAO</a>
-      <a href="#s12">學習心得</a>
-      <a href="#s13">未來展望</a>
-      <a href="#s14">聯絡</a>
-
-    </div>
-
-  </div>
-
 
   <!-- =====================================================
-         s02 Hero
-    ====================================================== -->
+       s02 Hero
+  ====================================================== -->
   <section id="s02" class="hero-section section-dark">
 
     <div class="hero-cinematic-image" aria-hidden="true"></div>
@@ -204,7 +198,7 @@
 
       <div class="row align-items-center min-vh-hero">
 
-        <div class="col-lg-7 hero-copy reveal">
+        <div class="col-lg-7 hero-copy wow animate__fadeInLeft">
 
           <div class="hero-kicker">
             <span class="live-dot"></span>
@@ -220,10 +214,6 @@
           <p class="hero-lead">
             從中心化平台走向使用者自主，探索區塊鏈、數位身份、去中心化應用與新世代網路的可能性。
           </p>
-
-          <div class="hero-actions">
-
-          </div>
 
           <div class="hero-meta">
 
@@ -246,7 +236,7 @@
 
         </div>
 
-        <div class="col-lg-5 hero-art-wrap reveal">
+        <div class="col-lg-5 hero-art-wrap wow animate__fadeInRight">
 
           <div class="hero-art">
 
@@ -288,14 +278,12 @@
           </div>
 
           <div class="art-caption">
-
             <span>01 / THE INTERNET REIMAGINED</span>
 
             <span>
               SCROLL TO EXPLORE
               <i class="fa-solid fa-arrow-down"></i>
             </span>
-
           </div>
 
         </div>
@@ -337,166 +325,106 @@
 
 
   <!-- =====================================================
-         s03 Concept
-    ====================================================== -->
-
-
+       s03 Concept
+  ====================================================== -->
   <section id="s03" class="section section-light">
 
     <div class="container">
 
-      <!-- Section 標題 -->
-      <div class="section-heading scroll-reveal">
+      <div class="s03-pin">
 
-        <span class="section-index">01 / CONCEPT</span>
+        <div class="section-heading">
 
-        <h2>
-          重新想像<span class="gradient-text">網路的權力</span>
-        </h2>
+          <span class="section-index">01 / CONCEPT</span>
 
-        <p>
-          Web3 不只是新技術，更是一種關於所有權、信任與參與方式的思考。
-        </p>
+          <h2>
+            重新想像<span class="gradient-text">網路的權力</span>
+          </h2>
 
-      </div>
+          <p>
+            Web3 不只是新技術，更是一種關於所有權、信任與參與方式的思考。
+          </p>
 
-      <!-- Concept Carousel -->
-      <div id="conceptCarousel" class="carousel slide concept-carousel scroll-reveal" data-bs-interval="false"
-        data-bs-touch="true">
+        </div>
 
-        <!-- 輪播內容 -->
-        <div class="carousel-inner">
+        <div class="s03-scroll-stage" aria-label="Web3 三個核心概念">
 
-          <!-- Card 01 -->
-          <div class="carousel-item active">
-
-            <article class="glass-card concept-card mx-auto">
-
-              <div class="card-topline">
-                <span>01</span>
-                <i class="fa-solid fa-users"></i>
-              </div>
-
+          <article class="concept-scroll-card" aria-label="概念一：使用者自主">
+            <div class="concept-visual visual-ownership" aria-hidden="true">
+              <div class="visual-grid"></div>
+              <div class="visual-orbit orbit-a"></div>
+              <div class="visual-orbit orbit-b"></div>
+              <div class="visual-core"><i class="fa-solid fa-fingerprint"></i></div>
+              <span class="visual-float float-a"><i class="fa-solid fa-wallet"></i> WALLET</span>
+              <span class="visual-float float-b"><i class="fa-solid fa-key"></i> YOUR KEY</span>
+              <span class="visual-caption">IDENTITY / ASSETS / DATA</span>
+            </div>
+            <div class="concept-copy">
+              <div class="concept-eyebrow"><span>01</span> OWNERSHIP</div>
               <h3>使用者自主</h3>
+              <p>讓使用者更直接掌握自己的數位身份、資產與資料，而不是完全依賴單一平台。</p>
+              <div class="card-tags"><span>OWNERSHIP</span><span>CONTROL</span></div>
+            </div>
+          </article>
 
-              <p>
-                讓使用者更直接掌握自己的數位身份、資產與資料，而不是完全依賴單一平台。
-              </p>
-
-              <div class="card-tags">
-                <span>OWNERSHIP</span>
-                <span>CONTROL</span>
-              </div>
-
-            </article>
-
-          </div>
-
-          <!-- Card 02 -->
-          <div class="carousel-item">
-
-            <article class="glass-card concept-card mx-auto">
-
-              <div class="card-topline">
-                <span>02</span>
-                <i class="fa-solid fa-link"></i>
-              </div>
-
+          <article class="concept-scroll-card" aria-label="概念二：可信任協作">
+            <div class="concept-visual visual-trust" aria-hidden="true">
+              <div class="visual-grid"></div>
+              <div class="network-line line-a"></div>
+              <div class="network-line line-b"></div>
+              <div class="network-line line-c"></div>
+              <div class="network-node node-a"><i class="fa-solid fa-cube"></i></div>
+              <div class="network-node node-b"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="network-node node-c"><i class="fa-solid fa-link"></i></div>
+              <span class="visual-caption">VERIFY / VALIDATE / TRUST</span>
+            </div>
+            <div class="concept-copy">
+              <div class="concept-eyebrow"><span>02</span> VERIFIABLE TRUST</div>
               <h3>可信任協作</h3>
+              <p>透過區塊鏈與密碼學，讓參與者能在公開規則下驗證資料與交易。</p>
+              <div class="card-tags"><span>VERIFIABLE</span><span>TRANSPARENT</span></div>
+            </div>
+          </article>
 
-              <p>
-                透過區塊鏈與密碼學，讓參與者能在公開規則下驗證資料與交易。
-              </p>
-
-              <div class="card-tags">
-                <span>VERIFIABLE</span>
-                <span>TRANSPARENT</span>
-              </div>
-
-            </article>
-
-          </div>
-
-          <!-- Card 03 -->
-          <div class="carousel-item">
-
-            <article class="glass-card concept-card mx-auto">
-
-              <div class="card-topline">
-                <span>03</span>
-                <i class="fa-solid fa-globe"></i>
-              </div>
-
+          <article class="concept-scroll-card" aria-label="概念三：開放網路">
+            <div class="concept-visual visual-open" aria-hidden="true">
+              <div class="visual-grid"></div>
+              <div class="open-globe"><i class="fa-solid fa-globe"></i></div>
+              <span class="open-orbit open-orbit-a"></span><span class="open-orbit open-orbit-b"></span>
+              <span class="open-satellite satellite-a"><i class="fa-solid fa-code"></i></span>
+              <span class="open-satellite satellite-b"><i class="fa-solid fa-cubes"></i></span>
+              <span class="visual-caption">OPEN / CONNECTED / COMPOSABLE</span>
+            </div>
+            <div class="concept-copy">
+              <div class="concept-eyebrow"><span>03</span> OPEN ECOSYSTEM</div>
               <h3>開放網路</h3>
-
-              <p>
-                以開放協議與可組合服務，讓應用能互相連接，形成持續擴展的生態。
-              </p>
-
-              <div class="card-tags">
-                <span>OPEN</span>
-                <span>COMPOSABLE</span>
-              </div>
-
-            </article>
-
-          </div>
+              <p>以開放協議與可組合服務，讓應用能互相連接，形成持續擴展的生態。</p>
+              <div class="card-tags"><span>OPEN</span><span>COMPOSABLE</span></div>
+            </div>
+          </article>
 
         </div>
 
-        <!-- 左側切換按鈕 -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#conceptCarousel" data-bs-slide="prev"
-          aria-label="上一張">
-
-          <i class="fa-solid fa-chevron-left"></i>
-
-        </button>
-
-        <!-- 右側切換按鈕 -->
-        <button class="carousel-control-next" type="button" data-bs-target="#conceptCarousel" data-bs-slide="next"
-          aria-label="下一張">
-
-          <i class="fa-solid fa-chevron-right"></i>
-
-        </button>
-
-        <!-- 輪播指示點 -->
-        <div class="carousel-indicators">
-
-          <button type="button" data-bs-target="#conceptCarousel" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="第 1 張">
-          </button>
-
-          <button type="button" data-bs-target="#conceptCarousel" data-bs-slide-to="1" aria-label="第 2 張">
-          </button>
-
-          <button type="button" data-bs-target="#conceptCarousel" data-bs-slide-to="2" aria-label="第 3 張">
-          </button>
-
-        </div>
-
-      </div>
+      </div><!-- /.s03-pin -->
 
     </div>
 
   </section>
 
 
-
   <!-- =====================================================
-         s04 Technology
-    ====================================================== -->
-
+       s04 Technology
+  ====================================================== -->
   <section id="s04" class="section section-dark">
 
     <div class="container">
 
-      <div class="section-heading reveal">
+      <div class="section-heading wow animate__fadeInUp">
 
         <span class="section-index">02 / THE STACK</span>
 
         <h2>
-          Web3 的<span class="gradient-text">技術底座</span>
+          Web3 的<span class="gradient-text">底層技術</span>
         </h2>
 
         <p>
@@ -507,13 +435,19 @@
 
       <div class="stack-layout">
 
-        <div class="stack-visual reveal">
+        <div class="stack-visual wow animate__fadeInUp">
 
           <div class="stack-orbit">
 
-            <span class="stack-label label-chain">BLOCKCHAIN</span>
-            <span class="stack-label label-contract">SMART CONTRACT</span>
-            <span class="stack-label label-wallet">WALLET</span>
+            <div class="stack-label-track track-chain">
+              <span class="stack-label label-chain">BLOCKCHAIN</span>
+            </div>
+            <div class="stack-label-track track-contract">
+              <span class="stack-label label-contract">SMART CONTRACT</span>
+            </div>
+            <div class="stack-label-track track-wallet">
+              <span class="stack-label label-wallet">WALLET</span>
+            </div>
 
             <div class="stack-center">
               <i class="fa-solid fa-layer-group"></i>
@@ -526,56 +460,40 @@
 
         <div class="stack-list">
 
-          <article class="stack-row reveal">
-
+          <article class="stack-row wow animate__fadeInUp">
             <span class="stack-number">01</span>
-
             <div>
               <h3>Blockchain</h3>
               <p>以分散式帳本與共識機制，記錄可驗證的交易與狀態。</p>
             </div>
-
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
           </article>
 
-          <article class="stack-row reveal">
-
+          <article class="stack-row wow animate__fadeInUp">
             <span class="stack-number">02</span>
-
             <div>
               <h3>Smart Contracts</h3>
               <p>將規則寫入程式，在符合條件時自動執行鏈上操作。</p>
             </div>
-
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
           </article>
 
-          <article class="stack-row reveal">
-
+          <article class="stack-row wow animate__fadeInUp">
             <span class="stack-number">03</span>
-
             <div>
               <h3>Cryptography</h3>
               <p>使用公私鑰、簽章與雜湊，建立驗證與權限控制。</p>
             </div>
-
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
           </article>
 
-          <article class="stack-row reveal">
-
+          <article class="stack-row wow animate__fadeInUp">
             <span class="stack-number">04</span>
-
             <div>
               <h3>Wallet & Protocol</h3>
               <p>錢包協助管理密鑰與簽署操作，協議定義應用如何互通。</p>
             </div>
-
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
           </article>
 
         </div>
@@ -588,16 +506,15 @@
 
 
   <!-- =====================================================
-         s05 Decentralization
-    ====================================================== -->
-
+       s05 Decentralization
+  ====================================================== -->
   <section id="s05" class="section section-gradient">
 
     <div class="container">
 
       <div class="row align-items-center g-5">
 
-        <div class="col-lg-6 reveal">
+        <div class="col-lg-6 wow animate__fadeInUp">
 
           <span class="section-index">03 / DECENTRALIZATION</span>
 
@@ -617,21 +534,18 @@
 
         </div>
 
-        <div class="col-lg-6 reveal">
+        <div class="col-lg-6 wow animate__fadeInUp">
 
           <div class="network-map">
 
             <svg viewBox="0 0 600 430" role="img" aria-label="去中心化網路節點示意">
 
               <g class="network-lines">
-
                 <path
                   d="M300 210 L110 90 M300 210 L490 90 M300 210 L80 300 M300 210 L520 300 M300 210 L300 40 M300 210 L300 390 M110 90 L490 90 M80 300 L520 300 M110 90 L80 300 M490 90 L520 300 M110 90 L300 40 M490 90 L300 40 M80 300 L300 390 M520 300 L300 390" />
-
               </g>
 
               <g class="network-nodes">
-
                 <circle cx="300" cy="210" r="48" class="central-node" />
                 <circle cx="110" cy="90" r="20" />
                 <circle cx="490" cy="90" r="20" />
@@ -643,7 +557,6 @@
                 <circle cx="405" cy="145" r="12" />
                 <circle cx="190" cy="270" r="12" />
                 <circle cx="410" cy="270" r="12" />
-
               </g>
 
               <text x="300" y="216" text-anchor="middle">WEB3</text>
@@ -667,14 +580,13 @@
 
 
   <!-- =====================================================
-         s06 Evolution timeline
-    ====================================================== -->
-
+       s06 Evolution timeline
+  ====================================================== -->
   <section id="s06" class="section section-light">
 
     <div class="container">
 
-      <div class="section-heading reveal">
+      <div class="section-heading wow animate__fadeInUp">
 
         <span class="section-index">04 / EVOLUTION</span>
 
@@ -690,64 +602,37 @@
 
       <div class="evolution-timeline">
 
-        <article class="timeline-item reveal">
-
+        <article class="timeline-item wow animate__fadeInUp">
           <span class="timeline-year">WEB 1.0</span>
-
           <div class="timeline-dot"></div>
 
           <div class="timeline-content">
-
             <h3>Read</h3>
-
-            <p>
-              早期網路以靜態頁面為主，使用者主要閱讀與取得資訊。
-            </p>
-
+            <p>早期網路以靜態頁面為主，使用者主要閱讀與取得資訊。</p>
             <span class="timeline-chip">1990s — EARLY WEB</span>
-
           </div>
-
         </article>
 
-        <article class="timeline-item reveal">
-
+        <article class="timeline-item wow animate__fadeInUp">
           <span class="timeline-year">WEB 2.0</span>
-
           <div class="timeline-dot"></div>
 
           <div class="timeline-content">
-
             <h3>Read / Write</h3>
-
-            <p>
-              社群、影音與平台服務讓使用者能創作內容，但資料與服務多由平台集中管理。
-            </p>
-
+            <p>社群、影音與平台服務讓使用者能創作內容，但資料與服務多由平台集中管理。</p>
             <span class="timeline-chip">SOCIAL & PLATFORM</span>
-
           </div>
-
         </article>
 
-        <article class="timeline-item reveal">
-
+        <article class="timeline-item wow animate__fadeInUp">
           <span class="timeline-year">WEB 3.0</span>
-
           <div class="timeline-dot"></div>
 
           <div class="timeline-content">
-
             <h3>Read / Write / Own</h3>
-
-            <p>
-              以區塊鏈、智能合約與數位資產探索更開放的所有權與協作模式。
-            </p>
-
+            <p>以區塊鏈、智能合約與數位資產探索更開放的所有權與協作模式。</p>
             <span class="timeline-chip">OPEN & USER-CENTRIC</span>
-
           </div>
-
         </article>
 
       </div>
@@ -758,14 +643,13 @@
 
 
   <!-- =====================================================
-         s07 Ecosystem
-    ====================================================== -->
-
+       s07 Ecosystem
+  ====================================================== -->
   <section id="s07" class="section section-dark">
 
     <div class="container">
 
-      <div class="section-heading reveal">
+      <div class="section-heading wow animate__fadeInUp">
 
         <span class="section-index">05 / ECOSYSTEM</span>
 
@@ -781,62 +665,41 @@
 
       <div class="ecosystem-grid">
 
-        <article class="eco-card eco-large reveal">
-
+        <article class="eco-card eco-large wow animate__fadeInUp">
           <div class="eco-icon purple">
             <i class="fa-solid fa-coins"></i>
           </div>
-
           <span class="eco-tag">DIGITAL VALUE</span>
-
           <h3>DeFi</h3>
-
           <p>探索借貸、交易與資產管理等鏈上金融服務。</p>
-
           <div class="eco-wave"></div>
-
         </article>
 
-        <article class="eco-card reveal">
-
+        <article class="eco-card wow animate__fadeInUp">
           <div class="eco-icon cyan">
             <i class="fa-solid fa-image"></i>
           </div>
-
           <span class="eco-tag">DIGITAL OWNERSHIP</span>
-
           <h3>NFT</h3>
-
           <p>以鏈上紀錄表達特定數位物件或權利。</p>
-
         </article>
 
-        <article class="eco-card reveal">
-
+        <article class="eco-card wow animate__fadeInUp">
           <div class="eco-icon green">
             <i class="fa-solid fa-users"></i>
           </div>
-
           <span class="eco-tag">COMMUNITY</span>
-
           <h3>DAO</h3>
-
           <p>透過共同規則與治理流程協調社群參與。</p>
-
         </article>
 
-        <article class="eco-card reveal">
-
+        <article class="eco-card wow animate__fadeInUp">
           <div class="eco-icon pink">
             <i class="fa-solid fa-gamepad"></i>
           </div>
-
           <span class="eco-tag">INTERACTIVE WORLD</span>
-
           <h3>Gaming & Metaverse</h3>
-
           <p>結合虛擬世界、互動體驗與數位物件。</p>
-
         </article>
 
       </div>
@@ -847,14 +710,13 @@
 
 
   <!-- =====================================================
-         s08 DApps
-    ====================================================== -->
-
+       s08 DApps
+  ====================================================== -->
   <section id="s08" class="section section-light">
 
     <div class="container">
 
-      <div class="section-heading reveal">
+      <div class="section-heading wow animate__fadeInUp">
 
         <span class="section-index">06 / APPLICATIONS</span>
 
@@ -870,8 +732,7 @@
 
       <div class="row g-4">
 
-        <div class="col-md-6 col-lg-4 reveal">
-
+        <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
           <div class="app-card">
 
             <div class="app-card-head">
@@ -884,7 +745,6 @@
             </div>
 
             <h3>鏈上金融</h3>
-
             <p>在公開協議上探索交易、借貸與流動性服務。</p>
 
             <div class="app-progress">
@@ -894,11 +754,9 @@
             <small>SMART CONTRACT BASED</small>
 
           </div>
-
         </div>
 
-        <div class="col-md-6 col-lg-4 reveal">
-
+        <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
           <div class="app-card">
 
             <div class="app-card-head">
@@ -911,7 +769,6 @@
             </div>
 
             <h3>數位身份</h3>
-
             <p>探索可攜式身份、憑證與使用者授權機制。</p>
 
             <div class="app-progress">
@@ -921,11 +778,9 @@
             <small>USER-CONTROLLED</small>
 
           </div>
-
         </div>
 
-        <div class="col-md-6 col-lg-4 reveal">
-
+        <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
           <div class="app-card">
 
             <div class="app-card-head">
@@ -938,7 +793,6 @@
             </div>
 
             <h3>社群協作</h3>
-
             <p>讓社群透過公開提案與治理工具共同參與。</p>
 
             <div class="app-progress">
@@ -948,7 +802,6 @@
             <small>COMMUNITY-DRIVEN</small>
 
           </div>
-
         </div>
 
       </div>
@@ -959,16 +812,15 @@
 
 
   <!-- =====================================================
-         s09 Identity
-    ====================================================== -->
-
+       s09 Identity
+  ====================================================== -->
   <section id="s09" class="section section-gradient">
 
     <div class="container">
 
       <div class="row align-items-center g-5">
 
-        <div class="col-lg-5 reveal">
+        <div class="col-lg-5 wow animate__fadeInUp">
 
           <span class="section-index">07 / DIGITAL IDENTITY</span>
 
@@ -1002,18 +854,15 @@
 
         </div>
 
-        <div class="col-lg-7 reveal">
+        <div class="col-lg-7 wow animate__fadeInUp">
 
           <div class="identity-card">
 
             <div class="identity-card-top">
-
               <span class="identity-dot"></span>
               <span class="identity-dot"></span>
               <span class="identity-dot"></span>
-
               <small>IDENTITY / PROTOCOL</small>
-
             </div>
 
             <div class="identity-avatar">
@@ -1063,14 +912,13 @@
 
 
   <!-- =====================================================
-         s10 Security
-    ====================================================== -->
-
+       s10 Security
+  ====================================================== -->
   <section id="s10" class="section section-light">
 
     <div class="container">
 
-      <div class="section-heading reveal">
+      <div class="section-heading wow animate__fadeInUp">
 
         <span class="section-index">08 / SECURITY</span>
 
@@ -1086,57 +934,33 @@
 
       <div class="security-grid">
 
-        <article class="security-card reveal">
-
+        <article class="security-card wow animate__fadeInUp">
           <span class="security-number">01</span>
-
           <i class="fa-solid fa-key"></i>
-
           <h3>密鑰保護</h3>
-
-          <p>
-            妥善保管私鑰與助記詞，不向任何人透露，也避免存放在不安全的位置。
-          </p>
-
+          <p>妥善保管私鑰與助記詞，不向任何人透露，也避免存放在不安全的位置。</p>
           <span class="security-line"></span>
-
         </article>
 
-        <article class="security-card reveal">
-
+        <article class="security-card wow animate__fadeInUp">
           <span class="security-number">02</span>
-
           <i class="fa-solid fa-fish"></i>
-
           <h3>辨識釣魚</h3>
-
-          <p>
-            確認網址、來源與合約資訊，警惕假客服、空投誘導與不明簽署請求。
-          </p>
-
+          <p>確認網址、來源與合約資訊，警惕假客服、空投誘導與不明簽署請求。</p>
           <span class="security-line"></span>
-
         </article>
 
-        <article class="security-card reveal">
-
+        <article class="security-card wow animate__fadeInUp">
           <span class="security-number">03</span>
-
           <i class="fa-solid fa-file-signature"></i>
-
           <h3>理解授權</h3>
-
-          <p>
-            送出交易或簽署前，先理解操作內容、權限範圍與可能造成的影響。
-          </p>
-
+          <p>送出交易或簽署前，先理解操作內容、權限範圍與可能造成的影響。</p>
           <span class="security-line"></span>
-
         </article>
 
       </div>
 
-      <div class="security-alert reveal">
+      <div class="security-alert wow animate__fadeInUp">
 
         <i class="fa-solid fa-triangle-exclamation"></i>
 
@@ -1153,14 +977,13 @@
 
 
   <!-- =====================================================
-         s11 DAO
-    ====================================================== -->
-
+       s11 DAO
+  ====================================================== -->
   <section id="s11" class="section section-dark">
 
     <div class="container">
 
-      <div class="section-heading reveal">
+      <div class="section-heading wow animate__fadeInUp">
 
         <span class="section-index">09 / GOVERNANCE</span>
 
@@ -1174,16 +997,13 @@
 
       </div>
 
-      <div class="dao-flow reveal">
+      <div class="dao-flow wow animate__fadeInUp">
 
         <div class="dao-step">
-
           <span>01</span>
           <i class="fa-solid fa-lightbulb"></i>
-
           <h3>提案</h3>
           <p>提出想法與改善方向</p>
-
         </div>
 
         <div class="dao-connector">
@@ -1191,13 +1011,10 @@
         </div>
 
         <div class="dao-step">
-
           <span>02</span>
           <i class="fa-solid fa-comments"></i>
-
           <h3>討論</h3>
           <p>社群檢視與交換意見</p>
-
         </div>
 
         <div class="dao-connector">
@@ -1205,13 +1022,10 @@
         </div>
 
         <div class="dao-step">
-
           <span>03</span>
           <i class="fa-solid fa-check-to-slot"></i>
-
           <h3>治理</h3>
           <p>依專案規則決定方向</p>
-
         </div>
 
         <div class="dao-connector">
@@ -1219,13 +1033,10 @@
         </div>
 
         <div class="dao-step">
-
           <span>04</span>
           <i class="fa-solid fa-code"></i>
-
           <h3>執行</h3>
           <p>落實決策與追蹤成果</p>
-
         </div>
 
       </div>
@@ -1236,14 +1047,13 @@
 
 
   <!-- =====================================================
-         s12 Learning
-    ====================================================== -->
-
+       s12 Learning
+  ====================================================== -->
   <section id="s12" class="section section-light">
 
     <div class="container">
 
-      <div class="section-heading reveal">
+      <div class="section-heading wow animate__fadeInUp">
 
         <span class="section-index">10 / LEARNING JOURNEY</span>
 
@@ -1259,45 +1069,37 @@
 
       <div class="learning-counters row g-3">
 
-        <div class="col-6 col-lg-3 reveal">
-
+        <div class="col-6 col-lg-3 wow animate__fadeInUp">
           <div class="counter-box">
             <strong data-count="14">0</strong>
             <span>SECTIONS</span>
           </div>
-
         </div>
 
-        <div class="col-6 col-lg-3 reveal">
-
+        <div class="col-6 col-lg-3 wow animate__fadeInUp">
           <div class="counter-box">
             <strong data-count="4">0</strong>
             <span>CORE TECH</span>
           </div>
-
         </div>
 
-        <div class="col-6 col-lg-3 reveal">
-
+        <div class="col-6 col-lg-3 wow animate__fadeInUp">
           <div class="counter-box">
             <strong data-count="3">0</strong>
             <span>WEB ERAS</span>
           </div>
-
         </div>
 
-        <div class="col-6 col-lg-3 reveal">
-
+        <div class="col-6 col-lg-3 wow animate__fadeInUp">
           <div class="counter-box">
             <strong data-count="∞">∞</strong>
             <span>WAYS TO EXPLORE</span>
           </div>
-
         </div>
 
       </div>
 
-      <div class="learning-note reveal">
+      <div class="learning-note wow animate__fadeInUp">
 
         <div class="quote-mark">“</div>
 
@@ -1315,16 +1117,15 @@
 
 
   <!-- =====================================================
-         s13 Future
-    ====================================================== -->
-
+       s13 Future
+  ====================================================== -->
   <section id="s13" class="section future-section">
 
     <div class="future-stars"></div>
 
     <div class="container position-relative">
 
-      <div class="section-heading reveal">
+      <div class="section-heading wow animate__fadeInUp">
 
         <span class="section-index">11 / WHAT'S NEXT</span>
 
@@ -1340,57 +1141,36 @@
 
       <div class="future-grid">
 
-        <article class="future-card reveal">
-
+        <article class="future-card wow animate__fadeInUp">
           <div class="future-icon">
             <i class="fa-solid fa-bolt"></i>
           </div>
-
           <span>SCALABILITY</span>
-
           <h3>更順暢的體驗</h3>
-
-          <p>
-            研究 Layer 2、跨鏈與其他擴展方案，改善速度、成本與可用性。
-          </p>
-
+          <p>研究 Layer 2、跨鏈與其他擴展方案，改善速度、成本與可用性。</p>
         </article>
 
-        <article class="future-card reveal">
-
+        <article class="future-card wow animate__fadeInUp">
           <div class="future-icon">
             <i class="fa-solid fa-user-shield"></i>
           </div>
-
           <span>PRIVACY</span>
-
           <h3>更好的數位自主</h3>
-
-          <p>
-            探索隱私保護、身份管理與使用者授權的新工具。
-          </p>
-
+          <p>探索隱私保護、身份管理與使用者授權的新工具。</p>
         </article>
 
-        <article class="future-card reveal">
-
+        <article class="future-card wow animate__fadeInUp">
           <div class="future-icon">
             <i class="fa-solid fa-puzzle-piece"></i>
           </div>
-
           <span>INTEROPERABILITY</span>
-
           <h3>互通的開放生態</h3>
-
-          <p>
-            讓不同協議、應用與數位服務能更容易協作與組合。
-          </p>
-
+          <p>讓不同協議、應用與數位服務能更容易協作與組合。</p>
         </article>
 
       </div>
 
-      <div class="future-cta reveal">
+      <div class="future-cta wow animate__fadeInUp">
 
         <p>
           THE FUTURE IS NOT A PLACE.<br>
@@ -1410,14 +1190,13 @@
 
 
   <!-- =====================================================
-         s14 Contact / Footer
-    ====================================================== -->
-
+       s14 Contact / Footer
+  ====================================================== -->
   <section id="s14" class="section section-dark contact-section">
 
     <div class="container">
 
-      <div class="section-heading reveal">
+      <div class="section-heading wow animate__fadeInUp">
 
         <span class="section-index">12 / CONNECT</span>
 
@@ -1433,34 +1212,25 @@
 
       <div class="row justify-content-center">
 
-        <div class="col-lg-8 reveal">
+        <div class="col-lg-8 wow animate__fadeInUp">
 
           <form id="web3Form" class="contact-panel" novalidate>
 
             <div class="row g-3">
 
               <div class="col-md-6">
-
                 <label for="web3Name">姓名</label>
-
                 <input id="web3Name" class="form-control" placeholder="你的名稱" required>
-
               </div>
 
               <div class="col-md-6">
-
                 <label for="web3Email">Email</label>
-
                 <input id="web3Email" type="email" class="form-control" placeholder="name@example.com" required>
-
               </div>
 
               <div class="col-12">
-
                 <label for="web3Topic">想討論的主題</label>
-
                 <select id="web3Topic" class="form-select" required>
-
                   <option value="">選擇一個主題</option>
                   <option>Blockchain</option>
                   <option>DeFi</option>
@@ -1468,31 +1238,22 @@
                   <option>DAO</option>
                   <option>Web3 Design</option>
                   <option>Other</option>
-
                 </select>
-
               </div>
 
               <div class="col-12">
-
                 <label for="web3Message">訊息</label>
-
                 <textarea id="web3Message" class="form-control" rows="5" placeholder="寫下你的想法……" required></textarea>
-
               </div>
 
               <div class="col-12">
-
                 <div class="form-check">
-
                   <input id="web3Agree" class="form-check-input" type="checkbox" required>
 
                   <label class="form-check-label" for="web3Agree">
                     我確認以上內容並同意送出。
                   </label>
-
                 </div>
-
               </div>
 
               <div class="col-12">
@@ -1532,12 +1293,10 @@
         <p>DECENTRALIZED DIGITAL UNIVERSE</p>
 
         <div class="footer-links">
-
           <a href="#s02">首頁</a>
           <a href="#s03">概念</a>
           <a href="#s07">生態</a>
           <a href="#s13">未來</a>
-
         </div>
 
         <small>
@@ -1557,15 +1316,15 @@
   </button>
 
 
+  <!-- =====================================================
+       JavaScript
+  ====================================================== -->
 
-  <!-- Bootstrap JavaScript：負責互動功能 -->
+  <!-- Bootstrap + WOW.js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- WOW.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script>
 
@@ -1573,50 +1332,10 @@
     // 01. Intro 開場動畫
     // =====================================================
 
+    const intro = document.getElementById('intro');
+
     window.addEventListener('load', () => {
 
-      setTimeout(() => {
-        document.getElementById('intro').classList.add('intro-out');
-      }, 1650);
-
-    });
-
-
-    // =====================================================
-    // 02. WOW 動畫初始化
-    // =====================================================
-
-    if (window.WOW) {
-
-      new WOW({
-        boxClass: 'wow',
-        animateClass: 'animate__animated',
-        offset: 60,
-        mobile: true,
-        live: true
-      }).init();
-
-    }
-    // =====================================================
-    // Logo 點擊後重新播放開場動畫
-    // =====================================================
-
-    document.getElementById('logoHome').addEventListener('click', function (e) {
-
-      e.preventDefault();
-
-      const intro = document.getElementById('intro');
-
-      // 回到頁面頂部
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-
-      // 重新顯示開場動畫
-      intro.classList.remove('intro-out');
-
-      // 動畫結束後再次隱藏
       setTimeout(() => {
         intro.classList.add('intro-out');
       }, 1650);
@@ -1624,6 +1343,32 @@
     });
 
 
+    // =====================================================
+    // 02. Logo 點擊後重新播放開場動畫
+    // =====================================================
+
+    const logoHome = document.getElementById('logoHome');
+
+    if (logoHome) {
+
+      logoHome.addEventListener('click', function (e) {
+
+        e.preventDefault();
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+
+        intro.classList.remove('intro-out');
+
+        setTimeout(() => {
+          intro.classList.add('intro-out');
+        }, 1650);
+
+      });
+
+    }
 
 
     // =====================================================
@@ -1633,32 +1378,44 @@
     const progress = document.getElementById('scrollProgress');
     const backTop = document.getElementById('backTop');
     const glow = document.getElementById('cursorGlow');
-
     const heroVisual = document.querySelector('.hero-cinematic-image');
 
 
     // =====================================================
-    // 04. 捲動進度條與回到頂部按鈕
+    // 04. 頁面捲動效果
+    // 合併進度條、回到頂部按鈕與 Hero 視差
     // =====================================================
 
     window.addEventListener('scroll', () => {
 
+      const scrollY = window.scrollY;
+
+      // 捲動進度條
       const max = document.documentElement.scrollHeight - window.innerHeight;
 
       if (progress) {
 
         progress.style.width =
-          (max > 0 ? window.scrollY / max * 100 : 0) + '%';
+          (max > 0 ? scrollY / max * 100 : 0) + '%';
 
       }
 
+      // 回到頂部按鈕
       if (backTop) {
 
-        backTop.classList.toggle('visible', window.scrollY > 500);
+        backTop.classList.toggle('visible', scrollY > 500);
 
       }
 
-    });
+      // Hero 視差效果
+      if (heroVisual) {
+
+        heroVisual.style.transform =
+          `translate3d(0, ${scrollY * 0.22}px, 0) scale(1.08)`;
+
+      }
+
+    }, { passive: true });
 
 
     // =====================================================
@@ -1678,23 +1435,7 @@
 
 
     // =====================================================
-    // 06. Hero 視差效果
-    // =====================================================
-
-    window.addEventListener('scroll', () => {
-
-      if (heroVisual) {
-
-        heroVisual.style.transform =
-          `translate3d(0, ${window.scrollY * 0.22}px, 0) scale(1.08)`;
-
-      }
-
-    }, { passive: true });
-
-
-    // =====================================================
-    // 07. 回到頁面頂部
+    // 06. 回到頁面頂部
     // =====================================================
 
     if (backTop) {
@@ -1712,86 +1453,210 @@
 
 
     // =====================================================
-    // 08. 手機 Offcanvas 導覽
+    // 07. 手機 Offcanvas 導覽
     // =====================================================
 
-    document.querySelectorAll('#web3Menu a').forEach(link => {
+    const offcanvasMenu = document.getElementById('web3Menu');
 
-      link.addEventListener('click', () => {
+    if (offcanvasMenu && window.bootstrap) {
+      const menuInstance = bootstrap.Offcanvas.getOrCreateInstance(offcanvasMenu);
 
-        const target = link.getAttribute('href');
-        const menu = document.getElementById('web3Menu');
-        const instance = bootstrap.Offcanvas.getInstance(menu);
+      offcanvasMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+          menuInstance.hide();
+        });
+      });
+    }
 
-        if (instance) {
-          instance.hide();
+
+    // =====================================================
+    // S03. 固定畫面逐張切換：一格滾輪切換一張卡片
+    // =====================================================
+
+    const s03 = document.getElementById('s03');
+    const s03Pin = s03?.querySelector('.s03-pin');
+    const s03Cards = Array.from(document.querySelectorAll('#s03 .concept-scroll-card'));
+    const s03MotionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (s03 && s03Pin && s03Cards.length === 3 && window.gsap && window.ScrollTrigger && s03MotionOK) {
+      gsap.registerPlugin(ScrollTrigger);
+      s03.classList.add('s03-scroll-enhanced');
+
+      gsap.set(s03Cards, { autoAlpha: 0, pointerEvents: 'none' });
+      gsap.set(s03Cards[0], { autoAlpha: 1, pointerEvents: 'auto' });
+
+      const story = gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: {
+          trigger: s03,
+          pin: s03Pin,
+          pinSpacing: true,
+          start: 'top top',
+          // 兩段等長距離：第一段顯示第 2 張，第二段顯示第 3 張。
+          end: () => `+=${Math.round(window.innerHeight * 2)}`,
+          scrub: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
+      });
+
+      // 每次切換只用短淡化，並保留第 3 張完整顯示的停留區間。
+      story
+        .to(s03Cards[0], { autoAlpha: 0, duration: 0.15, pointerEvents: 'none' }, 0.70)
+        .fromTo(s03Cards[1],
+          { autoAlpha: 0, pointerEvents: 'none' },
+          { autoAlpha: 1, duration: 0.15, pointerEvents: 'auto' }, 0.70)
+        .to(s03Cards[1], { autoAlpha: 0, duration: 0.15, pointerEvents: 'none' }, 1.65)
+        .fromTo(s03Cards[2],
+          { autoAlpha: 0, pointerEvents: 'none' },
+          { autoAlpha: 1, duration: 0.15, pointerEvents: 'auto' }, 1.65)
+        .to({}, { duration: 0.20 });
+
+      // 滑鼠滾輪：每個有效手勢只切換一張，並用 GSAP 平滑移動捲動位置。
+      // 第 1 張往上、或第 3 張往下時，平滑離開固定區。
+      let s03WheelLocked = false;
+
+      window.addEventListener('wheel', (event) => {
+        const trigger = story.scrollTrigger;
+        if (!trigger || !trigger.isActive || Math.abs(event.deltaY) < 2) return;
+
+        if (s03WheelLocked) {
+          event.preventDefault();
+          return;
         }
 
-        if (target && target.startsWith('#')) {
+        // 依實際淡化區間判斷目前卡片，避免用平均分段造成索引提前跳動。
+        const currentIndex = trigger.progress < 0.42 ? 0 : trigger.progress < 0.90 ? 1 : 2;
+        const nextIndex = currentIndex + (event.deltaY > 0 ? 1 : -1);
 
-          const section = document.querySelector(target);
+        event.preventDefault();
+        s03WheelLocked = true;
 
-          if (section) {
+        const stopProgress = [0.02, 0.60, 0.96];
+        const targetY = nextIndex < 0
+          ? trigger.start - 2
+          : nextIndex > 2
+            ? trigger.end + 2
+            : trigger.start + stopProgress[nextIndex] * (trigger.end - trigger.start);
 
-            setTimeout(() => {
+        // 暫時關閉 CSS smooth scroll，避免它和 GSAP 的補間動畫互相疊加。
+        const root = document.documentElement;
+        const previousScrollBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
 
-              section.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
+        const scrollState = { y: window.scrollY };
 
-            }, 350);
-
+        gsap.to(scrollState, {
+          y: targetY,
+          duration: 0.58,
+          ease: 'power2.out',
+          overwrite: true,
+          onUpdate: () => window.scrollTo(0, scrollState.y),
+          onComplete: () => {
+            root.style.scrollBehavior = previousScrollBehavior;
+            s03WheelLocked = false;
           }
+        });
+      }, { passive: false });
 
+      window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+      if (document.fonts?.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+    } else if (s03) {
+      s03.classList.add('s03-scroll-fallback');
+    }
+
+    // =====================================================
+    // 07. S04 技術列表與環繞 Label 連動
+    // =====================================================
+
+    const s04 = document.getElementById('s04');
+
+    if (s04) {
+      const stackRows = s04.querySelectorAll('.stack-row');
+      const stackTracks = {
+        chain: s04.querySelector('.track-chain'),
+        contract: s04.querySelector('.track-contract'),
+        wallet: s04.querySelector('.track-wallet')
+      };
+      // 四個技術項目對應三個環繞標籤；密碼學與錢包的密鑰／簽章技術相關。
+      const labelMap = ['chain', 'contract', 'wallet', 'wallet'];
+
+      const activateStackLabel = row => {
+        const index = Array.from(stackRows).indexOf(row);
+        const target = stackTracks[labelMap[index]];
+
+        Object.values(stackTracks).forEach(track => {
+          if (track) track.classList.toggle('is-active', track === target);
+        });
+      };
+
+      const resetStackLabels = () => {
+        Object.values(stackTracks).forEach(track => {
+          if (track) track.classList.remove('is-active');
+        });
+      };
+
+      stackRows.forEach(row => {
+        row.addEventListener('mouseenter', () => activateStackLabel(row));
+        row.addEventListener('mouseleave', resetStackLabels);
+        row.addEventListener('focusin', () => activateStackLabel(row));
+        row.addEventListener('focusout', event => {
+          if (!row.contains(event.relatedTarget)) resetStackLabels();
+        });
+      });
+    }
+
+
+    // =====================================================
+    // 08. WOW.js 區塊進場動畫
+    // =====================================================
+
+    if (typeof WOW !== 'undefined') {
+
+      // 讓同一列的動畫元素依序進場，避免所有元素同時出現。
+      document.querySelectorAll('.wow').forEach(el => {
+        const siblings = Array.from(el.parentElement.children).filter(item =>
+          item.matches('.wow')
+        );
+        const position = siblings.indexOf(el);
+
+        // 依內容類型安排不同進場方向與幅度，避免整頁動畫過度單調。
+        let animation = 'animate__fadeInUp';
+
+        if (el.matches('.hero-copy, #s05 .col-lg-6:first-child, #s09 .col-lg-5')) {
+          animation = 'animate__fadeInLeft';
+        } else if (el.matches('.hero-art-wrap, #s05 .col-lg-6:last-child, #s09 .col-lg-7, .stack-row')) {
+          animation = 'animate__fadeInRight';
+        } else if (el.matches('.stack-visual, .network-map, .identity-card, .dao-flow, .eco-card, .security-card')) {
+          animation = 'animate__zoomIn';
         }
 
+        el.classList.remove('animate__fadeInUp', 'animate__fadeInLeft', 'animate__fadeInRight', 'animate__zoomIn');
+        el.classList.add(animation);
+
+        el.dataset.wowDuration = el.matches('.hero-copy, .hero-art-wrap') ? '1s' : '0.85s';
+        el.dataset.wowOffset = '70';
+        el.dataset.wowDelay = position > 0 ? `${Math.min(position, 3) * 100}ms` : '0ms';
       });
 
-    });
+      new WOW({
+        boxClass: 'wow',
+        animateClass: 'animate__animated',
+        offset: 70,
+        mobile: true,
+        live: false,
+        resetAnimation: false
+      }).init();
+
+    } else {
+      // WOW.js 載入失敗時，確保內容仍正常顯示。
+      document.querySelectorAll('.wow').forEach(el => el.classList.remove('wow'));
+    }
 
 
     // =====================================================
-    // 09. 區塊進場動畫
-    // =====================================================
-
-    const revealObserver = new IntersectionObserver(entries => {
-
-      entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add('active');
-
-          revealObserver.unobserve(entry.target);
-
-        }
-
-      });
-
-    }, {
-      threshold: 0.14
-    });
-
-
-    // 原本的區塊進場動畫
-    document.querySelectorAll('.reveal').forEach(el => {
-
-      revealObserver.observe(el);
-
-    });
-
-
-    // S03 標題與輪播進場動畫
-    document.querySelectorAll('#s03 .scroll-reveal').forEach(el => {
-
-      revealObserver.observe(el);
-
-    });
-
-
-    // =====================================================
-    // 10. 數字計數動畫
+    // 09. 數字計數動畫
     // =====================================================
 
     const countObserver = new IntersectionObserver(entries => {
@@ -1805,6 +1670,7 @@
         const el = entry.target;
         const target = Number(el.dataset.count);
 
+        // 非數字內容不執行計數動畫
         if (!Number.isFinite(target)) {
 
           countObserver.unobserve(el);
@@ -1845,7 +1711,7 @@
 
 
     // =====================================================
-    // 11. 聯絡表單驗證
+    // 10. 聯絡表單驗證
     // =====================================================
 
     const web3Form = document.getElementById('web3Form');
