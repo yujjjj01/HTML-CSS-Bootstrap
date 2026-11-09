@@ -63,7 +63,7 @@
   ====================================================== -->
   <section id="s01">
 
-    <nav class="navbar navbar-expand-lg web3-nav">
+    <nav class="navbar navbar-expand-lg navbar-dark web3-nav">
 
       <div class="container">
 
@@ -105,35 +105,67 @@
 
         </div>
 
-        <!-- 桌面版 Navbar -->
+        <!-- 桌面版 Navbar：涵蓋全區塊精準分類導航 -->
         <div class="collapse navbar-collapse">
 
           <ul class="navbar-nav ms-auto align-items-lg-center">
 
-            <li>
-              <a class="nav-link" href="#s03">概念</a>
+            <!-- 模組 1：範式與技術 (S03, S04, S05) -->
+            <li class="nav-item dropdown web3-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                範式與技術
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#s03"><span class="drop-num">03</span> 三大範式轉移</a></li>
+                <li><a class="dropdown-item" href="#s04"><span class="drop-num">04</span> 底層技術架構</a></li>
+                <li><a class="dropdown-item" href="#s05"><span class="drop-num">05</span> 中心化 vs 去中心化對比</a></li>
+              </ul>
             </li>
 
-            <li>
-              <a class="nav-link" href="#s04">技術</a>
+            <!-- 模組 2：演進與生態 (S06, S07, S08) -->
+            <li class="nav-item dropdown web3-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                演進與生態
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#s06"><span class="drop-num">06</span> 歷史演進時間軸</a></li>
+                <li><a class="dropdown-item" href="#s07"><span class="drop-num">07</span> 全景生態矩陣</a></li>
+                <li><a class="dropdown-item" href="#s08"><span class="drop-num">08</span> 旗艦 DApp 應用櫥窗</a></li>
+              </ul>
             </li>
 
-            <li>
-              <a class="nav-link" href="#s06">演進</a>
+            <!-- 模組 3：身分與治理 (S09, S10, S11) -->
+            <li class="nav-item dropdown web3-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                身分與治理
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#s09"><span class="drop-num">09</span> DID 數位身分通行證</a></li>
+                <li><a class="dropdown-item" href="#s10"><span class="drop-num">10</span> 自託管安全守則</a></li>
+                <li><a class="dropdown-item" href="#s11"><span class="drop-num">11</span> DAO 社群治理投票</a></li>
+              </ul>
             </li>
 
-            <li>
-              <a class="nav-link" href="#s07">生態</a>
+            <!-- 模組 4：數據與未來 (S12, S13) -->
+            <li class="nav-item dropdown web3-dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                數據與未來
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#s12"><span class="drop-num">12</span> 全球鏈上關鍵數據</a></li>
+                <li><a class="dropdown-item" href="#s13"><span class="drop-num">13</span> 下一代前沿願景</a></li>
+              </ul>
             </li>
 
-            <li>
-              <a class="nav-link" href="#s13">未來</a>
-            </li>
-
-            <li>
+            <!-- 模組 5：節點通訊 CTA (S14) -->
+            <li class="nav-item">
               <a class="nav-link nav-cta" href="#s14">
-                加入探索
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <i class="fa-solid fa-terminal me-1"></i>
+                節點連線通訊
               </a>
             </li>
 
@@ -164,19 +196,26 @@
 
       <div class="offcanvas-body">
 
-        <a href="#s02">首頁</a>
-        <a href="#s03">Web3 核心概念</a>
-        <a href="#s04">底層技術</a>
-        <a href="#s05">去中心化</a>
-        <a href="#s06">發展歷程</a>
-        <a href="#s07">Web3 生態</a>
-        <a href="#s08">DApp</a>
-        <a href="#s09">數位身份</a>
-        <a href="#s10">安全與風險</a>
-        <a href="#s11">DAO</a>
-        <a href="#s12">學習心得</a>
-        <a href="#s13">未來展望</a>
-        <a href="#s14">聯絡</a>
+        <div class="offcanvas-section-title">CONCEPT & ARCHITECTURE 核心理念與技術</div>
+        <a href="#s03"><span class="menu-idx">03</span> 三大範式轉移</a>
+        <a href="#s04"><span class="menu-idx">04</span> 底層技術架構</a>
+        <a href="#s05"><span class="menu-idx">05</span> 中心化 vs 去中心化對比</a>
+
+        <div class="offcanvas-section-title">EVOLUTION & DAPP 演進歷程與生態</div>
+        <a href="#s06"><span class="menu-idx">06</span> 歷史演進時間軸</a>
+        <a href="#s07"><span class="menu-idx">07</span> 全景生態矩陣</a>
+        <a href="#s08"><span class="menu-idx">08</span> 旗艦 DApp 應用櫥窗</a>
+
+        <div class="offcanvas-section-title">IDENTITY & GOVERNANCE 身分安全與治理</div>
+        <a href="#s09"><span class="menu-idx">09</span> DID 數位身分通行證</a>
+        <a href="#s10"><span class="menu-idx">10</span> 自託管安全守則</a>
+        <a href="#s11"><span class="menu-idx">11</span> DAO 社群治理投票</a>
+
+        <div class="offcanvas-section-title">ON-CHAIN DATA & HORIZONS 關鍵數據與連線</div>
+        <a href="#s12"><span class="menu-idx">12</span> 全球鏈上關鍵數據</a>
+        <a href="#s13"><span class="menu-idx">13</span> 下一代前沿願景</a>
+        <a href="#s14" class="menu-cta"><span class="menu-idx">14</span> 節點加密通訊終端 <i
+            class="fa-solid fa-arrow-right"></i></a>
 
       </div>
 
@@ -335,8 +374,6 @@
 
         <div class="section-heading">
 
-          <span class="section-index">01 / CONCEPT</span>
-
           <h2>
             重新想像<span class="gradient-text">網路的權力</span>
           </h2>
@@ -421,8 +458,6 @@
 
       <div class="section-heading wow animate__fadeInUp">
 
-        <span class="section-index">02 / THE STACK</span>
-
         <h2>
           Web3 的<span class="gradient-text">底層技術</span>
         </h2>
@@ -437,21 +472,51 @@
 
         <div class="stack-visual wow animate__fadeInUp">
 
-          <div class="stack-orbit">
+          <div class="reactor-container" id="reactorContainer">
 
-            <div class="stack-label-track track-chain">
-              <span class="stack-label label-chain">BLOCKCHAIN</span>
-            </div>
-            <div class="stack-label-track track-contract">
-              <span class="stack-label label-contract">SMART CONTRACT</span>
-            </div>
-            <div class="stack-label-track track-wallet">
-              <span class="stack-label label-wallet">WALLET</span>
+            <!-- 多層環形旋轉軌道 -->
+            <div class="reactor-ring ring-outer"></div>
+            <div class="reactor-ring ring-mid"></div>
+            <div class="reactor-ring ring-inner"></div>
+
+            <!-- 四大技術環繞衛星節點（隨軌道公轉巡航） -->
+            <div class="reactor-satellites" id="reactorSatellites">
+              <div class="reactor-slot slot-chain">
+                <div class="reactor-node node-chain" data-index="0">
+                  <i class="fa-solid fa-cube"></i>
+                  <span>CHAIN</span>
+                </div>
+              </div>
+              <div class="reactor-slot slot-contract">
+                <div class="reactor-node node-contract" data-index="1">
+                  <i class="fa-solid fa-file-code"></i>
+                  <span>CONTRACT</span>
+                </div>
+              </div>
+              <div class="reactor-slot slot-crypto">
+                <div class="reactor-node node-crypto" data-index="2">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <span>CRYPTO</span>
+                </div>
+              </div>
+              <div class="reactor-slot slot-wallet">
+                <div class="reactor-node node-wallet" data-index="3">
+                  <i class="fa-solid fa-wallet"></i>
+                  <span>WALLET</span>
+                </div>
+              </div>
             </div>
 
-            <div class="stack-center">
-              <i class="fa-solid fa-layer-group"></i>
-              <b>WEB3<br>STACK</b>
+            <!-- 能量脈衝波層 -->
+            <div class="reactor-pulse-wave" id="reactorPulse"></div>
+
+            <!-- 中心高能全像核心 -->
+            <div class="reactor-core" id="reactorCore">
+              <div class="core-glow" id="reactorGlow"></div>
+              <div class="core-display">
+                <i class="fa-solid fa-layer-group" id="reactorIcon"></i>
+                <b id="reactorLabel">WEB3<br>STACK</b>
+              </div>
             </div>
 
           </div>
@@ -466,7 +531,6 @@
               <h3>Blockchain</h3>
               <p>以分散式帳本與共識機制，記錄可驗證的交易與狀態。</p>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </article>
 
           <article class="stack-row wow animate__fadeInUp">
@@ -475,7 +539,6 @@
               <h3>Smart Contracts</h3>
               <p>將規則寫入程式，在符合條件時自動執行鏈上操作。</p>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </article>
 
           <article class="stack-row wow animate__fadeInUp">
@@ -484,7 +547,6 @@
               <h3>Cryptography</h3>
               <p>使用公私鑰、簽章與雜湊，建立驗證與權限控制。</p>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </article>
 
           <article class="stack-row wow animate__fadeInUp">
@@ -493,7 +555,6 @@
               <h3>Wallet & Protocol</h3>
               <p>錢包協助管理密鑰與簽署操作，協議定義應用如何互通。</p>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </article>
 
         </div>
@@ -516,8 +577,6 @@
 
         <div class="col-lg-6 wow animate__fadeInUp">
 
-          <span class="section-index">03 / DECENTRALIZATION</span>
-
           <h2 class="display-title">
             從平台中心<br>
             走向<span class="gradient-text">網路協作</span>
@@ -536,36 +595,140 @@
 
         <div class="col-lg-6 wow animate__fadeInUp">
 
-          <div class="network-map">
+          <div class="paradigm-stage" id="paradigmStage" data-mode="decentralized">
 
-            <svg viewBox="0 0 600 430" role="img" aria-label="去中心化網路節點示意">
+            <!-- 模式切換與狀態列 -->
+            <div class="paradigm-header">
+              <div class="paradigm-toggles" role="tablist" aria-label="網路架構模式切換">
+                <button type="button" class="paradigm-btn active" id="btnModeDecentralized" data-target="decentralized">
+                  <i class="fa-solid fa-circle-nodes"></i>
+                  <span>去中心化協作 (Web3)</span>
+                </button>
+                <button type="button" class="paradigm-btn" id="btnModeCentralized" data-target="centralized">
+                  <i class="fa-solid fa-server"></i>
+                  <span>平台中心化 (Web2)</span>
+                </button>
+              </div>
+              <div class="paradigm-badge" id="paradigmBadge">
+                <span class="live-dot"></span>
+                <span class="badge-text">P2P 網狀拓撲</span>
+              </div>
+            </div>
 
-              <g class="network-lines">
-                <path
-                  d="M300 210 L110 90 M300 210 L490 90 M300 210 L80 300 M300 210 L520 300 M300 210 L300 40 M300 210 L300 390 M110 90 L490 90 M80 300 L520 300 M110 90 L80 300 M490 90 L520 300 M110 90 L300 40 M490 90 L300 40 M80 300 L300 390 M520 300 L300 390" />
-              </g>
+            <!-- 動態網絡畫布 -->
+            <div class="paradigm-canvas">
 
-              <g class="network-nodes">
-                <circle cx="300" cy="210" r="48" class="central-node" />
-                <circle cx="110" cy="90" r="20" />
-                <circle cx="490" cy="90" r="20" />
-                <circle cx="80" cy="300" r="20" />
-                <circle cx="520" cy="300" r="20" />
-                <circle cx="300" cy="40" r="18" />
-                <circle cx="300" cy="390" r="18" />
-                <circle cx="205" cy="145" r="12" />
-                <circle cx="405" cy="145" r="12" />
-                <circle cx="190" cy="270" r="12" />
-                <circle cx="410" cy="270" r="12" />
-              </g>
+              <svg viewBox="0 0 600 380" class="paradigm-svg" id="paradigmSvg" role="img" aria-label="網路拓撲對比示意圖">
 
-              <text x="300" y="216" text-anchor="middle">WEB3</text>
+                <!-- 網狀連線 (Web3 專屬 Mesh 邊) -->
+                <g class="mesh-lines" id="meshLines">
+                  <!-- 外環連線 -->
+                  <path class="mesh-link" d="M425,190 L388,278" />
+                  <path class="mesh-link" d="M388,278 L300,315" />
+                  <path class="mesh-link" d="M300,315 L212,278" />
+                  <path class="mesh-link" d="M212,278 L175,190" />
+                  <path class="mesh-link" d="M175,190 L212,102" />
+                  <path class="mesh-link" d="M212,102 L300,65" />
+                  <path class="mesh-link" d="M300,65 L388,102" />
+                  <path class="mesh-link" d="M388,102 L425,190" />
+                  <!-- 跨節點對角連線 (容錯備援路徑) -->
+                  <path class="mesh-link mesh-cross" d="M425,190 L212,278" />
+                  <path class="mesh-link mesh-cross" d="M388,278 L175,190" />
+                  <path class="mesh-link mesh-cross" d="M300,315 L212,102" />
+                  <path class="mesh-link mesh-cross" d="M300,65 L212,278" />
+                  <path class="mesh-link mesh-cross" d="M388,102 L300,315" />
+                </g>
 
-            </svg>
+                <!-- 星狀連線 (連向中心) -->
+                <g class="radial-lines" id="radialLines">
+                  <path class="radial-link link-0" d="M300,190 L425,190" />
+                  <path class="radial-link link-1" d="M300,190 L388,278" />
+                  <path class="radial-link link-2" d="M300,190 L300,315" />
+                  <path class="radial-link link-3" d="M300,190 L212,278" />
+                  <path class="radial-link link-4" d="M300,190 L175,190" />
+                  <path class="radial-link link-5" d="M300,190 L212,102" />
+                  <path class="radial-link link-6" d="M300,190 L300,65" />
+                  <path class="radial-link link-7" d="M300,190 L388,102" />
+                </g>
 
-            <div class="network-caption">
-              <span class="live-dot"></span>
-              PEER-TO-PEER NETWORK
+                <!-- 周邊節點 -->
+                <g class="peripheral-nodes" id="peripheralNodes">
+                  <g class="p-node node-0" data-index="0" transform="translate(425,190)">
+                    <circle r="16" class="node-halo" />
+                    <circle r="11" class="node-body" />
+                    <text y="4" class="node-label">N1</text>
+                  </g>
+                  <g class="p-node node-1" data-index="1" transform="translate(388,278)">
+                    <circle r="16" class="node-halo" />
+                    <circle r="11" class="node-body" />
+                    <text y="4" class="node-label">N2</text>
+                  </g>
+                  <g class="p-node node-2" data-index="2" transform="translate(300,315)">
+                    <circle r="16" class="node-halo" />
+                    <circle r="11" class="node-body" />
+                    <text y="4" class="node-label">N3</text>
+                  </g>
+                  <g class="p-node node-3" data-index="3" transform="translate(212,278)">
+                    <circle r="16" class="node-halo" />
+                    <circle r="11" class="node-body" />
+                    <text y="4" class="node-label">N4</text>
+                  </g>
+                  <g class="p-node node-4" data-index="4" transform="translate(175,190)">
+                    <circle r="16" class="node-halo" />
+                    <circle r="11" class="node-body" />
+                    <text y="4" class="node-label">N5</text>
+                  </g>
+                  <g class="p-node node-5" data-index="5" transform="translate(212,102)">
+                    <circle r="16" class="node-halo" />
+                    <circle r="11" class="node-body" />
+                    <text y="4" class="node-label">N6</text>
+                  </g>
+                  <g class="p-node node-6" data-index="6" transform="translate(300,65)">
+                    <circle r="16" class="node-halo" />
+                    <circle r="11" class="node-body" />
+                    <text y="4" class="node-label">N7</text>
+                  </g>
+                  <g class="p-node node-7" data-index="7" transform="translate(388,102)">
+                    <circle r="16" class="node-halo" />
+                    <circle r="11" class="node-body" />
+                    <text y="4" class="node-label">N8</text>
+                  </g>
+                </g>
+
+                <!-- 中心實體節點 (Web3 共識節點 vs Web2 中央伺服器) -->
+                <g class="center-stage" id="centerStage" transform="translate(300,190)">
+                  <circle r="44" class="center-shockwave" />
+                  <circle r="36" class="center-pulse-ring" />
+                  <circle r="30" class="center-core-circle" />
+                  <text y="5" class="center-core-text" id="centerText">WEB3</text>
+                </g>
+
+              </svg>
+
+            </div>
+
+            <!-- 獨立情境提示橫條 (置於畫布下方，保證絕不擋住節點 N3) -->
+            <div class="paradigm-alert" id="paradigmAlert">
+              <i class="fa-solid fa-shield-halved" id="alertIcon"></i>
+              <span id="alertText">去中心化網絡：多節點共識驗證，無單點崩潰風險</span>
+            </div>
+
+            <!-- 下方互動操作列與指標 -->
+            <div class="paradigm-footer">
+              <div class="paradigm-metrics">
+                <div class="metric-item">
+                  <span class="m-label">控制架構</span>
+                  <span class="m-val" id="metricArch">分散式共識 (P2P)</span>
+                </div>
+                <div class="metric-item">
+                  <span class="m-label">單點故障風險</span>
+                  <span class="m-val highlight" id="metricRisk">極低 (99.9% 容錯)</span>
+                </div>
+              </div>
+              <button type="button" class="paradigm-action-btn" id="btnSimulate">
+                <i class="fa-solid fa-bolt"></i>
+                <span id="btnSimulateText">模擬節點失效 (測試容錯)</span>
+              </button>
             </div>
 
           </div>
@@ -580,733 +743,958 @@
 
 
   <!-- =====================================================
-       s06 Evolution timeline
+       s06 網路演進時間軸 (Evolution Timeline)
   ====================================================== -->
-  <section id="s06" class="section section-light">
-
+  <section id="s06" class="section section-light s06-timeline-section">
     <div class="container">
-
       <div class="section-heading wow animate__fadeInUp">
-
-        <span class="section-index">04 / EVOLUTION</span>
-
-        <h2>
-          網路演進的<span class="gradient-text">下一章</span>
-        </h2>
-
-        <p>
-          從資訊展示到互動平台，再到資產與身份可攜的網路體驗。
-        </p>
-
+        <h2>從靜態讀取到<span class="gradient-text">價值互聯網</span>的演進歷程</h2>
+        <p>理解網際網路三十年的架構轉移，見證數位所有權的真正誕生。</p>
       </div>
 
-      <div class="evolution-timeline">
-
-        <article class="timeline-item wow animate__fadeInUp">
-          <span class="timeline-year">WEB 1.0</span>
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-content">
-            <h3>Read</h3>
-            <p>早期網路以靜態頁面為主，使用者主要閱讀與取得資訊。</p>
-            <span class="timeline-chip">1990s — EARLY WEB</span>
+      <div class="evolution-timeline-clean">
+        <!-- 時代 1: Web 1.0 -->
+        <div class="timeline-row wow animate__fadeInUp" data-wow-delay="0.1s">
+          <div class="timeline-left">
+            <span class="era-badge era-1">1990 - 2004</span>
+            <div class="era-tag">READ-ONLY 唯讀時代</div>
+            <div class="meta-card">
+              <span class="meta-label">核心角色</span>
+              <span class="meta-val">入口網站與站長</span>
+              <span class="meta-label">代表平台</span>
+              <span class="meta-val">Yahoo, GeoCities</span>
+            </div>
           </div>
-        </article>
-
-        <article class="timeline-item wow animate__fadeInUp">
-          <span class="timeline-year">WEB 2.0</span>
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-content">
-            <h3>Read / Write</h3>
-            <p>社群、影音與平台服務讓使用者能創作內容，但資料與服務多由平台集中管理。</p>
-            <span class="timeline-chip">SOCIAL & PLATFORM</span>
+          <div class="timeline-center">
+            <div class="timeline-dot dot-1"><i class="fa-solid fa-globe"></i></div>
           </div>
-        </article>
-
-        <article class="timeline-item wow animate__fadeInUp">
-          <span class="timeline-year">WEB 3.0</span>
-          <div class="timeline-dot"></div>
-
-          <div class="timeline-content">
-            <h3>Read / Write / Own</h3>
-            <p>以區塊鏈、智能合約與數位資產探索更開放的所有權與協作模式。</p>
-            <span class="timeline-chip">OPEN & USER-CENTRIC</span>
+          <div class="timeline-right">
+            <div class="timeline-content">
+              <h3>Web 1.0 資訊目錄</h3>
+              <p>去中心化但靜態的撥接時代。用戶扮演純粹的資訊接收者，內容由少數站長發布，缺乏互動性與個人化體驗。</p>
+              <ul class="era-features">
+                <li><i class="fa-solid fa-check"></i> 靜態 HTML 與伺服器目錄</li>
+                <li><i class="fa-solid fa-check"></i> 開放式標準協定（HTTP、SMTP）</li>
+                <li><i class="fa-solid fa-xmark"></i> 無使用者帳號體系與動態狀態</li>
+              </ul>
+            </div>
           </div>
-        </article>
+        </div>
 
+        <!-- 時代 2: Web 2.0 -->
+        <div class="timeline-row wow animate__fadeInUp" data-wow-delay="0.2s">
+          <div class="timeline-left">
+            <span class="era-badge era-2">2004 - 至今</span>
+            <div class="era-tag">READ & WRITE 互動時代</div>
+            <div class="meta-card">
+              <span class="meta-label">核心角色</span>
+              <span class="meta-val">平台巨頭與廣告商</span>
+              <span class="meta-label">代表平台</span>
+              <span class="meta-val">Google, Meta, AWS</span>
+            </div>
+          </div>
+          <div class="timeline-center">
+            <div class="timeline-dot dot-2"><i class="fa-solid fa-users"></i></div>
+          </div>
+          <div class="timeline-right">
+            <div class="timeline-content">
+              <h3>Web 2.0 平台經濟</h3>
+              <p>社交網路與雲端計算崛起。使用者可自由創作內容，但資料與身分被封閉在科技巨頭的資料庫中，形成了「資料即石油」的演算法壟斷。</p>
+              <ul class="era-features">
+                <li><i class="fa-solid fa-check"></i> 動態互動與社群影音平台</li>
+                <li><i class="fa-solid fa-check"></i> 雲端伺服器與行動 App 普及</li>
+                <li><i class="fa-solid fa-triangle-exclamation"></i> 個資商業變現與單點審查風險</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 時代 3: Web 3.0 -->
+        <div class="timeline-row highlight-row wow animate__fadeInUp" data-wow-delay="0.3s">
+          <div class="timeline-left">
+            <span class="era-badge era-3">2020 - 未來</span>
+            <div class="era-tag">READ, WRITE & OWN 數位主權</div>
+            <div class="meta-card highlight-card">
+              <span class="meta-label">核心角色</span>
+              <span class="meta-val">主權個人與開源社群</span>
+              <span class="meta-label">代表技術</span>
+              <span class="meta-val">以太坊, IPFS, 零知識證明</span>
+            </div>
+          </div>
+          <div class="timeline-center">
+            <div class="timeline-dot dot-3"><i class="fa-solid fa-cube"></i></div>
+          </div>
+          <div class="timeline-right">
+            <div class="timeline-content highlight-content">
+              <h3>Web 3.0 價值協定網</h3>
+              <p>以密碼學與分散式帳本為基石。個人直接掌握私鑰與資產主權，無須許可即可跨平台調用合約，實現抗審查、點對點的價值轉移。</p>
+              <ul class="era-features">
+                <li><i class="fa-solid fa-shield-halved"></i> 自主主權身分（DID）與私鑰簽名</li>
+                <li><i class="fa-solid fa-code"></i> 開源智能合約與不可竄改帳本</li>
+                <li><i class="fa-solid fa-cube"></i> 可組合的去中心化金融與治理體系</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
-       s07 Ecosystem
+       s07 生態矩陣 (Ecosystem Matrix)
   ====================================================== -->
-  <section id="s07" class="section section-dark">
-
+  <section id="s07" class="section section-dark s07-matrix-section">
     <div class="container">
-
       <div class="section-heading wow animate__fadeInUp">
-
-        <span class="section-index">05 / ECOSYSTEM</span>
-
-        <h2>
-          一個持續擴展的<span class="gradient-text">Web3 生態</span>
-        </h2>
-
-        <p>
-          多種服務與協議相互連結，構成不斷演進的數位環境。
-        </p>
-
-      </div>
-
-      <div class="ecosystem-grid">
-
-        <article class="eco-card eco-large wow animate__fadeInUp">
-          <div class="eco-icon purple">
-            <i class="fa-solid fa-coins"></i>
-          </div>
-          <span class="eco-tag">DIGITAL VALUE</span>
-          <h3>DeFi</h3>
-          <p>探索借貸、交易與資產管理等鏈上金融服務。</p>
-          <div class="eco-wave"></div>
-        </article>
-
-        <article class="eco-card wow animate__fadeInUp">
-          <div class="eco-icon cyan">
-            <i class="fa-solid fa-image"></i>
-          </div>
-          <span class="eco-tag">DIGITAL OWNERSHIP</span>
-          <h3>NFT</h3>
-          <p>以鏈上紀錄表達特定數位物件或權利。</p>
-        </article>
-
-        <article class="eco-card wow animate__fadeInUp">
-          <div class="eco-icon green">
-            <i class="fa-solid fa-users"></i>
-          </div>
-          <span class="eco-tag">COMMUNITY</span>
-          <h3>DAO</h3>
-          <p>透過共同規則與治理流程協調社群參與。</p>
-        </article>
-
-        <article class="eco-card wow animate__fadeInUp">
-          <div class="eco-icon pink">
-            <i class="fa-solid fa-gamepad"></i>
-          </div>
-          <span class="eco-tag">INTERACTIVE WORLD</span>
-          <h3>Gaming & Metaverse</h3>
-          <p>結合虛擬世界、互動體驗與數位物件。</p>
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       s08 DApps
-  ====================================================== -->
-  <section id="s08" class="section section-light">
-
-    <div class="container">
-
-      <div class="section-heading wow animate__fadeInUp">
-
-        <span class="section-index">06 / APPLICATIONS</span>
-
-        <h2>
-          去中心化應用<span class="gradient-text">DApps</span>
-        </h2>
-
-        <p>
-          DApp 將前端介面、智能合約與區塊鏈網路連接，提供不同型態的服務。
-        </p>
-
+        <h2>去中心化科技<span class="gradient-text">全景生態矩陣</span></h2>
+        <p>從底層分散式帳本、隱私計算，到終端應用層的多元技術協作架構。</p>
       </div>
 
       <div class="row g-4">
-
-        <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
-          <div class="app-card">
-
-            <div class="app-card-head">
-              <span>01 / FINANCE</span>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <!-- 矩陣卡片 1 -->
+        <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.1s">
+          <div class="matrix-card">
+            <div class="card-glow"></div>
+            <div class="matrix-header">
+              <span class="matrix-icon"><i class="fa-solid fa-layer-group"></i></span>
+              <span class="matrix-tier-badge">LAYER 1 & 2</span>
             </div>
-
-            <div class="app-icon">
-              <i class="fa-solid fa-chart-line"></i>
+            <h4>底層公鏈與擴容網絡</h4>
+            <p>分散式共識的基礎防線，提供抗審查的算力與智能合約執行環境，搭配 Rollups 實現高吞吐量擴展。</p>
+            <div class="matrix-tags">
+              <span>Ethereum</span>
+              <span>Solana</span>
+              <span>Arbitrum</span>
+              <span>zkSync</span>
             </div>
-
-            <h3>鏈上金融</h3>
-            <p>在公開協議上探索交易、借貸與流動性服務。</p>
-
-            <div class="app-progress">
-              <span style="width:84%"></span>
-            </div>
-
-            <small>SMART CONTRACT BASED</small>
-
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
-          <div class="app-card">
-
-            <div class="app-card-head">
-              <span>02 / IDENTITY</span>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <!-- 矩陣卡片 2 -->
+        <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.15s">
+          <div class="matrix-card">
+            <div class="card-glow"></div>
+            <div class="matrix-header">
+              <span class="matrix-icon"><i class="fa-solid fa-coins"></i></span>
+              <span class="matrix-tier-badge">DeFi PROTOCOLS</span>
             </div>
-
-            <div class="app-icon">
-              <i class="fa-solid fa-id-card"></i>
+            <h4>去中心化金融 (DeFi)</h4>
+            <p>由演算法驅動的無人銀行體系，涵蓋自動做市商 (AMM)、抵押借貸與演算法穩定幣，資金 24/7 自動結算。</p>
+            <div class="matrix-tags">
+              <span>Uniswap</span>
+              <span>Aave</span>
+              <span>MakerDAO</span>
+              <span>Curve</span>
             </div>
-
-            <h3>數位身份</h3>
-            <p>探索可攜式身份、憑證與使用者授權機制。</p>
-
-            <div class="app-progress">
-              <span style="width:68%"></span>
-            </div>
-
-            <small>USER-CONTROLLED</small>
-
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4 wow animate__fadeInUp">
-          <div class="app-card">
-
-            <div class="app-card-head">
-              <span>03 / COMMUNITY</span>
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <!-- 矩陣卡片 3 -->
+        <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.2s">
+          <div class="matrix-card">
+            <div class="card-glow"></div>
+            <div class="matrix-header">
+              <span class="matrix-icon"><i class="fa-solid fa-id-badge"></i></span>
+              <span class="matrix-tier-badge">IDENTITY & DID</span>
             </div>
-
-            <div class="app-icon">
-              <i class="fa-solid fa-comments"></i>
+            <h4>主權數位身分與憑證</h4>
+            <p>跳脫傳統帳號密碼與第三方 OAuth 綁定，透過鏈上身分標識符與可驗證憑證，自由漫遊 Web3 應用。</p>
+            <div class="matrix-tags">
+              <span>ENS (.eth)</span>
+              <span>World ID</span>
+              <span>Lens Protocol</span>
+              <span>SBTs</span>
             </div>
-
-            <h3>社群協作</h3>
-            <p>讓社群透過公開提案與治理工具共同參與。</p>
-
-            <div class="app-progress">
-              <span style="width:76%"></span>
-            </div>
-
-            <small>COMMUNITY-DRIVEN</small>
-
           </div>
         </div>
 
+        <!-- 矩陣卡片 4 -->
+        <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.25s">
+          <div class="matrix-card">
+            <div class="card-glow"></div>
+            <div class="matrix-header">
+              <span class="matrix-icon"><i class="fa-solid fa-database"></i></span>
+              <span class="matrix-tier-badge">STORAGE & COMPUTING</span>
+            </div>
+            <h4>分散式儲存與離線運算</h4>
+            <p>告別依賴單一雲端數據庫。透過內容定址技術（CID）與多節點數據碎片備份，實現永久可信儲存。</p>
+            <div class="matrix-tags">
+              <span>IPFS</span>
+              <span>Filecoin</span>
+              <span>Arweave</span>
+              <span>Akash Network</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 矩陣卡片 5 -->
+        <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.3s">
+          <div class="matrix-card">
+            <div class="card-glow"></div>
+            <div class="matrix-header">
+              <span class="matrix-icon"><i class="fa-solid fa-shield-virus"></i></span>
+              <span class="matrix-tier-badge">ZERO KNOWLEDGE</span>
+            </div>
+            <h4>零知識證明與隱私計算</h4>
+            <p>密碼學聖杯技術，能在不洩漏任何敏感隱私的前提下，在數學層面百分之百驗證交易的真確性。</p>
+            <div class="matrix-tags">
+              <span>ZK-SNARKs</span>
+              <span>ZK-STARKs</span>
+              <span>Tornado</span>
+              <span>Aleo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 矩陣卡片 6 -->
+        <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.35s">
+          <div class="matrix-card">
+            <div class="card-glow"></div>
+            <div class="matrix-header">
+              <span class="matrix-icon"><i class="fa-solid fa-bridge"></i></span>
+              <span class="matrix-tier-badge">CROSS-CHAIN</span>
+            </div>
+            <h4>跨鏈互操作性與預言機</h4>
+            <p>串接鏈下現實世界數據與異構區塊鏈，透過驗證中繼網實現任意資產與任意合約調用的跨鏈通訊。</p>
+            <div class="matrix-tags">
+              <span>Chainlink</span>
+              <span>LayerZero</span>
+              <span>Wormhole</span>
+              <span>CCIP</span>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
-       s09 Identity
+       s08 DApp 精選應用櫥窗 (DApp Showcase)
   ====================================================== -->
-  <section id="s09" class="section section-gradient">
-
+  <section id="s08" class="section section-gradient s08-dapp-section">
     <div class="container">
+      <div class="section-heading wow animate__fadeInUp">
+        <h2>核心去中心化<span class="gradient-text">應用案例庫</span></h2>
+        <p>探索各領域中正在重塑數位社會架構的旗艦級 DApp 範例。</p>
+      </div>
+
+      <!-- 分類切換按鈕列 -->
+      <div class="dapp-filter-tabs wow animate__fadeInUp" data-wow-delay="0.1s">
+        <button class="dapp-tab-btn active" data-category="all"><i class="fa-solid fa-border-all"></i> 全部展示</button>
+        <button class="dapp-tab-btn" data-category="defi"><i class="fa-solid fa-coins"></i> 鏈上金融 DeFi</button>
+        <button class="dapp-tab-btn" data-category="identity"><i class="fa-solid fa-fingerprint"></i> 身分與社交</button>
+        <button class="dapp-tab-btn" data-category="infra"><i class="fa-solid fa-server"></i> 基礎架構 Infra</button>
+      </div>
+
+      <div class="row g-4 dapp-grid">
+        <!-- DApp 1: Uniswap -->
+        <div class="col-lg-4 col-md-6 dapp-col" data-category="defi">
+          <div class="dapp-card">
+            <div class="dapp-badge">AMM 協議</div>
+            <div class="dapp-icon"><i class="fa-solid fa-right-left"></i></div>
+            <h4>Uniswap V3</h4>
+            <p>革命性的常數乘積做市協議，使用者無需透過中心化撮合撮合所，直接在鏈上智能合約完成零信任代幣兌換。</p>
+            <div class="dapp-stats">
+              <div class="stat-item"><span class="stat-num">$1.8T+</span><span class="stat-name">累計交易量</span></div>
+              <div class="stat-item"><span class="stat-num">0 間</span><span class="stat-name">實體銀行</span></div>
+            </div>
+            <div class="dapp-contract-line">
+              <code>Contract: 0x1f9840...697d</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- DApp 2: Aave -->
+        <div class="col-lg-4 col-md-6 dapp-col" data-category="defi">
+          <div class="dapp-card">
+            <div class="dapp-badge">流動性借貸</div>
+            <div class="dapp-icon"><i class="fa-solid fa-vault"></i></div>
+            <h4>Aave Protocol</h4>
+            <p>去中心化無託管流動性市場協議，用戶可作為存款者賺取利息，或以超額抵押方式借入資產，亦支援閃電貸。</p>
+            <div class="dapp-stats">
+              <div class="stat-item"><span class="stat-num">$12B+</span><span class="stat-name">總鎖倉 TVL</span></div>
+              <div class="stat-item"><span class="stat-num">100%</span><span class="stat-name">代碼全開源</span></div>
+            </div>
+            <div class="dapp-contract-line">
+              <code>Contract: 0x7Fc665...4b87</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- DApp 3: ENS -->
+        <div class="col-lg-4 col-md-6 dapp-col" data-category="identity">
+          <div class="dapp-card">
+            <div class="dapp-badge">身分域名</div>
+            <div class="dapp-icon"><i class="fa-solid fa-signature"></i></div>
+            <h4>Ethereum Name Service</h4>
+            <p>將難記的 42 位 16 進制公鑰地址轉譯為直覺易讀的 `.eth` 名稱，兼具 decentralized 網站解析與個人名片。</p>
+            <div class="dapp-stats">
+              <div class="stat-item"><span class="stat-num">2.4M+</span><span class="stat-name">已註冊域名</span></div>
+              <div class="stat-item"><span class="stat-num">800K+</span><span class="stat-name">獨立持有人</span></div>
+            </div>
+            <div class="dapp-contract-line">
+              <code>Contract: 0x000000...a328</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- DApp 4: Lens Protocol -->
+        <div class="col-lg-4 col-md-6 dapp-col" data-category="identity">
+          <div class="dapp-card">
+            <div class="dapp-badge">去中心化社交</div>
+            <div class="dapp-icon"><i class="fa-solid fa-comments"></i></div>
+            <h4>Lens Protocol</h4>
+            <p>建構於 Polygon 的去中心化社交圖譜，關注者、貼文與轉發皆作為鏈上資產，創作者擁有完整的粉絲關係所有權。</p>
+            <div class="dapp-stats">
+              <div class="stat-item"><span class="stat-num">130K+</span><span class="stat-name">創作者 Profile</span></div>
+              <div class="stat-item"><span class="stat-num">0%</span><span class="stat-name">演算法黑箱</span></div>
+            </div>
+            <div class="dapp-contract-line">
+              <code>Contract: 0xDb46d1...3672</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- DApp 5: IPFS / Filecoin -->
+        <div class="col-lg-4 col-md-6 dapp-col" data-category="infra">
+          <div class="dapp-card">
+            <div class="dapp-badge">去中心儲存</div>
+            <div class="dapp-icon"><i class="fa-solid fa-network-wired"></i></div>
+            <h4>IPFS / Filecoin</h4>
+            <p>點對點超媒體分散式檔案傳輸協定，以內容雜湊 (Hash) 取代傳統 URL 網址，檔案永久存在且杜絕 404 失效。</p>
+            <div class="dapp-stats">
+              <div class="stat-item"><span class="stat-num">1.5 Exabytes</span><span class="stat-name">儲存總容量</span>
+              </div>
+              <div class="stat-item"><span class="stat-num">3,500+</span><span class="stat-name">全球節點</span></div>
+            </div>
+            <div class="dapp-contract-line">
+              <code>Protocol: ipfs://bafybei...</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- DApp 6: Chainlink -->
+        <div class="col-lg-4 col-md-6 dapp-col" data-category="infra">
+          <div class="dapp-card">
+            <div class="dapp-badge">預言機網絡</div>
+            <div class="dapp-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+            <h4>Chainlink Oracle</h4>
+            <p>將鏈下現實世界的股價、外匯、天氣與真實事件資料，透過去中心化節點網絡安全餵入鏈上智能合約。</p>
+            <div class="dapp-stats">
+              <div class="stat-item"><span class="stat-num">$9T+</span><span class="stat-name">促成交易價值</span></div>
+              <div class="stat-item"><span class="stat-num">1,000+</span><span class="stat-name">合作協議</span></div>
+            </div>
+            <div class="dapp-contract-line">
+              <code>Contract: 0x514910...7955</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       s09 DID 去中心化身分卡 (Web3 Passport)
+  ====================================================== -->
+  <section id="s09" class="section section-light s09-passport-section">
+    <div class="container">
+      <div class="section-heading wow animate__fadeInUp">
+        <h2>自主主權身分：您的 <span class="gradient-text">Web3 數位通行證</span></h2>
+        <p>無需密碼和第三方授權審批，只需一組私鑰即可證明自己的身分與資產。</p>
+      </div>
 
       <div class="row align-items-center g-5">
-
-        <div class="col-lg-5 wow animate__fadeInUp">
-
-          <span class="section-index">07 / DIGITAL IDENTITY</span>
-
-          <h2 class="display-title">
-            你的身份<br>
-            不該只屬於<span class="gradient-text">一個平台</span>
-          </h2>
-
-          <p class="section-copy">
-            數位身份與可驗證憑證正在探索新的可能。使用者可以思考如何管理授權、選擇分享內容，並在不同服務之間建立更可控的互動。
-          </p>
-
-          <div class="identity-pills">
-
-            <span>
-              <i class="fa-solid fa-fingerprint"></i>
-              Self-sovereign
-            </span>
-
-            <span>
-              <i class="fa-solid fa-lock"></i>
-              Privacy-aware
-            </span>
-
-            <span>
-              <i class="fa-solid fa-key"></i>
-              Verifiable
-            </span>
-
-          </div>
-
-        </div>
-
-        <div class="col-lg-7 wow animate__fadeInUp">
-
-          <div class="identity-card">
-
-            <div class="identity-card-top">
-              <span class="identity-dot"></span>
-              <span class="identity-dot"></span>
-              <span class="identity-dot"></span>
-              <small>IDENTITY / PROTOCOL</small>
-            </div>
-
-            <div class="identity-avatar">
-              <i class="fa-solid fa-user-astronaut"></i>
-            </div>
-
-            <div class="identity-name">
-              DIGITAL CITIZEN
-              <span>WEB3 MEMBER</span>
-            </div>
-
-            <div class="identity-data">
-
-              <div>
-                <small>ACCESS</small>
-                <b>SELECTIVE</b>
+        <!-- 左側：高科技數位通行證互動卡片 -->
+        <div class="col-lg-6 wow animate__fadeInLeft">
+          <div class="web3-passport-card" id="web3Passport">
+            <div class="passport-top-bar">
+              <div class="passport-chip">
+                <i class="fa-solid fa-microchip"></i>
+                <span class="chip-text">SECURE CHIP</span>
               </div>
-
-              <div>
-                <small>PROOF</small>
-                <b>VERIFIABLE</b>
+              <div class="passport-network-selector">
+                <button type="button" class="net-pill active" data-chain="eth"><i class="fa-brands fa-ethereum"></i>
+                  Ethereum</button>
+                <button type="button" class="net-pill" data-chain="poly"><i class="fa-solid fa-hexagon-nodes"></i>
+                  Polygon</button>
+                <button type="button" class="net-pill" data-chain="arb"><i class="fa-solid fa-cube"></i>
+                  Arbitrum</button>
               </div>
-
-              <div>
-                <small>CONTROL</small>
-                <b>USER-OWNED</b>
-              </div>
-
             </div>
 
-            <div class="identity-code">
-              0x7F...A91C
-              <i class="fa-solid fa-copy"></i>
+            <div class="passport-avatar-row">
+              <div class="avatar-box">
+                <i class="fa-solid fa-user-astronaut"></i>
+                <div class="avatar-ring"></div>
+              </div>
+              <div class="avatar-info">
+                <h3 class="did-name">satoshinakamoto.eth</h3>
+                <span class="did-tier"><i class="fa-solid fa-circle-check"></i> 驗證節點身分 (SBT Level 4)</span>
+              </div>
             </div>
 
-            <div class="identity-card-glow"></div>
+            <div class="passport-address-box" id="copyAddressTrigger" title="點擊複製錢包地址">
+              <div class="addr-header">
+                <span class="addr-label"><i class="fa-solid fa-key"></i> 錢包公鑰地址</span>
+                <span class="click-hint"><i class="fa-regular fa-copy"></i> 點擊複製</span>
+              </div>
+              <div class="addr-val">
+                <span id="currentWalletAddr">0x71C...84bE89F4</span>
+                <i class="fa-regular fa-copy copy-icon"></i>
+              </div>
+              <div class="copy-tooltip" id="copyTooltip"><i class="fa-solid fa-circle-check"></i> 地址已複製至剪貼簿！</div>
+            </div>
 
+            <div class="passport-meta-grid">
+              <div class="meta-item">
+                <span class="m-lbl">鏈上聲譽評分</span>
+                <span class="m-val score"><i class="fa-solid fa-star"></i> 98 / 100</span>
+              </div>
+              <div class="meta-item">
+                <span class="m-lbl">治理投票參與</span>
+                <span class="m-val"><i class="fa-solid fa-check-to-slot"></i> 42 次提案</span>
+              </div>
+              <div class="meta-item">
+                <span class="m-lbl">安全防護層級</span>
+                <span class="m-val secure"><i class="fa-solid fa-shield-halved"></i> 硬體多簽</span>
+              </div>
+            </div>
           </div>
-
         </div>
 
+        <!-- 右側：身分優勢說明 -->
+        <div class="col-lg-6 wow animate__fadeInRight">
+          <div class="did-features-list">
+            <div class="did-feature-item">
+              <div class="f-icon"><i class="fa-solid fa-key"></i></div>
+              <div>
+                <h4>私鑰即身分 (Self-Sovereign)</h4>
+                <p>沒有任何機構能凍結或重設您的身分。公鑰向世界公開驗證，私鑰永遠由個人離線安全守護。</p>
+              </div>
+            </div>
+
+            <div class="did-feature-item">
+              <div class="f-icon"><i class="fa-solid fa-passport"></i></div>
+              <div>
+                <h4>通用數位通行證 (Global Single Sign-On)</h4>
+                <p>在所有相容 DApp 之間無縫漫遊，單一錢包通行全網，不再受限於 Google 或 Facebook 的帳號審查。</p>
+              </div>
+            </div>
+
+            <div class="did-feature-item">
+              <div class="f-icon"><i class="fa-solid fa-shield-heart"></i></div>
+              <div>
+                <h4>零知識憑證證明 (ZK-Credentials)</h4>
+                <p>證明自己「年滿 18 歲」或「擁有特定資產資格」，而無需出示真實姓名、身分證字號或存款明細。</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
-       s10 Security
+       s10 自託管與安全守則 (Security & Self-Custody)
   ====================================================== -->
-  <section id="s10" class="section section-light">
-
+  <section id="s10" class="section section-dark s10-security-section">
     <div class="container">
-
-      <div class="section-heading wow animate__fadeInUp">
-
-        <span class="section-index">08 / SECURITY</span>
-
-        <h2>
-          自由與創新，也需要<span class="gradient-text">安全意識</span>
-        </h2>
-
-        <p>
-          Web3 的自主性伴隨新的責任。理解風險、確認資訊與保護密鑰是重要的基本功。
-        </p>
-
+      <div class="section-heading section-heading-wide wow animate__fadeInUp">
+        <h2 class="title-nowrap">不是你的私鑰，就不是你的<span class="gradient-text">數位資產</span></h2>
+        <p>在享受絕對自主主權的同時，每位探索者都必須恪守的安全鐵則。</p>
       </div>
 
-      <div class="security-grid">
-
-        <article class="security-card wow animate__fadeInUp">
-          <span class="security-number">01</span>
-          <i class="fa-solid fa-key"></i>
-          <h3>密鑰保護</h3>
-          <p>妥善保管私鑰與助記詞，不向任何人透露，也避免存放在不安全的位置。</p>
-          <span class="security-line"></span>
-        </article>
-
-        <article class="security-card wow animate__fadeInUp">
-          <span class="security-number">02</span>
-          <i class="fa-solid fa-fish"></i>
-          <h3>辨識釣魚</h3>
-          <p>確認網址、來源與合約資訊，警惕假客服、空投誘導與不明簽署請求。</p>
-          <span class="security-line"></span>
-        </article>
-
-        <article class="security-card wow animate__fadeInUp">
-          <span class="security-number">03</span>
-          <i class="fa-solid fa-file-signature"></i>
-          <h3>理解授權</h3>
-          <p>送出交易或簽署前，先理解操作內容、權限範圍與可能造成的影響。</p>
-          <span class="security-line"></span>
-        </article>
-
-      </div>
-
-      <div class="security-alert wow animate__fadeInUp">
-
-        <i class="fa-solid fa-triangle-exclamation"></i>
-
-        <div>
-          <b>Remember:</b>
-          區塊鏈交易可能無法撤回。不要因為網站看起來專業或承諾高報酬，就忽略風險與查證。
+      <div class="row g-4">
+        <!-- 安全原則 1 -->
+        <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.1s">
+          <div class="security-card card-green">
+            <div class="sec-card-header">
+              <div class="sec-icon icon-shield"><i class="fa-solid fa-key"></i></div>
+              <span class="sec-status-badge badge-green"><i class="fa-solid fa-shield-halved"></i> 核心原則</span>
+            </div>
+            <h4>離線備份助記詞</h4>
+            <p>12 或 24 個單字的助記詞是您資產的唯一根密鑰。切勿截圖存放在雲端硬碟、郵件或記事本中，建議手寫在防火金屬板或紙張上妥善保存。</p>
+            <div class="sec-checklist">
+              <div class="check-item"><i class="fa-solid fa-circle-check"></i> 絕對不將助記詞輸入於不明網頁</div>
+              <div class="check-item"><i class="fa-solid fa-circle-check"></i> 定期檢查冷儲存環境物理安全</div>
+            </div>
+          </div>
         </div>
 
+        <!-- 安全原則 2 -->
+        <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.2s">
+          <div class="security-card card-cyan">
+            <div class="sec-card-header">
+              <div class="sec-icon icon-hardware"><i class="fa-solid fa-hard-drive"></i></div>
+              <span class="sec-status-badge badge-cyan"><i class="fa-solid fa-microchip"></i> 硬體防禦</span>
+            </div>
+            <h4>使用硬體冷錢包</h4>
+            <p>大額資金務必與連網電腦隔離。硬體錢包（如 Ledger, Trezor）能在內部安全晶片完成交易簽名，私鑰永遠不會接觸網路環境。</p>
+            <div class="sec-checklist">
+              <div class="check-item"><i class="fa-solid fa-circle-check"></i> 盲簽名警告：仔細核對硬體螢幕顯示</div>
+              <div class="check-item"><i class="fa-solid fa-circle-check"></i> 設置防勒索雙密碼 Pin 碼保護</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 安全原則 3 -->
+        <div class="col-lg-4 col-md-6 wow animate__fadeInUp" data-wow-delay="0.3s">
+          <div class="security-card card-purple">
+            <div class="sec-card-header">
+              <div class="sec-icon icon-revoke"><i class="fa-solid fa-file-shield"></i></div>
+              <span class="sec-status-badge badge-purple"><i class="fa-solid fa-lock-open"></i> 權限審計</span>
+            </div>
+            <h4>定期檢查合約授權</h4>
+            <p>每次在 DApp 交易時給予的 Token 授權，可能隱含無限額度風險。定期使用 Revoke.cash 等工具取消不必要的合約授權。</p>
+            <div class="sec-checklist">
+              <div class="check-item"><i class="fa-solid fa-circle-check"></i> 養成零錢包與主金庫隔離的習慣</div>
+              <div class="check-item"><i class="fa-solid fa-circle-check"></i> 隨時撤銷長時間未使用的授權</div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
-       s11 DAO
+       s11 DAO 去中心化治理 (DAO & Governance)
   ====================================================== -->
-  <section id="s11" class="section section-dark">
-
+  <section id="s11" class="section section-gradient s11-dao-section">
     <div class="container">
-
-      <div class="section-heading wow animate__fadeInUp">
-
-        <span class="section-index">09 / GOVERNANCE</span>
-
-        <h2>
-          DAO：由社群參與<span class="gradient-text">共同治理</span>
-        </h2>
-
-        <p>
-          DAO 是以規則、提案與協作流程組織參與者的概念，不同專案的治理方式與權限設計各有差異。
-        </p>
-
+      <div class="section-heading section-heading-wide wow animate__fadeInUp">
+        <h2 class="title-nowrap">DAO：開源社群的<span class="gradient-text">自動化治理機制</span></h2>
+        <p>沒有董事會、沒有官僚層級，由智能合約與代幣投票驅動的協作模式。</p>
       </div>
 
-      <div class="dao-flow wow animate__fadeInUp">
-
-        <div class="dao-step">
-          <span>01</span>
-          <i class="fa-solid fa-lightbulb"></i>
-          <h3>提案</h3>
-          <p>提出想法與改善方向</p>
+      <div class="row align-items-center g-5">
+        <!-- 左側：提案流程圖解 -->
+        <div class="col-lg-6 wow animate__fadeInLeft">
+          <div class="dao-workflow-timeline">
+            <div class="dao-step">
+              <div class="step-num">01</div>
+              <div class="step-desc">
+                <h5>社群提案發起 (CIP Proposal)</h5>
+                <p>任何社群成員均可在論壇提交治理改善提案，經歷為期 7 天的公開辯論與共識凝聚。</p>
+              </div>
+            </div>
+            <div class="dao-step">
+              <div class="step-num">02</div>
+              <div class="step-desc">
+                <h5>鏈上密碼學投票 (Snapshot / On-Chain)</h5>
+                <p>根據持有治理代幣的權重發起無 Gas 簽名投票，選票結果寫入區塊鏈，無法被任何個人篡改。</p>
+              </div>
+            </div>
+            <div class="dao-step">
+              <div class="step-num">03</div>
+              <div class="step-desc">
+                <h5>合約自動觸發執行 (Timelock Execution)</h5>
+                <p>通過門檻的提案經由時間鎖 (Timelock) 保護期後，智能合約自動自金庫撥款或更新合約參數。</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="dao-connector">
-          <i class="fa-solid fa-chevron-right"></i>
-        </div>
+        <!-- 右側：模擬鏈上投票卡片互動 -->
+        <div class="col-lg-6 wow animate__fadeInRight">
+          <div class="dao-ballot-card">
+            <div class="ballot-top-bar">
+              <div class="ballot-status"><span class="pulse-dot"></span> 進行中治理提案 #084</div>
+              <div class="ballot-countdown"><i class="fa-regular fa-clock"></i> 剩餘 14 小時 22 分</div>
+            </div>
+            <h4 class="ballot-title">將國庫 15% 儲備配置於流動性質押協議以提高公有收益率</h4>
+            <p class="ballot-summary">由核心研發小組提出，預期每年為 DAO 金庫增加 4.8% 的鏈上無風險獎勵，所得收益將全數用於生態開源開發者補助金。</p>
 
-        <div class="dao-step">
-          <span>02</span>
-          <i class="fa-solid fa-comments"></i>
-          <h3>討論</h3>
-          <p>社群檢視與交換意見</p>
-        </div>
+            <div class="vote-progress-wrapper">
+              <div class="vote-ratio-labels">
+                <span class="yes-lbl"><i class="fa-solid fa-circle-check"></i> 贊成票 (<span
+                    id="yesPercent">87.4%</span>)</span>
+                <span class="no-lbl"><i class="fa-solid fa-circle-xmark"></i> 反對票 (<span
+                    id="noPercent">12.6%</span>)</span>
+              </div>
+              <div class="vote-bar-track">
+                <div class="vote-bar-fill" id="voteBarFill" style="width: 87.4%;"></div>
+              </div>
+              <div class="vote-meta-stats">
+                <span><i class="fa-solid fa-scale-balanced"></i> 當前權重：18,420,500 GOV</span>
+                <span><i class="fa-solid fa-users"></i> 參與地址：1,248</span>
+              </div>
+            </div>
 
-        <div class="dao-connector">
-          <i class="fa-solid fa-chevron-right"></i>
+            <div class="ballot-actions">
+              <button type="button" class="btn-vote btn-vote-yes" id="btnVoteYes"><i class="fa-solid fa-check"></i>
+                投下贊成票</button>
+              <button type="button" class="btn-vote btn-vote-no" id="btnVoteNo"><i class="fa-solid fa-xmark"></i>
+                投下反對票</button>
+            </div>
+            <div class="vote-result-msg" id="voteResultMsg">提示：點擊按鈕可模擬鏈上錢包簽名投票與即時票數計算！</div>
+          </div>
         </div>
-
-        <div class="dao-step">
-          <span>03</span>
-          <i class="fa-solid fa-check-to-slot"></i>
-          <h3>治理</h3>
-          <p>依專案規則決定方向</p>
-        </div>
-
-        <div class="dao-connector">
-          <i class="fa-solid fa-chevron-right"></i>
-        </div>
-
-        <div class="dao-step">
-          <span>04</span>
-          <i class="fa-solid fa-code"></i>
-          <h3>執行</h3>
-          <p>落實決策與追蹤成果</p>
-        </div>
-
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
-       s12 Learning
+       s12 Web3 全球鏈上關鍵數據 (Web3 Key Metrics)
   ====================================================== -->
-  <section id="s12" class="section section-light">
-
+  <section id="s12" class="section section-light s12-metrics-section">
     <div class="container">
-
       <div class="section-heading wow animate__fadeInUp">
-
-        <span class="section-index">10 / LEARNING JOURNEY</span>
-
-        <h2>
-          從主題研究到<span class="gradient-text">網站實作</span>
-        </h2>
-
-        <p>
-          本次專題將 Web3 知識整理與前端技術結合，透過互動式單頁網站呈現學習成果。
-        </p>
-
+        <h2>全球 Web3 <span class="gradient-text">關鍵鏈上數據指標</span></h2>
+        <p>真實、開源且不可竄改<br>透過鏈上即時數據見證去中心化網絡的指數型增長。</p>
       </div>
 
-      <div class="learning-counters row g-3">
-
-        <div class="col-6 col-lg-3 wow animate__fadeInUp">
-          <div class="counter-box">
-            <strong data-count="14">0</strong>
-            <span>SECTIONS</span>
+      <!-- 四大關鍵數據卡片（支援動畫跳動） -->
+      <div class="row g-4 mb-5">
+        <!-- 數據 1: DeFi 總鎖倉價值 -->
+        <div class="col-lg-3 col-sm-6 wow animate__fadeInUp" data-wow-delay="0.1s">
+          <div class="metric-hud-box">
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner bottom-right"></div>
+            <div class="hud-icon"><i class="fa-solid fa-vault"></i></div>
+            <div class="hud-value">
+              <span class="hud-unit">$</span><span class="hud-counter" data-target="85.4"
+                data-decimals="1">0</span><span class="hud-unit">B+</span>
+            </div>
+            <div class="hud-label">TOTAL VALUE LOCKED</div>
+            <div class="hud-desc">全網 DeFi 鏈上智慧合約總鎖倉價值，由演算法無人值守託管。</div>
           </div>
         </div>
 
-        <div class="col-6 col-lg-3 wow animate__fadeInUp">
-          <div class="counter-box">
-            <strong data-count="4">0</strong>
-            <span>CORE TECH</span>
+        <!-- 數據 2: 已部署智能合約 -->
+        <div class="col-lg-3 col-sm-6 wow animate__fadeInUp" data-wow-delay="0.2s">
+          <div class="metric-hud-box">
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner bottom-right"></div>
+            <div class="hud-icon"><i class="fa-solid fa-file-contract"></i></div>
+            <div class="hud-value">
+              <span class="hud-counter" data-target="5.28" data-decimals="2">0</span><span class="hud-unit">M+</span>
+            </div>
+            <div class="hud-label">SMART CONTRACTS</div>
+            <div class="hud-desc">主網累計已部署並通過開源驗證的智能合約程式碼總數。</div>
           </div>
         </div>
 
-        <div class="col-6 col-lg-3 wow animate__fadeInUp">
-          <div class="counter-box">
-            <strong data-count="3">0</strong>
-            <span>WEB ERAS</span>
+        <!-- 數據 3: 全球活躍鏈上地址 -->
+        <div class="col-lg-3 col-sm-6 wow animate__fadeInUp" data-wow-delay="0.3s">
+          <div class="metric-hud-box">
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner bottom-right"></div>
+            <div class="hud-icon"><i class="fa-solid fa-users-rays"></i></div>
+            <div class="hud-value">
+              <span class="hud-counter" data-target="420" data-decimals="0">0</span><span class="hud-unit">M+</span>
+            </div>
+            <div class="hud-label">ACTIVE WALLETS</div>
+            <div class="hud-desc">遍布全球五大洲的獨立非託管加密錢包地址互動規模。</div>
           </div>
         </div>
 
-        <div class="col-6 col-lg-3 wow animate__fadeInUp">
-          <div class="counter-box">
-            <strong data-count="∞">∞</strong>
-            <span>WAYS TO EXPLORE</span>
+        <!-- 數據 4: 節點網絡運作率 -->
+        <div class="col-lg-3 col-sm-6 wow animate__fadeInUp" data-wow-delay="0.4s">
+          <div class="metric-hud-box highlight-hud">
+            <div class="hud-corner top-left"></div>
+            <div class="hud-corner bottom-right"></div>
+            <div class="hud-icon"><i class="fa-solid fa-satellite"></i></div>
+            <div class="hud-value">
+              <span class="hud-counter" data-target="99.99" data-decimals="2">0</span><span class="hud-unit">%</span>
+            </div>
+            <div class="hud-label">CONSENSUS UPTIME</div>
+            <div class="hud-desc">全球上萬顆驗證者節點 24/7 共同維持的無單點故障高可用率。</div>
           </div>
         </div>
-
       </div>
 
-      <div class="learning-note wow animate__fadeInUp">
-
-        <div class="quote-mark">“</div>
-
-        <p>
-          透過網站設計，我不只整理 Web3 的技術與概念，也練習如何將資訊轉化成清楚的視覺層次、互動流程與響應式體驗。
-        </p>
-
-        <span>LEARN · BUILD · ITERATE</span>
-
+      <!-- 下方開放數據詮釋區塊 -->
+      <div class="onchain-quote-card wow animate__fadeInUp" data-wow-delay="0.5s">
+        <div class="quote-glow"></div>
+        <div class="row align-items-center">
+          <div class="col-md-2 text-center">
+            <div class="quote-badge-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+          </div>
+          <div class="col-md-10">
+            <h4 class="quote-title">可驗證的信任：無須許可的開放鏈上資料庫</h4>
+            <p class="quote-text">
+              「在傳統 Web2 商業世界，數據是封閉在伺服器深處的商業機密；但在 Web3，每一筆轉帳、每一行合約執行、每一次治理決策均透過密碼學哈希永久向全世界開放審計。這不是承諾，而是數學的必然。」
+            </p>
+            <div class="quote-meta">
+              <span>數據來源：Etherscan, DeFiLlama, Dune Analytics 鏈上實時結算</span>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
   </section>
 
 
   <!-- =====================================================
-       s13 Future
+       s13 未來願景 (Web3 Future Horizons)
   ====================================================== -->
-  <section id="s13" class="section future-section">
-
-    <div class="future-stars"></div>
-
-    <div class="container position-relative">
-
-      <div class="section-heading wow animate__fadeInUp">
-
-        <span class="section-index">11 / WHAT'S NEXT</span>
-
-        <h2>
-          下一個網路，<span class="gradient-text">正在形成</span>
-        </h2>
-
-        <p>
-          Web3 仍在發展，技術成熟度、使用體驗與治理方式都需要持續探索。
-        </p>
-
-      </div>
-
-      <div class="future-grid">
-
-        <article class="future-card wow animate__fadeInUp">
-          <div class="future-icon">
-            <i class="fa-solid fa-bolt"></i>
-          </div>
-          <span>SCALABILITY</span>
-          <h3>更順暢的體驗</h3>
-          <p>研究 Layer 2、跨鏈與其他擴展方案，改善速度、成本與可用性。</p>
-        </article>
-
-        <article class="future-card wow animate__fadeInUp">
-          <div class="future-icon">
-            <i class="fa-solid fa-user-shield"></i>
-          </div>
-          <span>PRIVACY</span>
-          <h3>更好的數位自主</h3>
-          <p>探索隱私保護、身份管理與使用者授權的新工具。</p>
-        </article>
-
-        <article class="future-card wow animate__fadeInUp">
-          <div class="future-icon">
-            <i class="fa-solid fa-puzzle-piece"></i>
-          </div>
-          <span>INTEROPERABILITY</span>
-          <h3>互通的開放生態</h3>
-          <p>讓不同協議、應用與數位服務能更容易協作與組合。</p>
-        </article>
-
-      </div>
-
-      <div class="future-cta wow animate__fadeInUp">
-
-        <p>
-          THE FUTURE IS NOT A PLACE.<br>
-          <strong>IT'S A PROTOCOL WE BUILD TOGETHER.</strong>
-        </p>
-
-        <a href="#s14" class="btn-neon">
-          加入對話
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       s14 Contact / Footer
-  ====================================================== -->
-  <section id="s14" class="section section-dark contact-section">
-
+  <section id="s13" class="section section-dark s13-vision-section">
     <div class="container">
-
       <div class="section-heading wow animate__fadeInUp">
-
-        <span class="section-index">12 / CONNECT</span>
-
-        <h2>
-          讓我們一起<span class="gradient-text">探索 Web3</span>
-        </h2>
-
-        <p>
-          留下你的想法，分享對去中心化網路、數位身份或網站設計的看法。
-        </p>
-
+        <h2>下一代網路的<span class="gradient-text">前沿演進方向</span></h2>
+        <p>跨鏈抽象化、去中心化人工智慧與完全隱私保護的融合大未來。</p>
       </div>
 
-      <div class="row justify-content-center">
+      <div class="row g-4">
+        <!-- 願景 1 -->
+        <div class="col-lg-4 wow animate__fadeInUp" data-wow-delay="0.1s">
+          <div class="vision-card">
+            <div class="vision-num">01</div>
+            <div class="vision-icon"><i class="fa-solid fa-brain"></i></div>
+            <h4>去中心化 AI (DePIN & DeAI)</h4>
+            <p>告別少數寡頭對算力與模型權重的壟斷。透過分散式 GPU 算力網絡與鏈上獎勵機制，實現真正開源、抗審查的大型模型訓練與推理。</p>
+            <div class="vision-pill-highlight">
+              <i class="fa-solid fa-bolt"></i> 算力民主化
+            </div>
+          </div>
+        </div>
 
-        <div class="col-lg-8 wow animate__fadeInUp">
+        <!-- 願景 2 -->
+        <div class="col-lg-4 wow animate__fadeInUp" data-wow-delay="0.2s">
+          <div class="vision-card">
+            <div class="vision-num">02</div>
+            <div class="vision-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h4>鏈抽象與意圖架構 (Chain Abstraction)</h4>
+            <p>未來的用戶無需知道什麼是 Gas 費、跨鏈橋或 RPC 節點。用戶只需提出「意圖 (Intent)」，由底層自動求解器秒級撮合多鏈最佳路徑。</p>
+            <div class="vision-pill-highlight">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> 無感互動體驗
+            </div>
+          </div>
+        </div>
 
-          <form id="web3Form" class="contact-panel" novalidate>
+        <!-- 願景 3 -->
+        <div class="col-lg-4 wow animate__fadeInUp" data-wow-delay="0.3s">
+          <div class="vision-card">
+            <div class="vision-num">03</div>
+            <div class="vision-icon"><i class="fa-solid fa-universal-access"></i></div>
+            <h4>現實世界資產代幣化 (RWA)</h4>
+            <p>從國債、房地產到綠能碳權，萬億美元規模的實體資產將搬上區塊鏈，提供全球化、無國界的 24/7 流動性與即時清算。</p>
+            <div class="vision-pill-highlight">
+              <i class="fa-solid fa-gem"></i> 實體與鏈上交融
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="row g-3">
+
+  <!-- =====================================================
+       s14 終端通訊與頁尾 (Contact Terminal & Footer)
+  ====================================================== -->
+  <section id="s14" class="section section-dark contact-section s14-terminal-section">
+    <div class="container">
+      <div class="section-heading wow animate__fadeInUp">
+        <h2>啟動 Web3 <span class="gradient-text">節點連線通訊</span></h2>
+        <p>準備好參與下一代數位文明的建構了嗎？向我們的節點發送加密訊號。</p>
+      </div>
+
+      <!-- 精緻賽博終端機風格聯絡框 -->
+      <div class="terminal-window-wrapper wow animate__fadeInUp" data-wow-delay="0.2s">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="t-dot t-red" title="關閉"></span>
+            <span class="t-dot t-yellow" title="縮小"></span>
+            <span class="t-dot t-green" title="全螢幕"></span>
+          </div>
+          <div class="terminal-title"><i class="fa-solid fa-terminal"></i> p2p-gateway@node-v3.0 &mdash; tls:v1.3</div>
+          <div class="terminal-status"><span class="terminal-status-dot"></span> ENCRYPTED ONLINE</div>
+        </div>
+
+        <div class="terminal-body">
+          <div class="terminal-intro-line">
+            <span class="term-prompt">root@node-gateway:~$</span> ./handshake_session --cipher=AES-256-GCM
+            --protocol=QUIC
+          </div>
+          <div class="terminal-msg">
+            <i class="fa-solid fa-shield-halved text-cyan"></i> [SYS_CONNECT] 節點通道已就緒，所有通訊經端對端加密。請填入通訊封包資料：
+          </div>
+
+          <form id="web3Form" class="contact-form terminal-form" novalidate>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="web3Name" class="form-label">
+                    <span class="term-prefix">&gt;</span> 探索者代號 / 錢包 ENS <span class="required">*</span>
+                  </label>
+                  <div class="input-glow-wrapper">
+                    <i class="fa-regular fa-user input-icon"></i>
+                    <input type="text" id="web3Name" class="form-control terminal-input"
+                      placeholder="例如：vitalik.eth 或 Alex" required>
+                  </div>
+                </div>
+              </div>
 
               <div class="col-md-6">
-                <label for="web3Name">姓名</label>
-                <input id="web3Name" class="form-control" placeholder="你的名稱" required>
-              </div>
-
-              <div class="col-md-6">
-                <label for="web3Email">Email</label>
-                <input id="web3Email" type="email" class="form-control" placeholder="name@example.com" required>
-              </div>
-
-              <div class="col-12">
-                <label for="web3Topic">想討論的主題</label>
-                <select id="web3Topic" class="form-select" required>
-                  <option value="">選擇一個主題</option>
-                  <option>Blockchain</option>
-                  <option>DeFi</option>
-                  <option>Digital Identity</option>
-                  <option>DAO</option>
-                  <option>Web3 Design</option>
-                  <option>Other</option>
-                </select>
+                <div class="form-group">
+                  <label for="web3Email" class="form-label">
+                    <span class="term-prefix">&gt;</span> 通訊電子信箱 (用於接收回執) <span class="required">*</span>
+                  </label>
+                  <div class="input-glow-wrapper">
+                    <i class="fa-regular fa-envelope input-icon"></i>
+                    <input type="email" id="web3Email" class="form-control terminal-input" placeholder="user@domain.com"
+                      required>
+                  </div>
+                </div>
               </div>
 
               <div class="col-12">
-                <label for="web3Message">訊息</label>
-                <textarea id="web3Message" class="form-control" rows="5" placeholder="寫下你的想法……" required></textarea>
+                <div class="form-group">
+                  <label for="web3Topic" class="form-label">
+                    <span class="term-prefix">&gt;</span> 預計探討的主題領域 <span class="required">*</span>
+                  </label>
+                  <div class="input-glow-wrapper">
+                    <i class="fa-solid fa-layer-group input-icon"></i>
+                    <select id="web3Topic" class="form-select terminal-input" required>
+                      <option value="" disabled selected>請選擇感興趣的 Web3 技術領域...</option>
+                      <option value="defi">DeFi 金融協議與流動性創新</option>
+                      <option value="did">DID 數位身分與隱私計算技術</option>
+                      <option value="dao">DAO 組織治理與代幣經濟學</option>
+                      <option value="zk">ZK 零知識證明與 Layer2 擴容</option>
+                      <option value="other">其他合作或開源貢獻提案</option>
+                    </select>
+                  </div>
+                </div>
               </div>
 
               <div class="col-12">
-                <div class="form-check">
-                  <input id="web3Agree" class="form-check-input" type="checkbox" required>
+                <div class="form-group">
+                  <label for="web3Message" class="form-label">
+                    <span class="term-prefix">&gt;</span> 封包備忘錄內容 (Message Payload) <span class="required">*</span>
+                  </label>
+                  <div class="input-glow-wrapper">
+                    <textarea id="web3Message" class="form-control terminal-input terminal-textarea" rows="4"
+                      placeholder="請簡要敘述您的想法、專案需求或想討論的技術議題..." required></textarea>
+                  </div>
+                </div>
+              </div>
 
-                  <label class="form-check-label" for="web3Agree">
-                    我確認以上內容並同意送出。
+              <div class="col-12">
+                <div class="terminal-check-box">
+                  <input type="checkbox" id="web3Agree" class="form-check-input terminal-checkbox" required>
+                  <label for="web3Agree" class="terminal-check-label">
+                    我已理解這是一個純前端展示之 Web3 展示系統，確認傳送加密通訊封包。
                   </label>
                 </div>
               </div>
 
               <div class="col-12">
-
-                <button class="btn-neon" type="submit">
-                  送出訊息
-                  <i class="fa-solid fa-paper-plane"></i>
-                </button>
-
-                <div id="web3Feedback" role="status" aria-live="polite">
-                </div>
-
+                <div id="web3Feedback" class="form-feedback" aria-live="polite"></div>
               </div>
 
+              <div class="col-12 text-center pt-2">
+                <button type="submit" class="btn btn-transmit-packet">
+                  <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> 廣播通訊封包 (TRANSMIT PACKET)</span>
+                  <div class="btn-glow-pulse"></div>
+                </button>
+              </div>
             </div>
-
           </form>
-
         </div>
-
       </div>
 
+      <!-- 頂級全景賽博科技頁尾 -->
+      <footer class="site-footer-modern">
+        <div class="footer-glow-line"></div>
 
-      <!-- Footer -->
-      <footer class="site-footer">
+        <div class="footer-top-grid">
+          <!-- 品牌與願景簡介 -->
+          <div class="footer-brand-col">
+            <div class="footer-brand-header">
+              <span class="footer-logo-box">
+                <i class="fa-solid fa-cubes-stacked"></i>
+              </span>
+              <span class="footer-logo-title">WEB<span class="gradient-text">3</span>.PORTAL</span>
+            </div>
+            <p class="footer-brand-desc">
+              探索去中心化價值互聯網的前沿架構。以密碼學、自主主權數位身分與開源智能合約重塑網路協作新秩序。
+            </p>
 
-        <div class="footer-brand">
+            <div class="footer-network-status">
+              <span class="status-indicator"><span class="pulse-green"></span> MAINNET ONLINE</span>
+              <span class="status-divider">|</span>
+              <span class="status-block">BLOCK #19827409</span>
+            </div>
 
-          <span class="brand-icon">
-            <i class="fa-solid fa-cubes-stacked"></i>
-          </span>
+            <!-- 社群與資源生態連結 -->
+            <div class="footer-social-row">
+              <a href="https://ethereum.org/" target="_blank" rel="noopener noreferrer" class="social-btn"
+                title="Ethereum 基金會">
+                <i class="fa-brands fa-ethereum"></i>
+              </a>
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="social-btn"
+                title="開源 GitHub 代碼庫">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-btn"
+                title="X (Twitter) 社群">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="https://discord.com/" target="_blank" rel="noopener noreferrer" class="social-btn"
+                title="Discord 交流群">
+                <i class="fa-brands fa-discord"></i>
+              </a>
+              <a href="https://ipfs.tech/" target="_blank" rel="noopener noreferrer" class="social-btn"
+                title="IPFS 點對點網絡">
+                <i class="fa-solid fa-cube"></i>
+              </a>
+            </div>
+          </div>
 
-          WEB<span class="gradient-text">3</span>
+          <!-- 分類導航欄 1：核心技術 -->
+          <div class="footer-nav-col">
+            <h5 class="footer-col-title"><i class="fa-solid fa-microchip text-cyan"></i> 核心與技術</h5>
+            <ul class="footer-nav-list">
+              <li><a href="#s03"><i class="fa-solid fa-angle-right"></i> 03 三大範式轉移</a></li>
+              <li><a href="#s04"><i class="fa-solid fa-angle-right"></i> 04 底層技術架構</a></li>
+              <li><a href="#s05"><i class="fa-solid fa-angle-right"></i> 05 網絡架構對比</a></li>
+            </ul>
+          </div>
 
+          <!-- 分類導航欄 2：生態與應用 -->
+          <div class="footer-nav-col">
+            <h5 class="footer-col-title"><i class="fa-solid fa-layer-group text-purple"></i> 生態與實踐</h5>
+            <ul class="footer-nav-list">
+              <li><a href="#s06"><i class="fa-solid fa-angle-right"></i> 06 歷史演進時序</a></li>
+              <li><a href="#s07"><i class="fa-solid fa-angle-right"></i> 07 全景生態矩陣</a></li>
+              <li><a href="#s08"><i class="fa-solid fa-angle-right"></i> 08 旗艦 DApp 應用</a></li>
+              <li><a href="#s09"><i class="fa-solid fa-angle-right"></i> 09 DID 數位通行證</a></li>
+              <li><a href="#s10"><i class="fa-solid fa-angle-right"></i> 10 自託管安全守則</a></li>
+            </ul>
+          </div>
+
+          <!-- 分類導航欄 3：治理與數據 -->
+          <div class="footer-nav-col">
+            <h5 class="footer-col-title"><i class="fa-solid fa-chart-line text-green"></i> 數據與治理</h5>
+            <ul class="footer-nav-list">
+              <li><a href="#s11"><i class="fa-solid fa-angle-right"></i> 11 DAO 社群治理</a></li>
+              <li><a href="#s12"><i class="fa-solid fa-angle-right"></i> 12 全球鏈上數據</a></li>
+              <li><a href="#s13"><i class="fa-solid fa-angle-right"></i> 13 下一代前沿願景</a></li>
+              <li><a href="#s14" class="highlight-link"><i class="fa-solid fa-terminal"></i> 14 節點通訊連線</a></li>
+            </ul>
+          </div>
         </div>
 
-        <p>DECENTRALIZED DIGITAL UNIVERSE</p>
+        <!-- 底部版權與密碼學保證 -->
+        <div class="footer-bottom-bar">
+          <div class="footer-copyright">
+            <span>&copy; 2026 WEB3 PORTAL. 全站開源展示架構，嚴格遵守密碼學自由原則。</span>
+          </div>
 
-        <div class="footer-links">
-          <a href="#s02">首頁</a>
-          <a href="#s03">概念</a>
-          <a href="#s07">生態</a>
-          <a href="#s13">未來</a>
+          <div class="footer-badges">
+            <span class="badge-item"><i class="fa-solid fa-shield-halved text-cyan"></i> END-TO-END TLS 1.3</span>
+            <span class="badge-item"><i class="fa-solid fa-lock text-green"></i> ZERO-KNOWLEDGE READY</span>
+            <span class="badge-item"><i class="fa-solid fa-code text-purple"></i> 100% OPEN SOURCE</span>
+          </div>
         </div>
-
-        <small>
-          © 2026 WEB3 DIGITAL REVOLUTION · EDUCATIONAL PROJECT
-        </small>
-
       </footer>
-
     </div>
-
   </section>
 
 
@@ -1329,22 +1717,35 @@
   <script>
 
     // =====================================================
-    // 01. Intro 開場動畫
+    // 01. Intro 開場動畫控制（統一計時與重播邏輯）
     // =====================================================
 
     const intro = document.getElementById('intro');
+    const INTRO_DURATION = 1650;
+    const INTRO_SEEN_KEY = 'web3_intro_seen';
 
-    window.addEventListener('load', () => {
-
+    const hideIntro = (immediate = false) => {
+      if (!intro) return;
+      if (immediate) {
+        intro.classList.add('intro-out');
+        return;
+      }
       setTimeout(() => {
         intro.classList.add('intro-out');
-      }, 1650);
+      }, INTRO_DURATION);
+    };
 
-    });
+    // 同一工作階段（Session）已看過開場動畫時自動跳過，避免開發熱重載或手勢誤觸時干擾
+    if (sessionStorage.getItem(INTRO_SEEN_KEY)) {
+      if (intro) intro.classList.add('intro-out');
+    } else {
+      sessionStorage.setItem(INTRO_SEEN_KEY, 'true');
+      window.addEventListener('load', () => hideIntro(false));
+    }
 
 
     // =====================================================
-    // 02. Logo 點擊後重新播放開場動畫
+    // 02. Logo 點擊後平滑回頂部並重新播放開場動畫
     // =====================================================
 
     const logoHome = document.getElementById('logoHome');
@@ -1360,11 +1761,10 @@
           behavior: 'smooth'
         });
 
-        intro.classList.remove('intro-out');
-
-        setTimeout(() => {
-          intro.classList.add('intro-out');
-        }, 1650);
+        if (intro) {
+          intro.classList.remove('intro-out');
+          hideIntro(false);
+        }
 
       });
 
@@ -1407,8 +1807,8 @@
 
       }
 
-      // Hero 視差效果
-      if (heroVisual) {
+      // Hero 視差效果（超出首頁可視範圍時停止計算以維持流暢）
+      if (heroVisual && scrollY < window.innerHeight * 1.5) {
 
         heroVisual.style.transform =
           `translate3d(0, ${scrollY * 0.22}px, 0) scale(1.08)`;
@@ -1419,19 +1819,22 @@
 
 
     // =====================================================
-    // 05. 滑鼠跟隨光暈
+    // 05. 滑鼠跟隨光暈 (GPU 硬體加速 + requestAnimationFrame 節流優化)
     // =====================================================
 
+    let glowX = 0, glowY = 0, glowTicking = false;
     window.addEventListener('pointermove', e => {
+      glowX = e.clientX;
+      glowY = e.clientY;
 
-      if (glow) {
-
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-
+      if (!glowTicking && glow) {
+        requestAnimationFrame(() => {
+          glow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
+          glowTicking = false;
+        });
+        glowTicking = true;
       }
-
-    });
+    }, { passive: true });
 
 
     // =====================================================
@@ -1470,7 +1873,7 @@
 
 
     // =====================================================
-    // S03. 固定畫面逐張切換：一格滾輪切換一張卡片
+    // 08. S03 固定畫面 3D 景深卡牌堆疊推進
     // =====================================================
 
     const s03 = document.getElementById('s03');
@@ -1482,82 +1885,82 @@
       gsap.registerPlugin(ScrollTrigger);
       s03.classList.add('s03-scroll-enhanced');
 
-      gsap.set(s03Cards, { autoAlpha: 0, pointerEvents: 'none' });
-      gsap.set(s03Cards[0], { autoAlpha: 1, pointerEvents: 'auto' });
+      // 初始堆疊狀態：第 1 張正常顯示在最上層；第 2、3 張在下方帶微傾斜等待推入
+      gsap.set(s03Cards[0], {
+        scale: 1,
+        yPercent: 0,
+        autoAlpha: 1,
+        rotateX: 0,
+        pointerEvents: 'auto'
+      });
+      gsap.set(s03Cards[1], {
+        scale: 0.94,
+        yPercent: 110,
+        autoAlpha: 0,
+        rotateX: 6,
+        pointerEvents: 'none'
+      });
+      gsap.set(s03Cards[2], {
+        scale: 0.94,
+        yPercent: 110,
+        autoAlpha: 0,
+        rotateX: 6,
+        pointerEvents: 'none'
+      });
 
       const story = gsap.timeline({
-        defaults: { ease: 'none' },
+        defaults: { ease: 'power1.inOut' },
         scrollTrigger: {
           trigger: s03,
           pin: s03Pin,
           pinSpacing: true,
           start: 'top top',
-          // 兩段等長距離：第一段顯示第 2 張，第二段顯示第 3 張。
-          end: () => `+=${Math.round(window.innerHeight * 2)}`,
-          scrub: true,
+          end: () => `+=${Math.round(window.innerHeight * 1.6)}`,
+          scrub: 0.8,
           anticipatePin: 1,
           invalidateOnRefresh: true
         }
       });
 
-      // 每次切換只用短淡化，並保留第 3 張完整顯示的停留區間。
+      // 階段一：第 1 張後縮微淡，第 2 張平滑 3D 覆蓋推入 (無停滯死區)
       story
-        .to(s03Cards[0], { autoAlpha: 0, duration: 0.15, pointerEvents: 'none' }, 0.70)
-        .fromTo(s03Cards[1],
-          { autoAlpha: 0, pointerEvents: 'none' },
-          { autoAlpha: 1, duration: 0.15, pointerEvents: 'auto' }, 0.70)
-        .to(s03Cards[1], { autoAlpha: 0, duration: 0.15, pointerEvents: 'none' }, 1.65)
-        .fromTo(s03Cards[2],
-          { autoAlpha: 0, pointerEvents: 'none' },
-          { autoAlpha: 1, duration: 0.15, pointerEvents: 'auto' }, 1.65)
-        .to({}, { duration: 0.20 });
-
-      // 滑鼠滾輪：每個有效手勢只切換一張，並用 GSAP 平滑移動捲動位置。
-      // 第 1 張往上、或第 3 張往下時，平滑離開固定區。
-      let s03WheelLocked = false;
-
-      window.addEventListener('wheel', (event) => {
-        const trigger = story.scrollTrigger;
-        if (!trigger || !trigger.isActive || Math.abs(event.deltaY) < 2) return;
-
-        if (s03WheelLocked) {
-          event.preventDefault();
-          return;
-        }
-
-        // 依實際淡化區間判斷目前卡片，避免用平均分段造成索引提前跳動。
-        const currentIndex = trigger.progress < 0.42 ? 0 : trigger.progress < 0.90 ? 1 : 2;
-        const nextIndex = currentIndex + (event.deltaY > 0 ? 1 : -1);
-
-        event.preventDefault();
-        s03WheelLocked = true;
-
-        const stopProgress = [0.02, 0.60, 0.96];
-        const targetY = nextIndex < 0
-          ? trigger.start - 2
-          : nextIndex > 2
-            ? trigger.end + 2
-            : trigger.start + stopProgress[nextIndex] * (trigger.end - trigger.start);
-
-        // 暫時關閉 CSS smooth scroll，避免它和 GSAP 的補間動畫互相疊加。
-        const root = document.documentElement;
-        const previousScrollBehavior = root.style.scrollBehavior;
-        root.style.scrollBehavior = 'auto';
-
-        const scrollState = { y: window.scrollY };
-
-        gsap.to(scrollState, {
-          y: targetY,
-          duration: 0.58,
-          ease: 'power2.out',
-          overwrite: true,
-          onUpdate: () => window.scrollTo(0, scrollState.y),
-          onComplete: () => {
-            root.style.scrollBehavior = previousScrollBehavior;
-            s03WheelLocked = false;
-          }
-        });
-      }, { passive: false });
+        .to(s03Cards[0], {
+          scale: 0.92,
+          yPercent: -3,
+          autoAlpha: 0.4,
+          duration: 1,
+          pointerEvents: 'none'
+        }, 0)
+        .to(s03Cards[1], {
+          scale: 1,
+          yPercent: 0,
+          autoAlpha: 1,
+          rotateX: 0,
+          duration: 1,
+          pointerEvents: 'auto'
+        }, 0)
+        // 階段二：第 1 張退至更深處，第 2 張後縮，第 3 張無縫推入覆蓋
+        .to(s03Cards[0], {
+          scale: 0.85,
+          yPercent: -6,
+          autoAlpha: 0.15,
+          duration: 1
+        }, 1)
+        .to(s03Cards[1], {
+          scale: 0.92,
+          yPercent: -3,
+          autoAlpha: 0.4,
+          duration: 1,
+          pointerEvents: 'none'
+        }, 1)
+        .to(s03Cards[2], {
+          scale: 1,
+          yPercent: 0,
+          autoAlpha: 1,
+          rotateX: 0,
+          duration: 1,
+          pointerEvents: 'auto'
+        }, 1);
 
       window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
       if (document.fonts?.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
@@ -1567,49 +1970,290 @@
     }
 
     // =====================================================
-    // 07. S04 技術列表與環繞 Label 連動
+    // 09. S04 全像能量反應爐與技術聚焦連動
     // =====================================================
 
     const s04 = document.getElementById('s04');
 
     if (s04) {
-      const stackRows = s04.querySelectorAll('.stack-row');
-      const stackTracks = {
-        chain: s04.querySelector('.track-chain'),
-        contract: s04.querySelector('.track-contract'),
-        wallet: s04.querySelector('.track-wallet')
+      const container = document.getElementById('reactorContainer');
+      const core = document.getElementById('reactorCore');
+      const icon = document.getElementById('reactorIcon');
+      const label = document.getElementById('reactorLabel');
+      const pulse = document.getElementById('reactorPulse');
+      const glow = document.getElementById('reactorGlow');
+      const nodes = Array.from(s04.querySelectorAll('.reactor-node'));
+      const rows = Array.from(s04.querySelectorAll('.stack-row'));
+
+      const TECH_DATA = [
+        {
+          name: 'Blockchain',
+          label: 'BLOCKCHAIN<br>CORE',
+          icon: 'fa-cube',
+          color: '#00d9ff',
+          shadow: 'rgba(0, 217, 255, 0.6)'
+        },
+        {
+          name: 'Smart Contracts',
+          label: 'SMART<br>CONTRACTS',
+          icon: 'fa-file-code',
+          color: '#c084fc',
+          shadow: 'rgba(192, 132, 252, 0.6)'
+        },
+        {
+          name: 'Cryptography',
+          label: 'CRYPTO<br>SECURITY',
+          icon: 'fa-shield-halved',
+          color: '#00ffa3',
+          shadow: 'rgba(0, 255, 163, 0.6)'
+        },
+        {
+          name: 'Wallet & Protocol',
+          label: 'WALLET &<br>PROTOCOL',
+          icon: 'fa-wallet',
+          color: '#d5ff36',
+          shadow: 'rgba(213, 255, 54, 0.6)'
+        }
+      ];
+
+      const DEFAULT_STATE = {
+        label: 'WEB3<br>STACK',
+        icon: 'fa-layer-group',
+        color: '#00d9ff',
+        shadow: 'rgba(0, 217, 255, 0.35)'
       };
-      // 四個技術項目對應三個環繞標籤；密碼學與錢包的密鑰／簽章技術相關。
-      const labelMap = ['chain', 'contract', 'wallet', 'wallet'];
 
-      const activateStackLabel = row => {
-        const index = Array.from(stackRows).indexOf(row);
-        const target = stackTracks[labelMap[index]];
+      const triggerShockwave = (color) => {
+        if (!pulse) return;
+        pulse.style.borderColor = color;
+        pulse.classList.remove('pulse-active');
+        void pulse.offsetWidth; // 強制重繪以重啟動畫
+        pulse.classList.add('pulse-active');
+      };
 
-        Object.values(stackTracks).forEach(track => {
-          if (track) track.classList.toggle('is-active', track === target);
+      const activateTech = (index) => {
+        const data = TECH_DATA[index];
+        if (!data) return;
+
+        container?.classList.add('reactor-focused');
+
+        // 觸發衝擊光環
+        triggerShockwave(data.color);
+
+        // 切換中心核心圖示與文字
+        if (icon) {
+          icon.style.transform = 'scale(0.6) rotate(-15deg)';
+          icon.style.opacity = '0';
+          setTimeout(() => {
+            icon.className = `fa-solid ${data.icon}`;
+            icon.style.color = data.color;
+            icon.style.transform = 'scale(1) rotate(0deg)';
+            icon.style.opacity = '1';
+          }, 150);
+        }
+
+        if (label) {
+          label.innerHTML = data.label;
+        }
+
+        if (core) {
+          core.style.borderColor = data.color;
+          core.style.boxShadow = `0 0 38px ${data.shadow}, inset 0 0 25px ${data.shadow}`;
+        }
+
+        if (glow) {
+          glow.style.background = `radial-gradient(circle, ${data.shadow}, transparent 70%)`;
+        }
+
+        // 高亮衛星節點與技術清單
+        nodes.forEach((node) => {
+          const nIdx = Number(node.dataset.index);
+          node.classList.toggle('is-active', nIdx === index);
+        });
+
+        rows.forEach((row, rIdx) => {
+          row.classList.toggle('is-active', rIdx === index);
+          if (rIdx === index) {
+            row.style.setProperty('--tech-color', data.color);
+          } else {
+            row.style.removeProperty('--tech-color');
+          }
         });
       };
 
-      const resetStackLabels = () => {
-        Object.values(stackTracks).forEach(track => {
-          if (track) track.classList.remove('is-active');
+      const resetTech = () => {
+        container?.classList.remove('reactor-focused');
+
+        if (icon) {
+          icon.style.transform = 'scale(0.6)';
+          icon.style.opacity = '0';
+          setTimeout(() => {
+            icon.className = `fa-solid ${DEFAULT_STATE.icon}`;
+            icon.style.color = DEFAULT_STATE.color;
+            icon.style.transform = 'scale(1)';
+            icon.style.opacity = '1';
+          }, 150);
+        }
+
+        if (label) {
+          label.innerHTML = DEFAULT_STATE.label;
+        }
+
+        if (core) {
+          core.style.borderColor = 'rgba(0, 217, 255, 0.5)';
+          core.style.boxShadow = `0 0 35px ${DEFAULT_STATE.shadow}, inset 0 0 20px rgba(139, 92, 246, 0.3)`;
+        }
+
+        if (glow) {
+          glow.style.background = 'radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent 70%)';
+        }
+
+        nodes.forEach(node => node.classList.remove('is-active'));
+        rows.forEach(row => {
+          row.classList.remove('is-active');
+          row.style.removeProperty('--tech-color');
         });
       };
 
-      stackRows.forEach(row => {
-        row.addEventListener('mouseenter', () => activateStackLabel(row));
-        row.addEventListener('mouseleave', resetStackLabels);
-        row.addEventListener('focusin', () => activateStackLabel(row));
-        row.addEventListener('focusout', event => {
-          if (!row.contains(event.relatedTarget)) resetStackLabels();
+      // 右側技術清單懸停/焦點事件
+      rows.forEach((row, idx) => {
+        row.addEventListener('mouseenter', () => activateTech(idx));
+        row.addEventListener('mouseleave', resetTech);
+        row.addEventListener('focusin', () => activateTech(idx));
+        row.addEventListener('focusout', (event) => {
+          if (!row.contains(event.relatedTarget)) resetTech();
         });
+      });
+
+      // 左側反應爐衛星節點懸停事件
+      nodes.forEach((node) => {
+        const nIdx = Number(node.dataset.index);
+        node.addEventListener('mouseenter', () => activateTech(nIdx));
+        node.addEventListener('mouseleave', resetTech);
       });
     }
 
 
     // =====================================================
-    // 08. WOW.js 區塊進場動畫
+    // 10. S05 去中心化 vs 中心化 架構對比切換器
+    // =====================================================
+
+    const s05 = document.getElementById('s05');
+
+    if (s05) {
+      const stage = document.getElementById('paradigmStage');
+      const btnDecentralized = document.getElementById('btnModeDecentralized');
+      const btnCentralized = document.getElementById('btnModeCentralized');
+      const badgeText = document.querySelector('#paradigmBadge .badge-text');
+      const centerText = document.getElementById('centerText');
+      const alertBox = document.getElementById('paradigmAlert');
+      const alertIcon = document.getElementById('alertIcon');
+      const alertText = document.getElementById('alertText');
+      const metricArch = document.getElementById('metricArch');
+      const metricRisk = document.getElementById('metricRisk');
+      const btnSimulate = document.getElementById('btnSimulate');
+      const btnSimulateText = document.getElementById('btnSimulateText');
+      const peripheralNodes = Array.from(s05.querySelectorAll('.p-node'));
+
+      let currentMode = 'decentralized';
+      let isSimulating = false;
+      let simulateTimer = null;
+
+      const resetSimulation = () => {
+        isSimulating = false;
+        clearTimeout(simulateTimer);
+        stage?.classList.remove('is-crashed');
+        peripheralNodes.forEach(node => node.classList.remove('node-offline'));
+
+        if (currentMode === 'decentralized') {
+          if (centerText) centerText.textContent = 'WEB3';
+          if (alertBox) alertBox.className = 'paradigm-alert';
+          if (alertIcon) alertIcon.className = 'fa-solid fa-shield-halved';
+          if (alertText) alertText.textContent = '去中心化網絡：多節點共識驗證，無單點崩潰風險';
+          if (btnSimulateText) btnSimulateText.textContent = '模擬節點失效 (測試容錯)';
+          if (metricRisk) metricRisk.textContent = '極低 (99.9% 容錯)';
+        } else {
+          if (centerText) centerText.textContent = 'SERVER';
+          if (alertBox) alertBox.className = 'paradigm-alert';
+          if (alertIcon) alertIcon.className = 'fa-solid fa-triangle-exclamation';
+          if (alertText) alertText.textContent = '中心化架構：所有客戶端皆依賴單一中央伺服器與資料庫';
+          if (btnSimulateText) btnSimulateText.textContent = '模擬伺服器當機 (測試單點故障)';
+          if (metricRisk) metricRisk.textContent = '極高 (單點脆弱性)';
+        }
+      };
+
+      const setMode = (mode) => {
+        currentMode = mode;
+        stage?.setAttribute('data-mode', mode);
+        resetSimulation();
+
+        if (mode === 'decentralized') {
+          btnDecentralized?.classList.add('active');
+          btnCentralized?.classList.remove('active');
+          if (badgeText) badgeText.textContent = 'P2P 網狀拓撲';
+          if (centerText) centerText.textContent = 'WEB3';
+          if (metricArch) metricArch.textContent = '分散式共識 (P2P)';
+          if (metricRisk) metricRisk.textContent = '極低 (99.9% 容錯)';
+          if (btnSimulateText) btnSimulateText.textContent = '模擬節點失效 (測試容錯)';
+          if (alertBox) alertBox.className = 'paradigm-alert';
+          if (alertIcon) alertIcon.className = 'fa-solid fa-shield-halved';
+          if (alertText) alertText.textContent = '去中心化網絡：多節點共識驗證，無單點崩潰風險';
+        } else {
+          btnCentralized?.classList.add('active');
+          btnDecentralized?.classList.remove('active');
+          if (badgeText) badgeText.textContent = '單點控制伺服器';
+          if (centerText) centerText.textContent = 'SERVER';
+          if (metricArch) metricArch.textContent = '中央雲端伺服器';
+          if (metricRisk) metricRisk.textContent = '極高 (單點脆弱性)';
+          if (btnSimulateText) btnSimulateText.textContent = '模擬伺服器當機 (測試單點故障)';
+          if (alertBox) alertBox.className = 'paradigm-alert';
+          if (alertIcon) alertIcon.className = 'fa-solid fa-triangle-exclamation';
+          if (alertText) alertText.textContent = '中心化架構：所有客戶端皆依賴單一中央伺服器與資料庫';
+        }
+      };
+
+      btnDecentralized?.addEventListener('click', () => setMode('decentralized'));
+      btnCentralized?.addEventListener('click', () => setMode('centralized'));
+
+      // 模擬動作觸發
+      btnSimulate?.addEventListener('click', () => {
+        if (isSimulating) {
+          resetSimulation();
+          return;
+        }
+
+        isSimulating = true;
+
+        if (currentMode === 'decentralized') {
+          // 模擬隨機 2 個節點離線
+          const offlineNodes = [peripheralNodes[1], peripheralNodes[4]];
+          offlineNodes.forEach(node => node?.classList.add('node-offline'));
+
+          if (alertBox) alertBox.className = 'paradigm-alert alert-success';
+          if (alertIcon) alertIcon.className = 'fa-solid fa-circle-check';
+          if (alertText) alertText.textContent = '✔ 容錯成功！N2、N5 節點離線，其餘節點自動繞道互聯，全網持續不中斷！';
+          if (btnSimulateText) btnSimulateText.textContent = '復原所有節點';
+
+          simulateTimer = setTimeout(resetSimulation, 5500);
+        } else {
+          // 模擬中央伺服器當機
+          stage?.classList.add('is-crashed');
+          if (centerText) centerText.textContent = 'CRASH';
+
+          if (alertBox) alertBox.className = 'paradigm-alert alert-error';
+          if (alertIcon) alertIcon.className = 'fa-solid fa-triangle-exclamation';
+          if (alertText) alertText.textContent = '💥 單點故障爆發！中央伺服器癱瘓，周圍 8 個客戶端全數失聯中斷！';
+          if (metricRisk) metricRisk.textContent = '致命崩潰 (100% 癱瘓)';
+          if (btnSimulateText) btnSimulateText.textContent = '重啟中央伺服器';
+
+          simulateTimer = setTimeout(resetSimulation, 5500);
+        }
+      });
+    }
+
+
+    // =====================================================
+    // 11. WOW.js 區塊進場動畫
     // =====================================================
 
     if (typeof WOW !== 'undefined') {
@@ -1628,7 +2272,7 @@
           animation = 'animate__fadeInLeft';
         } else if (el.matches('.hero-art-wrap, #s05 .col-lg-6:last-child, #s09 .col-lg-7, .stack-row')) {
           animation = 'animate__fadeInRight';
-        } else if (el.matches('.stack-visual, .network-map, .identity-card, .dao-flow, .eco-card, .security-card')) {
+        } else if (el.matches('.stack-visual, .network-map, .paradigm-stage, .identity-card, .dao-flow, .eco-card, .security-card')) {
           animation = 'animate__zoomIn';
         }
 
@@ -1656,62 +2300,7 @@
 
 
     // =====================================================
-    // 09. 數字計數動畫
-    // =====================================================
-
-    const countObserver = new IntersectionObserver(entries => {
-
-      entries.forEach(entry => {
-
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        const el = entry.target;
-        const target = Number(el.dataset.count);
-
-        // 非數字內容不執行計數動畫
-        if (!Number.isFinite(target)) {
-
-          countObserver.unobserve(el);
-          return;
-
-        }
-
-        let n = 0;
-
-        const step = Math.max(1, Math.ceil(target / 32));
-
-        const timer = setInterval(() => {
-
-          n = Math.min(target, n + step);
-
-          el.textContent = n;
-
-          if (n >= target) {
-            clearInterval(timer);
-          }
-
-        }, 35);
-
-        countObserver.unobserve(el);
-
-      });
-
-    }, {
-      threshold: 0.6
-    });
-
-
-    document.querySelectorAll('[data-count]').forEach(el => {
-
-      countObserver.observe(el);
-
-    });
-
-
-    // =====================================================
-    // 10. 聯絡表單驗證
+    // 12. 聯絡表單驗證
     // =====================================================
 
     const web3Form = document.getElementById('web3Form');
@@ -1772,6 +2361,212 @@
 
       });
 
+    }
+
+
+    // =====================================================
+    // 桌面導覽下拉選單：滑鼠離開列表區塊後自動縮回
+    // =====================================================
+    const desktopDropdowns = document.querySelectorAll('.web3-dropdown');
+    desktopDropdowns.forEach(dropdown => {
+      const toggle = dropdown.querySelector('.dropdown-toggle');
+      const menu = dropdown.querySelector('.dropdown-menu');
+
+      const closeMenu = () => {
+        if (toggle && window.bootstrap?.Dropdown) {
+          const bsDropdown = bootstrap.Dropdown.getInstance(toggle);
+          if (bsDropdown) {
+            bsDropdown.hide();
+          }
+        }
+        toggle?.classList.remove('show');
+        toggle?.setAttribute('aria-expanded', 'false');
+        menu?.classList.remove('show');
+      };
+
+      // 滑鼠離開整個導航項目區塊（包含按鈕與展開列表）時自動縮回
+      dropdown.addEventListener('mouseleave', closeMenu);
+
+      // 點選子選項後也自動平滑收回
+      const items = dropdown.querySelectorAll('.dropdown-item');
+      items.forEach(item => {
+        item.addEventListener('click', closeMenu);
+      });
+    });
+
+
+    // =====================================================
+    // S08: DApp 分類切換器
+    // =====================================================
+    const dappTabs = document.querySelectorAll('.dapp-tab-btn');
+    const dappCols = document.querySelectorAll('.dapp-col');
+
+    dappTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        dappTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const cat = tab.getAttribute('data-category');
+
+        dappCols.forEach(col => {
+          if (cat === 'all' || col.getAttribute('data-category') === cat) {
+            col.style.display = 'block';
+            col.classList.add('animate__animated', 'animate__fadeIn');
+          } else {
+            col.style.display = 'none';
+            col.classList.remove('animate__animated', 'animate__fadeIn');
+          }
+        });
+      });
+    });
+
+    // =====================================================
+    // S09: DID 通行證多鏈切換與地址點擊複製
+    // =====================================================
+    const netPills = document.querySelectorAll('.passport-network-selector .net-pill');
+    const walletAddrSpan = document.getElementById('currentWalletAddr');
+    const copyTrigger = document.getElementById('copyAddressTrigger');
+    const copyTooltip = document.getElementById('copyTooltip');
+
+    const chainAddrs = {
+      eth: '0x71C...84bE89F4',
+      poly: '0x94A...32dC71B0',
+      arb: '0x43F...18eF66C2'
+    };
+
+    netPills.forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        e.stopPropagation();
+        netPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const chain = pill.getAttribute('data-chain');
+        if (walletAddrSpan && chainAddrs[chain]) {
+          walletAddrSpan.textContent = chainAddrs[chain];
+        }
+      });
+    });
+
+    if (copyTrigger && copyTooltip) {
+      copyTrigger.addEventListener('click', () => {
+        const fullAddr = '0x71C25e7920409A67C29323F88B67aE84bE89F4';
+        navigator.clipboard.writeText(fullAddr).then(() => {
+          copyTooltip.classList.add('show');
+          setTimeout(() => {
+            copyTooltip.classList.remove('show');
+          }, 2000);
+        }).catch(() => {
+          copyTooltip.textContent = '地址已複製！';
+          copyTooltip.classList.add('show');
+          setTimeout(() => {
+            copyTooltip.classList.remove('show');
+          }, 2000);
+        });
+      });
+    }
+
+    // =====================================================
+    // S11: DAO 治理模擬投票計算
+    // =====================================================
+    const btnVoteYes = document.getElementById('btnVoteYes');
+    const btnVoteNo = document.getElementById('btnVoteNo');
+    const voteBarFill = document.getElementById('voteBarFill');
+    const yesPercent = document.getElementById('yesPercent');
+    const noPercent = document.getElementById('noPercent');
+    const voteResultMsg = document.getElementById('voteResultMsg');
+
+    let currentYesWeight = 16099517;
+    let currentNoWeight = 2320983;
+
+    function updateVoteUI(userVote) {
+      const total = currentYesWeight + currentNoWeight;
+      const yesRatio = ((currentYesWeight / total) * 100).toFixed(1);
+      const noRatio = (100 - yesRatio).toFixed(1);
+
+      if (voteBarFill) voteBarFill.style.width = yesRatio + '%';
+      if (yesPercent) yesPercent.textContent = yesRatio + '%';
+      if (noPercent) noPercent.textContent = noRatio + '%';
+
+      if (voteResultMsg) {
+        voteResultMsg.innerHTML = `<span style="color:#00ffcc;"><i class="fa-solid fa-circle-check"></i> 您的錢包已簽名投下【${userVote}】！鏈上區塊高度 #19827361 驗證成功。</span>`;
+      }
+    }
+
+    if (btnVoteYes) {
+      btnVoteYes.addEventListener('click', () => {
+        currentYesWeight += 500000;
+        updateVoteUI('贊成');
+        btnVoteYes.disabled = true;
+        btnVoteNo.disabled = true;
+      });
+    }
+
+    if (btnVoteNo) {
+      btnVoteNo.addEventListener('click', () => {
+        currentNoWeight += 500000;
+        updateVoteUI('反對');
+        btnVoteYes.disabled = true;
+        btnVoteNo.disabled = true;
+      });
+    }
+
+
+    // =====================================================
+    // S12: 鏈上關鍵數據跳動動畫 (Count-Up Animation - 雙重保證百分之百觸發)
+    // =====================================================
+    const hudCounters = document.querySelectorAll('.hud-counter');
+    let countersAnimated = false;
+
+    function runCountUpAnimation() {
+      if (countersAnimated) return;
+      countersAnimated = true;
+
+      hudCounters.forEach(counter => {
+        const targetVal = parseFloat(counter.getAttribute('data-target')) || 0;
+        const decimals = parseInt(counter.getAttribute('data-decimals')) || 0;
+        const startTime = performance.now();
+        const duration = 2200; // 2.2 秒平滑跳動
+
+        function stepNumber(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out expo 曲線，先快後慢極度順暢
+          const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          const currentVal = targetVal * easeProgress;
+          counter.textContent = currentVal.toFixed(decimals);
+
+          if (progress < 1) {
+            requestAnimationFrame(stepNumber);
+          } else {
+            counter.textContent = targetVal.toFixed(decimals);
+          }
+        }
+        requestAnimationFrame(stepNumber);
+      });
+    }
+
+    // 方案 A: 原生 IntersectionObserver 監聽（不受 pin 影響，只要滑到即刻觸發）
+    if ('IntersectionObserver' in window) {
+      const s12El = document.getElementById('s12');
+      if (s12El) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              runCountUpAnimation();
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.15 });
+        observer.observe(s12El);
+      }
+    }
+
+    // 方案 B: GSAP ScrollTrigger 雙重備援
+    if (window.gsap && window.ScrollTrigger) {
+      ScrollTrigger.create({
+        trigger: '#s12',
+        start: 'top 85%',
+        once: true,
+        onEnter: runCountUpAnimation
+      });
     }
 
   </script>
