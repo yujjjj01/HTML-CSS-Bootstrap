@@ -4423,7 +4423,7 @@ body:before {
 
 .hero-copy {
    position: relative;
-   left: -80px;
+   left: -60px;
 }
 
 .hero-kicker {
@@ -4978,7 +4978,7 @@ body:before {
 @media(max-width:767.98px) {
    .hero-cinematic-image {
       background-position: 58% center;
-      background-image: linear-gradient(90deg, rgba(5, 6, 9, .88), rgba(5, 6, 9, .55)), linear-gradient(0deg, #08090d, transparent 55%), url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&q=85')
+      background-image: linear-gradient(90deg, rgba(5, 6, 9, .88), rgba(5, 6, 9, .55)), linear-gradient(0deg, #08090d, transparent 55%), url('/images/web3-bg.jpg')
    }
 
    .hero-copy h1 {
@@ -6328,5 +6328,41 @@ body:before {
    .footer-bottom-bar {
       flex-direction: column;
       align-items: flex-start;
+   }
+}
+
+/* 大型桌面 */
+@media (min-width: 1400px) {
+   .hero-copy {
+      left: -48px;
+   }
+}
+
+/* 一般筆電與平板橫向 */
+@media (min-width: 768px) and (max-width: 1399.98px) {
+   .hero-copy {
+      left: 0;
+   }
+
+   .hero-copy h1 {
+      font-size: clamp(3.5rem, 6.5vw, 6rem);
+      letter-spacing: -.065em;
+   }
+}
+
+/* 手機與平板直向 */
+@media (max-width: 767.98px) {
+   .hero-copy {
+      left: 0;
+   }
+
+   .hero-copy h1 {
+      font-size: clamp(3rem, 12vw, 5rem);
+      line-height: .95;
+      letter-spacing: -.06em;
+   }
+
+   .hero-lead {
+      max-width: 100%;
    }
 }
