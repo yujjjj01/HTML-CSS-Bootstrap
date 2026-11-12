@@ -1053,3 +1053,324 @@ body {
         gap: 2px;
     }
 }
+
+
+/* =====================================================
+   ERP Product List
+   產品列表頁面專用樣式
+   Style: Soft Neutral + Blue Accent
+   與產品建檔共用 ERP-product.css
+===================================================== */
+
+
+/* =====================================================
+   01. 產品列表 Navbar
+===================================================== */
+
+.navbar.bg-body-tertiary {
+    min-height: 70px;
+    padding: 10px 0;
+    background: rgba(255, 254, 250, 0.97) !important;
+    border-bottom: 1px solid var(--erp-border);
+    box-shadow: 0 2px 10px rgba(58, 63, 68, 0.035);
+    backdrop-filter: blur(10px);
+}
+
+.navbar.bg-body-tertiary .container-fluid {
+    max-width: 1320px;
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+.navbar.bg-body-tertiary .navbar-brand {
+    color: var(--erp-heading);
+    font-size: 19px;
+    font-weight: 750;
+    letter-spacing: 0.2px;
+    transition: color 0.2s ease;
+}
+
+.navbar.bg-body-tertiary .navbar-brand:hover {
+    color: var(--erp-primary);
+}
+
+.navbar.bg-body-tertiary .navbar-nav {
+    gap: 5px;
+}
+
+.navbar.bg-body-tertiary .nav-link {
+    padding: 9px 14px !important;
+    border-radius: 7px;
+    color: #69747e;
+    font-size: 14px;
+    font-weight: 650;
+    transition: all 0.2s ease;
+}
+
+.navbar.bg-body-tertiary .nav-link:hover {
+    background: var(--erp-primary-soft);
+    color: var(--erp-primary-dark);
+}
+
+.navbar.bg-body-tertiary .nav-link.active {
+    background: var(--erp-primary-soft);
+    color: var(--erp-primary-dark) !important;
+    font-weight: 750;
+}
+
+.navbar.bg-body-tertiary .navbar-toggler {
+    padding: 7px 10px;
+    border-color: var(--erp-border-strong);
+    border-radius: 8px;
+}
+
+.navbar.bg-body-tertiary .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(71, 118, 168, 0.12);
+}
+
+
+/* =====================================================
+   02. 產品列表頁面容器
+===================================================== */
+
+body:has(.table-rwd) {
+    background: var(--erp-bg);
+}
+
+body:has(.table-rwd)>.container {
+    max-width: 1140px;
+    padding-top: 38px;
+    padding-bottom: 42px;
+}
+
+
+/* =====================================================
+   03. 產品列表 Card
+===================================================== */
+
+.card:has(.table-rwd) {
+    overflow: hidden;
+    margin-top: 0 !important;
+    border: 1px solid var(--erp-border);
+    border-radius: var(--erp-radius);
+    background: var(--erp-surface);
+    box-shadow: var(--erp-shadow);
+    animation: erp-fade-up 0.4s ease both;
+}
+
+.card:has(.table-rwd) .card-header {
+    padding: 25px 30px 20px;
+    border: 0;
+    background: var(--erp-surface);
+    color: var(--erp-heading);
+    font-size: 25px;
+    font-weight: 750;
+    letter-spacing: 0.3px;
+}
+
+.card:has(.table-rwd) .card-header::before {
+    content: "PRODUCT MANAGEMENT / RECORDS";
+    display: block;
+    margin-bottom: 8px;
+    color: var(--erp-primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.card:has(.table-rwd) .card-body {
+    padding: 8px 30px 30px;
+}
+
+
+/* =====================================================
+   04. 產品列表 Table
+===================================================== */
+
+.table-rwd {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    color: var(--erp-ink);
+    font-size: 15px;
+    vertical-align: middle;
+}
+
+/* 表格標題 */
+
+.table-rwd thead.table-dark th {
+    padding: 15px 16px;
+    border: 0;
+    border-top: 1px solid var(--erp-border);
+    border-bottom: 1px solid var(--erp-border-strong);
+    background: #eef2f5;
+    color: #526171;
+    font-size: 14px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.table-rwd thead.table-dark th:first-child {
+    border-top-left-radius: 7px;
+}
+
+.table-rwd thead.table-dark th:last-child {
+    border-top-right-radius: 7px;
+}
+
+/* 表格內容 */
+
+.table-rwd tbody td {
+    padding: 17px 16px;
+    border-color: var(--erp-border);
+    background: var(--erp-surface);
+    color: var(--erp-ink);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* 滑鼠移入效果 */
+
+.table-rwd tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table-rwd tbody tr:hover td {
+    background: #f5f8fb;
+}
+
+/* 產品名稱 */
+
+.table-rwd tbody td:first-child {
+    color: var(--erp-heading);
+    font-weight: 750;
+}
+
+/* 產品價格 */
+
+.table-rwd tbody td:nth-child(2) {
+    color: var(--erp-primary-dark);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+/* 產品數量 */
+
+.table-rwd tbody td:nth-child(3) {
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* =====================================================
+   05. 手機版 RWD
+   保留原本 table-rwd 的卡片式呈現方式
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    body:has(.table-rwd)>.container {
+        padding: 24px 16px 35px;
+    }
+
+    .card:has(.table-rwd) {
+        border-radius: 10px;
+    }
+
+    .card:has(.table-rwd) .card-header {
+        padding: 20px 19px 16px;
+        font-size: 22px;
+    }
+
+    .card:has(.table-rwd) .card-body {
+        padding: 5px 18px 22px;
+    }
+
+    /* 手機版每筆產品資料 */
+
+    .table-rwd tbody tr {
+        overflow: hidden;
+        margin-top: 15px;
+        border: 1px solid var(--erp-border-strong) !important;
+        border-radius: 9px;
+        background: var(--erp-surface);
+        box-shadow: 0 3px 12px rgba(42, 55, 70, 0.035);
+    }
+
+    .table-rwd tbody tr td {
+        display: block;
+        overflow: hidden;
+        padding: 13px 12px;
+        border: 0;
+        border-bottom: 1px solid var(--erp-border);
+        background: var(--erp-surface);
+        color: var(--erp-ink);
+        font-size: 15px;
+        line-height: 1.65;
+        text-align: left;
+    }
+
+    .table-rwd tbody tr td:last-child {
+        border-bottom: 0;
+    }
+
+    /* 手機版欄位名稱 */
+
+    .table-rwd tbody tr td::before {
+        display: block;
+        float: left;
+        width: 30%;
+        padding-right: 12px;
+        color: var(--erp-muted);
+        font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: left;
+    }
+
+    /* 手機版資料文字 */
+
+    .table-rwd tbody tr td span {
+        display: block;
+        float: left;
+        width: 70%;
+        color: var(--erp-ink);
+        font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+    }
+}
+
+
+/* =====================================================
+   06. 小尺寸手機調整
+===================================================== */
+
+@media screen and (max-width: 420px) {
+
+    .navbar.bg-body-tertiary .container-fluid {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+    .navbar.bg-body-tertiary .navbar-brand {
+        font-size: 17px;
+    }
+
+    .card:has(.table-rwd) .card-header {
+        font-size: 20px;
+    }
+
+    .table-rwd tbody tr td::before {
+        width: 34%;
+        padding-right: 8px;
+        font-size: 13px;
+    }
+
+    .table-rwd tbody tr td span {
+        width: 66%;
+        font-size: 14px;
+    }
+}

@@ -10,6 +10,48 @@
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/all.min.css">
     <link rel="stylesheet" href="CSS/myAllcss.css">
+
+    <style>
+        @media screen and (max-width:768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 3px solid var(--my-border-color);
+                margin-top: 15px;
+            }
+
+            .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            }
+
+            .table-rwd tbody tr td::before {
+                content: attr(data-th) ":";
+                font-family: "LXGW WenKai Mono TC";
+                font-size: 23px;
+                font-weight: 900;
+                display: block;
+                float: left;
+                width: 30%;
+                text-align: right;
+                padding-right: 20px;
+                color: var(--my-content-heading-color);
+            }
+
+            .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 70%;
+                font-family: "LXGW WenKai Mono TC";
+                color: var(--my-content-text-color);
+                font-size: 20px;
+                font-weight: 700;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -41,9 +83,80 @@
         </div>
     </nav>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-4">
+                    <div class="card-header fw-bold my-title-02">
+                        產品列表
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-rwd">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th width="10%">產品名稱</th>
+                                    <th width="25%">產品價格</th>
+                                    <th width="20%">產品數量</th>
+                                    <th width="10%">產品分類</th>
+                                    <th width="10%">產品備註</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mytbody">
+                                <tr>
+                                    <td data-th="產品名稱">xxxx</td>
+                                    <td data-th="產品價格">xxxx</td>
+                                    <td data-th="產品數量">xxxx</td>
+                                    <td data-th="產品分類">xxxx</td>
+                                    <td data-th="產品備註">xxxx</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-4.0.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/product",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    Swal.fire({
+                        title: "讀取失敗",
+                        text: "無法連接後端API",
+                        icon: "error"
+                    });
+                }
+
+            });
+        });
+
+        function showdata(data) {
+            console.log(data)
+            $("#mytbody").empty();
+            data.forEach(function (item) {
+                console.log(item.name);
+
+                const strHTML = `<tr>
+                                    <td data-th="產品名稱">${item.name}</td>
+                                    <td data-th="產品價格">${item.price}</td>
+                                    <td data-th="產品數量">${item.stock}</td>
+                                    <td data-th="產品分類">${item.category}</td>
+                                    <td data-th="產品備註">${item.description}</td>
+                                </tr>`;
+            $("#mytbody").append(strHTML);
+
+            })
+        }
+    </script>
 
 </body>
 
