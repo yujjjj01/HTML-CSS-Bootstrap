@@ -12,16 +12,39 @@
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/all.min.css">
     <link rel="stylesheet" href="CSS/myAllcss.css">
+
 </head>
 
 <body>
 
-    <div class="container my-4">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">CRUD練習</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">首頁</a>
+                    </li>
 
-        <!-- 標題 -->
-        <div class="display-2 fw-bold text my-title-02">
-            CH8-Forms-CRUD練習
+                    <li class="nav-item">
+                        <a class="nav-link active" href="20261110_CH8_Forms-CRUD-C.html">產品建檔</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="20261110_CH8_Forms-CRUD-R.html">產品列表</a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
+    </nav>
+
+    <div class="container my-4">
 
         <!-- ========================= -->
         <!-- 產品建檔表單 -->
@@ -37,7 +60,7 @@
                     <div class="card-header bg-warning">
 
                         <div class="h2 fw-bold my-title-06 mb-0">
-                            產品建檔
+                            CH8-Forms-CRUD產品建檔
                         </div>
 
                     </div>
@@ -305,9 +328,9 @@
         // =========================
 
         let flag_pname = false;
-        let flag_price = false;
+        let flag_price = true;
         let flag_category = false;
-        let flag_remark = true;
+        let flag_remark = false;
 
 
         // =========================
@@ -697,6 +720,23 @@
 
                         })
 
+                        $("#show-msg").addClass("d-none");
+
+                        // 清空表單
+                        $("#productname").val("");
+                        $("#price").val(1);
+                        $("#range01").val(50);
+                        $("#rangeText").text(50);
+                        $("#category").val("");
+                        $("#remark").val("");
+
+
+                        $("#productname,#price,#category,#remark").removeClass("is-valid is-invalid");
+
+                        flag_pname = false;
+                        flag_price = true;
+                        flag_category = false;
+                        flag_remark = false;
                     },
                     error: function () {
                         Swal.fire({
