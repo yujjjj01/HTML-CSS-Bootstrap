@@ -1,0 +1,1055 @@
+/* =========================================
+   ERP Product Management
+   Style: Soft Neutral + Blue Accent
+   Density: Balanced
+   ========================================= */
+
+/* ---------- 色彩與基礎設定 ---------- */
+:root {
+    --erp-primary: #4776a8;
+    --erp-primary-dark: #355f8c;
+    --erp-primary-soft: #edf3f8;
+
+    --erp-ink: #34404d;
+    --erp-heading: #283746;
+    --erp-muted: #7d8791;
+
+    --erp-bg: #f5f3ef;
+    --erp-surface: #fffefa;
+    --erp-surface-soft: #f8f7f4;
+
+    --erp-border: #e7e3dc;
+    --erp-border-strong: #d9d4cb;
+
+    --erp-success: #56836d;
+    --erp-danger: #c66c65;
+    --erp-warning: #c28b4b;
+
+    --erp-radius: 12px;
+    --erp-shadow: 0 5px 20px rgba(58, 63, 68, 0.055);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--erp-bg);
+    color: var(--erp-ink);
+    font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+/* ---------- 頂部 Navbar ---------- */
+.erp-navbar {
+    min-height: 70px;
+    background: rgba(255, 254, 250, 0.97);
+    border-bottom: 1px solid var(--erp-border);
+    box-shadow: 0 2px 10px rgba(58, 63, 68, 0.035);
+    backdrop-filter: blur(10px);
+    z-index: 1030;
+}
+
+.erp-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 24px;
+    color: var(--erp-heading);
+    font-weight: 750;
+    letter-spacing: 0.2px;
+}
+
+.erp-brand:hover {
+    color: var(--erp-primary);
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 37px;
+    height: 37px;
+    border: 1px solid #dce5ed;
+    border-radius: 10px;
+    background: #edf2f6;
+    color: var(--erp-primary);
+    font-size: 17px;
+}
+
+.brand-name {
+    font-size: 17px;
+}
+
+.brand-name span {
+    color: #66727d;
+    font-weight: 550;
+}
+
+.brand-divider {
+    width: 1px;
+    height: 23px;
+    margin: 0 4px;
+    background: var(--erp-border-strong);
+}
+
+.brand-module {
+    color: #7b858e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.erp-navbar .navbar-nav {
+    gap: 5px;
+}
+
+.erp-navbar .nav-link {
+    padding: 9px 14px !important;
+    border-radius: 7px;
+    color: #69747e;
+    font-size: 13px;
+    font-weight: 650;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.erp-navbar .nav-link:hover,
+.erp-navbar .nav-link.active {
+    background: var(--erp-primary-soft);
+    color: var(--erp-primary-dark);
+}
+
+.navbar-system-label {
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid var(--erp-border);
+    color: #737e88;
+    font-size: 12px;
+}
+
+.navbar-system-label i {
+    color: var(--erp-primary);
+    font-size: 18px;
+}
+
+.erp-navbar .navbar-toggler {
+    border-color: var(--erp-border-strong);
+    padding: 7px 10px;
+}
+
+.erp-navbar .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(71, 118, 168, 0.12);
+}
+
+
+/* ---------- 頁面主要區域 ---------- */
+.erp-main {
+    max-width: 1140px;
+    min-height: calc(100vh - 70px);
+    padding-top: 40px;
+    padding-bottom: 24px;
+}
+
+.page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 26px;
+    padding: 0 2px;
+}
+
+.page-eyebrow {
+    margin-bottom: 5px;
+    color: var(--erp-primary);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.page-heading h1,
+.confirmation-heading h2 {
+    margin: 0;
+    color: var(--erp-heading);
+    font-size: clamp(25px, 3vw, 29px);
+    font-weight: 750;
+    letter-spacing: 0.2px;
+}
+
+.page-heading p,
+.confirmation-heading p {
+    margin: 7px 0 0;
+    color: var(--erp-muted);
+    font-size: 13px;
+}
+
+.page-heading-icon {
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    border: 1px solid #e1e6e9;
+    border-radius: 15px;
+    background: #f0f2f1;
+    color: var(--erp-primary);
+    font-size: 25px;
+}
+
+
+/* ---------- 表單卡片 ---------- */
+.erp-card {
+    overflow: hidden;
+    border: 1px solid var(--erp-border);
+    border-radius: var(--erp-radius);
+    background: var(--erp-surface);
+    box-shadow: var(--erp-shadow);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    animation: erp-fade-up 0.4s ease both;
+}
+
+.erp-card:hover {
+    box-shadow: 0 9px 26px rgba(58, 63, 68, 0.075);
+}
+
+.erp-card-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 21px 25px;
+    border-bottom: 1px solid var(--erp-border);
+    background: #fffefa;
+}
+
+.section-icon,
+.confirmation-heading-icon {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #e0e8ef;
+    border-radius: 10px;
+    background: #f0f4f7;
+    color: var(--erp-primary);
+    font-size: 17px;
+}
+
+.erp-card-header h2 {
+    margin: 0;
+    color: var(--erp-heading);
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.erp-card-header p {
+    margin: 3px 0 0;
+    color: var(--erp-muted);
+    font-size: 11px;
+}
+
+.erp-card-body {
+    padding: 26px 27px 29px;
+}
+
+.form-section-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 22px;
+    color: #66717b;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.form-section-line {
+    height: 1px;
+    flex: 1;
+    background: var(--erp-border);
+}
+
+
+/* ---------- 表單欄位 ---------- */
+.form-label {
+    margin-bottom: 8px;
+    color: #46525d;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.required-mark {
+    color: var(--erp-danger);
+    font-weight: 800;
+}
+
+.optional-label {
+    padding: 2px 8px;
+    border: 1px solid #e8e5df;
+    border-radius: 5px;
+    background: #f4f2ee;
+    color: #858d94;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+    min-height: 43px;
+    border-color: var(--erp-border-strong);
+    border-radius: 7px;
+    color: var(--erp-ink);
+    font-size: 13px;
+}
+
+.form-control,
+.form-select {
+    background-color: #fffefa;
+}
+
+.form-control::placeholder,
+.form-select:invalid {
+    color: #a3a8ac;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #91abc4;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(71, 118, 168, 0.11);
+}
+
+.input-group .input-group-text {
+    background: #f4f3ef;
+    color: #78818a;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.input-group>.form-control {
+    min-width: 0;
+}
+
+.input-group> :first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group> :last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-text {
+    margin-top: 6px;
+    color: #92999f;
+    font-size: 10px;
+}
+
+.invalid-feedback,
+.valid-feedback {
+    font-size: 11px;
+}
+
+.quantity-value {
+    color: var(--erp-primary-dark);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.erp-range {
+    margin-top: 10px;
+    accent-color: var(--erp-primary);
+}
+
+.erp-range::-webkit-slider-thumb {
+    background: var(--erp-primary);
+    box-shadow: 0 2px 6px rgba(71, 118, 168, 0.22);
+}
+
+.erp-range::-moz-range-thumb {
+    border: 0;
+    background: var(--erp-primary);
+    box-shadow: 0 2px 6px rgba(71, 118, 168, 0.22);
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -3px;
+    color: #9ba1a5;
+    font-size: 10px;
+}
+
+textarea.form-control {
+    min-height: 105px;
+    resize: vertical;
+}
+
+
+/* ---------- 表單底部與按鈕 ---------- */
+.erp-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px 25px;
+    border-top: 1px solid var(--erp-border);
+    background: var(--erp-surface-soft);
+}
+
+.footer-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #879098;
+    font-size: 11px;
+}
+
+.footer-note i {
+    color: #91a2b1;
+}
+
+.erp-btn-primary,
+.erp-btn-cancel {
+    min-height: 41px;
+    padding: 8px 17px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.erp-btn-primary {
+    border-color: var(--erp-primary);
+    background: var(--erp-primary);
+    box-shadow: 0 3px 8px rgba(71, 118, 168, 0.14);
+}
+
+.erp-btn-primary:hover {
+    transform: translateY(-1px);
+    border-color: var(--erp-primary-dark);
+    background: var(--erp-primary-dark);
+    box-shadow: 0 5px 12px rgba(71, 118, 168, 0.2);
+}
+
+.erp-btn-cancel {
+    border: 1px solid var(--erp-border-strong);
+    background: #fffefa;
+    color: #6f7981;
+}
+
+.erp-btn-cancel:hover {
+    transform: translateY(-1px);
+    border-color: #c9d1d7;
+    background: #f4f5f4;
+    color: var(--erp-heading);
+}
+
+
+/* ---------- 資料確認畫面 ---------- */
+.confirmation-section {
+    animation: erp-fade-up 0.35s ease both;
+}
+
+.confirmation-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 23px;
+}
+
+.confirmation-heading-icon {
+    width: 51px;
+    height: 51px;
+    font-size: 21px;
+}
+
+.confirmation-heading h2 {
+    font-size: 24px;
+}
+
+.confirmation-heading p {
+    margin-top: 5px;
+}
+
+.confirmation-card .erp-card-header {
+    padding-top: 19px;
+    padding-bottom: 19px;
+}
+
+.review-status {
+    padding: 5px 10px;
+    border: 1px solid #dce9e1;
+    border-radius: 20px;
+    background: #f0f6f1;
+    color: var(--erp-success);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.review-item {
+    height: 100%;
+    padding: 17px 18px;
+    border: 1px solid #e9e6df;
+    border-radius: 9px;
+    background: #faf9f6;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.review-item:hover {
+    border-color: #cbd9e5;
+    background: #f7f9fa;
+}
+
+.review-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #879098;
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.review-label i {
+    color: var(--erp-primary);
+}
+
+.review-value {
+    color: var(--erp-heading);
+    font-size: 16px;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.price-value {
+    color: var(--erp-primary-dark);
+}
+
+.review-description {
+    min-height: 23px;
+    color: #56616a;
+    font-size: 13px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.confirmation-card .erp-card-footer {
+    border-top: 0;
+}
+
+
+/* ---------- 頁尾 ---------- */
+.erp-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 16px 2px 5px;
+    border-top: 1px solid #e5e1da;
+    color: #a0a4a5;
+    font-size: 10px;
+}
+
+
+/* ---------- 簡單進場動畫 ---------- */
+@keyframes erp-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   Typography Upgrade｜整體字體放大
+   ========================================= */
+
+/* 全站基本文字 */
+body {
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+/* Navbar */
+.brand-name {
+    font-size: 18px;
+}
+
+.brand-module {
+    font-size: 14px;
+}
+
+.erp-navbar .nav-link {
+    font-size: 14px;
+}
+
+.navbar-system-label {
+    font-size: 13px;
+}
+
+/* 頁面標題 */
+.page-eyebrow {
+    font-size: 12px;
+}
+
+.page-heading h1 {
+    font-size: clamp(28px, 3vw, 32px);
+}
+
+.page-heading p {
+    font-size: 15px;
+}
+
+/* 卡片標題 */
+.erp-card-header h2 {
+    font-size: 19px;
+}
+
+.erp-card-header p {
+    font-size: 13px;
+}
+
+.section-icon {
+    font-size: 18px;
+}
+
+/* 表單區域 */
+.form-section-title {
+    font-size: 14px;
+}
+
+.form-label {
+    font-size: 15px;
+}
+
+.optional-label {
+    font-size: 12px;
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+    font-size: 15px;
+}
+
+.form-control,
+.form-select {
+    min-height: 47px;
+}
+
+.form-text {
+    font-size: 12px;
+}
+
+.invalid-feedback,
+.valid-feedback {
+    font-size: 13px;
+}
+
+/* 數量滑桿 */
+.quantity-value {
+    font-size: 15px;
+}
+
+.range-labels {
+    font-size: 12px;
+}
+
+/* 按鈕 */
+.erp-btn-primary,
+.erp-btn-cancel {
+    font-size: 14px;
+}
+
+/* 表單底部提示 */
+.footer-note {
+    font-size: 13px;
+}
+
+/* 資料確認區 */
+.confirmation-heading h2 {
+    font-size: 27px;
+}
+
+.confirmation-heading p {
+    font-size: 14px;
+}
+
+.review-status {
+    font-size: 12px;
+}
+
+.review-label {
+    font-size: 13px;
+}
+
+.review-value {
+    font-size: 18px;
+}
+
+.review-description {
+    font-size: 15px;
+}
+
+/* 頁尾 */
+.erp-footer {
+    font-size: 12px;
+}
+
+/* 手機版 */
+@media (max-width: 575.98px) {
+    body {
+        font-size: 15px;
+    }
+
+    .brand-name {
+        font-size: 15px;
+    }
+
+    .brand-module {
+        font-size: 12px;
+    }
+
+    .page-heading h1 {
+        font-size: 26px;
+    }
+
+    .page-heading p {
+        font-size: 13px;
+    }
+
+    .erp-card-header h2 {
+        font-size: 17px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+
+    .form-control,
+    .form-select,
+    .input-group-text {
+        font-size: 14px;
+    }
+
+    .review-value {
+        font-size: 16px;
+    }
+
+    .review-description {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================
+   ERP Progress Indicator
+   ========================================= */
+
+.page-heading {
+    gap: 25px;
+}
+
+.erp-progress {
+    flex: 0 0 350px;
+    padding: 16px 19px;
+    border: 1px solid var(--erp-border);
+    border-radius: 11px;
+    background: var(--erp-surface);
+    box-shadow: var(--erp-shadow);
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.progress-caption {
+    color: var(--erp-muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.progress-count {
+    color: var(--erp-primary);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.progress-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    min-width: 65px;
+    color: #a5a9ac;
+    transition: color .25s ease;
+}
+
+.step-circle {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--erp-border-strong);
+    border-radius: 50%;
+    background: #f6f5f2;
+    color: #9ba1a5;
+    font-size: 13px;
+    transition: all .25s ease;
+}
+
+.step-name {
+    font-size: 12px;
+    font-weight: 650;
+    white-space: nowrap;
+}
+
+.progress-step.active {
+    color: var(--erp-primary-dark);
+}
+
+.progress-step.active .step-circle {
+    border-color: var(--erp-primary);
+    background: var(--erp-primary);
+    color: #fff;
+    box-shadow: 0 0 0 4px var(--erp-primary-soft);
+}
+
+.progress-step.completed {
+    color: var(--erp-success);
+}
+
+.progress-step.completed .step-circle {
+    border-color: var(--erp-success);
+    background: var(--erp-success);
+    color: #fff;
+}
+
+.progress-line {
+    height: 2px;
+    flex: 1;
+    margin: 16px 7px 0;
+    background: var(--erp-border-strong);
+    transition: background .25s ease;
+}
+
+.progress-line.completed {
+    background: var(--erp-success);
+}
+
+.progress-current {
+    margin-top: 13px;
+    padding-top: 10px;
+    border-top: 1px solid var(--erp-border);
+    color: var(--erp-muted);
+    font-size: 12px;
+}
+
+.progress-current strong {
+    margin-left: 4px;
+    color: var(--erp-primary-dark);
+    font-weight: 750;
+}
+
+/* RWD */
+@media (max-width: 767.98px) {
+    .page-heading {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .erp-progress {
+        flex-basis: auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .erp-progress {
+        padding: 13px;
+    }
+
+    .step-name {
+        font-size: 11px;
+    }
+
+    .step-circle {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .progress-line {
+        margin-top: 14px;
+    }
+}
+
+
+
+/* ---------- RWD 響應式 ---------- */
+@media (max-width: 991.98px) {
+    .erp-navbar .navbar-collapse {
+        padding: 12px 0 5px;
+    }
+
+    .erp-navbar .navbar-nav {
+        align-items: stretch !important;
+    }
+
+    .erp-navbar .nav-link {
+        padding: 9px 12px !important;
+    }
+
+    .navbar-system-label {
+        margin: 10px 0 0;
+        padding: 10px 12px 0;
+        border-top: 1px solid var(--erp-border);
+        border-left: 0;
+    }
+
+    .erp-main {
+        padding-top: 31px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .erp-main {
+        padding-top: 26px;
+    }
+
+    .page-heading {
+        margin-bottom: 20px;
+    }
+
+    .erp-card-header {
+        padding: 18px 19px;
+    }
+
+    .erp-card-body {
+        padding: 22px 19px 24px;
+    }
+
+    .erp-card-footer {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 16px 19px;
+    }
+
+    .erp-card-footer>.d-flex {
+        width: 100%;
+    }
+
+    .erp-card-footer .btn {
+        flex: 1;
+    }
+
+    .confirmation-heading {
+        align-items: flex-start;
+    }
+
+    .confirmation-heading-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .confirmation-heading h2 {
+        font-size: 21px;
+    }
+
+    .review-status {
+        display: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .erp-brand {
+        gap: 7px;
+        margin-right: 8px;
+    }
+
+    .brand-mark {
+        width: 33px;
+        height: 33px;
+        font-size: 15px;
+    }
+
+    .brand-name {
+        font-size: 15px;
+    }
+
+    .brand-divider {
+        margin: 0 1px;
+    }
+
+    .brand-module {
+        font-size: 11px;
+    }
+
+    .page-heading h1 {
+        font-size: 24px;
+    }
+
+    .page-heading p {
+        max-width: 265px;
+        font-size: 12px;
+    }
+
+    .erp-card-header {
+        gap: 10px;
+        padding: 16px;
+    }
+
+    .section-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .erp-card-body {
+        padding: 19px 16px;
+    }
+
+    .erp-card-footer {
+        padding: 15px 16px;
+    }
+
+    .footer-note {
+        align-items: flex-start;
+    }
+
+    .footer-note i {
+        margin-top: 3px;
+    }
+
+    .erp-footer {
+        flex-direction: column;
+        gap: 2px;
+    }
+}
