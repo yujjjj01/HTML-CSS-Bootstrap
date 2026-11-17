@@ -1,7 +1,7 @@
 /* =========================================================
    myRPGcss.css — 復古日系像素 RPG 學習歷程圖鑑
-   此檔案獨立於 myAllcss.css，請在其後載入。
    ========================================================= */
+
 :root {
     --rpg-ink: #35231d;
     --rpg-ink-soft: #604631;
@@ -10,10 +10,7 @@
     --rpg-gold: #e6b955;
     --rpg-gold-light: #ffe7a0;
     --rpg-paper: #fff2cf;
-    --rpg-paper-light: #fff9e8;
     --rpg-paper-shadow: #e7c98b;
-    --rpg-green: #4f8055;
-    --rpg-blue: #4d9fbd;
 }
 
 *,
@@ -67,6 +64,7 @@ a:focus-visible {
 }
 
 /* Top status bar */
+
 .rpg-topbar {
     display: flex;
     align-items: center;
@@ -120,13 +118,6 @@ a:focus-visible {
     font-weight: 900;
 }
 
-.rpg-status-dot {
-    width: 7px;
-    height: 7px;
-    background: #8fc47e;
-    box-shadow: 0 0 0 3px rgba(143, 196, 126, .16);
-}
-
 .rpg-status-text {
     color: #e7d6b4;
 }
@@ -137,6 +128,7 @@ main {
 }
 
 /* Hero / save file */
+
 .my-intro-section.rpg-hero {
     position: relative;
     isolation: isolate;
@@ -149,71 +141,6 @@ main {
     outline: 2px solid var(--rpg-gold);
     outline-offset: -10px;
     box-shadow: 0 8px 0 #b48a4c, 0 12px 0 rgba(67, 43, 29, .16), inset 0 0 0 3px var(--rpg-gold-light), inset 0 0 0 8px rgba(153, 105, 46, .12);
-}
-
-.rpg-hero-spark {
-    position: absolute;
-    z-index: -1;
-    color: rgba(167, 116, 40, .24);
-    line-height: 1;
-}
-
-.rpg-spark-one {
-    top: 80px;
-    left: 7%;
-    font-size: 68px;
-}
-
-.rpg-spark-two {
-    right: 8%;
-    bottom: 130px;
-    font-size: 58px;
-}
-
-.rpg-hero-topline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 18px;
-    color: #765333;
-    font-size: .72rem;
-    font-weight: 900;
-    letter-spacing: .16em;
-}
-
-.rpg-pixel-heart {
-    color: #c84c43;
-}
-
-.rpg-topline-divider {
-    color: #c09a55;
-}
-
-.rpg-hero-emblem {
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 16px;
-    color: #ffe7a0;
-    background: #493022;
-    border: 4px solid var(--rpg-gold);
-    outline: 2px solid #493022;
-    box-shadow: inset 0 0 0 3px #79512f, 4px 4px 0 rgba(57, 37, 31, .2);
-    font-size: 1.3rem;
-    font-weight: 900;
-}
-
-.rpg-hero-emblem i {
-    position: absolute;
-    right: -13px;
-    bottom: -10px;
-    color: #c84c43;
-    font-size: 1.4rem;
-    font-style: normal;
-    text-shadow: 1px 1px #fff2cf;
 }
 
 .my-intro-section .my-section-label {
@@ -237,6 +164,10 @@ main {
     line-height: 1.45;
     letter-spacing: .04em;
     text-shadow: 2px 2px 0 #f2d48d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
 }
 
 .my-intro-section p {
@@ -284,8 +215,8 @@ main {
 }
 
 .rpg-stat-label {
-    color: #98703c;
-    font-size: .66rem;
+    color: #7d5a2f;
+    font-size: .7rem;
     font-weight: 900;
     letter-spacing: .16em;
 }
@@ -330,12 +261,6 @@ main {
     font-size: .8rem;
 }
 
-.rpg-button-en {
-    color: #d9c49c;
-    font-size: .64rem;
-    letter-spacing: .12em;
-}
-
 .rpg-start-button:hover {
     transform: translate(-2px, -2px);
     box-shadow: inset 0 0 0 2px #ffe6a0, 6px 6px 0 #bd8b3e;
@@ -343,8 +268,8 @@ main {
 
 .rpg-hero-bottomline {
     margin-top: 22px;
-    color: #a1875d;
-    font-size: .62rem;
+    color: #7b5c3c;
+    font-size: .72rem;
     font-weight: 900;
     letter-spacing: .16em;
 }
@@ -362,6 +287,7 @@ main {
 }
 
 /* Archive header */
+
 .rpg-section-eyebrow {
     display: flex;
     justify-content: space-between;
@@ -441,6 +367,7 @@ main {
 }
 
 /* Quest cards grid */
+
 .my-project-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -464,69 +391,6 @@ main {
 }
 
 /* Closing save panel and footer */
-.rpg-save-panel {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-top: 36px;
-    padding: 22px 24px;
-    color: #fff0c4;
-    background: linear-gradient(180deg, #704b31, #402a22);
-    border: 3px solid var(--rpg-gold);
-    box-shadow: 0 5px 0 #2d1d19, inset 0 0 0 2px #9e7441;
-}
-
-.rpg-save-icon {
-    display: grid;
-    place-items: center;
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
-    color: #493022;
-    background: var(--rpg-gold);
-    border: 3px solid #ffe7a0;
-    font-size: 1.5rem;
-}
-
-.rpg-save-panel>div {
-    flex: 1;
-    min-width: 0;
-}
-
-.rpg-save-label {
-    color: #e5c98d;
-    font-size: .65rem;
-    font-weight: 900;
-    letter-spacing: .15em;
-}
-
-.rpg-save-panel h2 {
-    margin: 2px 0 3px;
-    color: #fff4d2;
-    font-size: clamp(1.05rem, 2.5vw, 1.4rem);
-    line-height: 1.5;
-}
-
-.rpg-save-panel p {
-    margin: 0;
-    color: #e5d2ac;
-    font-size: .82rem;
-}
-
-.rpg-back-top {
-    flex: 0 0 auto;
-    padding: 7px 11px;
-    color: #fff0bd;
-    border: 2px solid #c79b4c;
-    font-size: .78rem;
-    font-weight: 900;
-    text-decoration: none;
-}
-
-.rpg-back-top:hover {
-    color: #35231d;
-    background: var(--rpg-gold);
-}
 
 .my-footer.rpg-footer {
     position: relative;
@@ -579,6 +443,7 @@ main {
 /* =========================================================
    RPG 任務分類篩選器樣式
    ========================================================= */
+
 .rpg-filter-bar {
     display: flex;
     flex-wrap: wrap;
@@ -616,6 +481,7 @@ main {
 /* =========================================================
    RPG 經驗值進度條樣式
    ========================================================= */
+
 .rpg-exp-container {
     max-width: 380px;
     margin: 0 auto 22px;
@@ -657,6 +523,7 @@ main {
 /* =========================================================
    RPG 浮動傳送卷軸按鈕（回到頂端）
    ========================================================= */
+
 .rpg-floating-top {
     position: fixed;
     z-index: 999;
@@ -698,7 +565,6 @@ main {
     box-shadow: inset 0 0 0 2px var(--rpg-gold);
 }
 
-
 /* =========================================================
    🌟 最新任務（LATEST WORK）金色魔法呼吸燈專屬樣式
    ========================================================= */
@@ -716,6 +582,7 @@ main {
 }
 
 /* 透過多重選擇器與 !important 確保樣式完美覆蓋，全權由 CSS 控制 */
+
 body .my-project-grid .my-project-card.rpg-final-quest {
     background: linear-gradient(135deg, rgba(255, 255, 255, .6), transparent 48%), #ffedc0 !important;
     border-color: #9a6530 !important;
@@ -884,6 +751,7 @@ body .my-project-grid .my-project-card .my-project-button:hover {
 
 body .my-project-grid .my-project-card .my-project-button:hover span {
     transform: translateX(4px);
+    animation: rpg-arrow-jump 0.6s infinite ease-in-out;
 }
 
 body .my-project-grid .my-project-card .my-project-button:active {
@@ -891,18 +759,19 @@ body .my-project-grid .my-project-card .my-project-button:active {
     box-shadow: inset 0 0 0 2px var(--rpg-gold);
 }
 
-
 body .my-project-grid .my-project-card.rpg-final-quest .my-project-number {
     margin-top: 0;
 }
 
 /* 最後一張作品：傳說級裝備外框裝飾 */
+
 body .my-project-grid article.my-project-card.rpg-final-quest {
     border: 3px solid #b37424 !important;
     background: linear-gradient(135deg, rgba(255, 245, 210, .9), #ffe7a0) !important;
 }
 
 /* 在四個角落加上像素金角裝飾 */
+
 body .my-project-grid article.my-project-card.rpg-final-quest::after {
     content: "✦";
     position: absolute;
@@ -932,13 +801,10 @@ body .my-project-grid .my-project-card:hover .my-project-number {
     }
 }
 
-body .my-project-grid .my-project-card .my-project-button:hover span {
-    animation: rpg-arrow-jump 0.6s infinite ease-in-out;
-}
-
 /* =========================================================
    🏆 冒險者等級成就徽章彈跳提示（Achievement Popup）
    ========================================================= */
+
 .rpg-achievement-popup {
     position: fixed;
     top: -80px;
@@ -964,6 +830,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* 當加上 .show 時，滑落到畫面頂部下方 */
+
 .rpg-achievement-popup.show {
     top: 20px;
     opacity: 1;
@@ -1001,6 +868,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 /* =========================================================
    RWD Media Queries
    ========================================================= */
+
 @media (min-width: 1100px) {
     .my-project-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1016,14 +884,6 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
     .my-project-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 18px;
-    }
-
-    .rpg-spark-one {
-        left: 3%;
-    }
-
-    .rpg-spark-two {
-        right: 4%;
     }
 }
 
@@ -1058,18 +918,6 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
         box-shadow: 0 5px 0 #b48a4c, 0 8px 0 rgba(67, 43, 29, .15), inset 0 0 0 2px var(--rpg-gold-light);
     }
 
-    .rpg-hero-topline {
-        flex-wrap: wrap;
-        gap: 7px;
-        font-size: .58rem;
-        letter-spacing: .09em;
-    }
-
-    .rpg-hero-emblem {
-        width: 60px;
-        height: 60px;
-    }
-
     .my-intro-section .my-section-label {
         font-size: .62rem;
         letter-spacing: .1em;
@@ -1100,30 +948,13 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
         font-size: .62rem;
     }
 
-    .rpg-stat-label {
-        font-size: .58rem;
-    }
-
     .rpg-start-button {
         min-width: 0;
         width: min(100%, 270px);
     }
 
     .rpg-hero-bottomline {
-        font-size: .53rem;
         letter-spacing: .1em;
-    }
-
-    .rpg-spark-one {
-        top: 90px;
-        left: 2%;
-        font-size: 38px;
-    }
-
-    .rpg-spark-two {
-        right: 3%;
-        bottom: 120px;
-        font-size: 34px;
     }
 
     .rpg-section-eyebrow {
@@ -1191,31 +1022,6 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
         max-width: 270px;
     }
 
-    .rpg-save-panel {
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 12px;
-        padding: 17px 14px;
-    }
-
-    .rpg-save-icon {
-        flex-basis: 40px;
-        width: 40px;
-        height: 40px;
-    }
-
-    .rpg-save-panel>div {
-        flex-basis: calc(100% - 58px);
-    }
-
-    .rpg-save-panel p {
-        font-size: .78rem;
-    }
-
-    .rpg-back-top {
-        margin-left: 52px;
-    }
-
     .my-footer.rpg-footer {
         margin-top: 32px;
     }
@@ -1226,42 +1032,20 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
-}
-
 /* =========================================================
    Hero 主標題：WOW.js 彈跳動畫
    ========================================================= */
 
-.my-intro-section h1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-}
-
 .my-intro-section h1 span {
     display: block;
 }
-
 
 /* =========================================================
    RPG 裝飾圖示：星星與鑽石持續動態特效
    ========================================================= */
 
 /* 所有裝飾圖示基本設定 */
-.rpg-hero-spark i,
+
 .rpg-brand-mark i,
 .rpg-hero-divider i,
 .rpg-footer-divider i {
@@ -1270,77 +1054,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* =========================================================
-   01. Hero 左側鑽石：上下浮動＋旋轉＋發光
-   ========================================================= */
-
-.rpg-spark-one i {
-    animation: rpgDiamondFloat 3s ease-in-out infinite;
-
-    color: #e6bd75;
-
-    filter:
-        drop-shadow(0 0 5px rgba(230, 189, 117, 0.7)) drop-shadow(0 0 12px rgba(230, 189, 117, 0.4));
-}
-
-@keyframes rpgDiamondFloat {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0deg) scale(1);
-    }
-
-    25% {
-        transform: translateY(-10px) rotate(12deg) scale(1.08);
-    }
-
-    50% {
-        transform: translateY(-16px) rotate(25deg) scale(1.15);
-    }
-
-    75% {
-        transform: translateY(-7px) rotate(12deg) scale(1.08);
-    }
-}
-
-/* =========================================================
-   02. Hero 右側星星：連續跳動＋閃爍
-   ========================================================= */
-
-.rpg-spark-two i {
-    animation: rpgStarBounce 2.2s ease-in-out infinite;
-
-    color: #f5d68d;
-
-    filter:
-        drop-shadow(0 0 5px rgba(245, 214, 141, 0.8)) drop-shadow(0 0 12px rgba(245, 214, 141, 0.5));
-}
-
-@keyframes rpgStarBounce {
-
-    0%,
-    100% {
-        transform: translateY(0) scale(1) rotate(0deg);
-        opacity: 0.75;
-    }
-
-    30% {
-        transform: translateY(-12px) scale(1.25) rotate(15deg);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translateY(-16px) scale(1.4) rotate(25deg);
-        opacity: 1;
-    }
-
-    70% {
-        transform: translateY(-5px) scale(1.15) rotate(10deg);
-        opacity: 0.9;
-    }
-}
-
-/* =========================================================
-   03. 頂部品牌鑽石：緩慢旋轉
+   01. 頂部品牌鑽石：緩慢旋轉
    ========================================================= */
 
 .rpg-brand-mark i {
@@ -1348,6 +1062,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 
     filter:
         drop-shadow(0 0 4px rgba(230, 189, 117, 0.7));
+    animation-delay: 0.3s;
 }
 
 @keyframes rpgBrandDiamond {
@@ -1363,7 +1078,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* =========================================================
-   04. Hero 中間寶石：旋轉＋閃光
+   02. Hero 中間寶石：旋轉＋閃光
    ========================================================= */
 
 .rpg-hero-divider i {
@@ -1371,6 +1086,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 
     filter:
         drop-shadow(0 0 5px rgba(255, 213, 130, 0.7));
+    animation-delay: 1s;
 }
 
 @keyframes rpgGemGlow {
@@ -1388,7 +1104,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* =========================================================
-   05. Footer 星星：緩慢跳動＋旋轉
+   03. Footer 星星：緩慢跳動＋旋轉
    ========================================================= */
 
 .rpg-footer-divider i {
@@ -1396,6 +1112,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 
     filter:
         drop-shadow(0 0 5px rgba(245, 214, 141, 0.7));
+    animation-delay: 0.8s;
 }
 
 @keyframes rpgFooterStar {
@@ -1411,44 +1128,11 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* =========================================================
-   06. 不同動畫延遲，避免所有圖示同時動作
+   04. 尊重使用者減少動態效果設定
    ========================================================= */
-
-.rpg-spark-one i {
-    animation-delay: 0s;
-}
-
-.rpg-spark-two i {
-    animation-delay: 0.6s;
-}
-
-.rpg-brand-mark i {
-    animation-delay: 0.3s;
-}
-
-.rpg-hero-divider i {
-    animation-delay: 1s;
-}
-
-.rpg-footer-divider i {
-    animation-delay: 0.8s;
-}
-
-/* =========================================================
-   07. 尊重使用者減少動態效果設定
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .rpg-hero-spark i,
-    .rpg-brand-mark i,
-    .rpg-hero-divider i,
-    .rpg-footer-divider i {
-        animation: none;
-    }
-}
 
 /* 持續探索中：綠色指示燈閃爍 */
+
 .rpg-status-dot {
     display: inline-block;
     width: 9px;
@@ -1460,6 +1144,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* 綠燈呼吸閃爍 */
+
 @keyframes rpgStatusBlink {
 
     0%,
@@ -1481,6 +1166,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 ===================================================== */
 
 /* 粒子容器：固定覆蓋整個瀏覽器視窗 */
+
 .rpg-magic-particles {
     position: fixed;
     inset: 0;
@@ -1493,6 +1179,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* 單顆魔法粒子 */
+
 .rpg-magic-particle {
     position: absolute;
     display: block;
@@ -1511,6 +1198,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* 粒子漂浮與閃爍 */
+
 @keyframes rpgParticleFloat {
     0% {
         opacity: 0;
@@ -1537,6 +1225,7 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* 手機版減少粒子數量以降低負擔 */
+
 @media (max-width: 768px) {
     .rpg-magic-particle:nth-child(n+26) {
         display: none;
@@ -1544,8 +1233,894 @@ body .my-project-grid .my-project-card .my-project-button:hover span {
 }
 
 /* 使用者偏好減少動態效果時，關閉粒子動畫 */
+
+/* =========================================================
+   章節滿級：EXP 條金色呼吸光（由 main.js 加上 .rpg-max-glow）
+   ========================================================= */
+
+.rpg-bar-fill.rpg-max-glow {
+    box-shadow: 0 0 8px var(--rpg-gold), 0 0 18px rgba(230, 185, 85, .65);
+    animation: rpgMaxGlow 1.6s ease-in-out infinite;
+}
+
+@keyframes rpgMaxGlow {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.3);
+    }
+}
+
+/* =========================================================
+   尊重使用者「減少動態效果」設定（整份只留這一個區塊）
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+    .rpg-brand-mark i,
+    .rpg-hero-divider i,
+    .rpg-footer-divider i {
+        animation: none;
+    }
+
     .rpg-magic-particles {
         display: none;
     }
+}
+
+/* =========================================================
+   RPG 載入畫面
+   所有 class 都以 ld- 開頭，不會影響上面原本的樣式。
+   ========================================================= */
+
+html.is-loading,
+html.is-loading body {
+    overflow: hidden;
+}
+
+.ld-loader,
+.ld-loader *,
+.ld-loader *::before,
+.ld-loader *::after {
+    box-sizing: border-box;
+}
+
+.ld-loader {
+    --ld-gold: #e6b955;
+    --ld-gold-light: #ffe7a0;
+    --ld-green: #8fc47e;
+    --ld-px: "Press Start 2P", "Courier New", monospace;
+    --ld-body: "Courier New", "Noto Sans TC", monospace, sans-serif;
+
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    /* 高於魔法粒子(9999)與成就彈窗(10000) */
+    display: grid;
+    place-items: center;
+    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+    color: #fff0c4;
+    font-family: var(--ld-body);
+    line-height: 1.75;
+}
+
+.ld-loader.ld-open {
+    pointer-events: none;
+}
+
+/* ---------- 像素大門：載入完成後向左右打開 ---------- */
+
+.ld-door {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50.2%;
+    background:
+        radial-gradient(circle, rgba(230, 185, 85, .16) 0 2px, transparent 3px) 0 0 / 28px 28px,
+        repeating-linear-gradient(0deg, rgba(255, 231, 160, .035) 0 2px, transparent 2px 6px),
+        linear-gradient(180deg, #402a22, #2a1a15);
+    transition: transform 1.1s cubic-bezier(.77, 0, .18, 1);
+}
+
+.ld-door.l {
+    left: 0;
+    border-right: 4px solid var(--ld-gold);
+}
+
+.ld-door.r {
+    right: 0;
+    border-left: 4px solid var(--ld-gold);
+}
+
+/* 門縫上的金色鑽石，門打開時會分成兩半各自帶走 */
+
+.ld-door::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 26px;
+    height: 26px;
+    background: var(--ld-gold);
+    border: 3px solid #fff0c4;
+    box-shadow: 0 0 18px rgba(230, 185, 85, .8);
+}
+
+.ld-door.l::after {
+    right: 0;
+    transform: translate(50%, -50%) rotate(45deg);
+}
+
+.ld-door.r::after {
+    left: 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ld-open .ld-door.l {
+    transform: translateX(-101%);
+}
+
+.ld-open .ld-door.r {
+    transform: translateX(101%);
+}
+
+/* ---------- 中央面板 ---------- */
+
+.ld-panel {
+    position: relative;
+    z-index: 2;
+    width: min(520px, calc(100% - 32px));
+    padding: 26px clamp(16px, 4vw, 30px) 20px;
+    text-align: center;
+    background: linear-gradient(180deg, #4a3025, #35231d);
+    border: 4px solid var(--ld-gold);
+    box-shadow: 0 0 0 4px #2d1d19, 8px 8px 0 rgba(0, 0, 0, .35), inset 0 0 0 3px #79512f;
+    transition: opacity .35s ease, transform .35s ease;
+}
+
+.ld-leaving .ld-panel {
+    opacity: 0;
+    transform: scale(.94);
+}
+
+.ld-leaving .ld-particles {
+    opacity: 0;
+}
+
+/* ---------- 魔法寶石：中心脈動＋三顆軌道光點 ---------- */
+
+.ld-gem {
+    position: relative;
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 20px;
+}
+
+.ld-core {
+    position: absolute;
+    inset: 32px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #fff3b8, var(--ld-gold) 55%, #b98a3e);
+    border: 4px solid #fff0c4;
+    box-shadow: 0 0 0 4px #79512f, 0 0 26px rgba(230, 185, 85, .85);
+    transform: rotate(45deg);
+    animation: ldCore 1.6s ease-in-out infinite;
+}
+
+/* Font Awesome 寶石圖示：反向旋轉 45 度維持正立 */
+
+.ld-core i {
+    color: #4a2c1b;
+    font-size: 22px;
+    transform: rotate(-45deg);
+    text-shadow: 0 1px 0 rgba(255, 243, 184, .8);
+}
+
+.ld-orbit {
+    position: absolute;
+    inset: 0;
+    animation: ldSpin 3s steps(24) infinite;
+}
+
+.ld-orbit::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    background: var(--c);
+    box-shadow: 0 0 8px var(--c), 0 0 14px var(--c);
+}
+
+.ld-orbit.o1 {
+    --c: #f5d98b;
+}
+
+.ld-orbit.o2 {
+    --c: #a9dcff;
+    inset: 12px;
+    animation-duration: 2.2s;
+    animation-direction: reverse;
+}
+
+.ld-orbit.o3 {
+    --c: #fff;
+    inset: -8px;
+    animation-duration: 4.4s;
+}
+
+@keyframes ldSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ldCore {
+
+    0%,
+    100% {
+        transform: rotate(45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(45deg) scale(1.14);
+    }
+}
+
+/* ---------- 文字 ---------- */
+
+.ld-title {
+    color: var(--ld-gold-light);
+    font: 400 clamp(14px, 3.8vw, 22px) / 1.6 var(--ld-px);
+    letter-spacing: .06em;
+    text-shadow: 3px 3px 0 #2c1c17;
+}
+
+.ld-dots::after {
+    content: "";
+    animation: ldDots 1.2s steps(1) infinite;
+}
+
+@keyframes ldDots {
+    0% {
+        content: "";
+    }
+
+    25% {
+        content: ".";
+    }
+
+    50% {
+        content: "..";
+    }
+
+    75% {
+        content: "...";
+    }
+}
+
+.ld-sub {
+    margin: 6px 0 0;
+    color: #e5d2ac;
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.ld-sub i {
+    margin-right: 6px;
+    color: var(--ld-gold);
+}
+
+/* ---------- 分段經驗值條（20 格） ---------- */
+
+.ld-bar {
+    --p: 0;
+    position: relative;
+    margin: 52px 0 0;
+}
+
+.ld-track {
+    position: relative;
+    height: 20px;
+    overflow: hidden;
+    background: #241611;
+    border: 3px solid #c79b4c;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .5);
+}
+
+.ld-fill {
+    height: 100%;
+    width: calc(var(--p) * 1%);
+    background: linear-gradient(180deg, #fff3b8, var(--ld-gold) 45%, #b98a3e);
+}
+
+.ld-track::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(90deg, transparent 0 calc(5% - 3px), #241611 calc(5% - 3px) 5%);
+}
+
+/* 像素小勇者：跟著進度條前進 */
+
+.ld-hero {
+    position: absolute;
+    bottom: 100%;
+    left: calc(var(--p) * 1%);
+    width: 32px;
+    height: 32px;
+    margin: 0 0 -3px -16px;
+}
+
+.ld-sprite {
+    width: 4px;
+    height: 4px;
+    animation: ldStep .4s steps(2) infinite;
+}
+
+@keyframes ldStep {
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.ld-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: var(--ld-gold-light);
+    font: 400 10px / 1.6 var(--ld-px);
+}
+
+.ld-meta b {
+    font-weight: 400;
+    color: #fff;
+}
+
+/* ---------- 載入紀錄 ---------- */
+
+.ld-log {
+    height: 5.4em;
+    margin: 14px 0 0;
+    padding: 8px 10px;
+    overflow: hidden;
+    list-style: none;
+    text-align: left;
+    color: #c8b28c;
+    font-size: .78rem;
+    line-height: 1.35;
+    background: rgba(0, 0, 0, .28);
+    border: 2px dashed #79512f;
+}
+
+.ld-log li::before {
+    content: "> ";
+    color: var(--ld-gold);
+}
+
+.ld-log li::after {
+    content: " ▌";
+    color: var(--ld-gold);
+    animation: ldBlink 1s steps(2, start) infinite;
+}
+
+/* 完成的項目顯示 Font Awesome 打勾 */
+
+.ld-log li.ok::after {
+    content: " \f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--ld-green);
+    animation: none;
+}
+
+@keyframes ldBlink {
+    to {
+        visibility: hidden;
+    }
+}
+
+/* ---------- 略過按鈕 ---------- */
+
+.ld-skip {
+    margin-top: 14px;
+    padding: 6px 14px;
+    color: #fff0bd;
+    cursor: pointer;
+    background: linear-gradient(#79512f, #493022);
+    border: 3px solid #2f2019;
+    box-shadow: inset 0 0 0 2px var(--ld-gold), 3px 3px 0 #bd8b3e;
+    font: 400 10px / 1.6 var(--ld-px);
+}
+
+.ld-skip i {
+    margin-right: 6px;
+    color: #ffdb69;
+}
+
+.ld-skip:hover {
+    background: linear-gradient(#986b3b, #624027);
+}
+
+.ld-skip:active {
+    transform: translate(2px, 2px);
+}
+
+.ld-skip:focus-visible {
+    outline: 3px dashed #a9dcff;
+    outline-offset: 4px;
+}
+
+/* ---------- 魔法粒子（沿用首頁概念） ---------- */
+
+.ld-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .35s;
+}
+
+.ld-particle {
+    position: absolute;
+    left: var(--l);
+    top: var(--t);
+    width: var(--s);
+    height: var(--s);
+    border-radius: 50%;
+    background: var(--c);
+    box-shadow: 0 0 6px var(--c), 0 0 12px var(--c);
+    opacity: 0;
+    animation: ldFloat var(--d) ease-in-out var(--dl) infinite;
+}
+
+@keyframes ldFloat {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 15px, 0) scale(.5);
+    }
+
+    30%,
+    70% {
+        opacity: .8;
+    }
+
+    50% {
+        transform: translate3d(15px, -25px, 0) scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(-10px, -60px, 0) scale(.5);
+    }
+}
+
+/* ---------- 減少動態效果：關閉動畫，大門改為淡出 ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ld-loader *,
+    .ld-loader *::before,
+    .ld-loader *::after {
+        animation: none !important;
+    }
+
+    .ld-door {
+        transition: opacity .4s;
+    }
+
+    .ld-open .ld-door.l,
+    .ld-open .ld-door.r {
+        opacity: 0;
+        transform: none;
+    }
+
+    .ld-particles {
+        display: none;
+    }
+}
+
+/* =========================================================
+   背景巨龍：像素龍（進場飛入、上下漂浮、拍翅、擺尾、噴火）
+   ========================================================= */
+
+.rpg-dragon {
+    --u: clamp(5px, .95vw, 10px);
+    position: absolute;
+    z-index: -1;
+    right: 4%;
+    top: calc(clamp(14px, 2.5vw, 30px) + 46px);
+    width: calc(var(--u) * 49);
+    height: calc(var(--u) * 26);
+    opacity: 0;
+    pointer-events: auto;
+    translate: var(--px, 0) var(--py, 0);
+    transition: translate .25s ease-out;
+    cursor: pointer;
+}
+
+.my-intro-section.rpg-hero {
+    --u: clamp(5px, .95vw, 10px);
+}
+
+.my-intro-section.rpg-hero::before {
+    content: "";
+    display: block;
+    height: calc(var(--u) * 25 + 46px);
+}
+
+.dg-bob {
+    position: absolute;
+    inset: 0;
+    animation: dgBob 3.4s ease-in-out infinite;
+}
+
+@keyframes dgBob {
+    50% {
+        transform: translateY(calc(var(--u) * -1.6));
+    }
+}
+
+.dg-part {
+    position: absolute;
+    display: block;
+    line-height: 0;
+}
+
+.dg-part svg {
+    display: block;
+}
+
+.dg-body {
+    left: 0;
+    top: calc(var(--u) * 4);
+}
+
+.dg-wing {
+    left: calc(var(--u) * 8);
+    top: calc(var(--u) * 2);
+    z-index: -1;
+    transform-origin: 30% 92%;
+    animation: dgFlap 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes dgFlap {
+    from {
+        transform: rotate(-16deg);
+    }
+
+    to {
+        transform: rotate(14deg);
+    }
+}
+
+.dg-tail {
+    left: calc(var(--u) * 27);
+    top: calc(var(--u) * 13);
+    transform-origin: 0 40%;
+    animation: dgTail 2.6s ease-in-out infinite alternate;
+}
+
+@keyframes dgTail {
+    from {
+        transform: rotate(-5deg);
+    }
+
+    to {
+        transform: rotate(6deg);
+    }
+}
+
+.dg-fire i {
+    position: absolute;
+    left: 0;
+    top: calc(var(--u) * 8);
+    width: calc(var(--u) * 2);
+    height: calc(var(--u) * 2);
+    background: #ff9b3d;
+    opacity: 0;
+    animation: dgFire 4s ease-out infinite;
+    animation-delay: var(--dl);
+}
+
+.dg-fire i:nth-child(3n+2) {
+    background: #ffd86b;
+}
+
+.dg-fire i:nth-child(3n) {
+    background: #e0523d;
+}
+
+@keyframes dgFire {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(.5);
+    }
+
+    6% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+        transform: translate(calc(var(--u) * var(--fire-x, -16)), var(--dy)) scale(2.2);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ===== 混合版：斜衝墜落登場 + 震動 + BOSS 血條 + 雲層 + 滑鼠視差；桌機左文右龍 ===== */
+
+.rpg-dragon.is-in {
+    animation: dgSwoop 1.3s cubic-bezier(.5, 0, .9, .45) forwards;
+}
+
+@keyframes dgSwoop {
+    0% {
+        opacity: 0;
+        transform: translate(60%, -130%) scale(1.25);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+        transform: none;
+    }
+
+    93% {
+        transform: translateY(3%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.dg-eye {
+    position: absolute;
+    left: calc(var(--u) * 8);
+    top: calc(var(--u) * 6);
+    width: var(--u);
+    height: var(--u);
+    background: #ffe7a0;
+    box-shadow: 0 0 calc(var(--u) * 2) calc(var(--u) * .6) #ffcf4a;
+    opacity: 0;
+}
+
+.rpg-dragon.is-in .dg-eye {
+    animation: dgEye 1.4s ease-in-out 1.1s infinite alternate;
+}
+
+@keyframes dgEye {
+    from {
+        opacity: .4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.rpg-dragon.roar .dg-wing {
+    animation-duration: .4s;
+}
+
+.rpg-dragon.roar .dg-fire i {
+    animation-duration: 1.2s;
+}
+
+.rpg-hero.dg-shake {
+    animation: dgShake .5s linear;
+}
+
+@keyframes dgShake {
+
+    0%,
+    100% {
+        transform: none;
+    }
+
+    20% {
+        transform: translate(-6px, 3px);
+    }
+
+    40% {
+        transform: translate(6px, -3px);
+    }
+
+    60% {
+        transform: translate(-4px, 2px);
+    }
+
+    80% {
+        transform: translate(3px, -2px);
+    }
+}
+
+.rpg-boss-hud {
+    position: absolute;
+    z-index: 1;
+    top: clamp(14px, 2.5vw, 30px);
+    right: 4%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 12px;
+    color: #fff2cf;
+    background: #35231d;
+    border: 3px solid #e6b955;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, .25);
+    font: 10px/1.4 "Press Start 2P", "Courier New", monospace;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .4s, transform .4s;
+    pointer-events: none;
+}
+
+.rpg-boss-hud.show {
+    opacity: 1;
+    transform: none;
+}
+
+.bh-bar {
+    display: block;
+    width: clamp(150px, 20vw, 240px);
+    height: 10px;
+    background: #1c1210;
+    border: 2px solid #8f2f2b;
+}
+
+.bh-bar i {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: #c84c43;
+    transition: width 1.4s steps(14) .3s;
+}
+
+.rpg-boss-hud.show .bh-bar i {
+    width: 100%;
+}
+
+.dg-cloud {
+    position: absolute;
+    z-index: -1;
+    top: var(--tm);
+    left: -20%;
+    line-height: 0;
+    opacity: .85;
+    animation: dgCloud var(--cd, 60s) linear infinite;
+    animation-delay: var(--cl, 0s);
+}
+
+.dg-cloud svg {
+    display: block;
+    width: calc(var(--u) * var(--cw, 8));
+    height: auto;
+}
+
+@keyframes dgCloud {
+    to {
+        left: 112%;
+    }
+}
+
+@media (min-width: 901px) {
+    .my-intro-section.rpg-hero {
+        --u: clamp(5px, .9vw, 11px);
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+        justify-items: start;
+        text-align: left;
+    }
+
+    .my-intro-section.rpg-hero::before {
+        display: none;
+    }
+
+    .my-intro-section.rpg-hero> :not(.rpg-dragon):not(.rpg-boss-hud):not(.dg-cloud) {
+        grid-column: 1;
+    }
+
+    .my-intro-section.rpg-hero>* {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .my-intro-section.rpg-hero h1 {
+        align-items: flex-start;
+        font-size: clamp(2rem, 3.6vw, 3rem);
+    }
+
+    .my-intro-section.rpg-hero p {
+        max-width: 34em;
+    }
+
+    .my-intro-section.rpg-hero .rpg-hero-divider {
+        width: 100%;
+    }
+
+    .my-intro-section.rpg-hero .rpg-hero-stats {
+        justify-content: flex-start;
+    }
+
+    .my-intro-section.rpg-hero .rpg-stat {
+        align-items: flex-start;
+        min-width: 0;
+    }
+
+    .my-intro-section.rpg-hero .rpg-exp-container {
+        width: 100%;
+    }
+
+    .rpg-dragon {
+        top: 50%;
+        right: 1%;
+        margin-top: calc(var(--u) * -13);
+        --fire-x: -9;
+    }
+
+    .dg-cloud {
+        top: var(--td);
+    }
+}
+
+/* =========================================================
+   優化補充：縮圖、無作品提示、動畫暫停、龍可點擊、小字加深
+   ========================================================= */
+
+.my-project-thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 3px solid var(--rpg-brown);
+    background: var(--rpg-paper-shadow);
+}
+
+.rpg-empty {
+    margin: 24px 0;
+    padding: 18px;
+    text-align: center;
+    color: var(--rpg-ink-soft);
+    font-weight: 900;
+    background: rgba(255, 255, 255, .55);
+    border: 2px dashed var(--rpg-brown);
+}
+
+.rpg-hero.dg-paused .rpg-dragon,
+.rpg-hero.dg-paused .rpg-dragon *,
+.rpg-hero.dg-paused .dg-cloud {
+    animation-play-state: paused;
+}
+
+html.dg-hidden *,
+html.dg-hidden *::before,
+html.dg-hidden *::after {
+    animation-play-state: paused !important;
 }

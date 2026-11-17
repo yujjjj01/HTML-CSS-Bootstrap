@@ -8,6 +8,7 @@
     <meta name="description" content="記錄 HTML、CSS、JavaScript 與網頁設計的學習歷程和作品圖鑑。">
     <title>學習歷程筆記展示</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="CSS/myRPGcss.css">
@@ -15,13 +16,236 @@
 </head>
 
 <body>
+    <!-- RPG 載入畫面 -->
+    <script>
+        /* RPG 載入畫面（要放在 <body> 最前面）：自動插入載入畫面、自動計算作品數，
+           並提供 rpgReady(fn)（大門開始打開後才執行 fn）與 rpgReplay()（重播載入畫面） */
+        (function () {
+            "use strict";
+
+            /* 其他檔案共用：使用者是否偏好減少動態效果（要在 return 之前先設定） */
+            window.RPG_REDUCE = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+            /* ===== 可調整的設定 ===== */
+            var MIN_TIME = 3200;    // 最短顯示時間（毫秒）
+            var MAX_TIME = 10000;   // 最長等待時間，避免卡住
+            var STEPS = [           // [出現的進度%, 載入紀錄文字]
+                [0, "召喚 HTML 結構"],
+                [16, "附魔 CSS 樣式"],
+                [38, "載入 JavaScript 魔法"],
+                [60, function () { return "整理 " + countWorks() + " 項冒險任務"; }],
+                [82, "點亮魔法粒子"]
+            ];
+
+            /* ===== rpgReady：載入畫面打開後才執行 ===== */
+            var queue = [], ready = false;
+            function flush() {
+                ready = true;
+                while (queue.length) {
+                    try { queue.shift()(); } catch (err) { console.error(err); }
+                }
+            }
+            window.rpgReady = function (fn) {
+                if (ready) { fn(); } else { queue.push(fn); }
+            };
+
+            if (!document.body) { flush(); return; }   // 放錯位置時，直接略過載入畫面
+
+            var html = document.documentElement;
+            var reduce = window.RPG_REDUCE;
+            if (reduce) MIN_TIME = 900;
+
+            var TEMPLATE = [
+                '<div class="ld-loader" id="ldLoader" role="status" aria-live="polite" aria-busy="true" aria-label="頁面載入中">',
+                '  <div class="ld-door l"></div><div class="ld-door r"></div>',
+                '  <div class="ld-particles" id="ldParticles" aria-hidden="true"></div>',
+                '  <div class="ld-panel">',
+                '    <div class="ld-gem" aria-hidden="true">',
+                '      <span class="ld-orbit o1"></span><span class="ld-orbit o2"></span><span class="ld-orbit o3"></span>',
+                '      <span class="ld-core"><i class="fa-solid fa-gem"></i></span>',
+                '    </div>',
+                '    <div class="ld-title">NOW LOADING<span class="ld-dots" aria-hidden="true"></span></div>',
+                '    <p class="ld-sub" id="ldSub"></p>',
+                '    <div class="ld-bar" id="ldBar">',
+                '      <div class="ld-hero" aria-hidden="true"><div class="ld-sprite" id="ldSprite"></div></div>',
+                '      <div class="ld-track"><div class="ld-fill"></div></div>',
+                '    </div>',
+                '    <div class="ld-meta">',
+                '      <span>QUEST <b id="ldQuest">--</b>/<b id="ldTotal">--</b></span>',
+                '      <span><b id="ldPct">0</b>%</span>',
+                '    </div>',
+                '    <ul class="ld-log" id="ldLog" aria-hidden="true"></ul>',
+                '    <button class="ld-skip" id="ldSkip" type="button"><i class="fa-solid fa-forward" aria-hidden="true"></i>SKIP</button>',
+                '  </div>',
+                '</div>'
+            ].join("");
+
+            /* 像素小勇者：用字串地圖 + box-shadow 畫出來 */
+            var MAP = ["..rrrr..", ".rrrrrr.", ".ssssss.", ".sesses.", ".ssssss.", "gggggggg", ".gggggg.", ".bb..bb."];
+            var COL = { r: "#c84c43", s: "#f5c997", e: "#35231d", g: "#e6b955", b: "#79512f" };
+            var U = 4, shadows = [];
+            MAP.forEach(function (row, y) {
+                row.split("").forEach(function (c, x) {
+                    if (c !== ".") shadows.push(x * U + "px " + y * U + "px 0 " + COL[c]);
+                });
+            });
+            var SPRITE_SHADOW = shadows.join(",");
+
+            /* ===== 狀態 ===== */
+            var loader = null, bar, logEl, subEl, pctEl, questEl, totalEl;
+            var p, stepIdx, finished, loaded, start, raf, startTimer;
+
+            /* 作品數量：自動計算，之後新增作品卡片不用改這裡 */
+            function countWorks() {
+                return document.querySelectorAll(".my-project-grid .my-project-card").length;
+            }
+            function pad(n) { return String(n).padStart(2, "0"); }
+            function setSub(icon, text) {
+                subEl.innerHTML = '<i class="fa-solid ' + icon + '" aria-hidden="true"></i>' + text;
+            }
+
+            /* 把載入畫面塞進頁面（第一次載入與重播都會用到） */
+            function mount() {
+                html.classList.add("is-loading");
+                document.body.insertAdjacentHTML("afterbegin", TEMPLATE);
+                loader = document.getElementById("ldLoader");
+                bar = document.getElementById("ldBar");
+                logEl = document.getElementById("ldLog");
+                subEl = document.getElementById("ldSub");
+                pctEl = document.getElementById("ldPct");
+                questEl = document.getElementById("ldQuest");
+                totalEl = document.getElementById("ldTotal");
+                document.getElementById("ldSprite").style.boxShadow = SPRITE_SHADOW;
+
+                if (!reduce) {   // 魔法粒子
+                    var box = document.getElementById("ldParticles");
+                    var colors = ["#f5d98b", "#a9dcff", "#ffffff"];
+                    for (var i = 0; i < 30; i++) {
+                        var s = document.createElement("span");
+                        s.className = "ld-particle";
+                        s.style.setProperty("--s", (Math.random() * 6 + 2) + "px");
+                        s.style.setProperty("--l", Math.random() * 100 + "%");
+                        s.style.setProperty("--t", Math.random() * 100 + "%");
+                        s.style.setProperty("--d", (Math.random() * 6 + 6) + "s");
+                        s.style.setProperty("--dl", (Math.random() * -12) + "s");
+                        s.style.setProperty("--c", colors[i % 3]);
+                        box.appendChild(s);
+                    }
+                }
+
+                document.getElementById("ldSkip").addEventListener("click", finish);
+                setSub("fa-scroll", "冒險者圖鑑載入中，請稍候");
+                p = 0; stepIdx = 0; finished = false;
+            }
+
+            /* ===== 載入流程 ===== */
+            function addLog(text) {
+                var last = logEl.lastElementChild;
+                if (last) last.classList.add("ok");
+                var li = document.createElement("li");
+                li.textContent = text;
+                logEl.appendChild(li);
+                while (logEl.children.length > 4) logEl.removeChild(logEl.firstChild);
+            }
+
+            function render() {
+                var v = Math.min(100, p), n = countWorks();
+                bar.style.setProperty("--p", v);
+                pctEl.textContent = Math.floor(v);
+                questEl.textContent = n ? pad(Math.round(v / 100 * n)) : "--";
+                totalEl.textContent = n ? pad(n) : "--";
+                while (stepIdx < STEPS.length && v >= STEPS[stepIdx][0]) {
+                    var t = STEPS[stepIdx++][1];
+                    addLog(typeof t === "function" ? t() : t);
+                }
+            }
+
+            function tick(now) {
+                if (finished) return;
+                var t = now - start;
+                if (t > MAX_TIME) loaded = true;
+                var target = Math.min(t / MIN_TIME, 1) * 100;
+                if (!loaded) target = Math.min(target, 90);   // 網頁資源還沒載完，先停在 90%
+                p = Math.min(target, p + Math.max((target - p) * 0.15, 0.2));
+                render();
+                if (p >= 100) { finish(); return; }
+                raf = requestAnimationFrame(tick);
+            }
+
+            function begin() {
+                start = performance.now();
+                raf = requestAnimationFrame(tick);
+            }
+
+            function finish() {
+                if (finished || !loader) return;
+                finished = true;
+                clearTimeout(startTimer);
+                cancelAnimationFrame(raf);
+                var el = loader;
+                p = 100; render();
+                if (logEl.lastElementChild) logEl.lastElementChild.classList.add("ok");
+                setSub("fa-trophy", "載入完成！出發吧，冒險者");
+
+                setTimeout(function () { el.classList.add("ld-leaving"); }, 800);
+                setTimeout(function () {
+                    el.classList.add("ld-open");              // 大門開始打開
+                    html.classList.remove("is-loading");      // 解除捲動鎖定
+                    el.setAttribute("aria-busy", "false");
+                    flush();                                  // 第一次才會真的執行頁面動畫（之後佇列是空的）
+                    document.dispatchEvent(new Event("rpg:open"));   // 通知龍：大門打開了
+                }, 1150);
+                setTimeout(function () {
+                    el.remove();
+                    loader = null;                            // 現在可以再次重播
+                }, 2400);
+            }
+
+            /* ===== 重播載入畫面（點左上角圖案） ===== */
+            window.rpgReplay = function () {
+                if (loader) return;                           // 正在播放中就不重複
+                window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+                document.dispatchEvent(new Event("rpg:close"));  // 通知龍：重置，等門開再登場
+                loaded = true;
+                mount();
+                loader.classList.add("ld-open", "ld-leaving");   // 先讓大門是開的、面板隱藏
+                void loader.offsetWidth;                         // 強制重排，才看得到關門動畫
+                loader.classList.remove("ld-open");              // 大門關起來
+                var el = loader;
+                setTimeout(function () {                         // 面板淡入
+                    if (loader === el && !finished) el.classList.remove("ld-leaving");
+                }, 900);
+                startTimer = setTimeout(begin, 1200);            // 門關好後才開始跑進度
+            };
+
+            /* ===== 事件 ===== */
+            document.addEventListener("keydown", function (e) {
+                if (!e.repeat && loader && !finished && (e.key === "Enter" || e.key === "Escape")) finish();
+            });
+            // 事件代理：左上角 .rpg-brand 之後才會出現在頁面上，所以掛在 document
+            document.addEventListener("click", function (e) {
+                var brand = e.target.closest && e.target.closest(".rpg-brand");
+                if (brand) {
+                    e.preventDefault();
+                    window.rpgReplay();
+                }
+            });
+            window.addEventListener("load", function () { loaded = true; });
+
+            /* ===== 第一次載入 ===== */
+            loaded = document.readyState === "complete";
+            mount();
+            begin();
+        })();
+    </script>
+
     <div class="rpg-magic-particles" id="magicParticles" aria-hidden="true"></div>
 
     <a class="rpg-skip-link" href="#main-content">跳至主要內容</a>
 
     <!--top bar用到flex的justify-content: space-between-->
     <header class="rpg-topbar" aria-label="冒險者狀態列">
-        <a class="rpg-brand" href="#top" aria-label="回到冒險圖鑑首頁">
+        <a class="rpg-brand" href="#top" aria-label="重播載入畫面並回到首頁" title="重播載入畫面">
             <span class="rpg-brand-mark" aria-hidden="true"><i class="fa-solid fa-diamond"
                     aria-hidden="true"></i></span>
         </a>
@@ -37,15 +261,26 @@
         <!-- 冒險旅程主視覺 -->
         <section class="my-intro-section rpg-hero" id="top" aria-labelledby="intro-title">
 
-            <!--底圖的左邊dimanod-->
-            <div class="rpg-hero-spark rpg-spark-one" aria-hidden="true"><i class="fa-solid fa-diamond"
-                    aria-hidden="true"></i>
+            <!-- 背景巨龍（像素龍）-->
+            <div class="rpg-dragon" id="rpgDragon" aria-hidden="true">
+                <div class="dg-bob">
+                    <span class="dg-part dg-wing"></span>
+                    <span class="dg-part dg-body"></span>
+                    <span class="dg-part dg-tail"></span>
+                    <span class="dg-eye"></span>
+                    <span class="dg-fire">
+                        <i style="--dl:0s;--dy:calc(var(--u)*-3)"></i><i style="--dl:.08s;--dy:calc(var(--u)*0)"></i>
+                        <i style="--dl:.16s;--dy:calc(var(--u)*3)"></i><i
+                            style="--dl:.24s;--dy:calc(var(--u)*-1.5)"></i>
+                        <i style="--dl:.32s;--dy:calc(var(--u)*4)"></i><i style="--dl:.4s;--dy:calc(var(--u)*-4)"></i>
+                        <i style="--dl:.48s;--dy:calc(var(--u)*1.5)"></i>
+                    </span>
+                </div>
             </div>
 
-            <!--底圖的右邊star-->
-            <div class="rpg-hero-spark rpg-spark-two" aria-hidden="true">
-                <i class="fa-regular fa-star" aria-hidden="true"></i>
+            <div class="rpg-boss-hud" aria-hidden="true"><span>BOSS ▸ 學習巨龍</span><span class="bh-bar"><i></i></span>
             </div>
+
 
             <span class="my-section-label">MY LEARNING JOURNEY</span>
 
@@ -107,15 +342,14 @@
             <!--底部文字-->
             <div class="rpg-hero-bottomline">
                 <span>PRESS START TO CONTINUE</span>
-                <span class="rpg-blink" aria-hidden="true">▌</i>
-                </span>
+                <span class="rpg-blink" aria-hidden="true">▌</span>
             </div>
         </section>
 
         <!-- 學習作品圖鑑 -->
         <section class="my-works-section" id="works" aria-labelledby="works-title">
             <div class="rpg-section-eyebrow"><span>CHAPTER 01</span><span>THE ARCHIVE OF LEARNING</span></div>
-            <div class="my-works-header my-font rpg-works-heading">
+            <div class="my-works-header rpg-works-heading">
                 <div class="rpg-heading-icon" aria-hidden="true"><i class="fa-solid fa-book-open"></i></div>
                 <div class="rpg-heading-copy"><span class="rpg-heading-kicker">WORKS ARCHIVE / <span
                             id="archive-count">0</span> RECORDS</span>
@@ -138,603 +372,366 @@
                 <button class="rpg-filter-btn" data-filter="spa">SPA</button>
             </div>
 
-            <div class="my-project-grid">
-                <!-- Project 01 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">01</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">HTML · CSS · WEB
-                            DESIGN</span>
-                        <h3 class="my-font">HTML & CSS 網頁排版基礎練習</h3><span class="my-project-date my-font">2026 / 09
-                            / 23</span>
-                        <p class="my-font">第一次練習使用 HTML 與 CSS 建立完整的網頁結構，從標題、段落、圖片到區塊配置，學習 HTML 語意結構與 CSS
-                            基本樣式設定，並嘗試調整文字、顏色、間距與版面配置，建立網頁設計的基礎概念。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20260923_ex01.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 02 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">02</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">HTML · CSS · AI</span>
-                        <h3 class="my-font">HTML & CSS 排版練習 By AI</h3><span class="my-project-date my-font">2026 /
-                            09 / 24</span>
-                        <p class="my-font">嘗試利用 AI 協助網頁設計與程式撰寫，透過 AI 產生 HTML 與 CSS
-                            的設計方向，再根據自己的需求進行修改與調整。從過程中學習如何閱讀程式碼、理解版面結構，並思考 AI 產生的程式是否符合實際需求。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20260924_ex01_AI2.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 03 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">03</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">JAVASCRIPT · OPENDATA ·
-                            JSON</span>
-                        <h3 class="my-font">JavaScript × OpenData 旅遊美食</h3><span class="my-project-date my-font">2026 /
-                            09 / 29</span>
-                        <p class="my-font">開始接觸 JavaScript 與 OpenData 的應用，練習透過 API 取得公開資料，並使用 JavaScript 讀取與處理 JSON
-                            格式的內容，再將旅遊景點與美食資訊動態呈現在網頁上，了解前端網頁如何與外部資料進行互動。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20260929_js_TravelFood.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 04 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">04</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP · OPENDATA ·
-                            RWD</span>
-                        <h3 class="my-font">Bootstrap × OpenData 旅遊美食</h3><span class="my-project-date my-font">2026 /
-                            10 / 01</span>
-                        <p class="my-font">將 Bootstrap 框架應用在 OpenData 資料展示上，學習使用 Bootstrap 提供的元件與 Grid
-                            網格系統建立整齊的網頁版面，同時結合旅遊與美食資料，練習製作具有響應式設計的資訊展示頁面。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261001_Boostrap.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 05 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">05</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP TABLE · OPENDATA
-                            · DATA</span>
-                        <h3 class="my-font">Bootstrap Table × OpenData 旅遊美食</h3><span
-                            class="my-project-date my-font">2026 / 10 / 06</span>
-                        <p class="my-font">進一步學習 Bootstrap Table 的使用方式，將 OpenData
-                            中取得的旅遊與美食資訊整理成表格，練習資料欄位的呈現、表格樣式與資料閱讀性，讓大量資訊能夠以更清楚、有條理的方式呈現在網頁中。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261006_BS_Table_Data.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 06 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">06</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP · GRID ·
-                            RESPONSIVE</span>
-                        <h3 class="my-font">Ch6_切版_基礎功</h3><span class="my-project-date my-font">2026 / 10 / 06</span>
-                        <p class="my-font">學習使用 Bootstrap 進行網頁切版，練習 Container、Row、Column 等 Grid 網格系統，並搭配 Flex
-                            進行版面配置。透過實際製作不同區塊，將設計內容轉換成 HTML 與 Bootstrap 結構，進一步熟悉響應式網頁設計與不同螢幕尺寸的版面調整。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261006_ch6_切版.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 07 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">07</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP · LAYOUT ·
-                            RWD</span>
-                        <h3 class="my-font">Bootstrap_切版練習_EX01</h3><span class="my-project-date my-font">2026 / 10 /
-                            06</span>
-                        <p class="my-font">開始練習使用 Bootstrap 進行網頁切版，學習 Container、Row、Column 等基本 Grid
-                            系統，將設計內容拆分成不同區塊並安排版面位置，同時了解響應式網頁設計的概念，讓網頁能適應不同螢幕尺寸。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261006_ch6_切版_ex01.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 08 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">08</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">BOOTSTRAP · LAYOUT ·
-                            RESPONSIVE</span>
-                        <h3 class="my-font">Bootstrap_切版練習_EX02</h3><span class="my-project-date my-font">2026 / 10 /
-                            08</span>
-                        <p class="my-font">延續 Bootstrap 切版練習，進一步熟悉網格系統、Flex 排版與響應式設計的使用方式。透過實際製作不同區塊的版面配置，練習將網頁設計稿轉換成
-                            HTML 與 Bootstrap 結構，提升自己對網頁整體版面與視覺配置的掌握度。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261008_ch6_切版_ex02.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 09 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">09</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">FLEX · LAYOUT ·
-                            RESPONSIVE</span>
-                        <h3 class="my-font">Ch7_Flex_基礎功</h3><span class="my-project-date my-font">2026 / 10 / 08</span>
-                        <p class="my-font">開始深入練習 CSS Flexbox 排版，學習使用 display:
-                            flex、justify-content、align-items、flex-direction 等屬性控制網頁元素的位置與排列方式。透過實際的版面練習，了解 Flex
-                            在水平與垂直配置上的應用，提升自己對網頁排版與區塊配置的掌握度。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261008_ch7_flex.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 10 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">10</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">FLEX · TIMELINE ·
-                            RESPONSIVE</span>
-                        <h3 class="my-font">Ch7_Flex_TimeLine</h3><span class="my-project-date my-font">2026 / 10 /
-                            13</span>
-                        <p class="my-font">本次開始深入練習 CSS Flexbox 排版，學習運用 display: flex、justify-content、align-items 與
-                            flex-direction 等屬性，控制元素的排列方向、對齊方式與間距。透過製作時間軸版面，練習使用 Flexbox
-                            配置內容區塊，並結合響應式設計（RWD），讓頁面在不同裝置尺寸下都能維持良好的版面結構與閱讀體驗。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261013_FlexTimeline.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 11 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">11</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">HTML FORMS · INPUT · USER
-                            INTERACTION</span>
-                        <h3 class="my-font">Ch8_Forms</h3><span class="my-project-date my-font">2026 / 10 / 15</span>
-                        <p class="my-font">本次練習 HTML 表單（Forms）的基本結構與應用，學習運用 form、label、input、select、textarea
-                            等表單元素建立使用者輸入介面，並認識不同輸入類型的用途與設定方式。透過表單欄位的配置與屬性應用，熟悉資料輸入、選項選擇及文字填寫等功能，進一步提升網頁互動性與表單設計的實作能力。
-                        </p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261015_Ch8_Forms.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 12 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">12</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">HTML FORMS · FORM ELEMENTS
-                            · BASIC INPUT</span>
-                        <h3 class="my-font">Ch8_Forms_Ex01</h3><span class="my-project-date my-font">2026 / 10 /
-                            15</span>
-                        <p class="my-font">本次練習以 HTML Forms 為主題，學習表單的基本結構與常用元素，透過 form、label、input
-                            等標籤建立表單欄位，並練習設定不同的輸入類型與相關屬性。藉由實際操作表單元素，熟悉 HTML 表單的基本語法與使用方式，進一步掌握網頁表單的建立與應用。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261015_Ch8_Forms_Ex01.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
-                <!-- Project 13 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">13</div>
-                    <div class="my-project-content"><span class="my-project-category my-font">HTML FORMS · JQUERY ·
-                            AI-ASSISTED DEVELOPMENT</span>
-                        <h3 class="my-font">Ch8_Forms_Ex01_AI</h3><span class="my-project-date my-font">2026 / 10 /
-                            27</span>
-                        <p class="my-font">本次作品以課程報名表為主題，結合 HTML、CSS、Bootstrap、JavaScript、jQuery 與
-                            AJAX，設計具有遊戲冒險風格的多步驟互動表單。透過欄位驗證、縣市資料載入、課程選擇、表單草稿暫存、進度條與報名資料摘要等功能，練習表單操作與資料處理流程，並運用 AI
-                            協助開發與調整程式碼，進一步了解前端互動設計及表單功能整合的實作方式。</p>
-                    </div>
-                    <div class="my-project-footer"><a href="20261015_Ch8_Forms_Ex01_AI.html" target="_blank"
-                            rel="noopener noreferrer" class="my-project-button my-font">查看作品 <span aria-hidden="true"><i
-                                    class="fa-solid fa-arrow-right"></i></span></a></div>
-                </article>
+            <div class="my-project-grid"></div>
+            <p class="rpg-empty" id="rpgEmpty" hidden>這個分類還沒有作品，冒險繼續中…</p>
 
-                <!-- Project 14 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">14</div>
-
-                    <div class="my-project-content">
-                        <span class="my-project-category my-font">
-                            HTML · CSS · JAVASCRIPT · SPA
-                        </span>
-
-                        <h3 class="my-font">SPA_單頁式網站設計</h3>
-
-                        <span class="my-project-date my-font">
-                            2026 / 10 / 27
-                        </span>
-
-                        <p class="my-font">
-                            本次作品以 SPA（Single Page Application，單頁式應用程式）為主題，
-                            練習將網站內容整合在單一頁面中，透過不同區塊的規劃與版面配置，
-                            建立清楚的資訊層次與瀏覽動線。藉由 HTML 與 CSS 調整頁面結構、
-                            文字樣式、色彩及間距，並結合 JavaScript 增加頁面互動性，
-                            進一步熟悉單頁式網站的設計概念與前端網頁整合方式。
-                        </p>
-                    </div>
-
-                    <div class="my-project-footer">
-                        <a href="Web3-SPA.html" target="_blank" rel="noopener noreferrer"
-                            class="my-project-button my-font">
-                            查看作品 <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Project 15 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">15</div>
-
-                    <div class="my-project-content">
-                        <span class="my-project-category my-font">
-                            HTML · CSS · JAVASCRIPT · JQUERY · AJAX · CRUD
-                        </span>
-
-                        <h3 class="my-font">CH8_表單設計與 CRUD 資料管理</h3>
-
-                        <span class="my-project-date my-font">
-                            2026 / 11 / 10
-                        </span>
-
-                        <p class="my-font">
-                            本次作品以 CRUD（Create、Read、Update、Delete）資料管理概念為主題，
-                            練習使用 HTML 與 Bootstrap 建立產品資料表單，並透過 JavaScript
-                            與 jQuery 處理表單欄位驗證、資料蒐集及操作互動。使用者填寫資料後，
-                            可先預覽確認內容，再將表單資料整理成 JSON 格式，透過 AJAX
-                            發送 POST 請求至後端 API，熟悉前後端資料傳遞、非同步請求及
-                            表單資料新增的基本流程。
-                        </p>
-                    </div>
-
-                    <div class="my-project-footer">
-                        <a href="20261110_CH8_Forms-CRUD-C.html" target="_blank" rel="noopener noreferrer"
-                            class="my-project-button my-font">
-                            查看作品 <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Project 16 -->
-                <article class="my-project-card">
-                    <div class="my-project-number">16</div>
-
-                    <div class="my-project-content">
-                        <span class="my-project-category my-font">
-                            HTML · CSS · JAVASCRIPT · JQUERY · AJAX · CRUD · AI
-                        </span>
-
-                        <h3 class="my-font">CH8_表單設計與 CRUD 資料管理-AI協作</h3>
-
-                        <span class="my-project-date my-font">
-                            2026 / 11 / 12
-                        </span>
-
-                        <p class="my-font">
-                            本次作品以 CRUD（Create、Read、Update、Delete）資料管理概念為主題，
-                            練習使用 HTML 與 Bootstrap 建立產品資料表單，並透過 JavaScript
-                            與 jQuery 處理表單欄位驗證、資料蒐集及操作互動。使用者填寫資料後，
-                            可先預覽確認內容，再將表單資料整理成 JSON 格式，透過 AJAX
-                            發送 POST 請求至後端 API，熟悉前後端資料傳遞、非同步請求及
-                            表單資料新增的基本流程。
-                        </p>
-                    </div>
-
-                    <div class="my-project-footer">
-                        <a href="20261110_CH8_Forms-CRUD-C-AI.html" target="_blank" rel="noopener noreferrer"
-                            class="my-project-button my-font">
-                            查看作品 <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span>
-                        </a>
-                    </div>
-                </article>
-
-            </div>
+            <script>
+                /* 作品資料：新增作品只要在最後面加一筆即可
+                   （卡片、數量、章節、篩選、最新緞帶都會自動更新）
+                   tags 可用：html-css / flex / bootstrap / js / forms / ai / spa
+                   選填 thumb: "images/xxx.png" 會在卡片上方顯示縮圖（自動延遲載入） */
+                window.RPG_WORKS = [
+                    {
+                        cat: "HTML · CSS · WEB DESIGN", title: "HTML & CSS 網頁排版基礎練習", date: "2026 / 09 / 23", href: "20260923_ex01.html", tags: ["html-css"],
+                        desc: "第一次練習使用 HTML 與 CSS 建立完整的網頁結構，從標題、段落、圖片到區塊配置，學習 HTML 語意結構與 CSS 基本樣式設定，並嘗試調整文字、顏色、間距與版面配置，建立網頁設計的基礎概念。"
+                    },
+                    {
+                        cat: "HTML · CSS · AI", title: "HTML & CSS 排版練習 By AI", date: "2026 / 09 / 24", href: "20260924_ex01_AI2.html", tags: ["html-css", "ai"],
+                        desc: "嘗試利用 AI 協助網頁設計與程式撰寫，透過 AI 產生 HTML 與 CSS 的設計方向，再根據自己的需求進行修改與調整。從過程中學習如何閱讀程式碼、理解版面結構，並思考 AI 產生的程式是否符合實際需求。"
+                    },
+                    {
+                        cat: "JAVASCRIPT · OPENDATA · JSON", title: "JavaScript × OpenData 旅遊美食", date: "2026 / 09 / 29", href: "20260929_js_TravelFood.html", tags: ["js"],
+                        desc: "開始接觸 JavaScript 與 OpenData 的應用，練習透過 API 取得公開資料，並使用 JavaScript 讀取與處理 JSON 格式的內容，再將旅遊景點與美食資訊動態呈現在網頁上，了解前端網頁如何與外部資料進行互動。"
+                    },
+                    {
+                        cat: "BOOTSTRAP · OPENDATA · RWD", title: "Bootstrap × OpenData 旅遊美食", date: "2026 / 10 / 01", href: "20261001_Boostrap.html", tags: ["bootstrap"],
+                        desc: "將 Bootstrap 框架應用在 OpenData 資料展示上，學習使用 Bootstrap 提供的元件與 Grid 網格系統建立整齊的網頁版面，同時結合旅遊與美食資料，練習製作具有響應式設計的資訊展示頁面。"
+                    },
+                    {
+                        cat: "BOOTSTRAP TABLE · OPENDATA · DATA", title: "Bootstrap Table × OpenData 旅遊美食", date: "2026 / 10 / 06", href: "20261006_BS_Table_Data.html", tags: ["bootstrap"],
+                        desc: "進一步學習 Bootstrap Table 的使用方式，將 OpenData 中取得的旅遊與美食資訊整理成表格，練習資料欄位的呈現、表格樣式與資料閱讀性，讓大量資訊能夠以更清楚、有條理的方式呈現在網頁中。"
+                    },
+                    {
+                        cat: "BOOTSTRAP · GRID · RESPONSIVE", title: "Ch6_切版_基礎功", date: "2026 / 10 / 06", href: "20261006_ch6_切版.html", tags: ["bootstrap"],
+                        desc: "學習使用 Bootstrap 進行網頁切版，練習 Container、Row、Column 等 Grid 網格系統，並搭配 Flex 進行版面配置。透過實際製作不同區塊，將設計內容轉換成 HTML 與 Bootstrap 結構，進一步熟悉響應式網頁設計與不同螢幕尺寸的版面調整。"
+                    },
+                    {
+                        cat: "BOOTSTRAP · LAYOUT · RWD", title: "Bootstrap_切版練習_EX01", date: "2026 / 10 / 06", href: "20261006_ch6_切版_ex01.html", tags: ["bootstrap"],
+                        desc: "開始練習使用 Bootstrap 進行網頁切版，學習 Container、Row、Column 等基本 Grid 系統，將設計內容拆分成不同區塊並安排版面位置，同時了解響應式網頁設計的概念，讓網頁能適應不同螢幕尺寸。"
+                    },
+                    {
+                        cat: "BOOTSTRAP · LAYOUT · RESPONSIVE", title: "Bootstrap_切版練習_EX02", date: "2026 / 10 / 08", href: "20261008_ch6_切版_ex02.html", tags: ["bootstrap"],
+                        desc: "延續 Bootstrap 切版練習，進一步熟悉網格系統、Flex 排版與響應式設計的使用方式。透過實際製作不同區塊的版面配置，練習將網頁設計稿轉換成 HTML 與 Bootstrap 結構，提升自己對網頁整體版面與視覺配置的掌握度。"
+                    },
+                    {
+                        cat: "FLEX · LAYOUT · RESPONSIVE", title: "Ch7_Flex_基礎功", date: "2026 / 10 / 08", href: "20261008_ch7_flex.html", tags: ["flex"],
+                        desc: "開始深入練習 CSS Flexbox 排版，學習使用 display: flex、justify-content、align-items、flex-direction 等屬性控制網頁元素的位置與排列方式。透過實際的版面練習，了解 Flex 在水平與垂直配置上的應用，提升自己對網頁排版與區塊配置的掌握度。"
+                    },
+                    {
+                        cat: "FLEX · TIMELINE · RESPONSIVE", title: "Ch7_Flex_TimeLine", date: "2026 / 10 / 13", href: "20261013_FlexTimeline.html", tags: ["flex"],
+                        desc: "本次開始深入練習 CSS Flexbox 排版，學習運用 display: flex、justify-content、align-items 與 flex-direction 等屬性，控制元素的排列方向、對齊方式與間距。透過製作時間軸版面，練習使用 Flexbox 配置內容區塊，並結合響應式設計（RWD），讓頁面在不同裝置尺寸下都能維持良好的版面結構與閱讀體驗。"
+                    },
+                    {
+                        cat: "HTML FORMS · INPUT · USER INTERACTION", title: "Ch8_Forms", date: "2026 / 10 / 15", href: "20261015_Ch8_Forms.html", tags: ["forms"],
+                        desc: "本次練習 HTML 表單（Forms）的基本結構與應用，學習運用 form、label、input、select、textarea 等表單元素建立使用者輸入介面，並認識不同輸入類型的用途與設定方式。透過表單欄位的配置與屬性應用，熟悉資料輸入、選項選擇及文字填寫等功能，進一步提升網頁互動性與表單設計的實作能力。"
+                    },
+                    {
+                        cat: "HTML FORMS · FORM ELEMENTS · BASIC INPUT", title: "Ch8_Forms_Ex01", date: "2026 / 10 / 15", href: "20261015_Ch8_Forms_Ex01.html", tags: ["forms"],
+                        desc: "本次練習以 HTML Forms 為主題，學習表單的基本結構與常用元素，透過 form、label、input 等標籤建立表單欄位，並練習設定不同的輸入類型與相關屬性。藉由實際操作表單元素，熟悉 HTML 表單的基本語法與使用方式，進一步掌握網頁表單的建立與應用。"
+                    },
+                    {
+                        cat: "HTML FORMS · JQUERY · AI-ASSISTED DEVELOPMENT", title: "Ch8_Forms_Ex01_AI", date: "2026 / 10 / 27", href: "20261015_Ch8_Forms_Ex01_AI.html", tags: ["forms", "ai"],
+                        desc: "本次作品以課程報名表為主題，結合 HTML、CSS、Bootstrap、JavaScript、jQuery 與 AJAX，設計具有遊戲冒險風格的多步驟互動表單。透過欄位驗證、縣市資料載入、課程選擇、表單草稿暫存、進度條與報名資料摘要等功能，練習表單操作與資料處理流程，並運用 AI 協助開發與調整程式碼，進一步了解前端互動設計及表單功能整合的實作方式。"
+                    },
+                    {
+                        cat: "HTML · CSS · JAVASCRIPT · SPA", title: "SPA_單頁式網站設計", date: "2026 / 10 / 27", href: "Web3-SPA.html", tags: ["html-css", "js", "spa"],
+                        desc: "本次作品以 SPA（Single Page Application，單頁式應用程式）為主題，練習將網站內容整合在單一頁面中，透過不同區塊的規劃與版面配置，建立清楚的資訊層次與瀏覽動線。藉由 HTML 與 CSS 調整頁面結構、文字樣式、色彩及間距，並結合 JavaScript 增加頁面互動性，進一步熟悉單頁式網站的設計概念與前端網頁整合方式。"
+                    },
+                    {
+                        cat: "HTML · CSS · JAVASCRIPT · JQUERY · AJAX · CRUD", title: "CH8_表單設計與 CRUD 資料管理", date: "2026 / 11 / 10", href: "20261110_CH8_Forms-CRUD-C.html", tags: ["html-css", "js"],
+                        desc: "本次作品以 CRUD（Create、Read、Update、Delete）資料管理概念為主題，練習使用 HTML 與 Bootstrap 建立產品資料表單，並透過 JavaScript 與 jQuery 處理表單欄位驗證、資料蒐集及操作互動。使用者填寫資料後，可先預覽確認內容，再將表單資料整理成 JSON 格式，透過 AJAX 發送 POST 請求至後端 API，熟悉前後端資料傳遞、非同步請求及表單資料新增的基本流程。"
+                    },
+                    {
+                        cat: "HTML · CSS · JAVASCRIPT · JQUERY · AJAX · CRUD · AI", title: "CH8_表單設計與 CRUD 資料管理-AI協作", date: "2026 / 11 / 12", href: "20261110_CH8_Forms-CRUD-C-AI.html", tags: ["html-css", "js", "ai"],
+                        desc: "本次作品以 CRUD（Create、Read、Update、Delete）資料管理概念為主題，練習使用 HTML 與 Bootstrap 建立產品資料表單，並透過 JavaScript 與 jQuery 處理表單欄位驗證、資料蒐集及操作互動。使用者填寫資料後，可先預覽確認內容，再將表單資料整理成 JSON 格式，透過 AJAX 發送 POST 請求至後端 API，熟悉前後端資料傳遞、非同步請求及表單資料新增的基本流程。"
+                    }
+                ];
+            </script>
         </section>
-
-        <!-- RPG 浮動傳送卷軸（回到頂端按鈕） -->
-        <a href="#top" class="rpg-floating-top" id="rpgFloatingTop" aria-label="傳送回頂端">
-            <i class="fa-solid fa-arrow-up-long" aria-hidden="true"></i>
-        </a>
-
-        <!-- 冒險者等級成就彈跳提示 -->
-        <div class="rpg-achievement-popup" id="achievementPopup" role="status" aria-live="polite">
-            <div class="rpg-achievement-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></div>
-            <div class="rpg-achievement-content">
-                <span class="rpg-achievement-title">ACHIEVEMENT UNLOCKED!</span>
-                <span class="rpg-achievement-desc">冒險者圖鑑展開：載入中...</span>
-            </div>
-        </div>
 
     </main>
 
+    <!-- RPG 浮動傳送卷軸（回到頂端按鈕） -->
+    <a href="#top" class="rpg-floating-top" id="rpgFloatingTop" aria-label="傳送回頂端">
+        <i class="fa-solid fa-arrow-up-long" aria-hidden="true"></i>
+    </a>
+
+    <!-- 冒險者等級成就彈跳提示 -->
+    <div class="rpg-achievement-popup" id="achievementPopup" role="status" aria-live="polite">
+        <div class="rpg-achievement-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></div>
+        <div class="rpg-achievement-content">
+            <span class="rpg-achievement-title">ACHIEVEMENT UNLOCKED!</span>
+            <span class="rpg-achievement-desc">冒險者圖鑑展開：載入中...</span>
+        </div>
+    </div>
+
     <footer class="my-footer rpg-footer">
-        <div class="my-footer-subtitle my-font">Building · Learning · Improving</div>
+        <div class="my-footer-subtitle">Building · Learning · Improving</div>
         <div class="rpg-footer-divider"><span aria-hidden="true"><i class="fa-solid fa-star"></i></span></div>
-        <div class="my-footer-copyright my-font">© 2026 By YU</div>
+        <div class="my-footer-copyright">© 2026 By YU</div>
         <div class="rpg-footer-note">THANK YOU FOR VISITING MY ADVENTURE LOG</div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
-
     <script>
-        new WOW({
-            animateClass: 'animate__animated'
-        }).init();
-    </script>
+        /* 頁面互動：作品卡片、統計數字、EXP 條、成就彈窗、篩選、魔法粒子、回頂端
+           依賴：上方載入畫面（rpgReady、RPG_REDUCE）、作品資料（RPG_WORKS）、wow.js、counterup2 */
+        (function () {
+            "use strict";
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const projectCards = document.querySelectorAll(".my-project-grid .my-project-card");
-            const projectCount = projectCards.length;
-            const particleContainer = document.getElementById("magicParticles");
+            var CHAPTER_SIZE = 20;                      // 每章作品數（成就彈窗與 EXP 條共用）
+            var REDUCE = !!window.RPG_REDUCE;           // 使用者是否偏好減少動態效果
 
-            // 找不到容器或使用者偏好減少動態效果時，不執行
-            if (!particleContainer ||
-                window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-                return;
+            // 載入畫面不存在（loader.js 沒載入）時，rpgReady 直接執行
+            window.rpgReady = window.rpgReady || function (fn) { fn(); };
+
+            function pad(n) { return String(n).padStart(2, "0"); }
+            function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+            function setText(id, text) { var el = document.getElementById(id); if (el) el.textContent = text; }
+
+            /* ===== 1. 作品卡片：立刻畫出來，載入畫面才算得到作品數 ===== */
+            function renderWorks() {
+                var grid = document.querySelector(".my-project-grid");
+                if (!grid) return;
+                grid.innerHTML = (window.RPG_WORKS || []).map(function (w, i) {
+                    return '<article class="my-project-card" data-categories="' + w.tags.join(" ") + '">'
+                        + (w.thumb ? '<img class="my-project-thumb" src="' + esc(w.thumb) + '" alt="' + esc(w.title) + ' 作品預覽" loading="lazy" decoding="async">' : "")
+                        + '<div class="my-project-number">' + pad(i + 1) + '</div>'
+                        + '<div class="my-project-content"><span class="my-project-category">' + esc(w.cat) + '</span>'
+                        + '<h3>' + esc(w.title) + '</h3><span class="my-project-date">' + esc(w.date) + '</span>'
+                        + '<p>' + esc(w.desc) + '</p></div>'
+                        + '<div class="my-project-footer"><a href="' + esc(w.href) + '" target="_blank" rel="noopener noreferrer" class="my-project-button">查看作品 <span aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></span></a></div></article>';
+                }).join("");
             }
 
-            // 魔法粒子顏色
-            const particleColors = [
-                "#f5d98b",  // 魔法金
-                "#a9dcff",  // 淡藍色
-                "#ffffff"   // 星光白
-            ];
-
-            // 建立 45 顆魔法粒子
-            const particleCount = 45;
-
-            for (let i = 0; i < particleCount; i++) {
-
-                const particle = document.createElement("span");
-
-                particle.className = "rpg-magic-particle";
-
-                // 隨機設定粒子大小
-                const size = Math.random() * 10 + 1.5;
-
-                // 隨機設定位置
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-
-                // 隨機設定漂浮時間
-                const duration = Math.random() * 8 + 7;
-
-                // 隨機設定動畫延遲
-                const delay = Math.random() * -15;
-
-                // 隨機設定顏色
-                const color = particleColors[
-                    Math.floor(Math.random() * particleColors.length)
-                ];
-
-                // 隨機設定光點亮度
-                const opacity = Math.random() * 0.4 + 0.4;
-
-                particle.style.setProperty("--particle-size", size + "px");
-                particle.style.setProperty("--particle-left", left + "%");
-                particle.style.setProperty("--particle-top", top + "%");
-                particle.style.setProperty("--particle-duration", duration + "s");
-                particle.style.setProperty("--particle-delay", delay + "s");
-                particle.style.setProperty("--particle-color", color);
-                particle.style.setProperty("--particle-opacity", opacity);
-
-                particleContainer.appendChild(particle);
+            /* ===== 2. 章節計算（成就與 EXP 共用同一份結果） ===== */
+            function chapterInfo(n) {
+                var inChapter = n === 0 ? 0 : (n % CHAPTER_SIZE || CHAPTER_SIZE);
+                return { chapter: Math.max(1, Math.ceil(n / CHAPTER_SIZE)), inChapter: inChapter, full: n > 0 && inChapter === CHAPTER_SIZE };
             }
 
-
-            //數字跳動套件
-            const counterUp = window.counterUp.default
-            const callback = entries => {
-                entries.forEach(entry => {
-                    const el = entry.target
-                    if (entry.isIntersecting && !el.classList.contains('is-visible')) {
-                        counterUp(el, {
-                            duration: 1000,
-                            delay: 16,
-                        })
-                        el.classList.add('is-visible')
-                    }
-                })
+            /* ===== 3. 各項功能 ===== */
+            function initWow() {
+                if (window.WOW) new WOW({ animateClass: "animate__animated" }).init();
             }
 
-            const IO = new IntersectionObserver(callback, { threshold: 1 })
+            function initParticles() {                  // 減少動態效果時只跳過粒子，不影響其他功能
+                var box = document.getElementById("magicParticles");
+                if (!box || REDUCE) return;
+                var colors = ["#f5d98b", "#a9dcff", "#ffffff"];
+                for (var i = 0; i < 45; i++) {
+                    var p = document.createElement("span");
+                    p.className = "rpg-magic-particle";
+                    p.style.setProperty("--particle-size", (Math.random() * 10 + 1.5) + "px");
+                    p.style.setProperty("--particle-left", Math.random() * 100 + "%");
+                    p.style.setProperty("--particle-top", Math.random() * 100 + "%");
+                    p.style.setProperty("--particle-duration", (Math.random() * 8 + 7) + "s");
+                    p.style.setProperty("--particle-delay", (Math.random() * -15) + "s");
+                    p.style.setProperty("--particle-color", colors[Math.floor(Math.random() * colors.length)]);
+                    p.style.setProperty("--particle-opacity", Math.random() * 0.4 + 0.4);
+                    box.appendChild(p);
+                }
+            }
 
-            // 選取所有需要執行動畫的數字
-            const els = document.querySelectorAll('.counter')
+            function updateCounts(n) {
+                ["quest-count", "archive-count", "level-count", "filter-all-count"].forEach(function (id) { setText(id, n); });
+            }
 
-            // 讓每個數字都能被觀察
-            els.forEach(el => {
-                IO.observe(el)
-            })
+            function initCounters() {                   // 數字跳動；減少動態效果時直接顯示數字
+                if (REDUCE || !window.counterUp || !("IntersectionObserver" in window)) return;
+                var counterUp = window.counterUp.default;
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        var el = entry.target;
+                        if (entry.isIntersecting && !el.classList.contains("is-visible")) {
+                            counterUp(el, { duration: 1000, delay: 16 });
+                            el.classList.add("is-visible");
+                        }
+                    });
+                }, { threshold: 1 });
+                document.querySelectorAll(".counter").forEach(function (el) { io.observe(el); });
+            }
 
-            // 1. 自動更新作品總數與狀態列
-            const questCount = document.getElementById("quest-count");
-            const archiveCount = document.getElementById("archive-count");
-            const levelCount = document.getElementById("level-count");
-            const filterAllCount = document.getElementById("filter-all-count");
-
-            if (questCount) questCount.textContent = projectCount;
-            if (archiveCount) archiveCount.textContent = projectCount;
-            if (levelCount) levelCount.textContent = projectCount;
-            if (filterAllCount) filterAllCount.textContent = projectCount;
-
-            // 2. 清除並重新加上最後一張作品的「最新作品」標記
-            projectCards.forEach(function (card) {
-                card.classList.remove("rpg-final-quest");
-                const oldRibbon = card.querySelector(".rpg-final-ribbon");
-                if (oldRibbon) oldRibbon.remove();
-            });
-
-            if (projectCards.length > 0) {
-                const latestCard = projectCards[projectCards.length - 1];
-                latestCard.classList.add("rpg-final-quest");
-
-                const ribbon = document.createElement("div");
+            function markLatest(cards) {                // 最後一張卡片加上「LATEST WORK」緞帶
+                cards.forEach(function (card) {
+                    card.classList.remove("rpg-final-quest");
+                    var old = card.querySelector(".rpg-final-ribbon");
+                    if (old) old.remove();
+                });
+                if (!cards.length) return;
+                var latest = cards[cards.length - 1], ribbon = document.createElement("div");
+                latest.classList.add("rpg-final-quest");
                 ribbon.className = "rpg-final-ribbon";
                 ribbon.textContent = "LATEST WORK";
-                latestCard.prepend(ribbon);
+                latest.prepend(ribbon);
             }
 
-            // 3. 冒險者動態成就解鎖提示（以 20 個作品為章節完整目標）
-            const achievementPopup = document.getElementById("achievementPopup");
-            if (achievementPopup) {
-                const descSpan = achievementPopup.querySelector(".rpg-achievement-desc");
-                const titleSpan = achievementPopup.querySelector(".rpg-achievement-title");
-                const iconDiv = achievementPopup.querySelector(".rpg-achievement-icon");
-
-                const chapterTarget = 20; // 設定每一章節的滿等目標
-
-                if (projectCount >= chapterTarget) {
-                    // 狀況 A：當前章節滿等達成
-                    if (titleSpan) titleSpan.textContent = "CHAPTER COMPLETED!";
-                    if (descSpan) descSpan.textContent = `第 1 章冒險圓滿達成：已收集全數 ${projectCount} 項任務！`;
-                    if (iconDiv) iconDiv.innerHTML = '<i class="fa-solid fa-crown" aria-hidden="true"></i>';
+            function initAchievement(n, info) {
+                var popup = document.getElementById("achievementPopup");
+                if (!popup) return;
+                var title = popup.querySelector(".rpg-achievement-title");
+                var desc = popup.querySelector(".rpg-achievement-desc");
+                var icon = popup.querySelector(".rpg-achievement-icon");
+                if (info.full) {
+                    title.textContent = "CHAPTER COMPLETED!";
+                    desc.textContent = "第 " + info.chapter + " 章冒險圓滿達成：已收集全數 " + n + " 項任務！";
+                    icon.innerHTML = '<i class="fa-solid fa-crown" aria-hidden="true"></i>';
                 } else {
-                    // 狀況 B：冒險進行中（顯示目前的作品進度）
-                    if (titleSpan) titleSpan.textContent = "ADVENTURE IN PROGRESS";
-                    if (descSpan) descSpan.textContent = `當前章節進度：已解鎖 ${projectCount} / ${chapterTarget} 項冒險任務，繼續加油！`;
-                    if (iconDiv) iconDiv.innerHTML = '<i class="fa-solid fa-scroll" aria-hidden="true"></i>';
+                    title.textContent = "ADVENTURE IN PROGRESS";
+                    desc.textContent = "當前章節進度：已解鎖 " + info.inChapter + " / " + CHAPTER_SIZE + " 項冒險任務，繼續加油！";
+                    icon.innerHTML = '<i class="fa-solid fa-scroll" aria-hidden="true"></i>';
                 }
-
-                // 頁面載入 1 秒後自動彈出，4 秒後收回
-                setTimeout(function () {
-                    achievementPopup.classList.add("show");
-
-                    setTimeout(function () {
-                        achievementPopup.classList.remove("show");
-                    }, 4000);
+                setTimeout(function () {                // 1 秒後彈出，4 秒後收回
+                    popup.classList.add("show");
+                    setTimeout(function () { popup.classList.remove("show"); }, 4000);
                 }, 1000);
             }
 
-            // 4. 多階段章節與經驗值進度條動態計算
-            const expCurrent = document.getElementById("exp-current");
-            const expMax = document.getElementById("exp-max");
-            const expBarFill = document.getElementById("exp-bar-fill");
-            const expTitle = document.querySelector(".rpg-exp-title");
-            const sectionEyebrow = document.querySelector(".rpg-section-eyebrow");
-
-            const maxPerChapter = 20;
-            const currentQuests = projectCount;
-
-            const currentChapter = Math.floor((currentQuests - 1) / maxPerChapter) + 1;
-
-            let currentInChapter = currentQuests % maxPerChapter;
-            if (currentInChapter === 0 && currentQuests > 0) {
-                currentInChapter = maxPerChapter;
-            }
-
-            const percentage = Math.round((currentInChapter / maxPerChapter) * 100);
-
-            if (expCurrent) expCurrent.textContent = currentInChapter;
-            if (expMax) expMax.textContent = maxPerChapter;
-
-            if (expTitle) {
-                expTitle.textContent = `CHAPTER ${String(currentChapter).padStart(2, '0')} EXP`;
-            }
-
-            if (sectionEyebrow) {
-                const chapterSpans = sectionEyebrow.querySelectorAll("span");
-                if (chapterSpans.length > 0) {
-                    chapterSpans[0].textContent = `CHAPTER ${String(currentChapter).padStart(2, '0')}`;
+            function initExp(info) {
+                var label = "CHAPTER " + pad(info.chapter);
+                var fill = document.getElementById("exp-bar-fill");
+                var title = document.querySelector(".rpg-exp-title");
+                var eyebrow = document.querySelector(".rpg-section-eyebrow span");
+                setText("exp-current", info.inChapter);
+                setText("exp-max", CHAPTER_SIZE);
+                if (eyebrow) eyebrow.textContent = label;
+                if (title) title.textContent = label + " EXP";
+                if (fill) setTimeout(function () { fill.style.width = Math.round(info.inChapter / CHAPTER_SIZE * 100) + "%"; }, 150);
+                if (info.full) {
+                    if (title) { title.innerHTML = '<i class="fa-solid fa-star" aria-hidden="true"></i> ' + label + " MAX!"; title.style.color = "#c84c43"; }
+                    if (fill) fill.classList.add("rpg-max-glow");
                 }
             }
 
-            if (expBarFill) {
-                setTimeout(function () {
-                    expBarFill.style.width = percentage + "%";
-                }, 150);
-            }
-
-            if (currentInChapter === maxPerChapter && currentQuests > 0) {
-                if (expTitle) {
-                    expTitle.innerHTML = `<i class="fa-solid fa-star" aria-hidden="true"></i> CHAPTER ${String(currentChapter).padStart(2, '0')} MAX!`;
-                    expTitle.style.color = "#c84c43";
-                }
-                if (expBarFill) {
-                    expBarFill.classList.add("rpg-max-glow");
-                }
-            }
-
-            // 5. 智慧自動為卡片貼上分類標記（對應精準分類）
-            projectCards.forEach(function (card) {
-                const catText = card.querySelector(".my-project-category").textContent.toUpperCase();
-                let categories = [];
-
-                // 只要分類文字包含 HTML，就會被歸類到 html-css 篩選中！
-                if (catText.includes("HTML") && !catText.includes("FORMS")) {
-                    categories.push("html-css");
-                }
-                if (catText.includes("FLEX")) {
-                    categories.push("flex");
-                }
-                if (catText.includes("BOOTSTRAP")) {
-                    categories.push("bootstrap");
-                }
-                if (catText.includes("JAVASCRIPT")) {
-                    categories.push("js");
-                }
-                if (catText.includes("FORMS")) {
-                    categories.push("forms");
-                }
-                if (catText.includes("AI")) {
-                    categories.push("ai");
-                }
-                if (catText.includes("SPA")) {
-                    categories.push("spa");
-                }
-
-                card.setAttribute("data-categories", categories.join(" "));
-            });
-
-            // 6. 篩選按鈕點擊互動邏輯
-            const filterBtns = document.querySelectorAll(".rpg-filter-btn");
-            filterBtns.forEach(function (btn) {
-                btn.addEventListener("click", function () {
-                    filterBtns.forEach(b => b.classList.remove("active"));
-                    this.classList.add("active");
-
-                    const filterValue = this.getAttribute("data-filter");
-
-                    projectCards.forEach(function (card) {
-                        const cardCategories = card.getAttribute("data-categories") || "";
-                        if (filterValue === "all" || cardCategories.includes(filterValue)) {
-                            card.style.display = "";
-                        } else {
-                            card.style.display = "none";
-                        }
+            function initFilter(cards) {                // 分類取自卡片的 data-categories
+                var btns = document.querySelectorAll(".rpg-filter-btn");
+                var empty = document.getElementById("rpgEmpty");
+                btns.forEach(function (b) { b.setAttribute("aria-pressed", b.classList.contains("active")); });
+                btns.forEach(function (btn) {
+                    btn.addEventListener("click", function () {
+                        btns.forEach(function (b) { b.classList.remove("active"); b.setAttribute("aria-pressed", "false"); });
+                        this.classList.add("active");
+                        this.setAttribute("aria-pressed", "true");
+                        var f = this.getAttribute("data-filter"), shown = 0;
+                        cards.forEach(function (card) {
+                            var ok = f === "all" || (card.dataset.categories || "").split(" ").indexOf(f) > -1;
+                            card.style.display = ok ? "" : "none";
+                            if (ok) shown++;
+                        });
+                        if (empty) empty.hidden = shown > 0;
                     });
                 });
-            });
-        });
-
-        // 浮動傳送卷軸按鈕：向下捲動超過 300px 時自動浮現
-        const floatingTopBtn = document.getElementById("rpgFloatingTop");
-        if (floatingTopBtn) {
-            window.addEventListener("scroll", function () {
-                if (window.scrollY > 300) {
-                    floatingTopBtn.classList.add("show");
-                } else {
-                    floatingTopBtn.classList.remove("show");
-                }
-            });
-        }
-
-        // 避免瀏覽器重新整理時恢復舊的捲動位置
-        if ("scrollRestoration" in history) {
-            history.scrollRestoration = "manual";
-        }
-
-        // 如果網址是 #works，重新載入後回到頁面最上方
-        window.addEventListener("pageshow", function () {
-            if (window.location.hash === "#works") {
-                history.replaceState(
-                    null,
-                    "",
-                    window.location.pathname + window.location.search
-                );
-
-                setTimeout(function () {
-                    window.scrollTo(0, 0);
-                }, 0);
             }
-        });
+
+            function initFloatingTop() {                // 向下捲動超過 300px 才浮現
+                var btn = document.getElementById("rpgFloatingTop");
+                if (!btn) return;
+                window.addEventListener("scroll", function () { btn.classList.toggle("show", window.scrollY > 300); });
+            }
+
+            function initScrollReset() {                // 重新整理時回到最上方，並清掉 #works
+                if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+                window.addEventListener("pageshow", function () {
+                    if (window.location.hash !== "#works") return;
+                    history.replaceState(null, "", window.location.pathname + window.location.search);
+                    setTimeout(function () { window.scrollTo(0, 0); }, 0);
+                });
+            }
+
+            /* ===== 4. 啟動 ===== */
+            renderWorks();
+            rpgReady(function () {                      // 載入畫面大門打開後才執行
+                var cards = document.querySelectorAll(".my-project-grid .my-project-card");
+                var n = cards.length, info = chapterInfo(n);
+                initWow();
+                initParticles();
+                updateCounts(n);
+                initCounters();
+                markLatest(cards);
+                initAchievement(n, info);
+                initExp(info);
+                initFilter(cards);
+            });
+            initFloatingTop();
+            initScrollReset();
+        })();
     </script>
 
+    <script>
+        /* 背景巨龍：用字串地圖畫成 SVG 像素圖，載入大門打開後才飛入 */
+        (function () {
+            "use strict";
+            var box = document.getElementById("rpgDragon"), hero = document.getElementById("top"), hud = document.querySelector(".rpg-boss-hud");
+            if (!box || !hero) return;
+            var reduce = !!window.RPG_REDUCE;
 
+            /* ===== 畫像素龍 ===== */
+            var P = { b: "#c84c43", d: "#8f2f2b", l: "#f5c997", g: "#e6b955", y: "#fff9e8", m: "#e8935f", n: "#69452c" };
+            var M = { "body": ["......g.g", ".....gbbbbg", "..bbbbbbybbg", ".bbbbbbbbbbbg", "bbbbbbbbbbbbb", "bddddddbbbbbbg", "..llllllbbbbbbg", ".....lllbbbbbbbg", "......lllbbbbbbbbg", "......lllbbbbbbbbbbg", ".....lllbbbbbbbbbbbbbg", ".....lllbbbbbbbbbbbbbbbg", ".....lllbbbbbbbbbbbbbbbbbg", ".....lllbbbbbbbbbbbbbbbbbbbb", "......lllbbbbbbbbbbbbbbbbbbb", "......lllbbbbbbbbbbbbbbbbbbb", ".......llllllllllbbbbbbbbbbb", "........lllllllllbbbbbbbbbb", "........bbbb......bbbbb", "........bbbb......bbbbb", ".......gbbbb.....gbbbbb", "......gggg.gg...ggg.ggg"], "wing": ["n.................nn", "nn..............nnmm", ".nn...........nnmmm.", ".nmn.......nnnmmmm..", "..nmmn...nnmmmmmmm..", "..nmmmnnnmmmmmmmm...", "...nmmmmnmmmmmmm....", "...nmmmmmnmmmmm.....", "....nmmmmmnmmmm.....", "....nmmmmmmnmm......", ".....nmmmmmmnm......", ".....nnnnnnnnn......"], "tail": ["....................g.", "...................gbg", "..................bbb.", "..........bbbbbbbbb...", "bbbbbbbbbbbbbbbbb.....", "bbbbbbbbbbbbd.........", "bbbbbddddd............", "bbbddd................"] };
+            function svg(rows) {
+                var w = Math.max.apply(null, rows.map(function (r) { return r.length; })), out = "";
+                rows.forEach(function (r, y) {
+                    var x = 0;
+                    while (x < r.length) {
+                        var c = r[x];
+                        if (c === ".") { x++; continue; }
+                        var s = x;
+                        while (r[x] === c) x++;
+                        out += '<rect x="' + s + '" y="' + y + '" width="' + (x - s + .02) + '" height="1.02" fill="' + P[c] + '"/>';
+                    }
+                });
+                return '<svg viewBox="0 0 ' + w + ' ' + rows.length + '" shape-rendering="crispEdges" style="width:calc(var(--u)*' + w + ');height:calc(var(--u)*' + rows.length + ')">' + out + '</svg>';
+            }
+            ["wing", "body", "tail"].forEach(function (k) {
+                box.querySelector(".dg-" + k).innerHTML = svg(M[k]);
+            });
+
+            /* ===== 動畫行為：登場、咆哮、雲層、視差、暫停 ===== */
+            var cloud = '<svg viewBox="0 0 7 3" shape-rendering="crispEdges" fill="#ecd7a2"><rect x="2" y="0" width="2.02" height="1.02"/><rect x="1" y="1" width="5.02" height="1.02"/><rect x="0" y="2" width="7" height="1"/></svg>';
+            [[10, "8%", 7, 60, 0], [34, "86%", 5, 80, -30], [20, "68%", 9, 100, -55]].forEach(function (c) {
+                var d = document.createElement("span");
+                d.className = "dg-cloud"; d.setAttribute("aria-hidden", "true");
+                d.style.cssText = "--tm:" + c[0] + "px;--td:" + c[1] + ";--cw:" + c[2] + ";--cd:" + c[3] + "s;--cl:" + c[4] + "s";
+                d.innerHTML = cloud; hero.appendChild(d);
+            });
+            if (!reduce) {
+                hero.addEventListener("mousemove", function (e) {
+                    box.style.setProperty("--px", ((e.clientX / innerWidth - .5) * -26).toFixed(1) + "px");
+                    box.style.setProperty("--py", ((e.clientY / innerHeight - .5) * -14).toFixed(1) + "px");
+                });
+            }
+            var t1, t2;
+            function stop() {
+                clearTimeout(t1); clearTimeout(t2);
+                box.classList.remove("is-in", "roar"); hero.classList.remove("dg-shake");
+                if (hud) hud.classList.remove("show");
+            }
+            function play() {
+                stop(); void box.offsetWidth; box.classList.add("is-in");
+                t1 = setTimeout(function () {
+                    hero.classList.add("dg-shake"); box.classList.add("roar");
+                    if (hud) hud.classList.add("show");
+                    t2 = setTimeout(function () { hero.classList.remove("dg-shake"); box.classList.remove("roar"); }, 1800);
+                }, 1100);
+            }
+            if (document.getElementById("ldLoader")) {      // 有載入畫面：每次開門都登場（含點左上角重播）
+                document.addEventListener("rpg:open", play);
+                document.addEventListener("rpg:close", stop);
+            } else { play(); }
+            box.addEventListener("click", function () {     // 彩蛋：點龍再咆哮一次
+                if (!box.classList.contains("is-in") || box.classList.contains("roar")) return;
+                box.classList.add("roar"); hero.classList.add("dg-shake");
+                setTimeout(function () { box.classList.remove("roar"); hero.classList.remove("dg-shake"); }, 1200);
+            });
+            if ("IntersectionObserver" in window) {         // 主視覺捲出畫面就暫停龍與雲
+                new IntersectionObserver(function (es) { hero.classList.toggle("dg-paused", !es[0].isIntersecting); }).observe(hero);
+            }
+            document.addEventListener("visibilitychange", function () {   // 切到別的分頁時暫停所有動畫
+                document.documentElement.classList.toggle("dg-hidden", document.hidden);
+            });
+        })();
+    </script>
 
 </body>
 
