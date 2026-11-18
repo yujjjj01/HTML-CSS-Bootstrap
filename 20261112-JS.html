@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 重點整理</title>
+</head>
+
+<body>
+    <script src="js/TravelFood.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+
+    <script>
+        //1. map()
+        const shops = [
+            {
+                name: "好吃小吃店",
+                city: "臺北市",
+                tel: null,
+                address: "xxxx",
+                owner: ""
+            },
+
+            {
+                name: "好吃小吃店",
+                city: "臺北市",
+                tel: "",
+                address: "臺北 市中正區忠孝東路一段100號",
+                owner: "王小明"
+            },
+            {
+                name: "美味食堂",
+                city: " 新北市  ",
+                tel: undefined,
+                address: "新北市板橋區文 化路一段200號",
+                owner: "陳美玲"
+            },
+            {
+                name: "美味漢堡食堂",
+                city: " 新北市",
+                tel: undefined,
+                address: "新北市板橋區文 化路一段200號",
+                owner: "陳美玲"
+            },
+            {
+                name: "幸福漢堡",
+                city: "桃園市",
+                tel: "03-34    56789",
+                address: "  桃園市桃園區中正路150號  ",
+                owner: "林志豪"
+            },
+            {
+                name: "香 香 便當店",
+                city: "臺中 市",
+                tel: "04-4567890",
+                address: "臺中市西屯區福星路300號",
+                owner: "張雅婷"
+            },
+            {
+                name: "阿嬤古早味",
+                city: "    高雄 市",
+                tel: "07-5678901",
+                address: " 高 雄市三民 區建國一路80號",
+                owner: "李建 宏 "
+            },
+            {
+                name: "好香 便當店",
+                city: "彰化縣",
+                tel: "04-4567890",
+                address: "彰化縣西屯區福星路300號",
+                owner: "張雅婷"
+            },
+            {
+                name: "阿公古早味",
+                city: "南投縣",
+                tel: "07-5678901",
+                address: " 南投三民區建國一路80號",
+                owner: "李建 宏 "
+            }
+
+        ];
+
+        const names = shops.map(function (item) {
+            return item.name;
+        });
+
+        console.log("原始資料", shops);
+        console.log("轉換後的資料", names);
+
+        //使用map()並且產生新的結構
+        const simpleData = shops.map(function (item) {
+            return {
+                title: item.name,
+                location: item.city
+            }
+        })
+
+        console.log("使用map()並且產生新的結構", simpleData);
+
+
+        //travelfood.js map()並且產生新的結構
+
+
+        console.log("travelfood原始資料:", food)
+
+        const travelfoodnames = food.map(function (item) {
+            return item.Name;
+        });
+
+
+        console.log("travelfood轉換後的資料:", travelfoodnames);
+
+        const foodData = food.map(function (item, index) {
+            return {
+                id: index + 1,
+                title: item.Name,
+                location: item.Address
+            }
+        })
+
+        console.log("travelfood使用map()並且產生新的結構", foodData);
+
+
+        //資料清洗(清洗過後，原本有錯誤的就會讓他顯示"")，拒絕1.null 2.undefined 3.字串前後空白
+        const cleanshops = shops.map(function (item) {
+            return {
+                name: (item.name ?? "未提供").trim(),//如果左邊有錯誤的資料就會變""並且把它拿掉
+                city: (item.city ?? "未提供").trim(),
+                tel: (item.tel ?? "未提供").trim(),
+                owner: (item.owner ?? "未提供").trim(),
+                address: (item.address ?? "未提供").trim()
+            }
+        });
+
+        console.log("原本的資料:", shops);
+        console.log("清洗過後的資料", cleanshops);
+
+
+        function normalize(data) {
+            return data.map(function (item) {
+                return {
+                    name: (item.name ?? "未提供").trim(),
+                    city: (item.city ?? "未提供").trim(),
+                    tel: (item.tel ?? "未提供").trim(),
+                    owner: (item.owner ?? "未提供").trim(),
+                    address: (item.address ?? "未提供").trim()
+                }
+            });
+        }
+
+
+        console.log("使用自訂函式(副程式)執行資料清洗:", normalize(shops));
+
+
+        //搜尋filter
+        const result = shops.filter(function (item) {
+            return item.city === "新北市"
+        });
+        console.log("用原本的資料搜尋結果:", result);
+
+        const resultCleanData = normalize(shops).filter(function (item) {
+            return item.name.includes("漢堡") && item.city === "新北市"
+        });
+        console.log("請洗後的資料搜尋結果:", resultCleanData);
+
+
+
+        //travelfood.js 1. 清洗資料(副程式) 2.篩選出新北市有介紹(FoodFeature)"美食"的店家
+
+        //1.先用副程式做一個清洗，把不符合的值轉換成"未提供"
+        //Normalize可以自己定義任何名稱
+        function Normalize(data) {
+            return data.map(function (item) {
+                return {
+                    //Name City Tel FoodFeature Address，可以自己定義名稱
+                    //item.xxx，xxx就要看檔案裡的命名是甚麼
+                    Name: String(item.Name ?? "未提供").trim(),
+                    City: String(item.City ?? "未提供").trim(),
+                    Tel: String(item.Tel ?? "未提供").trim(),
+                    FoodFeature: String(item.FoodFeature ?? "未提供").trim(),
+                    Address: String(item.Address ?? "未提供").trim()
+                }
+            });
+        }
+
+        //2.把清洗過後的副程式(Normalize)拿來做搜尋(filter)，再來就是看要篩選甚麼條件
+        const resultCleanTravelFood = Normalize(food).filter(function (item) {
+            return item.FoodFeature.includes("美食") && item.City === "臺南市"
+        });
+        console.log("TravelFood清洗後的資料搜尋結果:", resultCleanTravelFood);
+
+        //將分頁思考邏輯轉換為演算法後寫成程式碼
+        const pageSize = 3;
+        const page = 1;
+
+        const start = (page - 1) * pageSize;
+        const end = start + pageSize;
+        const pageData = normalize(shops).slice(start, end)
+        console.log("原始資料:", normalize(shops));
+        console.log("分頁資料:", pageData);
+
+
+        //1.使用travelfood資料練習分頁的邏輯
+        const PageSize = 20;
+        const Page = 6;
+
+        const Start = (Page - 1) * PageSize;
+        const End = Start + PageSize;
+        const PageData = Normalize(food).slice(Start, End)
+        console.log("TravelFood原始資料:", Normalize(food));
+        console.log("TravelFood分頁資料:", PageData);
+
+        //2.TravelFood進行清洗 => 篩選 =>分頁
+        //清洗
+        function Normalize(data) {
+            return data.map(function (item) {
+                return {
+                    //Name City Tel FoodFeature Address，可以自己定義名稱
+                    //item.xxx，xxx就要看檔案裡的命名是甚麼
+                    Name: String(item.Name ?? "未提供").trim(),
+                    City: String(item.City ?? "未提供").trim(),
+                    Tel: String(item.Tel ?? "未提供").trim(),
+                    FoodFeature: String(item.FoodFeature ?? "未提供").trim(),
+                    Address: String(item.Address ?? "未提供").trim()
+                }
+            });
+        }
+
+        //篩選
+        const ResultCleanTravelFood = Normalize(food).filter(function (item) {
+            return item.City === "臺南市" && item.FoodFeature.includes("美食")
+        });
+
+        //分頁
+        const PAgeSize = 5;
+        const PAge = 1;
+        const STart = (PAge - 1) * PAgeSize;
+        const ENd = STart + PAgeSize;
+        const PAgeData = ResultCleanTravelFood.slice(STart, ENd)
+        console.log("TravelFood原始篩選資料:", ResultCleanTravelFood);
+        console.log("TravelFood篩選後分頁資料:", PAgeData);
+
+
+
+        //將分頁整理成 副程式
+        function pagination(data, pageSize, page) {
+            const start = (page - 1) * pageSize;
+            const end = start + pageSize;
+
+            return data.slice(start,end);
+
+        }
+
+        const foodPageSize01 = 3;
+        const foodPage01 = 3;
+        const foodPageData01 = pagination(ResultCleanTravelFood,foodPageSize01,foodPage01);
+        console.log("第"+ foodPage01 + "頁的結果:",foodPageData01)
+
+
+
+    </script>
+
+</body>
+
+</html>

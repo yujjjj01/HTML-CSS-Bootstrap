@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Hotel分頁練習</title>
+</head>
+
+<body>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="js/sweetalert2@11.js"></script>
+    <!--     
+1.資料轉換map()，取出所需的欄位
+2.資料清洗null，undefined，多於空白
+3.過濾，臺中市房價低於3800的旅館
+延伸:找出最低房價介於2000~4000元的旅宿，排除沒有電話,沒有房價的旅宿
+4.分頁，每頁20筆，可以指定頁碼  -->
+
+
+    <script>
+
+
+        //資料載入
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "js/json/HotelList.json",
+                dataType: "json",
+                success: showdata,
+                error: function () {
+                    Swal.fire({
+                        title: "連線錯誤",
+                        text: "旅館資訊API連接失敗!",
+                        icon: "error"
+
+                    });
+                }
+            });
+        });
+
+        function showdata(data) {
+            console.log("原始資料:", data.Hotels);
+
+            const cleanHotelData = normalize(data.Hotels);
+            console.log("清洗後的資料:", cleanHotelData);
+
+            //過濾，臺中市房價低於3800的旅館
+            const filterHotelData = normalize(data.Hotels).filter(function (item) {
+                return item.city === "臺中市" && 2000 < item.lowestPrice && item.lowestPrice < 4000 && item.lowestPrice !== null && item.tel !== null
+            });
+
+            console.log("臺中市房價低於3800的旅館的資料:", filterHotelData);
+
+            const pageSize = 20;
+            const page = 5;
+            const pageData = pagination(filterHotelData, pageSize, page);
+            console.log("第" + page + "頁的結果", pageData);
+
+        }
+
+
+        //map取欄位+清洗
+        function normalize(data) {
+            return data.map(function (item) {
+                return {
+                    name: String(item.HotelName ?? "未提供").trim(),
+                    city: String(item.PostalAddress.City ?? "未提供").trim(),
+                    tel: (item.Telephones[0].Tel ?? "未提供").trim(),
+                    lowestPrice: (item.LowestPrice ?? "未提供"),
+                }
+            });
+        }
+
+        //分頁，每頁20筆，可以指定頁碼
+        function pagination(data, pageSize, page) {
+            const start = (page - 1) * pageSize;
+            const end = start + pageSize;
+
+            return data.slice(start, end);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
