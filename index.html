@@ -360,17 +360,42 @@
             <p class="rpg-works-intro">每一項練習都是一段冒險紀錄。選擇任務，查看作品成果。</p>
 
             <!-- RPG 任務分類篩選列 -->
-            <div class="rpg-filter-bar" aria-label="任務分類篩選">
-                <button class="rpg-filter-btn active" data-filter="all">全部任務 (<span
-                        id="filter-all-count">0</span>)</button>
-                <button class="rpg-filter-btn" data-filter="html-css">HTML & CSS</button>
-                <button class="rpg-filter-btn" data-filter="flex">CSS Flex</button>
-                <button class="rpg-filter-btn" data-filter="bootstrap">Bootstrap</button>
-                <button class="rpg-filter-btn" data-filter="js">JavaScript</button>
-                <button class="rpg-filter-btn" data-filter="forms">HTML Forms</button>
-                <button class="rpg-filter-btn" data-filter="ai">AI 協作</button>
-                <button class="rpg-filter-btn" data-filter="spa">SPA</button>
-                <button class="rpg-filter-btn" data-filter="figma">Figma</button>
+            <div class="rpg-filter-bar" aria-label="作品分類篩選">
+                <button class="rpg-filter-btn active" data-filter="all">
+                    全部作品 (<span id="filter-all-count">0</span>)
+                </button>
+
+                <button class="rpg-filter-btn" data-filter="html-css">
+                    網頁基礎
+                </button>
+
+                <button class="rpg-filter-btn" data-filter="layout">
+                    響應式排版
+                </button>
+
+                <button class="rpg-filter-btn" data-filter="data-api">
+                    資料串接
+                </button>
+
+                <button class="rpg-filter-btn" data-filter="js-data">
+                    JavaScript 資料處理
+                </button>
+
+                <button class="rpg-filter-btn" data-filter="forms">
+                    表單與資料管理
+                </button>
+
+                <button class="rpg-filter-btn" data-filter="spa">
+                    SPA
+                </button>
+
+                <button class="rpg-filter-btn" data-filter="figma">
+                    Figma互動遊戲設計
+                </button>
+
+                <button class="rpg-filter-btn" data-filter="ai">
+                    AI 協作
+                </button>
             </div>
 
             <div class="my-project-grid"></div>
@@ -391,35 +416,35 @@
                         desc: "嘗試利用 AI 協助網頁設計與程式撰寫，透過 AI 產生 HTML 與 CSS 的設計方向，再根據自己的需求進行修改與調整。從過程中學習如何閱讀程式碼、理解版面結構，並思考 AI 產生的程式是否符合實際需求。"
                     },
                     {
-                        cat: "JAVASCRIPT · OPENDATA · JSON", title: "JavaScript × OpenData 旅遊美食", date: "2026 / 09 / 29", href: "20260929_js_TravelFood.html", tags: ["js"],
+                        cat: "JAVASCRIPT · OPENDATA · JSON", title: "JavaScript × OpenData 旅遊美食", date: "2026 / 09 / 29", href: "20260929_js_TravelFood.html", tags: ["data-api"],
                         desc: "開始接觸 JavaScript 與 OpenData 的應用，練習透過 API 取得公開資料，並使用 JavaScript 讀取與處理 JSON 格式的內容，再將旅遊景點與美食資訊動態呈現在網頁上，了解前端網頁如何與外部資料進行互動。"
                     },
                     {
-                        cat: "BOOTSTRAP · OPENDATA · RWD", title: "Bootstrap × OpenData 旅遊美食", date: "2026 / 10 / 01", href: "20261001_Boostrap.html", tags: ["bootstrap"],
+                        cat: "BOOTSTRAP · OPENDATA · RWD", title: "Bootstrap × OpenData 旅遊美食", date: "2026 / 10 / 01", href: "20261001_Boostrap.html", tags: ["bootstrap", "layout"],
                         desc: "將 Bootstrap 框架應用在 OpenData 資料展示上，學習使用 Bootstrap 提供的元件與 Grid 網格系統建立整齊的網頁版面，同時結合旅遊與美食資料，練習製作具有響應式設計的資訊展示頁面。"
                     },
                     {
-                        cat: "BOOTSTRAP TABLE · OPENDATA · DATA", title: "Bootstrap Table × OpenData 旅遊美食", date: "2026 / 10 / 06", href: "20261006_BS_Table_Data.html", tags: ["bootstrap"],
+                        cat: "BOOTSTRAP TABLE · OPENDATA · DATA", title: "Bootstrap Table × OpenData 旅遊美食", date: "2026 / 10 / 06", href: "20261006_BS_Table_Data.html", tags: ["data-api"],
                         desc: "進一步學習 Bootstrap Table 的使用方式，將 OpenData 中取得的旅遊與美食資訊整理成表格，練習資料欄位的呈現、表格樣式與資料閱讀性，讓大量資訊能夠以更清楚、有條理的方式呈現在網頁中。"
                     },
                     {
-                        cat: "BOOTSTRAP · GRID · RESPONSIVE", title: "Ch6_切版_基礎功", date: "2026 / 10 / 06", href: "20261006_ch6_切版.html", tags: ["bootstrap"],
+                        cat: "BOOTSTRAP · GRID · RESPONSIVE", title: "Ch6_切版_基礎功", date: "2026 / 10 / 06", href: "20261006_ch6_切版.html", tags: ["bootstrap", "layout"],
                         desc: "學習使用 Bootstrap 進行網頁切版，練習 Container、Row、Column 等 Grid 網格系統，並搭配 Flex 進行版面配置。透過實際製作不同區塊，將設計內容轉換成 HTML 與 Bootstrap 結構，進一步熟悉響應式網頁設計與不同螢幕尺寸的版面調整。"
                     },
                     {
-                        cat: "BOOTSTRAP · LAYOUT · RWD", title: "Bootstrap_切版練習_EX01", date: "2026 / 10 / 06", href: "20261006_ch6_切版_ex01.html", tags: ["bootstrap"],
+                        cat: "BOOTSTRAP · LAYOUT · RWD", title: "Bootstrap_切版練習_EX01", date: "2026 / 10 / 06", href: "20261006_ch6_切版_ex01.html", tags: ["bootstrap", "layout"],
                         desc: "開始練習使用 Bootstrap 進行網頁切版，學習 Container、Row、Column 等基本 Grid 系統，將設計內容拆分成不同區塊並安排版面位置，同時了解響應式網頁設計的概念，讓網頁能適應不同螢幕尺寸。"
                     },
                     {
-                        cat: "BOOTSTRAP · LAYOUT · RESPONSIVE", title: "Bootstrap_切版練習_EX02", date: "2026 / 10 / 08", href: "20261008_ch6_切版_ex02.html", tags: ["bootstrap"],
+                        cat: "BOOTSTRAP · LAYOUT · RESPONSIVE", title: "Bootstrap_切版練習_EX02", date: "2026 / 10 / 08", href: "20261008_ch6_切版_ex02.html", tags: ["bootstrap", "layout"],
                         desc: "延續 Bootstrap 切版練習，進一步熟悉網格系統、Flex 排版與響應式設計的使用方式。透過實際製作不同區塊的版面配置，練習將網頁設計稿轉換成 HTML 與 Bootstrap 結構，提升自己對網頁整體版面與視覺配置的掌握度。"
                     },
                     {
-                        cat: "FLEX · LAYOUT · RESPONSIVE", title: "Ch7_Flex_基礎功", date: "2026 / 10 / 08", href: "20261008_ch7_flex.html", tags: ["flex"],
+                        cat: "FLEX · LAYOUT · RESPONSIVE", title: "Ch7_Flex_基礎功", date: "2026 / 10 / 08", href: "20261008_ch7_flex.html", tags: ["flex", "layout"],
                         desc: "開始深入練習 CSS Flexbox 排版，學習使用 display: flex、justify-content、align-items、flex-direction 等屬性控制網頁元素的位置與排列方式。透過實際的版面練習，了解 Flex 在水平與垂直配置上的應用，提升自己對網頁排版與區塊配置的掌握度。"
                     },
                     {
-                        cat: "FLEX · TIMELINE · RESPONSIVE", title: "Ch7_Flex_TimeLine", date: "2026 / 10 / 13", href: "20261013_FlexTimeline.html", tags: ["flex"],
+                        cat: "FLEX · TIMELINE · RESPONSIVE", title: "Ch7_Flex_TimeLine", date: "2026 / 10 / 13", href: "20261013_FlexTimeline.html", tags: ["flex", "layout"],
                         desc: "本次開始深入練習 CSS Flexbox 排版，學習運用 display: flex、justify-content、align-items 與 flex-direction 等屬性，控制元素的排列方向、對齊方式與間距。透過製作時間軸版面，練習使用 Flexbox 配置內容區塊，並結合響應式設計（RWD），讓頁面在不同裝置尺寸下都能維持良好的版面結構與閱讀體驗。"
                     },
                     {
@@ -435,15 +460,15 @@
                         desc: "本次作品以課程報名表為主題，結合 HTML、CSS、Bootstrap、JavaScript、jQuery 與 AJAX，設計具有遊戲冒險風格的多步驟互動表單。透過欄位驗證、縣市資料載入、課程選擇、表單草稿暫存、進度條與報名資料摘要等功能，練習表單操作與資料處理流程，並運用 AI 協助開發與調整程式碼，進一步了解前端互動設計及表單功能整合的實作方式。"
                     },
                     {
-                        cat: "HTML · CSS · JAVASCRIPT · SPA", title: "SPA_單頁式網站設計", date: "2026 / 10 / 27", href: "Web3-SPA.html", tags: ["html-css", "js", "spa"],
+                        cat: "HTML · CSS · JAVASCRIPT · SPA", title: "SPA_單頁式網站設計", date: "2026 / 10 / 27", href: "Web3-SPA.html", tags: ["spa"],
                         desc: "本次作品以 SPA（Single Page Application，單頁式應用程式）為主題，練習將網站內容整合在單一頁面中，透過不同區塊的規劃與版面配置，建立清楚的資訊層次與瀏覽動線。藉由 HTML 與 CSS 調整頁面結構、文字樣式、色彩及間距，並結合 JavaScript 增加頁面互動性，進一步熟悉單頁式網站的設計概念與前端網頁整合方式。"
                     },
                     {
-                        cat: "HTML · CSS · JAVASCRIPT · JQUERY · AJAX · CRUD", title: "CH8_表單設計與 CRUD 資料管理", date: "2026 / 11 / 10", href: "20261110_CH8_Forms-CRUD-C.html", tags: ["html-css", "js"],
+                        cat: "HTML · CSS · JAVASCRIPT · JQUERY · AJAX · CRUD", title: "CH8_表單設計與 CRUD 資料管理", date: "2026 / 11 / 10", href: "20261110_CH8_Forms-CRUD-C.html", tags: ["forms"],
                         desc: "本次作品以 CRUD（Create、Read、Update、Delete）資料管理概念為主題，練習使用 HTML 與 Bootstrap 建立產品資料表單，並透過 JavaScript 與 jQuery 處理表單欄位驗證、資料蒐集及操作互動。使用者填寫資料後，可先預覽確認內容，再將表單資料整理成 JSON 格式，透過 AJAX 發送 POST 請求至後端 API，熟悉前後端資料傳遞、非同步請求及表單資料新增的基本流程。"
                     },
                     {
-                        cat: "HTML · CSS · JAVASCRIPT · JQUERY · AJAX · CRUD · AI", title: "CH8_表單設計與 CRUD 資料管理-AI協作", date: "2026 / 11 / 12", href: "20261110_CH8_Forms-CRUD-C-AI.html", tags: ["html-css", "js", "ai"],
+                        cat: "HTML · CSS · JAVASCRIPT · JQUERY · AJAX · CRUD · AI", title: "CH8_表單設計與 CRUD 資料管理-AI協作", date: "2026 / 11 / 12", href: "20261110_CH8_Forms-CRUD-C-AI.html", tags: ["forms", "ai"],
                         desc: "本次作品以 CRUD（Create、Read、Update、Delete）資料管理概念為主題，練習使用 HTML 與 Bootstrap 建立產品資料表單，並透過 JavaScript 與 jQuery 處理表單欄位驗證、資料蒐集及操作互動。使用者填寫資料後，可先預覽確認內容，再將表單資料整理成 JSON 格式，透過 AJAX 發送 POST 請求至後端 API，熟悉前後端資料傳遞、非同步請求及表單資料新增的基本流程。"
                     },
                     {
@@ -451,7 +476,7 @@
                         title: "JavaScript 重點整理_資料清洗、篩選與分頁",
                         date: "2026 / 11 / 18",
                         href: "20261112-JS.html",
-                        tags: ["html-css", "js"],
+                        tags: ["js-data"],
                         desc: "本次作品以 JavaScript 陣列資料處理為主題，使用店家假資料與 TravelFood.js 旅遊美食資料進行練習。透過 map() 擷取欄位並轉換成新的資料結構，再搭配 ??、trim() 處理 null、undefined 與前後空白等錯誤資料，並封裝成 normalize() 副程式重複使用。清洗後的資料再以 filter() 搭配 includes() 依城市與關鍵字篩選，最後將分頁邏輯轉換為 (page - 1) * pageSize 的演算法，結合 slice() 完成分頁功能並整理成 pagination() 函式，熟悉「清洗 → 篩選 → 分頁」的完整資料處理流程。"
 
                     },
@@ -460,7 +485,7 @@
                         title: "JS_Hotel 旅宿資料處理與分頁練習",
                         date: "2026 / 11 / 18",
                         href: "20261118-JS-Practice.html",
-                        tags: ["html-css", "js"],
+                        tags: ["data-api"],
                         desc: "本次作品以旅宿 JSON 資料為主題，使用 jQuery 的 $.ajax() 以 GET 方式讀取 HotelList.json，並搭配 SweetAlert2 在連線失敗時顯示錯誤提示。取得資料後，透過 map() 取出旅館名稱、城市、電話與最低房價等所需欄位，同時以 ??、trim() 處理 null、undefined 與多餘空白，再用 filter() 篩選臺中市、最低房價介於 2000 至 4000 元的旅宿。最後將分頁邏輯整理成 pagination() 副程式，設定每頁 20 筆並可指定頁碼，完整練習「讀取 → 清洗 → 篩選 → 分頁」的資料處理流程。"
 
                     },
@@ -469,7 +494,7 @@
                         title: "十三號煤燈偵探社 推理互動網站",
                         date: "2026 / 11 / 26",
                         href: "https://quiet-net-90500906.figma.site/",
-                        tags: ["figma"],
+                        tags: ["figma", "game-ui"],
                         desc: "本次作品以「十三號煤燈偵探社」為主題，打造一個霧夜推理風格的互動網站。故事從序章展開：老探長三天前在霧夜裡失蹤，只留下一盞沒點亮的煤燈與四份沒結的舊案卷宗，玩家扮演口袋空空的新來學徒，每解開一案可獲得一枚燈芯碎片，湊齊四枚才能打開探長的保險櫃。介面以深墨綠底色搭配金黃標題，以及銅牌質感的「開始調查」按鈕，營造復古偵探事務所的氛圍，並提供「跳過」連結讓玩家略過序章。遊戲流程設計為「接案賺取賞金 → 前往商店購買工具 → 解開卡住的線索」，商店頁面包含商品列表與購物車功能，商品加入購物車時會顯示「已加入購物車」提示，商品圖片也統一換成寫實風格。完整練習「世界觀與劇情設計 → 介面風格 → 商店與購物車 → 遊戲流程串接」的互動網站製作。"
 
                     }
