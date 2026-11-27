@@ -41,7 +41,8 @@
                         <a class="nav-link" href="#">首頁</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="20261110_CH8_Forms-CRUD-C-AI-use-FlashAPI.html">
+                        <a class="nav-link active" aria-current="page"
+                            href="20261110_CH8_Forms-CRUD-C-AI-use-FlashAPI.html">
                             產品建檔
                         </a>
                     </li>
@@ -709,7 +710,7 @@
                 // 傳送資料至後端 API，執行新增動作
                 $.ajax({
                     type: "POST",
-                    url: "http://192.168.10.27:8080/product",
+                    url: "https://flask-rsaz.onrender.com/product",
                     dataType: "json",
                     data: JSON.stringify(dataJSON),
                     contentType: "application/json",
