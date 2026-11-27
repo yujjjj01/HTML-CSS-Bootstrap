@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH8-Forms-CRUD練習</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="CSS/ERP-product.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid fa-cubes-stacked me-2"></i>
+                CRUD練習
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">
+                            <i class="fa-solid fa-house me-1"></i>首頁
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="20261110_CH8_Forms-CRUD-C-AI-use-FlashAPI.html">
+                            <i class="fa-solid fa-square-plus me-1"></i>產品建檔
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="20261110_CH8_Forms-CRUD-R-AI-use-FlashAPI.html">
+                            <i class="fa-solid fa-list me-1"></i>產品列表
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- 庫存管理 -->
+        <section class="inv-panel">
+            <div class="inv-heading">
+                <div>
+                    <div class="inv-eyebrow">INVENTORY OVERVIEW</div>
+                    <h2><i class="fa-solid fa-warehouse"></i>庫存管理</h2>
+                </div>
+                <label class="inv-threshold" for="lowStockInput">
+                    低庫存門檻
+                    <div class="input-group">
+                        <span class="input-group-text">≤</span>
+                        <input type="number" class="form-control" id="lowStockInput" min="0" max="999" value="20">
+                        <span class="input-group-text">個</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-6 col-lg-3">
+                    <div class="inv-stat">
+                        <div class="inv-stat-icon"><i class="fa-solid fa-box"></i></div>
+                        <div>
+                            <div class="inv-stat-label">產品總數</div>
+                            <div class="inv-stat-value"><span id="statTotal">0</span><small>項</small></div>
+                            <div class="inv-stat-sub">目前建檔的產品</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="inv-stat">
+                        <div class="inv-stat-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                        <div>
+                            <div class="inv-stat-label">庫存總量</div>
+                            <div class="inv-stat-value"><span id="statStock">0</span><small>個</small></div>
+                            <div class="inv-stat-sub">所有產品庫存加總</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="inv-stat">
+                        <div class="inv-stat-icon"><i class="fa-solid fa-coins"></i></div>
+                        <div>
+                            <div class="inv-stat-label">庫存總價值</div>
+                            <div class="inv-stat-value" id="statValue">NT$ 0</div>
+                            <div class="inv-stat-sub">價格 × 庫存數量</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="inv-stat" id="statLowCard">
+                        <div class="inv-stat-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div>
+                            <div class="inv-stat-label">低庫存產品</div>
+                            <div class="inv-stat-value"><span id="statLow">0</span><small>項</small></div>
+                            <div class="inv-stat-sub" id="statLowSub"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inv-low">
+                <div class="inv-low-title">
+                    <i class="fa-solid fa-triangle-exclamation"></i>需要補貨的產品
+                </div>
+                <div id="lowList"></div>
+                <div class="inv-more" id="lowMore"></div>
+            </div>
+        </section>
+
+        <!-- 產品列表 -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-4">
+
+                    <div class="card-header fw-bold">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                            產品列表
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="list-toolbar">
+                            <p id="pageInfo">資料載入中…</p>
+                            <a class="btn btn-primary erp-btn-primary" href="20261110_CH8_Forms-CRUD-C-AI-use-FlashAPI.html">
+                                <i class="fa-solid fa-plus me-1"></i>新增產品
+                            </a>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-rwd align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th width="16%">產品名稱</th>
+                                        <th width="12%">產品價格</th>
+                                        <th width="17%">產品數量</th>
+                                        <th width="12%">產品分類</th>
+                                        <th width="20%">產品備註</th>
+                                        <th width="23%">功能</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mytbody"></tbody>
+                            </table>
+                        </div>
+
+                        <!-- 頁碼 -->
+                        <nav aria-label="產品列表分頁" id="pageNav">
+                            <ul class="pagination justify-content-center" id="pageList"></ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 更新 Modal -->
+    <div class="modal fade erp-modal" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel"
+        aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title" id="updateModalLabel">
+                        <i class="fa-solid fa-pen-to-square"></i>產品更新
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="productname" class="form-label">產品名稱</label>
+                        <input type="text" class="form-control" id="productname" disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="price" class="form-label">價格（1-200）</label>
+                        <div class="input-group" id="priceGroup">
+                            <span class="input-group-text">NT$</span>
+                            <input type="number" min="1" max="200" step="1" class="form-control" id="price" required>
+                        </div>
+                        <div class="valid-feedback">價格符合規定</div>
+                        <div class="invalid-feedback">價格必須是 1～200 的整數</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="range01" class="form-label">
+                            數量：<span id="rangeText" class="quantity-value">0</span> 個
+                        </label>
+                        <input type="range" class="form-range erp-range" min="0" max="100" step="1" value="0"
+                            id="range01">
+                        <div class="range-labels"><span>0</span><span id="rangeMax">100</span></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="category" class="form-label">產品分類</label>
+                        <select id="category" class="form-select" required>
+                            <option value="" disabled>--- 產品分類 ---</option>
+                            <option value="飲料">飲料</option>
+                            <option value="咖啡">咖啡</option>
+                            <option value="茶">茶</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-0">
+                        <label for="remark" class="form-label">產品描述</label>
+                        <textarea id="remark" class="form-control" rows="3" disabled></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn erp-btn-cancel" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary erp-btn-primary"
+                        id="updateModal-btn-update">確認更新</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        const API_URL = "http://192.168.10.27:8080/product";
+        const PAGE_SIZE = 6;
+        const LOW_LIST_MAX = 5;      // 庫存管理區最多列出幾筆低庫存產品
+
+        let page = 1;
+        let productData = [];
+        let currentProduct = null;   // 目前正在更新的產品
+        let lowStock = 20;           // 低庫存門檻（庫存 ≤ 此值）
+        let updateModal;
+
+        $(function () {
+            updateModal = new bootstrap.Modal(document.getElementById("updateModal"));
+            loadProducts();
+
+            // 調整低庫存門檻
+            $("#lowStockInput").on("input", function () {
+                const v = parseInt(this.value, 10);
+                if (isNaN(v) || v < 0) return;
+                lowStock = v;
+                showdata(productData);
+            });
+
+            // 點擊頁碼
+            $("#pageList").on("click", ".page-link", function (e) {
+                e.preventDefault();
+                if ($(this).parent().hasClass("disabled")) return;
+                page = Number($(this).attr("data-page"));
+                showdata(productData);
+            });
+
+            // 點擊更新 / 補貨按鈕（產品列表與低庫存清單共用）
+            $(document).on("click", ".btn-update", function () {
+                $.ajax({
+                    type: "GET",
+                    url: API_URL + "/" + $(this).attr("data-id"),
+                    dataType: "json"
+                }).done(function (data) {
+                    showUpdateData(data);
+                    updateModal.show();
+                }).fail(function () {
+                    Swal.fire({ title: "讀取失敗", text: "無法連接後端API", icon: "error" });
+                });
+            });
+
+            // 數量滑桿
+            $("#range01").on("input", function () {
+                $("#rangeText").text($(this).val());
+            });
+
+            // 價格即時驗證
+            $("#price").on("input change", validatePrice);
+
+            // 確認更新
+            $("#updateModal-btn-update").on("click", function () {
+                if (!currentProduct) return;
+
+                if (!validatePrice()) {
+                    Swal.fire({ title: "更新失敗", text: "價格欄位錯誤!", icon: "error" });
+                    return;
+                }
+                const category = $("#category").val();
+                if (!category) {
+                    Swal.fire({ title: "更新失敗", text: "請選擇產品分類!", icon: "error" });
+                    return;
+                }
+
+                const jsonData = {
+                    price: Number($("#price").val()),
+                    stock: Number($("#range01").val()),
+                    category: category
+                };
+                const $btn = $(this).prop("disabled", true);
+
+                $.ajax({
+                    type: "PATCH",
+                    url: API_URL + "/" + currentProduct.id,
+                    dataType: "json",
+                    data: JSON.stringify(jsonData),
+                    contentType: "application/json"
+                }).done(function () {
+                    updateModal.hide();
+                    Swal.fire({ title: "更新成功", text: "產品資料已更新!", icon: "success" });
+                    loadProducts();
+                }).fail(function () {
+                    Swal.fire({ title: "更新失敗", text: "無法更新產品資料!", icon: "error" });
+                }).always(function () {
+                    $btn.prop("disabled", false);
+                });
+            });
+
+            // 點擊刪除按鈕
+            $("#mytbody").on("click", ".btn-delete", function () {
+                const did = $(this).attr("data-id");
+                const target = productData.find(p => String(p.id) === String(did));
+
+                Swal.fire({
+                    title: "確認要刪除嗎?",
+                    text: target ? `「${target.name}」刪除後無法復原` : "刪除後無法復原",
+                    icon: "warning",
+                    showDenyButton: true,
+                    confirmButtonText: "確認",
+                    denyButtonText: "取消"
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: API_URL + "/" + did,
+                            dataType: "json"
+                        }).done(function () {
+                            Swal.fire({ title: "刪除成功", text: "該筆資料已被刪除", icon: "success" });
+                            loadProducts();   // showdata 會自動修正刪除後的頁碼
+                        }).fail(function () {
+                            Swal.fire({ title: "刪除失敗", text: "無法刪除產品資料!", icon: "error" });
+                        });
+                    } else if (result.isDenied) {
+                        Swal.fire("放棄刪除", "", "info");
+                    }
+                });
+            });
+        });
+
+        // 取得全部產品
+        function loadProducts() {
+            $.ajax({ type: "GET", url: API_URL, dataType: "json" })
+                .done(showdata)
+                .fail(function () {
+                    $("#pageInfo").text("資料讀取失敗");
+                    Swal.fire({ title: "讀取失敗", text: "無法連接後端API", icon: "error" });
+                });
+        }
+
+        const toNum = v => Number(v) || 0;
+        const fmt = n => n.toLocaleString("zh-TW");
+        const esc = s => $("<div>").text(s ?? "").html();   // 避免資料含 HTML 造成破版
+
+        // 顯示產品列表、頁碼與庫存統計
+        function showdata(data) {
+            productData = data;
+
+            const totalPage = Math.max(1, Math.ceil(data.length / PAGE_SIZE));
+            if (page > totalPage) page = totalPage;
+
+            const rows = pagination(data, PAGE_SIZE, page).map(function (item) {
+                const stock = toNum(item.stock);
+                let badge = "";
+                if (stock <= 0) badge = '<span class="stock-badge out">缺貨</span>';
+                else if (stock <= lowStock) badge = '<span class="stock-badge low">低庫存</span>';
+
+                return `<tr>
+                            <td data-th="產品名稱">${esc(item.name)}</td>
+                            <td data-th="產品價格">${esc(item.price)}</td>
+                            <td data-th="產品數量">${esc(item.stock)}${badge}</td>
+                            <td data-th="產品分類">${esc(item.category)}</td>
+                            <td data-th="產品備註">${esc(item.description)}</td>
+                            <td data-th="功能" class="col-actions">
+                                <button class="btn btn-erp-edit btn-update" data-id="${esc(item.id)}">
+                                    <i class="fa-solid fa-pen-to-square me-1"></i>更新</button>
+                                <button class="btn btn-erp-delete btn-delete" data-id="${esc(item.id)}">
+                                    <i class="fa-solid fa-trash-can me-1"></i>刪除</button>
+                            </td>
+                        </tr>`;
+            }).join("");
+
+            $("#mytbody").html(rows || '<tr><td colspan="6" class="empty-row">目前沒有產品資料，請先到「產品建檔」新增。</td></tr>');
+
+            // 頁碼
+            let nav = `<li class="page-item ${page === 1 ? "disabled" : ""}">
+                           <a class="page-link" href="#" data-page="${page - 1}">上一頁</a></li>`;
+            for (let i = 1; i <= totalPage; i++) {
+                nav += `<li class="page-item ${i === page ? "active" : ""}">
+                            <a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+            }
+            nav += `<li class="page-item ${page === totalPage ? "disabled" : ""}">
+                        <a class="page-link" href="#" data-page="${page + 1}">下一頁</a></li>`;
+            $("#pageList").html(nav);
+            $("#pageNav").toggle(totalPage > 1);
+
+            const start = data.length ? (page - 1) * PAGE_SIZE + 1 : 0;
+            const end = Math.min(page * PAGE_SIZE, data.length);
+            $("#pageInfo").text(`共 ${data.length} 筆產品，目前顯示第 ${start}–${end} 筆`);
+
+            showStats(data);
+        }
+
+        // 庫存管理統計
+        function showStats(data) {
+            const totalStock = data.reduce((s, p) => s + toNum(p.stock), 0);
+            const totalValue = data.reduce((s, p) => s + toNum(p.price) * toNum(p.stock), 0);
+            const low = data.filter(p => toNum(p.stock) <= lowStock)
+                .sort((a, b) => toNum(a.stock) - toNum(b.stock));
+            const outCount = low.filter(p => toNum(p.stock) <= 0).length;
+
+            $("#statTotal").text(fmt(data.length));
+            $("#statStock").text(fmt(totalStock));
+            $("#statValue").text("NT$ " + fmt(totalValue));
+            $("#statLow").text(fmt(low.length));
+            $("#statLowSub").text(`庫存 ≤ ${lowStock}，其中缺貨 ${outCount} 項`);
+            $("#statLowCard").toggleClass("is-alert", low.length > 0);
+
+            const items = low.slice(0, LOW_LIST_MAX).map(function (p) {
+                const stock = toNum(p.stock);
+                const pct = lowStock > 0 ? Math.min(100, stock / lowStock * 100) : 0;
+                return `<div class="inv-low-item">
+                            <div class="inv-low-name">${esc(p.name)}<small>${esc(p.category)}</small></div>
+                            <div class="inv-bar"><span style="width:${pct}%"></span></div>
+                            <div class="inv-low-qty ${stock <= 0 ? "out" : ""}">${stock <= 0 ? "缺貨" : fmt(stock) + " 個"}</div>
+                            <button class="btn btn-erp-edit btn-update" data-id="${esc(p.id)}">補貨</button>
+                        </div>`;
+            }).join("");
+
+            $("#lowList").html(items || '<div class="inv-empty"><i class="fa-solid fa-circle-check"></i>目前沒有低庫存產品</div>');
+            $("#lowMore").text(low.length > LOW_LIST_MAX ? `另有 ${low.length - LOW_LIST_MAX} 項低庫存產品未列出` : "");
+        }
+
+        // 將產品資料放入更新 modal
+        function showUpdateData(data) {
+            currentProduct = data;
+            const stock = toNum(data.stock);
+            const max = Math.max(100, stock);   // 庫存超過 100 時，避免滑桿截斷數值
+
+            $("#productname").val(data.name);
+            $("#price").val(data.price);
+            $("#range01").attr("max", max).val(stock);
+            $("#rangeMax").text(max);
+            $("#rangeText").text(stock);
+            $("#remark").val(data.description);
+
+            // 分類不在選單內時，自動補上選項
+            if (data.category && !$("#category option").filter((i, o) => o.value === data.category).length) {
+                $("#category").append($("<option>").val(data.category).text(data.category));
+            }
+            $("#category").val(data.category || "");
+
+            validatePrice();
+        }
+
+        // 價格驗證：1～200 的整數
+        function validatePrice() {
+            const raw = $("#price").val();
+            const price = Number(raw);
+            const ok = raw !== "" && Number.isInteger(price) && price >= 1 && price <= 200;
+            $("#price, #priceGroup").toggleClass("is-valid", ok).toggleClass("is-invalid", !ok);
+            return ok;
+        }
+
+        // 分頁副程式
+        function pagination(data, pageSize, page) {
+            const start = (page - 1) * pageSize;
+            return data.slice(start, start + pageSize);
+        }
+    </script>
+
+</body>
+
+</html>
